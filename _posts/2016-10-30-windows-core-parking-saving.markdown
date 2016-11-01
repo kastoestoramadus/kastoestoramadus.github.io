@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "Saving laptop battery on multi-core CPUs."
-date:   2016-10-30 17:00:0 1700
-categories: windows
+date:   2016-10-30
+categories: os
+comments: true
 ---
 # Who could benefit from this article
 If you have multi-core x86 CPU(most of intel/amd CPUs) and windows 7+ operating system and you are not happy with your "work on battery time" then this may interest you.
