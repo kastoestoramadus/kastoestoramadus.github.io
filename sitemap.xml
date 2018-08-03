@@ -1,157 +1,36 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
+  {% for page in site.pages %}
+    {% if page.sitemap != null and page.sitemap != empty %}
       <url>
-        <loc>https://kastoestoramadus.github.io/</loc>
-        
-          
-          
-          
-          <priority>1.0</priority>
-          
-        
+        <loc>{{ site.url }}{{ page.url }}</loc>
+        {% if page.sitemap %}
+          {% if page.sitemap.lastmod %}
+          <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+          {% endif %}
+          {% if page.sitemap.changefreq %}
+          <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+          {% endif %}
+          {% if page.sitemap.priority %}
+          <priority>{{ page.sitemap.priority }}</priority>
+          {% endif %}
+        {% endif %}
        </url>
-    
-  
-    
-      <url>
-        <loc>https://kastoestoramadus.github.io/blog/</loc>
-        
-          
-          
-          
-          <priority>1.0</priority>
-          
-        
-       </url>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-  
+    {% endif %}
+  {% endfor %}
+  {% for post in site.posts %}
     <url>
-      <loc>https://kastoestoramadus.github.io/programming/2017/12/17/scala-js-hmrc-successful-usecase.html</loc>
-      
-        <lastmod>2017-12-17T00:00:00-06:00</lastmod>
-      
+      <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
+      {% if post.lastmod == null %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+      {% endif %}
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
     </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/os/2017/11/04/easy-jekyll-setup-with-docker.html</loc>
-      
-        <lastmod>2017-11-04T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/life/2017/04/23/desired-working-style.html</loc>
-      
-        <lastmod>2017-04-23T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/apps/2017/03/05/second-life-of-smartphone.html</loc>
-      
-        <lastmod>2017-03-05T00:00:00-06:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/life/2017/01/16/europe-multilingual-suffering.html</loc>
-      
-        <lastmod>2017-01-16T00:00:00-06:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/apps/2016/11/05/hidden-benefits-from-opensource.html</loc>
-      
-        <lastmod>2016-11-05T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/os/2016/10/31/no-ideal-os-for-programmer.html</loc>
-      
-        <lastmod>2016-10-31T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
-    <url>
-      <loc>https://kastoestoramadus.github.io/os/2016/10/30/windows-core-parking-saving.html</loc>
-      
-        <lastmod>2016-10-30T00:00:00-05:00</lastmod>
-      
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-    </url>
-  
+  {% endfor %}
 </urlset>
