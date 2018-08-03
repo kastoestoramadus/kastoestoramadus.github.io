@@ -1,27 +1,116 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
-		<title>{{ site.title | xml_escape }}</title>
-		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-		<link>{{site.url}}{{site.baseurl}}</link>
-		<atom:link href="{{site.url}}{{site.baseurl}}/feed.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
+		<title>{ Waldemar Wosiński }</title>
+		<description>Blog of Waldemar Wosiński. Topics are: IT, hardware, OS, programming (mostly Scala) and life.</description>
+		<link>https://kastoestoramadus.github.io</link>
+		<atom:link href="https://kastoestoramadus.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
 			<item>
-				<title>{{post.title | xml_escape}}</title>
-				{% if post.author.name %}
-					<dc:creator>{{post.author.name | xml_escape}}</dc:creator>
-				{% endif %}
-				{% if post.excerpt %}
-					<description>{{post.excerpt | xml_escape}}</description>
-				{% else %}
-					<description>{{post.content | xml_escape}}</description>
-				{% endif %}
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{site.url}}{{site.baseurl}}{{post.url}}</link>
-				<guid isPermaLink="true">{{site.url}}{{site.baseurl}}{{post.url}}</guid>
+				<title>Successful Scala.js usage in HMRC</title>
+				
+				
+					<description>&lt;p&gt;During my contract with HMRC (UK tax institution) in web tax calculator was used ScalaJS tax calculator engine.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 17 Dec 2017 00:00:00 -0600</pubDate>
+				<link>https://kastoestoramadus.github.io/programming/2017/12/17/scala-js-hmrc-successful-usecase.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/programming/2017/12/17/scala-js-hmrc-successful-usecase.html</guid>
 			</item>
-		{% endfor %}
+		
+			<item>
+				<title>How docker helps with jekyll setup</title>
+				
+				
+					<description>&lt;p&gt;Firsly I’ll describe how hard it was and later what was used instead.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 04 Nov 2017 00:00:00 -0500</pubDate>
+				<link>https://kastoestoramadus.github.io/os/2017/11/04/easy-jekyll-setup-with-docker.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2017/11/04/easy-jekyll-setup-with-docker.html</guid>
+			</item>
+		
+			<item>
+				<title>My desired working styles</title>
+				
+				
+					<description>&lt;p&gt;I would like to get accurate offers that make sense to my profile. To help you with that please read those working styles:&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 23 Apr 2017 00:00:00 -0500</pubDate>
+				<link>https://kastoestoramadus.github.io/life/2017/04/23/desired-working-style.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/life/2017/04/23/desired-working-style.html</guid>
+			</item>
+		
+			<item>
+				<title>Second life of a smartphone</title>
+				
+				
+					<description>&lt;p&gt;Let say you change smartphones quite often. Instead of throwing away your mobile consider to use it along with your PC/Laptop/Tablet.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 05 Mar 2017 00:00:00 -0600</pubDate>
+				<link>https://kastoestoramadus.github.io/apps/2017/03/05/second-life-of-smartphone.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/apps/2017/03/05/second-life-of-smartphone.html</guid>
+			</item>
+		
+			<item>
+				<title>Europe culture suffers without a common language</title>
+				
+				
+					<description>&lt;p&gt;In theory, the European Union has a common language - English. But in practice, there is no common language for European culture.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 16 Jan 2017 00:00:00 -0600</pubDate>
+				<link>https://kastoestoramadus.github.io/life/2017/01/16/europe-multilingual-suffering.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/life/2017/01/16/europe-multilingual-suffering.html</guid>
+			</item>
+		
+			<item>
+				<title>Hidden benefits from opensource</title>
+				
+				
+					<description>&lt;h1 id=&quot;from-open-source-benefits-also-people-who-buy-propertiary-products&quot;&gt;From open source benefits also people who buy propertiary products&lt;/h1&gt;
+&lt;p&gt;On a free market, the price is determined on competitiveness. If there is none the price is high. Top products can have higher price only for that rate they are better from the competition. If the difference from that price is too high then the competition has a possibility to grow.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 05 Nov 2016 00:00:00 -0500</pubDate>
+				<link>https://kastoestoramadus.github.io/apps/2016/11/05/hidden-benefits-from-opensource.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/apps/2016/11/05/hidden-benefits-from-opensource.html</guid>
+			</item>
+		
+			<item>
+				<title>There is no ideal OS for a programmer</title>
+				
+				
+					<description>&lt;p&gt;There is no ideal OS for a programmer, for work and for home.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 31 Oct 2016 00:00:00 -0500</pubDate>
+				<link>https://kastoestoramadus.github.io/os/2016/10/31/no-ideal-os-for-programmer.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2016/10/31/no-ideal-os-for-programmer.html</guid>
+			</item>
+		
+			<item>
+				<title>Saving laptop battery on multi-core CPUs</title>
+				
+				
+					<description>&lt;h1 id=&quot;who-could-benefit-from-this-article&quot;&gt;Who could benefit from this article&lt;/h1&gt;
+&lt;p&gt;If you have multi-core x86 CPU(most of intel/amd CPUs) and windows 7+ operating system and you are not happy with your “work on battery time” then this may interest you.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 30 Oct 2016 00:00:00 -0500</pubDate>
+				<link>https://kastoestoramadus.github.io/os/2016/10/30/windows-core-parking-saving.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2016/10/30/windows-core-parking-saving.html</guid>
+			</item>
+		
 	</channel>
 </rss>
