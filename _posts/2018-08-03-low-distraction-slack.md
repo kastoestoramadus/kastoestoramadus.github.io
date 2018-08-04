@@ -7,7 +7,7 @@ tags: [ 'slack' ]
 ---
 <img align="right" src="/img/PriotizedSlack.png">
 
-# For who is this?
+# Who is this post for?
 - your slack group is big with a lot of busy channels
 - you don't react for most of the messages that aren't direct or with @here or @channel.
 - you read too many messages which is counterproductive
