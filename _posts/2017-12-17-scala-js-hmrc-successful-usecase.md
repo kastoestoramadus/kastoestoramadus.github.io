@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Successful Scala.js usage in HMRC
-category: Programming 
+category: dev 
 tags: [ 'scala', 'js' ]
 ---
 During my contract with HMRC (UK tax institution) in web tax calculator was used ScalaJS tax calculator engine.
