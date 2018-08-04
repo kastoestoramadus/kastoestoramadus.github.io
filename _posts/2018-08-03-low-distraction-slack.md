@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Prioritize Slack channels
-category: Apps
+category: apps
 tags: [ 'slack' ]
 ---
 <img align="right" src="/img/PriotizedSlack.png">
