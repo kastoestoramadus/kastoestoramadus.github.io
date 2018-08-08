@@ -7,7 +7,7 @@
 
 You can watch it in action [here](https://panossakkos.github.io/personal-jekyll-theme/)!
 
- 
+
 
 <img src="https://github.com/panossakkos/personal-jekyll-theme/raw/master/.github/personal-mobile.mov.gif" height="480">
 
