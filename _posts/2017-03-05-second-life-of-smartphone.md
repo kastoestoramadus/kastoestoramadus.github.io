@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: Second life of a smartphone
 category: APPS
-tags: [ 'smartphone', 'second-screen' ]
+tags: [ 'smartphone', 'second-screen', 'android' ]
 ---
 
 Let say you change smartphones quite often. Instead of throwing away your mobile consider to use it along with your PC/Laptop/Tablet.
