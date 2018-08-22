@@ -20,7 +20,7 @@ Why I even ask? Do you know that the easiest way to hack your device is just to 
 * Chrome OS/Book - 5 years
 * Windows 10 - unlimited?
 
-Add remember the clocks ticks from the premier not from when you buy it!
+And remember the clocks ticks from the premier not from when you buy it!
 
 # What to do with an unsupported device?
 * Throw it away? Wasted resources...
@@ -43,4 +43,4 @@ The time support is the longest possible! Lacks in apps but I could work on it a
 # A very good solution does not exist
 For now, I'll stick with a laptop with a Linux on it... Waiting for a 16GB 4-core cheap alternative to Surface Pro (why? for better reading screen proportions and mobile screen pivot mode)
 
-Do you have any thoughts or suggestions? Feel fry to comment.
+Do you have any thoughts or suggestions? Feel free to comment.
