@@ -23,9 +23,11 @@ Why I even ask? Do you know that the easiest way to hack your device is just to 
 And remember the clocks ticks from the premier not from when you buy it!
 
 # What to do with an unsupported device?
-* Throw it away? Wasted resources...
 * Use it for some DIY project or load a custom firmware? Who does it? Less than 1% of the population?
 * Sell it to the poorer country? What will they do with it, then?
+* Throw it away? Wasted resources... The hardware is probably still strong enough for most of our activities.
+
+The whole mobile industry seems to be designed against the ecology!
 
 # What is my problem
 I wanted to have a long living tablet. I have now SG Note 10 2014. A premium 5 years old not supported device... Now I regret the money. The screen is still gorgeous! It's much better than the basic iPad 2018 9.7! Without support I can do less and less stuff with it and nothing banking related...
@@ -44,3 +46,5 @@ The time support is the longest possible! Lacks in apps but I could work on it a
 For now, I'll stick with a laptop with a Linux on it... Waiting for a 16GB 4-core cheap alternative to Surface Pro (why? for better reading screen proportions and mobile screen pivot mode)
 
 Do you have any thoughts or suggestions? Feel free to comment.
+
+And please make a change, look for devices with long term security support.
