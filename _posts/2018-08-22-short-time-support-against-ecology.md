@@ -37,7 +37,7 @@ I change only my phones every 1-3 years. Tablet... why to change it so often? I 
 I've checked the new Android tablets. They still got short support. Google seems to forget the Android for the tablets (no new Google tablet since many years)... in flavour to ... Chrome OS, Chrome Books, 2 in 1 tablets! They still run Android apps and it is better designed for tablets and has 5 years of support!
 
 # But what you may do with a Chrome OS?
-Everything popular... but I do Scala software development, no JDK... Chrome OS is for cloud apps. I need some unpopular local apps.
+Everything popular... but it is still more a netbook than a tablet... and for me personally I do Scala software development, no JDK, IDE possible on it... Chrome OS is for cloud apps. I need some unpopular local apps.
 
 # Windows 10?
 The time support is the longest possible! Lacks in apps but I could work on it and emulate the Android games... but it's still a Windows which needs more care to work like on Linux.
