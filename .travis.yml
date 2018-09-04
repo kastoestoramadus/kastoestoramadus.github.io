@@ -17,5 +17,6 @@ deploy:
   keep-history: true
   repo: kastoestoramadus/kastoestoramadus.github.io
   target-branch: master
+  fqdn: blog.ww86.eu
   on:
     branch: master
