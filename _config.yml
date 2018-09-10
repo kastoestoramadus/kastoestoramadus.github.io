@@ -136,7 +136,7 @@ email: "waldemar.wosinski+blog@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Me: A scala developer, a father, a husband and a motorcyclist ;)."
+author_blurb: "Me: scala developer, father, husband and motorcyclist ;)."
 author_blurb_image: "/img/author.png"
 
 ##################
