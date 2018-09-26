@@ -30,7 +30,7 @@ force-https: True
 
 lang: "en"
 author: "Waldemar Wosiński"
-title: "{ Waldemar Wosiński }"
+title: "{ IT blog - Waldemar Wosiński}"
 description: "Blog of Waldemar Wosiński. Topics are: IT, hardware, OS, programming (mostly Scala) and life."
 keywords: "scala waldemar wosinski blog"
 favicon: "/img/favicon.ico"
@@ -85,7 +85,7 @@ icon-192p: "/img/web-app/icon-192p.png"
 # Blog #
 ########
 
-enable-gesture-navigation: True
+enable-gesture-navigation: False
 
 post-preview-words: 90
 
