@@ -32,10 +32,11 @@ Windows is made for good UI while Linux/GNU for being a server. Both suck in the
 Why not to have everything in a VM? 
 
 **Pros:**
+- has a prepared quick-install wizzard for Ubuntu (just remember not to use auto-logon),
 - an advantage of MS drivers and some software,
 - an advantage of MS battery management,
 - mouse movement is smooth. They've implemented RDP for Linux!
-- from my comparison, the CPU overhead is below 2%.
+- from my comparison, the CPU overhead is below 2%,
 - Drive Passthrough works! NTFS won't slow you down (no checkpoints of VMs).
 
 **Cons**:
