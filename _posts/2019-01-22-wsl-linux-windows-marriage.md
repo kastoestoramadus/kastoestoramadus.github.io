@@ -12,9 +12,9 @@ tags: [ 'vm', 'linux', 'windows', 'docker' ]
 With a new contract, I had a chance to prepare a full Windows environment for Scala project development. Blog post contains pros and cons without final thoughts.
 
 # Why MS OS?
-- MS has changed severely since realized their new and strong competition.
+- MS has changed severely since they realized they have new and strong competition.
 - Docker is very well integrated - local ports and disk space.
-- Hyper-V is given for free with the Windows 10 Pro. It's a type 1 hypervisor with lower CPU overhead than VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.
+- Hyper-V comes for free with Windows 10 Pro. It's a type 1 hypervisor with lower CPU overhead than VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.
 - Drivers work. Trackpoint on Ubuntu sucks (ThinkPad W540) and the fingerprint scanner breaks regularly.
 - AcrossCentre, Logichtec Flow, Cortana, DirectX etc. aren't present on Ubuntu.
 
@@ -29,19 +29,18 @@ Windows is made for good UI while Linux/GNU for being a server. Both suck in the
 
 # Options :
 ## VM on Hyper-V
-Why not to have everything in a VM? 
+Why not have everything in a VM? 
 
 **Pros:**
-- has a prepared quick-install wizzard for Ubuntu (just remember not to use auto-logon),
-- an advantage of MS drivers and some software,
-- an advantage of MS battery management,
+- availability of MS drivers and some software.
+- using MS battery management.
 - mouse movement is smooth. They've implemented RDP for Linux!
-- from my comparison, the CPU overhead is below 2%,
+- from my observation, the CPU overhead is below 2%.
 - Drive Passthrough works! NTFS won't slow you down (no checkpoints of VMs).
 
 **Cons**:
-- high memory consumption, 32GB is to nice have
-- lack of good 2D acceleration by GPU. Despite Linux is a First Class Citizen on Windows still, RemoteFX isn't implemented for Linux guests and GPU Passthrough works only on Windows Server. 
+- high memory consumption, 32GB is a nice to have
+- lack of good 2D acceleration by GPU. Although Linux is a First Class Citizen on Windows, RemoteFX still isn't implemented for Linux guests and GPU Passthrough works only on Windows Server. 
 
 Microsoft, please allow the GPU passthrough!
 
@@ -57,8 +56,8 @@ Windows for Linux subsystem - full Linux OS in a Windows window served by a MS K
 
 **Cons:**
 - High CPU overhead - a scale of 20% losses.
-- Ivy artefacts and RSA Keys need sync or reconfiguration of where are stored. By default everything linux-ish is install and configured in the protected zone.
-- IDE still builds separately with Windows tools so need to plan additionally how to share products and resources.
+- Ivy artefacts and RSA Keys need sync or reconfiguration of where they are stored. By default everything linux-ish is installed and configured in the protected zone.
+- IDE still builds separately with Windows tools so one needs to plan additionally how to share products and resources.
 - Docker sometimes needs to be restarted...
 - Not everything works. Adding GPG for a repo needed a workaround...
 
@@ -66,7 +65,7 @@ Windows for Linux subsystem - full Linux OS in a Windows window served by a MS K
 Cons:
 - PowerShell: unable to pass arguments to sbt... [link](https://stackoverflow.com/questions/54130521/sbt-and-command-line-parameters-in-powershell-problem?noredirect=1)
 - poor package management
-- for more check my "There is no ideal OS for a programmer" post
+- check my "There is no ideal OS for a programmer" post for more about it
 
 ## Mix?
 For future blog post: Linux VM only as a server with access by a text terminal.
