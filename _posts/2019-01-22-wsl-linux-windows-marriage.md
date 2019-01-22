@@ -14,11 +14,11 @@ With a new contract, I had a chance to prepare a full Windows environment for Sc
 # Why MS OS?
 - MS has changed severely since realized their new and strong competition.
 - Docker is very well integrated - local ports and disk space.
-- Hyper-V is given for free with the Windows 10 Pro. It's a type 1 hypervisor with lower CPU overhead than at VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.
-- Drivers work. Trackpoint on Ubuntu sucks (ThinkPad W540) and the thinger-print scanner breaks regularly.
+- Hyper-V is given for free with the Windows 10 Pro. It's a type 1 hypervisor with lower CPU overhead than VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.
+- Drivers work. Trackpoint on Ubuntu sucks (ThinkPad W540) and the fingerprint scanner breaks regularly.
 - AcrossCentre, Logichtec Flow, Cortana, DirectX etc. aren't present on Ubuntu.
 
-Windows is made for good UI while Linux/GNU for being a server. Both suck in the opponent's category. Why not combine the best of both worlds?
+Windows is made for good UI while Linux/GNU for being a server. Both suck in the opposite category. Why not combine the best of both worlds?
 
 # Needs
 - git management,
@@ -65,7 +65,7 @@ Windows for Linux subsystem - full Linux OS in a Windows window served by a MS K
 Cons:
 - PowerShell: unable to pass arguments to sbt... [link](https://stackoverflow.com/questions/54130521/sbt-and-command-line-parameters-in-powershell-problem?noredirect=1)
 - poor package management
-- too much too write... check my "There is no ideal OS for a programmer" post
+- for more check my "There is no ideal OS for a programmer" post
 
 ## Mix?
 For future blog post: Linux VM only as a server with access by a text terminal.
