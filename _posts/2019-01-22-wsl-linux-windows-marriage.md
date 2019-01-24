@@ -16,6 +16,7 @@ With a new contract, I had a chance to prepare a full Windows environment for Sc
 - Docker is very well integrated - local ports and disk space.
 - Hyper-V comes for free with Windows 10 Pro. It's a type 1 hypervisor with lower CPU overhead than VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.
 - Drivers work. Trackpoint on Ubuntu sucks (ThinkPad W540) and the fingerprint scanner breaks regularly.
+- Shortly the clipboard manager and sandbox will be added to Win 10.
 - AcrossCentre, Logichtec Flow, Cortana, DirectX etc. aren't present on Ubuntu.
 
 Windows is made for good UI while Linux/GNU for being a server. Both suck in the opposite category. Why not combine the best of both worlds?
