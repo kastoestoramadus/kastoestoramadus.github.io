@@ -56,7 +56,7 @@ Windows for Linux subsystem - full Linux OS in a Windows window served by a MS K
 - by playing with aliases you may use your Windows Docker as normal Ubuntu Docker Client! All windows terminal commands are available by adding `.exe`
 
 **Cons:**
-- High CPU overhead - a scale of 20% losses.
+- High execution overhead - a scale of 20% losses (measured on compiling akka lib).
 - Ivy artefacts and RSA Keys need sync or reconfiguration of where they are stored. By default everything linux-ish is installed and configured in the protected zone.
 - IDE still builds separately with Windows tools so one needs to plan additionally how to share products and resources.
 - Docker sometimes needs to be restarted...
