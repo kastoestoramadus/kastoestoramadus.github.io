@@ -64,7 +64,7 @@ Windows for Linux subsystem - full Linux OS in a Windows window served by a MS K
 
 ## Raw Windows?
 Cons:
-- PowerShell: unable to pass arguments to sbt... [link](https://stackoverflow.com/questions/54130521/sbt-and-command-line-parameters-in-powershell-problem?noredirect=1)
+- PowerShell: unable to pass arguments to sbt... [link](https://stackoverflow.com/questions/54400669/sbt-and-command-line-parameters-in-powershell-problem)
 - poor built-in package manager
 - check my "There is no ideal OS for a programmer" post for more about it
 
