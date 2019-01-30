@@ -46,7 +46,7 @@ Why not have everything in a VM?
 Microsoft, please allow the GPU passthrough!
 
 ## WSL + Docker
-Windows for Linux subsystem - full Linux OS in a Windows window served by a MS Kernel. 
+[Windows for Linux subsystem](https://docs.microsoft.com/en-us/windows/wsl/faq) - full Linux OS in a Windows window served by a MS Kernel. 
 
 **Pros:**
 - very low memory footprint,
