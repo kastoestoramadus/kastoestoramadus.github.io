@@ -56,7 +56,7 @@ Microsoft, please allow the GPU passthrough!
 - by playing with aliases you may use your Windows Docker as normal Ubuntu Docker Client! All windows terminal commands are available by adding `.exe`
 
 **Cons:**
-- High execution overhead - a scale of 20% losses (measured on compiling akka lib).
+- High execution overhead - a scale of 20% losses in comparision to raw Ubuntu (measured on compiling akka repo). The loss is probably related to IO performance).
 - Ivy artefacts and RSA Keys need sync or reconfiguration of where they are stored. By default everything linux-ish is installed and configured in the protected zone.
 - IDE still builds separately with Windows tools so one needs to plan additionally how to share products and resources.
 - Docker sometimes needs to be restarted...
