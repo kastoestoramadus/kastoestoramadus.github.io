@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-- 2.3
+- 2.5
 
 install: gem install jekyll jekyll-paginate jemoji html-proofer
 script: ./scripts/generate-categories && ./scripts/generate-tags && jekyll serve --baseurl "" --detach && htmlproofer ./_site --disable-external --empty-alt-ignore

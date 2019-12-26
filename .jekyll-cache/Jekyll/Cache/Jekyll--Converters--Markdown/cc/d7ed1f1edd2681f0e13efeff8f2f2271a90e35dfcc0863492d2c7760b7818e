@@ -1,0 +1,50 @@
+I"�<p>Firsly I’ll describe how hard it was and later what was used instead.</p>
+
+<p>First time I started the blog I spend about 6 hours to setup the environment. New VM Linux machine, networking with the host and installing the Jekyll… 
+It wasn’t easy. Installing latest Ruby with plugins from official website failed with a misleading error message. A fix was to use a Ruby’s build manager with the particular version. 
+I am not used to such magic with JVM and Linux. Since it works I try not to touch it just in case it’ll break. Someday I would need to update it…</p>
+
+<p>I tried also to set it up on Windows natively but it is not supported so I quit after an hour of struggling.</p>
+
+<p>In summary, it was unpredictive and long process. Today I’ve used docker. Jekyl team maintains a ready image with already set environment! Networking and sharing dirs is already done by Docker.
+ From zero you can use it in 30 minutes. No fear of breaking the engine, nor to update it. Best of two worlds supported by Microsoft and Docker team.</p>
+
+<p>Commands:</p>
+
+<p>Bash on Ubuntu on Windows:</p>
+<ul>
+  <li><code class="highlighter-rouge">cd /mnt/d/</code>, for two way modifications I needed to use windows locations. Windows user must not use dirs of Ubuntu on Windows</li>
+  <li><code class="highlighter-rouge">git clone https://github.com/kastoestoramadus/personal-jekyll-theme.git blog</code>, Docker image is a Linux image so it uses Linux line endings. That’s why I use Git from Bash on Ubuntu on Windows. I also use it for vim post editing.</li>
+  <li><code class="highlighter-rouge">cd blog; git add *; git commit; git push origin master</code>, all docker effects are visible on this level.</li>
+</ul>
+
+<p>PowerShell:</p>
+<ul>
+  <li><code class="highlighter-rouge">docker run -p 127.0.0.1:4000:4000 --rm --mount type=bind,source=D:\blog,target=/srv/jekyll -it jekyll/jekyll:3.3 bash</code>, image takes less than 100MB while VM took 10+GB of space! type=bind makes the file changes visible in two ways.</li>
+</ul>
+
+<p>In Docker bash:</p>
+<ul>
+  <li><code class="highlighter-rouge">jekyll serve</code>, creates pages and starts web server</li>
+  <li>specific to my theme commands. ~create posts, ~regenerate tags etc.</li>
+</ul>
+
+<p>Windows web browser:</p>
+<ul>
+  <li><code class="highlighter-rouge">http://localhost:4000</code>, opens a blog served by docker</li>
+</ul>
+
+<p>What a great integration of three different environments!</p>
+<ul>
+  <li>Jekyll on docker as blog engine,</li>
+  <li>Bash on Ubuntu on Windows as editor and version manager,</li>
+  <li>Windows as a host and testing client (could be also for editing, only support for Linux line ending is required).</li>
+</ul>
+
+<p>Issues:</p>
+<ul>
+  <li>need to learn Bash on Ubuntu on Windows. Not hard and is worth it. Before it people used Cygwin. Now it is for free and already packaged with Windows. In future integrations and performance will be native.</li>
+  <li>need to learn Docker. Also very helpful in other projects. Nowadays a must have.</li>
+  <li>For now, the Jekyll auto refresh on changes doesn’t work… So tight filesystem integrations are hard, even more, when Linux file systems are superior to NTFS.</li>
+</ul>
+:ET

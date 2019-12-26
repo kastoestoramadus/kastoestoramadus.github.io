@@ -1,0 +1,89 @@
+I"�<p><img src="https://fossbytes.com/wp-content/uploads/2016/11/windows-linux.jpg" alt="Linux and Windows together" /></p>
+
+<p>With a new contract, I had a chance to prepare a full Windows environment for Scala project development. Blog post contains pros and cons without final thoughts.</p>
+
+<h1 id="why-ms-os">Why MS OS?</h1>
+<ul>
+  <li>MS has changed severely since they realized they have new and strong competition.</li>
+  <li>Docker is very well integrated - local ports and disk space.</li>
+  <li>Hyper-V comes for free with Windows 10 Pro. It’s a type 1 hypervisor with lower CPU overhead than VBox and VMware (type 2). VMware licence is more expensive than Win 10 Pro.</li>
+  <li>Drivers work. Trackpoint on Ubuntu sucks (ThinkPad W540) and the fingerprint scanner breaks regularly.</li>
+  <li>Shortly the clipboard manager and sandbox will be added to Win 10.</li>
+  <li>AcrossCentre, Logichtec Flow, Cortana, DirectX etc. aren’t present on Ubuntu.</li>
+</ul>
+
+<p>Windows is made for good UI while Linux/GNU for being a server. Both suck in the opposite category. Why not combine the best of both worlds?</p>
+
+<h1 id="needs">Needs</h1>
+<ul>
+  <li>git management,</li>
+  <li>IDE like IntelliJ Idea,</li>
+  <li>sbt and other build tools,</li>
+  <li>running services locally,</li>
+  <li>testing locally,</li>
+</ul>
+
+<h1 id="options-">Options :</h1>
+<h2 id="vm-on-hyper-v">VM on Hyper-V</h2>
+<p>Why not have everything in a VM?</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+  <li>availability of MS drivers and some software.</li>
+  <li>using MS battery management.</li>
+  <li>mouse movement is smooth. They’ve implemented RDP for Linux!</li>
+  <li>from my observation, the CPU overhead is below 2%.</li>
+  <li>Drive Passthrough works! NTFS won’t slow you down (no checkpoints of VMs).</li>
+</ul>
+
+<p><strong>Cons</strong>:</p>
+<ul>
+  <li>high memory consumption, 32GB is a nice to have</li>
+  <li>lack of good 2D acceleration by GPU. Although Linux is a First Class Citizen on Windows, RemoteFX still isn’t implemented for Linux guests and GPU Passthrough works only on Windows Server.</li>
+</ul>
+
+<p>Microsoft, please allow the GPU passthrough!</p>
+
+<h2 id="wsl--docker">WSL + Docker</h2>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/faq">Windows for Linux subsystem</a> - full Linux OS in a Windows window served by a MS Kernel.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+  <li>very low memory footprint,</li>
+  <li>normal bash (Unix ssh!) which may be set as the main terminal at IDE,</li>
+  <li>uses the same ports and disk space as host(-ish). Great interoperability between MS and GNU tools.</li>
+  <li>so much just works!</li>
+  <li>by playing with aliases you may use your Windows Docker as normal Ubuntu Docker Client! All windows terminal commands are available by adding <code class="highlighter-rouge">.exe</code></li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+  <li>High execution overhead - a scale of 20% losses in comparision to raw Ubuntu (measured on compiling akka repo). The loss is probably related to IO performance).</li>
+  <li>Ivy artefacts and RSA Keys need sync or reconfiguration of where they are stored. By default everything linux-ish is installed and configured in the protected zone.</li>
+  <li>IDE still builds separately with Windows tools so one needs to plan additionally how to share products and resources.</li>
+  <li>Docker sometimes needs to be restarted…</li>
+  <li>Not everything works. Adding GPG for a repo needed a <a href="https://github.com/Microsoft/WSL/issues/3286#issuecomment-402594992">workaround</a>…</li>
+</ul>
+
+<h2 id="raw-windows">Raw Windows?</h2>
+<p>Cons:</p>
+<ul>
+  <li>PowerShell: unable to pass arguments to sbt… <a href="https://stackoverflow.com/questions/54400669/sbt-and-command-line-parameters-in-powershell-problem">link</a></li>
+  <li>poor built-in package manager</li>
+  <li>check my “There is no ideal OS for a programmer” post for more about it</li>
+</ul>
+
+<h2 id="mix">Mix?</h2>
+<p>For future blog post: Linux VM only as a server with access by a text terminal.</p>
+<ul>
+  <li>best performance,</li>
+  <li>pure GNI/Linux,</li>
+  <li>all UIs from Windows (better tested!),</li>
+  <li>needs far more configuration of VM, network, drive sharing, synchronization and exposing ports for testing from the host…</li>
+</ul>
+
+<h1 id="an-unfinished-experiment">An Unfinished experiment</h1>
+<p>Two days passed and I’m pleased with the results but I’ll still stick to raw Ubuntu on separate drive ;).</p>
+
+<p>Want to know more about this topic? Ask for in the comments, please. Suggestions are welcome.</p>
+:ET
