@@ -1,4 +1,4 @@
-I"�<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
+I"<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
 
 <p>Limit of maximum frequency
 Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It’s the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.</p>
@@ -29,6 +29,8 @@ Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.</p>
 <p>the higher TDP (lower power limits) the more gains from more cores,
   gains of CPUs from U series (15W TDP) are the lowest.
   For productivity, gains are marginal. Think twice before you’ll pay more for more cores in a CPU.</p>
+
+<p>10gen 4-core 10210U vs 6-core 10710U :</p>
 
 <p>Exceptions
 There are two additional effects to achieve higher clocks for more expensive CPUs:</p>

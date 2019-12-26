@@ -40,6 +40,9 @@ Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
 - gains of CPUs from U series (15W TDP) are the lowest.
 - For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU.
 
+10gen 4-core 10210U vs 6-core 10710U :
+<img src="/img/10210Uvs10710U.png">
+
 # Exceptions
 There are two additional effects to achieve higher clocks for more expensive CPUs:
 1. Better wafer area. A wafer is the source of the base material for building a CPU. Wafers are produced in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency and higher maximal clocks.

@@ -1,4 +1,4 @@
-I"�<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
+I"9<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
 
 <h1 id="limit-of-maximum-frequency">Limit of maximum frequency</h1>
 <p>Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It’s the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.</p>
@@ -35,6 +35,9 @@ In both cases, processing will be finished at the same time but with different e
   <li>gains of CPUs from U series (15W TDP) are the lowest.</li>
   <li>For productivity, gains are marginal. Think twice before you’ll pay more for more cores in a CPU.</li>
 </ul>
+
+<p>10gen 4-core 10210U vs 6-core 10710U :
+<img src="/img/10210Uvs10710U.png" /></p>
 
 <h1 id="exceptions">Exceptions</h1>
 <p>There are two additional effects to achieve higher clocks for more expensive CPUs:</p>
