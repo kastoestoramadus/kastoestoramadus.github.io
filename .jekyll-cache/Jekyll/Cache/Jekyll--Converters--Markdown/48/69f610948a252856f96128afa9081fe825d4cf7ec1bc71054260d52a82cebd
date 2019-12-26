@@ -1,24 +1,24 @@
-I"�<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer laptop for my sister.</p>
+I"�<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
 
 <p>Limit of maximum frequency
-Advancements of CPU frequency has slowed down severely due to known physics limitations. It’s the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.</p>
+Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It’s the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.</p>
 
-<p>On laptops the performance efficiency is crucial. To keep the same TDP (an indicator for a CPU power consumption [W]) producers needed to find some savings.</p>
+<p>On laptops the performance efficiency is crucial. To keep the same TDP (an indicator for a CPU power consumption [W]) producers needed to find some power savings.</p>
 
 <p>Cost of higher performance</p>
 
 <p>Power = Frequency * Voltage</p>
 
 <p>but higher frequency requires higher voltages. Look at the chart how much higher voltages are used on desktops.
-On mobile, the more linear part of the curve is used. The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.</p>
+On mobile platforms, the more linear part of the curve is used. The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.</p>
 
 <p>Let’s compare the processing of an easily parallelizable task between one core at 4Ghz and 4 cores at 1Ghz. In both scenarios, we have effective 4Ghz.
 In both cases, processing will be finished at the same time but with different efficiency. 4 cores are set to a much lower voltage so you have power savings.</p>
 
-<p>Unfortunately, many tasks aren’t well scalable to be used on multi-cores efficiently. That’s why single-core performance is the most important for scoring “productivity” capabilities of a CPU.</p>
+<p>Unfortunately, many tasks aren’t well scalable to be used on multi-cores efficiently. That’s why single-core performance is mostly important for scoring “productivity” capabilities of a CPU.</p>
 
 <p>Where are the gains?
-Lets compare 9gen 4core cpu vs. a 6core one. Both has TDP limit of 45W.</p>
+Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.</p>
 
 <p>single-thread performance is higher due to a bit higher clocks
   without power limits 50% more cores would give 50% gains on 8-thread test
@@ -27,13 +27,13 @@ Lets compare 9gen 4core cpu vs. a 6core one. Both has TDP limit of 45W.</p>
 <p>Conclusions</p>
 
 <p>the higher TDP (lower power limits) the more gains from more cores,
-  CPUs from U series which have 15W TDP gains are the lowest.
+  gains of CPUs from U series (15W TDP) are the lowest.
   For productivity, gains are marginal. Think twice before you’ll pay more for more cores in a CPU.</p>
 
 <p>Exceptions
-There two additional effects to achieve higher clocks for more expensive CPUs:</p>
+There are two additional effects to achieve higher clocks for more expensive CPUs:</p>
 
-<p>Better wafer area. A wafer is the source of the mase material of CPU in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency.
+<p>Better wafer area. A wafer is the source of the base material for building a CPU. Wafers are produced in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency and higher maximal clocks.
   Marketing. The material quality difference is far too little to make consumers buying more expensive CPUs. Showing same TDP and higher clocks suggestions that you pay more for something better.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  the marketing part of the limits you may try to overcome by undervolting.

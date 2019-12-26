@@ -6,27 +6,27 @@ category: os
 tags: [ 'hardware', 'intel', 'cpu' ]
 ---
 
-I'll share my thoughts about more cores in a CPU after my recent searching for a photographer laptop for my sister.
+I'll share my thoughts about more cores in a CPU after my recent searching for a photographer's laptop for my sister.
 
 # Limit of maximum frequency
-Advancements of CPU frequency has slowed down severely due to known physics limitations. It's the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.
+Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It's the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.
 
-On laptops the performance efficiency is crucial. To keep the same TDP (an indicator for a CPU power consumption [W]) producers needed to find some savings.
+On laptops the performance efficiency is crucial. To keep the same TDP (an indicator for a CPU power consumption [W]) producers needed to find some power savings.
 
 # Cost of higher performance
 <img src="/img/powerConsumptionPerFreq.png">
 Power = Frequency * Voltage
 
 but higher frequency requires higher voltages. Look at the chart how much higher voltages are used on desktops.
-**On mobile, the more linear part of the curve is used.** The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.
+**On mobile platforms, the more linear part of the curve is used.** The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.
 
 Let's compare the processing of an easily parallelizable task between one core at 4Ghz and 4 cores at 1Ghz. In both scenarios, we have effective 4Ghz.
 In both cases, processing will be finished at the same time but with different efficiency. 4 cores are set to a much lower voltage so you have power savings.
 
-Unfortunately, many tasks aren't well scalable to be used on multi-cores efficiently. That's why single-core performance is the most important for scoring "productivity" capabilities of a CPU.
+Unfortunately, many tasks aren't well scalable to be used on multi-cores efficiently. That's why single-core performance is mostly important for scoring "productivity" capabilities of a CPU.
 
 # Where are the gains?
-Lets compare 9gen 4core cpu vs. a 6core one. Both has TDP limit of 45W.
+Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
 <img src="/img/9300Hand9750H.png">
 
 <img src="/img/9300Hvs9750H.png">
@@ -37,12 +37,12 @@ Lets compare 9gen 4core cpu vs. a 6core one. Both has TDP limit of 45W.
 
 # Conclusions
 - the higher TDP (lower power limits) the more gains from more cores,
-- CPUs from U series which have 15W TDP gains are the lowest.
+- gains of CPUs from U series (15W TDP) are the lowest.
 - For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU.
 
 # Exceptions
-There two additional effects to achieve higher clocks for more expensive CPUs:
-1. Better wafer area. A wafer is the source of the mase material of CPU in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency.
+There are two additional effects to achieve higher clocks for more expensive CPUs:
+1. Better wafer area. A wafer is the source of the base material for building a CPU. Wafers are produced in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency and higher maximal clocks.
 2. Marketing. The material quality difference is far too little to make consumers buying more expensive CPUs. Showing same TDP and higher clocks suggestions that you pay more for something better. 
   - the marketing part of the limits you may try to overcome by [undervolting](https://www.ultrabookreview.com/31385-the-throttlestop-guide/).
   - performance and efficiency improvements are small from generation to generation so don't be afraid to buy a used machine.
