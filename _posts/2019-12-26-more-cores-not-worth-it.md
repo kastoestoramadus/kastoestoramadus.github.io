@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: Low gains of more cores on mobile laptops
+title: Small gains of having more cores on mobile laptops
 category: os
 tags: [ 'hardware', 'intel', 'cpu' ]
 ---
