@@ -1,4 +1,4 @@
-I"9<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
+I"�<p>I’ll share my thoughts about more cores in a CPU after my recent searching for a photographer’s laptop for my sister.</p>
 
 <h1 id="limit-of-maximum-frequency">Limit of maximum frequency</h1>
 <p>Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It’s the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.</p>
@@ -15,7 +15,7 @@ Power = Frequency * Voltage</p>
 <p>Let’s compare the processing of an easily parallelizable task between one core at 4Ghz and 4 cores at 1Ghz. In both scenarios, we have effective 4Ghz.
 In both cases, processing will be finished at the same time but with different efficiency. 4 cores are set to a much lower voltage so you have power savings.</p>
 
-<p>Unfortunately, many tasks aren’t well scalable to be used on multi-cores efficiently. That’s why single-core performance is mostly important for scoring “productivity” capabilities of a CPU.</p>
+<p>Unfortunately, many tasks aren’t well scalable to be used on multi-cores efficiently. That’s why single-core performance is most important for scoring “productivity” capabilities of a CPU.</p>
 
 <h1 id="where-are-the-gains">Where are the gains?</h1>
 <p>Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
@@ -33,7 +33,7 @@ In both cases, processing will be finished at the same time but with different e
 <ul>
   <li>the higher TDP (lower power limits) the more gains from more cores,</li>
   <li>gains of CPUs from U series (15W TDP) are the lowest.</li>
-  <li>For productivity, gains are marginal. Think twice before you’ll pay more for more cores in a CPU.</li>
+  <li>For productivity, gains are marginal. Think twice before you’ll pay more for more cores in a CPU. 4 cores in a U series CPU is optimal as for today. In H series more than 4 cores are beneficial for some kind of professions.</li>
 </ul>
 
 <p>10gen 4-core 10210U vs 6-core 10710U :
@@ -52,4 +52,7 @@ In both cases, processing will be finished at the same time but with different e
 </ol>
 
 <p>On the end compare <a href="https://cpu.userbenchmark.com/Compare/Intel-Core-i7-8700K-vs-Intel-Core-i9-9980HK/3937vsm797907">extremely expensive best 9gen. mobile CPU (8 cores) with a regular high-grade 8gen. desktop CPU (6 cores)</a>.</p>
+
+<p>PS: Asus reveals in specs the colour gamut of each display option which is crucial for photography.
+PS2: For higher quality gaming I suggest to consider SFF Desktop cases. For casual gaming eGPU will keep your laptop mobile.</p>
 :ET

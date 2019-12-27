@@ -23,7 +23,7 @@ but higher frequency requires higher voltages. Look at the chart how much higher
 Let's compare the processing of an easily parallelizable task between one core at 4Ghz and 4 cores at 1Ghz. In both scenarios, we have effective 4Ghz.
 In both cases, processing will be finished at the same time but with different efficiency. 4 cores are set to a much lower voltage so you have power savings.
 
-Unfortunately, many tasks aren't well scalable to be used on multi-cores efficiently. That's why single-core performance is mostly important for scoring "productivity" capabilities of a CPU.
+Unfortunately, many tasks aren't well scalable to be used on multi-cores efficiently. That's why single-core performance is most important for scoring "productivity" capabilities of a CPU.
 
 # Where are the gains?
 Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
@@ -38,7 +38,7 @@ Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
 # Conclusions
 - the higher TDP (lower power limits) the more gains from more cores,
 - gains of CPUs from U series (15W TDP) are the lowest.
-- For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU.
+- For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU. 4 cores in a U series CPU is optimal as for today. In H series more than 4 cores are beneficial for some kind of professions.
 
 10gen 4-core 10210U vs 6-core 10710U :
 <img src="/img/10210Uvs10710U.png">
@@ -51,3 +51,6 @@ There are two additional effects to achieve higher clocks for more expensive CPU
   - performance and efficiency improvements are small from generation to generation so don't be afraid to buy a used machine.
 
 On the end compare [extremely expensive best 9gen. mobile CPU (8 cores) with a regular high-grade 8gen. desktop CPU (6 cores)](https://cpu.userbenchmark.com/Compare/Intel-Core-i7-8700K-vs-Intel-Core-i9-9980HK/3937vsm797907).
+
+PS: Asus reveals in specs the colour gamut of each display option which is crucial for photography.
+PS2: For higher quality gaming I suggest to consider SFF Desktop cases. For casual gaming eGPU will keep your laptop mobile.
