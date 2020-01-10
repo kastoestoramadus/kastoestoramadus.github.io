@@ -15,7 +15,7 @@ On laptops the performance efficiency is crucial. To keep the same TDP (an indic
 
 # Cost of higher performance
 <img src="/img/powerConsumptionPerFreq.png">
-Power = Frequency * Voltage
+Power = ~ Frequency * Voltage^2
 
 but higher frequency requires higher voltages. Look at the chart how much higher voltages are used on desktops.
 **On mobile platforms, the more linear part of the curve is used.** The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.
@@ -35,10 +35,11 @@ Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
 - without power limits 50% more cores would give 50% gains on 8-thread test
 - efficiency per wat is almost identical in both CPUs.
 
-# Conclusions
+# Conclusions+
 - the higher TDP (lower power limits) the more gains from more cores,
-- gains of CPUs from U series (15W TDP) are the lowest.
+- gains of CPUs from U series (15W TDP) are the lowest,
 - For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU. 4 cores in a U series CPU is optimal as for today. In H series more than 4 cores are beneficial for some kind of professions.
+- ULV CPUs will be cheating TDP more while connected to AC to be able to take the adavantage of much higher performance potential. Now with TurboBoost Intel already cheats the TDP declarations.
 
 10gen 4-core 10210U vs 6-core 10710U :
 <img src="/img/10210Uvs10710U.png">
