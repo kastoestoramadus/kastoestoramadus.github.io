@@ -5,7 +5,7 @@ title: One big screen, turned upright
 category: hardware
 tags: [ 'hardware', 'second-screen', 'productivity' ]
 ---
-Four years ago I wrote that my 40-inch 16:9 Philips has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. It is still the only screen on my desk, but it now hangs on an arm and spends most of its life rotated by 90 degrees. Here is why I stopped wanting a second screen, and why the big one stands upright.
+Four years ago I wrote that my 40-inch 16:9 Philips has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. That was the compromise talking: 16:9 is the only shape that does both jobs, and at 4K it is finally tall enough to be worth turning. It is still the only screen on my desk, it now hangs on an arm, and it spends most of its life rotated by 90 degrees. Here is why I stopped wanting a second screen, and why the big one stands upright.
 
 ## One surface is a superset of many
 A big screen can pretend to be any number of small ones. [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager or two maximised halves will cut it into whatever layout the task needs - three columns for a review, a tall editor over a wide log for debugging, one window for writing - and the layout changes in a second.
@@ -108,9 +108,13 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
 </div>
 
 ## What it costs
-Upright, the panel is 88.6 cm tall. At 70 cm from my eyes that spans about 65 degrees vertically, while [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants the centre of a screen 15-20 degrees below eye level and the top at or below it. A 40-inch screen standing up cannot satisfy that, and pretending otherwise would be silly.
+Upright, the panel is 88.6 cm tall. At 70 cm from my eyes that spans about 65 degrees vertically, while [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants the centre of a screen 15-20 degrees below eye level and the top at or below it. By the letter of that rule, a 40-inch screen standing up is simply wrong.
 
-So I do not treat it as one workspace. The band at eye level is where the editor lives; the top third is a shelf - a running build, a log, a browser I glance at, never something I read for an hour. If you do not want a shelf, about 32 inches (70.8 cm tall) is the sane maximum upright. Two more things worth checking on your own panel before you commit: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it, so any gamma shift moves to the top and bottom edges.
+The rule is quoted far more often than it is explained, so it is worth knowing what it is made of. Two mechanisms, both real and both measured. The resting posture of the eyes is [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/) and drops further the closer the target is, so downward gaze is the cheap one to hold. And looking up opens the eyelids wider: Tsubota and Nakamori [measured](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007) an exposed eye surface of 1.2 cm² in downgaze, 2.2 cm² looking straight ahead and 3.0 cm² looking up, with tear evaporation rising 3.4-fold across that range. Blinking drops from roughly 22 times a minute at rest to 7 in front of a screen, and there is your gritty eye at 5 pm.
+
+Notice what that does and does not say. It is an argument about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. It is a comfort optimum averaged over a working day rather than a health limit, and how much of it you feel varies wildly between people - the reported prevalence of dry eye among screen workers runs from 9.5% to 87.5%, a spread that says more about questionnaires than about eyes.
+
+So I do not treat the screen as one workspace, and then the height costs nothing. The band at eye level is where the editor lives; the top third is a shelf - a running build, a log, a browser I glance at, never something I read for an hour. If you want every row to be working space instead, about 32 inches (70.8 cm tall) is where that stops being possible. Two more things worth checking on your own panel before you commit: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it, so any gamma shift moves to the top and bottom edges.
 
 Landscape still wins for spreadsheets and wide tables, side-by-side diffs, video and audio timelines, films and games - the NEC/Utah study below found exactly that, its widescreen advantage evaporating on spreadsheet tasks. And the one honest argument for a real second screen: on a video call, a single screen means the meeting covers the work you are talking about.
 
@@ -127,4 +131,4 @@ So no percentages from me. What one surface buys is simpler than a number: there
 ## How it sits on the desk
 A VESA arm behind the screen, the original stand gone, the monitor floating above an empty desk. Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
 
-The successor I asked for in 2022 still does not exist. Turning the old screen on its side turned out to be the upgrade.
+The successor I asked for in 2022 still does not exist, and turning the old screen on its side turned out to be the upgrade I could have had back then. It does not make me want less panel, though. Upright, 4K is enough, not plenty: a taller one would show more of the column, and the only part of it that has to behave itself is the band at eye level.
