@@ -12,23 +12,28 @@ Content language: English. No application code, no test suite beyond the build a
 ## Deployment pipeline
 
 ```
-dev-blog-env (this repo, master)
+this repo, branch master (ruleset "Protect master": PR required, `build` check must pass, no direct/force push)
   └─ GitHub Actions .github/workflows/deploy.yml
-       generate tag/category pages → jekyll build (JEKYLL_ENV=production) → htmlproofer
-       └─ on push to master, if secret PAGES_DEPLOY_KEY exists:
-          peaceiris/actions-gh-pages pushes _site/ (+CNAME, .nojekyll)
-          → kastoestoramadus/kastoestoramadus.github.io, branch master
-          → GitHub Pages serves it at blog.ww86.eu (custom domain configured on that repo)
+       job build: generate tag/category pages → jekyll build (JEKYLL_ENV=production) → htmlproofer
+                  → on master only: actions/upload-pages-artifact
+       job deploy (master only): actions/deploy-pages with GITHUB_TOKEN — no secrets, no deploy keys
+          → GitHub Pages of this repo (build type "workflow"), custom domain blog.ww86.eu
 ```
 
+Agents cannot push to `master`: work on a branch and open a PR (`gh pr create -R <owner>/<repo>` — this repo is a
+fork of PanosSakkos/personal-jekyll-theme, without `-R` gh targets the upstream theme).
+
 History that matters:
-- Until Jan 2020 Travis CI (`.travis.yml`, travis-ci.org, now defunct) pushed the *source tree* to the
-  github.io repo and GitHub Pages' own Jekyll 3 build rendered it.
-- Dec 2020 – Jan 2023 posts were added directly in the github.io repo via the GitHub web editor.
+- Until Jan 2020 Travis CI (`.travis.yml`, travis-ci.org, now defunct) pushed the *source tree* to the old
+  Pages repo (now `kastoestoramadus.github.io-legacy`) and GitHub Pages' own Jekyll 3 build rendered it.
+- Dec 2020 – Jan 2023 posts were added directly in that old Pages repo via the GitHub web editor.
   They were synced back here on 2026-09-15 (3 posts, `img/breath.png`, tag pages, `CNAME`).
-- The Actions deploy **replaces** the github.io repo content with built HTML. Before enabling or
-  running a deploy, check that repo for commits newer than the last deploy and port them here first.
-- This repo also has an old `gh-pages` branch with Pages enabled (blog.ww86.eu/dev-blog-env/) — legacy, unused.
+- Sept 2026: the owner rejected a deploy key. To publish without secrets the repos were renamed: this source repo
+  (formerly `dev-blog-env`, a fork of the theme) became `kastoestoramadus.github.io` — the user site with the custom
+  domain blog.ww86.eu, published by `actions/deploy-pages` — and the old Pages repo became
+  `kastoestoramadus.github.io-legacy` (Pages disabled, archived). `site.url` https://kastoestoramadus.github.io keeps
+  redirecting to blog.ww86.eu because the user site owns the custom domain.
+- This repo still has an old `gh-pages` branch from the theme — unused, Pages is built by the workflow.
 
 ## Layout
 

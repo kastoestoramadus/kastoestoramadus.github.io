@@ -31,7 +31,7 @@ Source of [blog.ww86.eu](https://blog.ww86.eu), built with Jekyll 4 on a fork of
    ./scripts/generate-categories && ./scripts/generate-tags
    ```
 
-5. Push to `master` — GitHub Actions builds, checks and publishes the site.
+5. Open a pull request to `master`. When the `build` check is green, merge it — GitHub Actions publishes the site.
 
 ## Running locally
 
@@ -54,18 +54,14 @@ bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore
 
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) (replaces the former Travis CI setup):
 
-* every push and pull request: generate tag/category pages, `jekyll build`, html-proofer,
-* push to `master`: publishes `_site` to
-  [kastoestoramadus/kastoestoramadus.github.io](https://github.com/kastoestoramadus/kastoestoramadus.github.io)
-  (branch `master`), which GitHub Pages serves under `blog.ww86.eu`.
+* every pull request: generate tag/category pages, `jekyll build`, html-proofer - the `build` check,
+* every commit on `master`: the same build, then GitHub Pages of this repository publishes `_site`
+  to https://blog.ww86.eu. No secrets or deploy keys are involved.
 
-Publishing needs a deploy key once:
+`master` is protected by a ruleset: changes land only through pull requests with a green `build` check,
+direct and force pushes are rejected. In the GitHub web editor choose *Create a new branch for this commit and
+start a pull request*.
 
-1. `ssh-keygen -t ed25519 -N "" -C "dev-blog-env deploy" -f deploy_key`
-2. `kastoestoramadus.github.io` → Settings → Deploy keys → add `deploy_key.pub` with **write access**.
-3. `dev-blog-env` → Settings → Secrets and variables → Actions → secret `PAGES_DEPLOY_KEY` = content of `deploy_key`.
-
-Without the secret the workflow still builds and tests, and skips the deploy step.
 Dependabot ([`.github/dependabot.yml`](.github/dependabot.yml)) opens monthly PRs with gem and action updates.
 
 ## Credits

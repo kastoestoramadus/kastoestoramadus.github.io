@@ -6,16 +6,19 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 concurrency:
   group: blog-${{ github.ref }}
-  cancel-in-progress: true
+  # never cancel a running deploy of master, only superseded PR builds
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       JEKYLL_ENV: production
-      HAS_DEPLOY_KEY: ${{ secrets.PAGES_DEPLOY_KEY != '' }}
     steps:
       - uses: actions/checkout@v7
 
@@ -35,20 +38,23 @@ jobs:
       - name: Check links and HTML
         run: bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
 
-      # Publishes the built _site to the repo that serves https://blog.ww86.eu
-      - name: Deploy to kastoestoramadus.github.io
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && env.HAS_DEPLOY_KEY == 'true'
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload site for GitHub Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v5
         with:
-          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
-          external_repository: kastoestoramadus/kastoestoramadus.github.io
-          publish_branch: master
-          publish_dir: ./_site
-          cname: blog.ww86.eu
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          full_commit_message: Deploy ${{ github.sha }} from ${{ github.repository }}
+          path: _site
 
-      - name: Deploy skipped
-        if: github.event_name != 'pull_request' && env.HAS_DEPLOY_KEY != 'true'
-        run: echo "::notice::Deploy skipped - add the PAGES_DEPLOY_KEY secret to publish to blog.ww86.eu"
+  # Every commit that lands on master is published to https://blog.ww86.eu (no secrets needed)
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
