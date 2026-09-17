@@ -1,18 +1,21 @@
 #!/usr/bin/env ruby
 
 require 'yaml'
+require 'date'
 
 POSTS_DIR = '_posts/'
 TAGS_DIR = 'tags/'
 
 Dir.foreach(POSTS_DIR) do |post|
 
-  next if post == '.' or post == '..' or post == '.DS_Store'
-  postYaml = YAML.load_file(POSTS_DIR + post)
+  next unless File.file?(POSTS_DIR + post) and post.end_with?('.md', '.markdown', '.html')
+  # Parse only the front matter; Ruby 3.1+ YAML.load_file is safe_load and rejects dates
+  frontMatter = File.read(POSTS_DIR + post)[/\A---\s*\n(.*?)\n---/m, 1]
+  postYaml = YAML.safe_load(frontMatter.to_s, permitted_classes: [Date, Time]) || {}
   unless (postYaml['tags'] == nil)
     postYaml['tags'].each{|tag|
 
-      tag.downcase!
+      tag = tag.to_s.downcase
 
       unless File.exist?(TAGS_DIR + tag + '.html')
 

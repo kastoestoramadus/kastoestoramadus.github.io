@@ -1,46 +1,46 @@
 ---
 layout: post
 section-type: post
-title:  "Saving laptop battery on multi-core CPUs"
-date:   2016-10-30
+title: Saving laptop battery on multi-core CPUs
 category: os
-tags: ['windows','core-parking']
+tags: [ 'windows', 'core-parking' ]
 ---
-# Who could benefit from this article
-If you have multi-core x86 CPU(most of intel/amd CPUs) and windows 7+ operating system and you are not happy with your "work on battery time" then this may interest you.
 
-On described solution, I got 60% battery savings without losing any responsiveness. The article is written for power users.
+## Who can benefit from this article
+If you have a multi-core x86 CPU (most Intel and AMD CPUs), Windows 7 or newer, and you are not happy with your battery life, this may interest you.
 
-# Low time on battery -  problem description
-Needed knowledge: 
-* x86 CPUs serve work equally to each core. Each core has the same frequency.
-* Being responsive mean to have a prepared core for work on highest frequency. Even if you don't have constantly full workload, your CPU would have a lot of spare processing power. This is just in case of single, short but intensive demand for CPU power. That gives you the speedy feeling.
-* By default,all cores are active all the time.
+With the solution described below I got 60% battery savings without losing any responsiveness. The article is written for power users.
 
-The implication of those is losing battery power. To avoid that, few mechanisms was introduced:
-1. core parking. Turn off cores on low CPU usage. Turn them on when gets more "constant work".
-2. frequency scaling policies. Keep frequency as low as possible. Try to keep it low and leave the responsive feel. There is no ultimate optimum. Some policies give you more "instant power" other saves more battery.
-3. permanent cores/CPU switch off. Realised on bios or OS level.
+## Short battery life - the problem
+What you need to know:
+* x86 CPUs spread work equally across cores, and each core runs at the same frequency.
+* Being responsive means having a core ready to work at the highest frequency. Even if your workload isn't constantly full, the CPU keeps a lot of spare processing power just in case of a single, short but intensive demand. That gives you the speedy feeling.
+* By default, all cores are active all the time.
 
-ad. 3) it didn't work for me at all. I think it's a bug. Context: Thinkpad W540, windows 10
+As a result, battery power is wasted. To avoid that, a few mechanisms were introduced:
+1. Core parking - turn cores off at low CPU usage and turn them back on when there is more constant work.
+2. Frequency scaling policies - keep the frequency as low as possible while keeping the responsive feel. There is no ultimate optimum: some policies give you more "instant power", others save more battery.
+3. Permanently switching cores or CPUs off - done at the BIOS or OS level.
 
-ad. 2) gives nice area to tune your CPU. cons: does not turn off the unused core. Still, you can have big one thread demand on which, apart from one core, all cores will do nothing and consume a lot of power. 
+Ad. 3) It didn't work for me at all, I think it's a bug. Context: ThinkPad W540, Windows 10.
 
-ad. 1) In theory the best solution for described problem. It got very bad fame from the premiere of Windows 7. It was too aggressive and people reported lower performance in unwanted moments. That is the reason it is disabled by default. I'll give a way to use it for everyday use cases. If you have intel CPU with Skylake (or newer) architecture then you should not use my solution (because there is better for you).
+Ad. 2) Gives a nice area to tune your CPU. The downside: it doesn't turn off unused cores. You can still have a big single-threaded demand during which all cores except one do nothing and consume a lot of power.
 
-Different setting will be attached to three different windows power plans:
-1. power saver - big savings, big sacrifices
-2. balanced - default and the recommended plan
-3. high performance - no sacrifices, no savings
+Ad. 1) In theory the best solution for this problem. It got a very bad reputation after the premiere of Windows 7: it was too aggressive and people reported lower performance at unwanted moments. That's why it is disabled by default. Below I show how to use it for everyday use cases. If you have an Intel CPU with the Skylake (or newer) architecture, you should not use my solution, because there is a better one for you.
 
-We will unhide advanced settings and click through right values on GUI of power plan settings.
+Different settings will be attached to three different Windows power plans:
+1. Power saver - big savings, big sacrifices
+2. Balanced - the default and recommended plan
+3. High performance - no sacrifices, no savings
 
-For core parking we need mainly two parameters:
-* how many cores won't be parked - Windows name: Processor performance core parking min cores
-* how many cores will be parked at the minimum - Windows name: Processor performance core parking max cores . This setting simulates well core disabling feature.
+We will unhide the advanced settings and click through the right values in the power plan settings.
 
-Core parking parameters, list of all with registry keys:
-```
+For core parking we mainly need two parameters:
+* how many cores won't be parked - Windows name: *Processor performance core parking min cores*,
+* how many cores can be active at most - Windows name: *Processor performance core parking max cores*. This setting simulates a core-disabling feature well.
+
+Core parking parameters, a full list with registry keys:
+```plaintext
 0cc5b647-c1df-4637-891a-dec35c318583	Processor performance core parking min cores
 1299023c-bc28-4f0a-81ec-d3295a8d815d	Processor performance core parking over utilization history decrease factor
 2ddd5a84-5a71-437e-912a-db0b8c788732	Processor performance core parking increase time
@@ -59,29 +59,28 @@ dfd10d17-d5eb-45dd-877a-9a34ddd15c82	Processor performance core parking decrease
 e70867f1-fa2f-4f4e-aea1-4d8a0ba23b20	Processor performance core parking affinity weighting
 ea062031-0e34-4ff1-9b6d-eb1059334028	Processor performance core parking max cores
 ```
-To unhide our parameters we execute those commands:
-```
+To unhide these two parameters, run:
+```plaintext
 powercfg -attributes SUB_PROCESSOR 0cc5b647-c1df-4637-891a-dec35c318583 -ATTRIB_HIDE
 powercfg -attributes SUB_PROCESSOR ea062031-0e34-4ff1-9b6d-eb1059334028 -ATTRIB_HIDE
 ```
+Settings per power plan for battery mode, using the Windows names (in percent; with my 4-core CPU one physical core is 25%):
+* Power saver - min cores: 25%, max cores: 25%. Use it when you need the biggest battery savings.
+* Balanced - min cores: 25%, max cores: 50%. This should be your default power plan.
+* High performance - min cores: 100%, max cores: 0%. Use it to quickly bypass the core parking savings.
 
-By windows names, settings per power plans, for work on battery (in percent, for my 4 core CPU phyical core - 25%):
-* power saver - min cores: 25%, max cores: 25%, use when you need the biggest battery savings
-* balanced - min cores: 25%, max cores: 50%, this should be your default power plan
-* high performance - min cores: 100%, max cores: 0%, use to quickly overload core parking savings
+![Windows Power Options dialog with the core parking min cores setting](https://bitsum.com/images/parking_in_power_profile_settings.png){:class="img-responsive"}
 
-![the photo of settings where you have to get](https://bitsum.com/images/parking_in_power_profile_settings.png){:class="img-responsive"}
+Be aware that there are more flexible core parking settings, but I didn't have time to explore them. It should be possible to have all cores at hand, enable them under a heavy workload and disable them the rest of the time. That would be the best solution.
 
-Be aware that there are more elastic settings for core parking but I didn't have time to get them. It should be possible to have all cores at hand, enable them on a heavy workload and disable them for most other time. It would be the best solution.
+## FYI
 
-# FYI
+For the power saver plan I also changed the scaling policy from rocket to ideal. It changes the frequency much faster. In our case, with only one active core, this is a good idea (the default is very conservative). You get responsiveness at low workloads (which is most of the time, apart from gaming and some development tasks) for a minimal price.
 
-For power saver power plan I also changed scaling policy from rocket to ideal. It changes frequency much faster. In our case, when we have only one core, this is a good idea (default is very conservative). You get responsiveness on low workload (which is at most case apart from gaming and some development tasks) for the minimum price.
+The main problem doesn't apply to smartphones with the ARM big.LITTLE architecture, since it allows uneven task distribution.
 
-Our main problem is not valid for smartphones with ARM/Big-Little architecture since it allows to not even tasks distribution.
-
-To unhide scaling policy settings (play with caution):
-```
+To unhide the scaling policy settings (play with caution):
+```plaintext
 powercfg -attributes SUB_PROCESSOR 06cadf0e-64ed-448a-8927-ce7bf90eb35d -ATTRIB_HIDE
 powercfg -attributes SUB_PROCESSOR 12a0ab44-fe28-4fa9-b3bd-4b64f44960a6 -ATTRIB_HIDE
 powercfg -attributes SUB_PROCESSOR 40fbefc7-2e9d-4d25-a185-0cfd8574bac6 -ATTRIB_HIDE

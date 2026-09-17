@@ -1,87 +1,79 @@
-# { Personal } Jekyll Theme
-![Build Status](https://travis-ci.org/PanosSakkos/personal-jekyll-theme.svg?branch=master)
-![license](https://img.shields.io/badge/license-MIT-blue.svg?link=https://github.com/dono-app/ios/blob/master/LICENSE)
-[![Join the chat at https://gitter.im/PanosSakkos/personal-jekyll-theme](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PanosSakkos/personal-jekyll-theme?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# { IT blog - Waldemar Wosiński }
 
-{ Personal } is a free responsive Jekyll theme, about you :wink:
+Source of [blog.ww86.eu](https://blog.ww86.eu), built with Jekyll 4 on a fork of the
+[{ Personal } Jekyll Theme](https://github.com/PanosSakkos/personal-jekyll-theme).
 
-You can watch it in action [here](https://panossakkos.github.io/personal-jekyll-theme/)!
+## Writing a post
 
+1. Create the file (or add `_posts/YYYY-MM-DD-slug.md` straight in the GitHub web editor):
 
+   ```shell
+   ./scripts/newpost my-new-post
+   ```
 
-<img src="https://github.com/panossakkos/personal-jekyll-theme/raw/master/.github/personal-mobile.mov.gif" height="480">
+2. Fill in the front matter — `title`, `category` and `tags` (lowercase):
 
-<img src="https://github.com/panossakkos/personal-jekyll-theme/raw/master/.github/personal-desktop.mov.gif" height="600" width="960">
+   ```yaml
+   ---
+   layout: post
+   section-type: post
+   title: My new post
+   category: dev
+   tags: [ 'scala', 'hardware' ]
+   ---
+   ```
 
-## What value does { Personal } add
+3. Images go to `img/` and are referenced as `![description](/img/file.png)`.
+   Code blocks are fenced with a language, e.g. ` ```scala `.
+4. Generate pages for new tags/categories and commit them together with the post:
 
-* Fork of [Timeline](https://github.com/kirbyt/timeline-jekyll-theme) (mashup of [Grayscale by Start Bootstrap](https://github.com/IronSummitMedia/startbootstrap-grayscale) and [Agency Jekyll Theme](https://github.com/y7kim/agency-jekyll-theme))
-  * Modern and minimal design
-    * Responsive templates for home page, blog archive and posts. Looks great on mobile, tablet, and desktop devices
-    * Sweet animations
-    * Gracefully degrades in older browsers. Compatible with Internet Explorer 8+ and all modern browsers
-  * Timeline
-    * Tell your story so far with a sleek timeline of dates, pictures and descriptions
-  * White on black text, making the reading experience tireless
-  * Google analytics  
-* Customization and full control of your website and blog through the site config
-* Customization of the website's coloring
-* Blogging functionality
-  * Preview of the latest post in the home page
-  * Archive page
-  * Syntax highlighting
-  * Emojis
-  * Gesture navigation in archive and post pages by swiping
-  * Hashtags
-  * Categories
-  * Disqus comments
-  * Bootstrap share buttons
-  * RSS feed
-* Author blurb under the posts
-* 404 page
-* iOS and Android Web App mode
-* Enforcing of https protocol
-* Protection from email harvesting
-* Sitemap
-* Travis CI integration with [html-proofer](https://github.com/gjtorikian/html-proofer)
+   ```shell
+   ./scripts/generate-categories && ./scripts/generate-tags
+   ```
 
-## Documentation
+5. Push to `master` — GitHub Actions builds, checks and publishes the site.
 
-The theme contains documentation in the form of [blog posts](https://panossakkos.github.io/personal-jekyll-theme/blog/index.html).
+## Running locally
 
-## How to run locally
-
-First, you need to install jekyll and the dependencies of { Personal } by running:
+Requires Ruby >= 3.2 with bundler (e.g. `sudo apt install ruby-full build-essential`).
 
 ```shell
-./scripts/install
+./scripts/install            # once: gems into vendor/bundle
+./scripts/serve              # http://127.0.0.1:4000, auto-rebuild, no Disqus/analytics
+./scripts/serve-production   # same as the published site
 ```
 
-Then, you can build and serve your website by simply running:
+The same checks as CI:
 
 ```shell
-./scripts/serve-production
+JEKYLL_ENV=production bundle exec jekyll build
+bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
 ```
 
-To serve across lan (requires su to forward the port 4000 over lan):
+## CI/CD
 
-```shell
-./scripts/serve-lan-production
-```
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) (replaces the former Travis CI setup):
 
-## OSS used in { Personal }
+* every push and pull request: generate tag/category pages, `jekyll build`, html-proofer,
+* push to `master`: publishes `_site` to
+  [kastoestoramadus/kastoestoramadus.github.io](https://github.com/kastoestoramadus/kastoestoramadus.github.io)
+  (branch `master`), which GitHub Pages serves under `blog.ww86.eu`.
 
-One of the reasons { Personal } is real is the following OSS projects:
+Publishing needs a deploy key once:
 
-  1. [Grayscale](http://startbootstrap.com/template-overviews/grayscale/)
-  2. [hammer.js](https://hammerjs.github.io/)
-  3. [highlightjs](https://highlightjs.org/)
-  4. [RRSSB](https://github.com/kni-labs/rrssb)
-  5. [Timeline](https://github.com/kirbyt/timeline-jekyll-theme)
-  6. [typed.js](https://github.com/mattboldt/typed.js/)
+1. `ssh-keygen -t ed25519 -N "" -C "dev-blog-env deploy" -f deploy_key`
+2. `kastoestoramadus.github.io` → Settings → Deploy keys → add `deploy_key.pub` with **write access**.
+3. `dev-blog-env` → Settings → Secrets and variables → Actions → secret `PAGES_DEPLOY_KEY` = content of `deploy_key`.
 
-<div style="font-size:16px;margin:0 auto;width:300px">
-    <a href="https://blockchain.info/address/1LHuKC9Em3KA5yoZaf7nngnNdf9K7s2gSi">
-        <img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
-    </a>
-</div>
+Without the secret the workflow still builds and tests, and skips the deploy step.
+Dependabot ([`.github/dependabot.yml`](.github/dependabot.yml)) opens monthly PRs with gem and action updates.
+
+## Credits
+
+Theme: [{ Personal }](https://github.com/PanosSakkos/personal-jekyll-theme) by Panos Sakkos (MIT), built on
+[Grayscale](http://startbootstrap.com/template-overviews/grayscale/),
+[Timeline](https://github.com/kirbyt/timeline-jekyll-theme),
+[highlight.js](https://highlightjs.org/),
+[RRSSB](https://github.com/kni-labs/rrssb),
+[typed.js](https://github.com/mattboldt/typed.js/) and
+[hammer.js](https://hammerjs.github.io/).
