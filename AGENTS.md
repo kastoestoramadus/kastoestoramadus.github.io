@@ -70,9 +70,23 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   module in `_includes/js.html`; add other missing ones the same way (`languages/<lang>.min.js` + SRI).
   highlight.js has no HOCON grammar: ` ```hocon ` / ` ```conf ` are registered as aliases of `ini` in `_includes/js.html`.
   ` ```shell ` means an interactive session (lines starting with `$`); plain commands should use ` ```bash `.
-- Images in posts: `![alt](/img/file.png)`; site-relative URLs (site `baseurl` is empty).
+- Images in posts: `![alt](/img/file.png)` with a meaningful alt text; site-relative URLs (site `baseurl` is empty).
 - Keep the theme's look: this is a conservative fork, not the rewritten upstream theme (v10+). Migrating to
   upstream was attempted once and abandoned.
+
+### Editorial style (unified 2026-09-17)
+- English, British spelling (colour, favourite, licence), first person, informal author's voice (`;)` is fine).
+  Fix language, keep the author's opinions and facts.
+- Front matter order: `layout`, `section-type`, `title`, `category`, [`permalink`], `tags`. No `date:` (the file name has it).
+- Titles in sentence case without quotes. Section headings are `##` (`###` below) — the post title is the only H1.
+- Categories are a closed set: `apps`, `dev`, `hardware`, `life`, `os`. Every post has at least one tag.
+- **URLs must never change** (Disqus threads and RSS GUIDs are keyed by URL). The default permalink contains the
+  category, so when a post moves to another category, pin its old URL with `permalink:` (see the ZIO2, Optane and
+  "more cores" posts). Compare the list of generated `.html` files before/after any content refactoring.
+- Every fenced code block has a language (`plaintext` for output/tables). Internal links to posts use `{% post_url %}`
+  (not available in `about.html`/`contact.html`, which are rendered via `markdownify` — use plain paths there).
+- Site-wide texts (header lines, timeline, author blurb, description) live in `_config.yml`; keep them consistent with
+  `about.html` and the owner's GitHub profile (Scala & Big Data engineer, Warsaw, 15+ years, banking/fintech/public sector).
 
 ## Gotchas
 

@@ -1,57 +1,61 @@
 ---
 layout: post
 section-type: post
-title: Small gains of having more cores on mobile laptops
-category: os
+title: Small gains from more cores in laptops
+category: hardware
+permalink: /os/2019/12/26/more-cores-not-worth-it.html
 tags: [ 'hardware', 'intel', 'cpu' ]
 ---
+I'll share my thoughts about more cores in a CPU after my recent search for a photo-editing laptop for my sister.
 
-I'll share my thoughts about more cores in a CPU after my recent searching for a photographer's laptop for my sister.
+## The limit of maximum frequency
+Progress in maximum CPU frequency has slowed down severely due to known physical limitations. That's the main reason why performance improvements are made by adding more cores. Quite easy when power consumption is not an issue.
 
-# Limit of maximum frequency
-Advancement of maximum CPU frequency has slowed down severely due to known physics limitations. It's the main reason why performance improvements are made by adding more cores to CPUs. Quite easily done when power consumption is not an issue.
+On laptops, power efficiency is crucial. To keep the same TDP (an indicator of CPU power consumption, in watts), manufacturers needed to find some power savings.
 
-On laptops the performance efficiency is crucial. To keep the same TDP (an indicator for a CPU power consumption [W]) producers needed to find some power savings.
+## The cost of higher performance
+![Chart: i7-2600K power consumption rising steeply with clock speed](/img/powerConsumptionPerFreq.png)
 
-# Cost of higher performance
-<img src="/img/powerConsumptionPerFreq.png">
-Power = ~ Frequency * Voltage^2
+Power ~ Frequency × Voltage²
 
-but higher frequency requires higher voltages. Look at the chart how much higher voltages are used on desktops.
-**On mobile platforms, the more linear part of the curve is used.** The consequence is lower max. frequency (even more limited when more cores are on load) which gives the savings.
+But a higher frequency requires a higher voltage. Look at the chart to see how much higher the voltages used on desktops are.
+**On mobile platforms, the more linear part of the curve is used.** The consequence is a lower maximum frequency (limited even more when more cores are loaded), which gives the savings.
 
-Let's compare the processing of an easily parallelizable task between one core at 4Ghz and 4 cores at 1Ghz. In both scenarios, we have effective 4Ghz.
-In both cases, processing will be finished at the same time but with different efficiency. 4 cores are set to a much lower voltage so you have power savings.
+Let's compare processing an easily parallelizable task on one core at 4 GHz and on 4 cores at 1 GHz. In both scenarios we have an effective 4 GHz.
+In both cases the processing finishes at the same time, but with different efficiency. The 4 cores run at a much lower voltage, so you save power.
 
-Unfortunately, many tasks aren't well scalable to be used on multi-cores efficiently. That's why single-core performance is most important for scoring "productivity" capabilities of a CPU.
+Unfortunately, many tasks don't scale well enough to use multiple cores efficiently. That's why single-core performance matters most when scoring the "productivity" capabilities of a CPU.
 
-# Where are the gains?
-Lets compare 9gen 4-core cpu vs. a 6-core one. Both has TDP limit of 45W.
-<img src="/img/9300Hand9750H.png">
+## Where are the gains?
+Let's compare a 9th-gen 4-core CPU with a 6-core one. Both have a TDP limit of 45 W.
 
-<img src="/img/9300Hvs9750H.png">
+![Intel Core i5-9300H vs i7-9750H: 4 vs 6 cores, both 45 W](/img/9300Hand9750H.png)
 
-- single-thread performance is higher due to a bit higher clocks
-- without power limits 50% more cores would give 50% gains on 8-thread test
-- efficiency per wat is almost identical in both CPUs.
+![UserBenchmark: i7-9750H is 6-23% faster than i5-9300H](/img/9300Hvs9750H.png)
 
-# Conclusions+
-- the higher TDP (lower power limits) the more gains from more cores,
-- gains of CPUs from U series (15W TDP) are the lowest,
-- For productivity, gains are marginal. Think twice before you'll pay more for more cores in a CPU. 4 cores in a U series CPU is optimal as for today. In H series more than 4 cores are beneficial for some kind of professions.
-- ULV CPUs will be cheating TDP more while connected to AC to be able to take the adavantage of much higher performance potential. Now with TurboBoost Intel already cheats the TDP declarations.
+- Single-thread performance is higher due to slightly higher clock speeds.
+- Without power limits, 50% more cores would give 50% gains in an 8-thread test.
+- Performance per watt is almost identical for both CPUs.
 
-10gen 4-core 10210U vs 6-core 10710U :
-<img src="/img/10210Uvs10710U.png">
+## Conclusions
+- The higher the TDP (the looser the power limits), the bigger the gains from more cores.
+- The gains for U-series CPUs (15 W TDP) are the lowest.
+- For productivity, the gains are marginal. Think twice before paying more for more cores. As of today, 4 cores are optimal in a U-series CPU. In the H series, more than 4 cores are beneficial for some professions.
+- ULV CPUs will cheat on TDP even more when connected to AC, to take advantage of their much higher performance potential. With Turbo Boost, Intel already cheats on TDP declarations.
 
-# Exceptions
-There are two additional effects to achieve higher clocks for more expensive CPUs:
-1. Better wafer area. A wafer is the source of the base material for building a CPU. Wafers are produced in a circular form. The closer to the centre the better statistically the material is. Better material means a bit better efficiency and higher maximal clocks.
-2. Marketing. The material quality difference is far too little to make consumers buying more expensive CPUs. Showing same TDP and higher clocks suggestions that you pay more for something better. 
-  - the marketing part of the limits you may try to overcome by [undervolting](https://www.ultrabookreview.com/31385-the-throttlestop-guide/).
-  - performance and efficiency improvements are small from generation to generation so don't be afraid to buy a used machine.
+10th-gen 4-core i5-10210U vs 6-core i7-10710U:
 
-On the end compare [extremely expensive best 9gen. mobile CPU (8 cores) with a regular high-grade 8gen. desktop CPU (6 cores)](https://cpu.userbenchmark.com/Compare/Intel-Core-i7-8700K-vs-Intel-Core-i9-9980HK/3937vsm797907).
+![UserBenchmark: i7-10710U is 2-10% faster than i5-10210U](/img/10210Uvs10710U.png)
 
-PS: Asus reveals in specs the colour gamut of each display option which is crucial for photography.
-PS2: For higher quality gaming I suggest to consider SFF Desktop cases. For casual gaming eGPU will keep your laptop mobile.
+## Exceptions
+There are two additional reasons why more expensive CPUs reach higher clock speeds:
+1. Better wafer area. A wafer is the base material a CPU is built from. Wafers are produced in a circular form, and statistically the closer to the centre, the better the material. Better material means slightly better efficiency and higher maximum clock speeds.
+2. Marketing. The difference in material quality is far too small to make consumers buy more expensive CPUs. Showing the same TDP with higher clock speeds suggests that you pay more for something better.
+   - You can try to overcome the marketing part of the limits by [undervolting](https://www.ultrabookreview.com/31385-the-throttlestop-guide/).
+   - Performance and efficiency improvements between generations are small, so don't be afraid to buy a used machine.
+
+Finally, compare [an extremely expensive top 9th-gen mobile CPU (8 cores) with a regular high-end 8th-gen desktop CPU (6 cores)](https://cpu.userbenchmark.com/Compare/Intel-Core-i7-8700K-vs-Intel-Core-i9-9980HK/3937vsm797907).
+
+PS: Asus lists the colour gamut of each display option in the specs, which is crucial for photography.
+
+PS2: For higher-quality gaming, I suggest considering SFF desktop cases. For casual gaming, an eGPU will keep your laptop mobile.

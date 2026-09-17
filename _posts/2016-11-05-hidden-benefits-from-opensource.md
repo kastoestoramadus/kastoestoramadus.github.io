@@ -1,17 +1,18 @@
 ---
 layout: post
 section-type: post
-title: Hidden benefits from opensource
+title: Hidden benefits of open source
 category: apps
 tags: [ 'opensource' ]
 ---
-# From open source benefits also people who buy propertiary products
-On a free market, the price is determined on competitiveness. If there is none the price is high. Top products can have higher price only for that rate they are better from the competition. If the difference from that price is too high then the competition has a possibility to grow.
+## Open source benefits even people who buy proprietary products
+On a free market, the price is determined by competition. If there is none, the price is high. Top products can be more expensive only to the extent that they are better than the competition. If the price gap grows too big, the competition gets a chance to grow.
 
-Open source is a competitor for paid products also. It lowers total price of every product. It defines a base set of features that should be free everywhere. If top products demand too high price then society wants more to invest in open source tools. The better are open source tools the lower prices have paid products.
-# What if
-What if there would not be any open source? Please, read about Netscape. What Microsoft wanted to do with the internet?  
-Open source made them loose control of the market. It defended us from higher prices and from big control in private hands.  
-Modern software market would be a very expensive and hostile if not open source. Even MS Windows has a lot of BSD code in it.
+Open source is a competitor for paid products too. It lowers the total price of every product and defines a base set of features that should be free everywhere. If top products demand too high a price, society is more willing to invest in open source tools. The better the open source tools, the lower the prices of paid products.
 
-So please, have good words for open source world even if it is not the top quality.
+## What if
+What if there were no open source at all? Please read about Netscape. What did Microsoft want to do with the internet?
+Open source made them lose control of the market. It protected us from higher prices and from too much control in private hands.
+The modern software market would be very expensive and hostile without open source. Even MS Windows contains a lot of BSD code.
+
+So please, have good words for the open source world, even if it's not always top quality.

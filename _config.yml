@@ -30,9 +30,9 @@ force-https: True
 
 lang: "en"
 author: "Waldemar Wosiński"
-title: "{ IT blog - Waldemar Wosiński}"
-description: "Blog of Waldemar Wosiński. Topics are: IT, hardware, OS, programming (mostly Scala) and life."
-keywords: "scala waldemar wosinski blog"
+title: "{ IT blog - Waldemar Wosiński }"
+description: "Blog of Waldemar Wosiński, a Scala & Big Data engineer from Warsaw: software development, hardware, operating systems and work life."
+keywords: "scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski"
 favicon: "/img/favicon.ico"
 
 ################
@@ -56,8 +56,8 @@ start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
   - text: "How to assess a software developer?"
-  - text: "What he gave in public is already a passed test ;)."
-  - text: "Website served on github pages. EoF"
+  - text: "Look at what they share in public ;)"
+  - text: "This blog is my part."
 me-img: "/img/jetpacktocat.png"
 
 ##############################
@@ -113,10 +113,10 @@ syntax-highlight: True
 events:
   - image: "/img/timeline/spidertocat.png"
     date: "2013"
-    description: "I met Scala."
+    description: "Met Scala - my main language ever since."
   - image: "/img/timeline/baracktocat.jpg"
-    date: "2008 - Today"
-    description: "A Software developer has born."
+    date: "2008 - today"
+    description: "Software developer in banking, fintech and the public sector."
 
 # First image of the Timeline
 
@@ -136,7 +136,7 @@ email: "waldemar.wosinski+blog@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Me: scala developer, father, husband and motorcyclist ;)."
+author_blurb: "Waldemar Wosiński - Scala & Big Data engineer, father, husband and motorcyclist ;)"
 author_blurb_image: "/img/author.png"
 
 ##################

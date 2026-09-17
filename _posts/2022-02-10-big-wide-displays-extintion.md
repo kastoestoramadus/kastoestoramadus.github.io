@@ -1,40 +1,34 @@
 ---
 layout: post
 section-type: post
-title: Screen that has no successor
+title: A screen that has no successor
 category: hardware
 tags: [ 'second-screen', 'hardware' ]
 ---
-This is a side story on how the industry doesn't go far from the TV Screens mainstream.
+This is a side story about how the display industry doesn't stray far from the TV mainstream.
 
-# Curved TVs no more
+## Curved TVs no more
+Curved TVs were discontinued many years ago, and similar computer screens went with them. TVs are watched from a big distance, while curvature works best when you watch from up close. That's why the industry made the right decision to stop producing curved TVs.
 
-Many years ago curved TVs were discontinued. So with them any similar computer screens. TVs are used from a big distance where curvatures are great to watch from short distances. 
-That's why the industry made the right decision to stop producing curved TVs.
+## Production lines split
+As computer displays need curvature and TVs don't, the development of technologies and manufacturing processes split.
+Somehow entertainment was more important than productivity, so ultra-wide screens came to dominate big computer screens on the market.
+Ultra-wide is better for watching cinema movies, playing games and editing videos.
 
-# Split of production lines
+Without the support of the TV industry, displays like mine - [a 40-inch Philips in 16:9 proportions](https://www.philips.co.uk/c-p/BDM4037UW_00/brilliance-4k-ultra-hd-lcd-display-with-multiview) - can't be bought new anymore.
+Nowadays the biggest 16:9 display I've seen is a 32-inch one from Samsung.
 
-As computer displays need the curvatures and TVs not the technologies and fabrication processes development has split. 
-Somehow entertainment was more important than productivity so the Ultra Wide Screens has dominated the proportions of big computer screens on the market.
-Ultra-Wide is better to watch cinema movies, playing games and video editing. 
+## Why a big 16:9?
+A better question is who such a screen is for: anybody who works with code, text or websites. Text and websites prefer vertical space over horizontal space. With websites it's super important, as the tall smartphone layout dominates the web.
+A huge 16:9 is the most versatile, as it can be treated like two big square screens or a single TV screen. Ultra-wide screens only give you more windows, instead of fewer windows with more content in each (a huge 16:9 serves both needs).
 
-Without the support of the TV industry, displays like I have: [Philips 40 inches in 16:9 propotions](https://www.philips.co.uk/c-p/BDM4037UW_00/brilliance-4k-ultra-hd-lcd-display-with-multiview) can't be bought as new anymore.
-Nowadays the biggest 16:9 I've seen is 32 inches from Samsung.
+Thank God [3:2 laptops](https://www.theverge.com/2021/1/19/22238671/16-9-aspect-ratio-hp-elite-folio-dell-latitude-lenovo-thinkbook-plus-legion-7) are getting more popular, so at least one window on them has a proper height.
 
-# Why Big 16:9 ?
+## Hail to the BDM4037UW
 
-A better question is for whom such screen is. For anybody that works with code, with text or on websites. Text and websites prefer more vertical space than horizontal space.
-With websites it is super important as a high smartphone layout is dominant on the web.
-Huge 16:9 is most versatile as it can be treated like two big square screens or a single TV Screen. Wide screens can give only more windows on the screen instead of fewer windows with more content in it (while Huge 16:9 serve both needs).
+![My Philips BDM4037UW on the desk](https://user-images.githubusercontent.com/6271645/153392328-ea93b918-06c9-452a-9e3b-a6d9cca9bb93.png)
 
-Thank God for the [Laptops 3:2](https://www.theverge.com/2021/1/19/22238671/16-9-aspect-ratio-hp-elite-folio-dell-latitude-lenovo-thinkbook-plus-legion-7) getting more popular so at least one window on them are with proper height.
+I feel it's old and its responsiveness is sluggish, but the blacks and colours are still great, and it's curved and huge (no scaling needed, like four 20-inch Full HD screens without bezels).
+For work, movies, self-development and casual gaming it still has no competition, and used units are often sold for more than they cost new.
 
-# Hail to BDM4037UW
-
-![image](https://user-images.githubusercontent.com/6271645/153392328-ea93b918-06c9-452a-9e3b-a6d9cca9bb93.png)
-
-
-I feel it's old and the responsiveness of it is retarded but black and colors are still great, it's curved, huge (no scaling, like 4x FHD 20 inches without bezels). 
-For work, movies, self-development and casual gaming it still doesn't have any competition and the used units are many times sold for more money than they were purchased as new.
-
-I wish to see a modern panel with an even bigger size and stronger curvature. Probably I need to wait for 8K to become dominant :(.
+I'd like to see a modern panel with an even bigger size and a stronger curvature. I probably need to wait for 8K to become dominant :(.

@@ -1,23 +1,21 @@
 ---
 layout: post
 section-type: post
-title: No DualOS with Intel Optane
-category: os
+title: No dual boot with Intel Optane
+category: hardware
+permalink: /os/2018/09/10/no-optane-with-dual-os.html
 tags: [ 'hardware', 'linux', 'intel' ]
 ---
+Intel Optane is a great caching solution for HDDs. It gives you fast (almost like a SATA SSD) and huge disk space, with a much longer lifespan than SSDs have. In some stores it's sold in a cheap bundle with a CPU and/or a motherboard.
 
-Intel Optane is a great caching solution for HDDs. It lets you have a fast (almost like SATA SSD) and huge disk space with much longer lifespan than SSDs have. In some stores, it is sold in a cheap package with CPU or/and motherboard.
+## But it works only on Windows
+No dual-OS booting! It's just not supported, not even with completely separate drives!
 
-# BUT! it works only on Windows
-No Dual-OS booting! It's just not supported. Not even on completely separate drives!
+## Workaround
+For a long time I used Optane with two drives and two OSes. To switch the OS, I always had to change an additional BIOS setting and reboot to be able to choose the second drive. An alternative bootloader on one drive probably won't work for very long.
 
-# Walkaround 
-For a long time, I've used Optane with two drives and two OSs. To change the OS I always needed to change an additional setting in the BIOS and reboot to be able to choose the second drive. Probably the alternative bootloader won't work on one drive for very long.
+You have been warned.
 
-You were warned.
+Still, for a heavy-duty server Optane might be a good solution, since it doesn't wear out.
 
-Still, for a heavy-duty server, Optane might be still a good solution since the Optane won't wear off. 
-
-PS: AMD has it's caching system working with Linux since the Ryzen 2 release.
-
-![Optane explanation by an image](https://techreport.com/r.x/2017_03_27_Intel_Optane_Memory_promises_the_best_of_hard_drives_and_SSDs/FAQ.png)
+PS: AMD has had its caching system working with Linux since the Ryzen 2 release.
