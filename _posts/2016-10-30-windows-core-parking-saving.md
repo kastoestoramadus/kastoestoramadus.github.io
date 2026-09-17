@@ -7,39 +7,38 @@ tags: [ 'windows', 'core-parking' ]
 ---
 
 ## Who can benefit from this article
-If you have a multi-core x86 CPU (most Intel and AMD CPUs), Windows 7 or newer, and you are not happy with your battery life, this may interest you.
+You have a multi-core x86 CPU (most Intel and AMD CPUs), Windows 7 or newer, and you are not happy with your battery life.
 
-With the solution described below I got 60% battery savings without losing any responsiveness. The article is written for power users.
+With the settings below I got 60% battery savings without losing any responsiveness. The article is written for power users.
 
-## Short battery life - the problem
+## Why the battery drains so fast
 What you need to know:
-* x86 CPUs spread work equally across cores, and each core runs at the same frequency.
-* Being responsive means having a core ready to work at the highest frequency. Even if your workload isn't constantly full, the CPU keeps a lot of spare processing power just in case of a single, short but intensive demand. That gives you the speedy feeling.
+* x86 CPUs spread work evenly across cores, and all cores run at the same frequency.
+* Responsiveness means having a core ready to work at the highest frequency. Even when the workload is light, the CPU keeps a lot of spare power in case a short, intensive task comes. That's what makes the machine feel fast.
 * By default, all cores are active all the time.
 
-As a result, battery power is wasted. To avoid that, a few mechanisms were introduced:
-1. Core parking - turn cores off at low CPU usage and turn them back on when there is more constant work.
-2. Frequency scaling policies - keep the frequency as low as possible while keeping the responsive feel. There is no ultimate optimum: some policies give you more "instant power", others save more battery.
-3. Permanently switching cores or CPUs off - done at the BIOS or OS level.
+As a result, battery power is wasted. There are three mechanisms against it:
+1. Core parking - switch cores off when CPU usage is low and back on when the load stays high.
+2. Frequency scaling policies - keep the frequency as low as possible without losing responsiveness. There is no universal optimum: some policies give you more "instant power", others save more battery.
+3. Switching cores or CPUs off permanently - in the BIOS or in the OS.
 
-Ad. 3) It didn't work for me at all, I think it's a bug. Context: ThinkPad W540, Windows 10.
+**Switching cores off** didn't work for me at all, I think it's a bug (ThinkPad W540, Windows 10).
 
-Ad. 2) Gives a nice area to tune your CPU. The downside: it doesn't turn off unused cores. You can still have a big single-threaded demand during which all cores except one do nothing and consume a lot of power.
+**Frequency scaling** gives you a lot to tune, but it doesn't switch unused cores off. During a big single-threaded task all cores but one do nothing and still consume a lot of power.
 
-Ad. 1) In theory the best solution for this problem. It got a very bad reputation after the premiere of Windows 7: it was too aggressive and people reported lower performance at unwanted moments. That's why it is disabled by default. Below I show how to use it for everyday use cases. If you have an Intel CPU with the Skylake (or newer) architecture, you should not use my solution, because there is a better one for you.
+**Core parking** is, in theory, the best solution. It got a bad reputation after the premiere of Windows 7: it was too aggressive and people reported slowdowns at the worst moments. That's why it is disabled by default. Below I show how to set it up for everyday use. If you have an Intel Skylake (or newer) CPU, skip my solution - there is a better one for you.
 
-Different settings will be attached to three different Windows power plans:
+## Core parking settings
+Each Windows power plan gets different settings:
 1. Power saver - big savings, big sacrifices
 2. Balanced - the default and recommended plan
 3. High performance - no sacrifices, no savings
 
-We will unhide the advanced settings and click through the right values in the power plan settings.
+Core parking has many parameters, but two are enough:
+* *Processor performance core parking min cores* - how many cores are never parked,
+* *Processor performance core parking max cores* - how many cores can be active at most. It works well as a replacement for switching cores off.
 
-For core parking we mainly need two parameters:
-* how many cores won't be parked - Windows name: *Processor performance core parking min cores*,
-* how many cores can be active at most - Windows name: *Processor performance core parking max cores*. This setting simulates a core-disabling feature well.
-
-Core parking parameters, a full list with registry keys:
+All core parking parameters with their GUIDs:
 ```plaintext
 0cc5b647-c1df-4637-891a-dec35c318583	Processor performance core parking min cores
 1299023c-bc28-4f0a-81ec-d3295a8d815d	Processor performance core parking over utilization history decrease factor
@@ -59,25 +58,22 @@ dfd10d17-d5eb-45dd-877a-9a34ddd15c82	Processor performance core parking decrease
 e70867f1-fa2f-4f4e-aea1-4d8a0ba23b20	Processor performance core parking affinity weighting
 ea062031-0e34-4ff1-9b6d-eb1059334028	Processor performance core parking max cores
 ```
-To unhide these two parameters, run:
+Both are hidden. To show them in the advanced power plan settings, run:
 ```plaintext
 powercfg -attributes SUB_PROCESSOR 0cc5b647-c1df-4637-891a-dec35c318583 -ATTRIB_HIDE
 powercfg -attributes SUB_PROCESSOR ea062031-0e34-4ff1-9b6d-eb1059334028 -ATTRIB_HIDE
 ```
-Settings per power plan for battery mode, using the Windows names (in percent; with my 4-core CPU one physical core is 25%):
-* Power saver - min cores: 25%, max cores: 25%. Use it when you need the biggest battery savings.
-* Balanced - min cores: 25%, max cores: 50%. This should be your default power plan.
-* High performance - min cores: 100%, max cores: 0%. Use it to quickly bypass the core parking savings.
+Then set them for battery mode in each plan (in percent; on my 4-core CPU one physical core is 25%):
+* Power saver - min cores: 25%, max cores: 25%. For the biggest battery savings.
+* Balanced - min cores: 25%, max cores: 50%. This should be your default plan.
+* High performance - min cores: 100%, max cores: 0%. A quick way to bypass core parking.
 
 ![Windows Power Options dialog with the core parking min cores setting](https://bitsum.com/images/parking_in_power_profile_settings.png){:class="img-responsive"}
 
-Be aware that there are more flexible core parking settings, but I didn't have time to explore them. It should be possible to have all cores at hand, enable them under a heavy workload and disable them the rest of the time. That would be the best solution.
+There are more flexible core parking settings I haven't had time to explore. It should be possible to keep all cores at hand: wake them up under a heavy workload and park them the rest of the time. That would be the best solution.
 
 ## FYI
-
-For the power saver plan I also changed the scaling policy from rocket to ideal. It changes the frequency much faster. In our case, with only one active core, this is a good idea (the default is very conservative). You get responsiveness at low workloads (which is most of the time, apart from gaming and some development tasks) for a minimal price.
-
-The main problem doesn't apply to smartphones with the ARM big.LITTLE architecture, since it allows uneven task distribution.
+In the power saver plan I also changed the scaling policy from rocket to ideal. It raises the frequency much faster, which is a good idea when only one core is active (the default is very conservative). You get responsiveness at low workloads - that is most of the time, apart from gaming and some development tasks - for a minimal price.
 
 To unhide the scaling policy settings (play with caution):
 ```plaintext
@@ -94,3 +90,5 @@ powercfg -attributes SUB_PROCESSOR 3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb -ATTRIB_
 powercfg -attributes SUB_PROCESSOR bc5038f7-23e0-4960-96da-33abaf5935ec -ATTRIB_HIDE
 powercfg -attributes SUB_PROCESSOR 893dee8e-2bef-41e0-89c6-b55d0929964c -ATTRIB_HIDE
 ```
+
+Smartphones with ARM big.LITTLE CPUs don't have this problem: they can spread tasks unevenly between big and small cores.
