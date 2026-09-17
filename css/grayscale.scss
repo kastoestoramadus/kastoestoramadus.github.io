@@ -259,6 +259,10 @@ a {
       padding: 0;
       > code {
         text-align: left;
+        /* Scroll long lines instead of breaking them mid-word (Bootstrap 3 wraps code blocks) */
+        white-space: pre;
+        word-break: normal;
+        overflow-wrap: normal;
       }
     }
     img.emoji {
@@ -274,6 +278,17 @@ a {
             border: 0px;
             margin-bottom: 20px;
             padding: 4px;
+        }
+        /* Long inline code (e.g. -Dsome.long=property) must not widen the page on phones */
+        p code,
+        li code {
+            overflow-wrap: break-word;
+        }
+        /* Tables: {: .table} in <div class="table-responsive" markdown="1">, {: .table-winner} highlights the first data column */
+        table.table-winner tr > :nth-child(2) {
+            color: $secondary-color;
+            font-weight: bold;
+            background-color: rgba(0, 205, 255, .1);
         }
     }
 }

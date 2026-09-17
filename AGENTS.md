@@ -44,7 +44,7 @@ History that matters:
 | `_layouts/`, `_includes/` | Theme templates (`index` = one-page home built from `about/latest-post/timeline/contact.html`) |
 | `_includes/head.html`, `_includes/js.html`, `_includes/syntax-highlight.html` | All CDN assets (pinned versions + SRI) |
 | `css/*.scss`, `_sass/` | Styles (Dart Sass via jekyll-sass-converter 3) |
-| `js/` | Vendored jQuery plugins: typed.js v1 (jQuery API), rrssb, hammer |
+| `js/` | Vendored jQuery plugins: typed.js v1 (jQuery API), rrssb, hammer; `highlight-hocon.js` (own HOCON grammar for highlight.js) |
 | `tags/<tag>.html`, `categories/<cat>.html` | Stub pages, one per tag/category; **must exist** or links 404 |
 | `blog/index.html` | Paginated archive (jekyll-paginate v1, 9 per page) |
 | `img/` | Images referenced from posts |
@@ -73,8 +73,13 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Code blocks: fenced with a language (` ```scala `, ` ```bash `). Rouge is disabled in `_config.yml`; highlight.js 11
   highlights client-side on post pages. The cdnjs core bundle has only common languages — Scala is loaded as an extra
   module in `_includes/js.html`; add other missing ones the same way (`languages/<lang>.min.js` + SRI).
-  highlight.js has no HOCON grammar: ` ```hocon ` / ` ```conf ` are registered as aliases of `ini` in `_includes/js.html`.
+  highlight.js has no HOCON grammar: our `js/highlight-hocon.js` registers ` ```hocon ` / ` ```conf ` (loaded in
+  `_includes/js.html` before `hljs.highlightAll()`). Code blocks scroll horizontally instead of wrapping (`css/grayscale.scss`).
   ` ```shell ` means an interactive session (lines starting with `$`); plain commands should use ` ```bash `.
+- Tables in posts: kramdown table with `{: .table}` inside `<div class="table-responsive" markdown="1">` (on phones the
+  table scrolls, not the page); `{: .table-winner}` highlights the first data column.
+- Technical claims and code samples are run for real before publishing (scala-cli + JDK work locally) and outputs are
+  pasted verbatim. Backdated posts must not mention anything newer than their date (e.g. library versions).
 - Images in posts: `![alt](/img/file.png)` with a meaningful alt text; site-relative URLs (site `baseurl` is empty).
 - Keep the theme's look: this is a conservative fork, not the rewritten upstream theme (v10+). Migrating to
   upstream was attempted once and abandoned.
@@ -105,6 +110,8 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Sass prints deprecation warnings for `darken()` / global built-ins in `css/grayscale.scss`; harmless until Dart Sass 3.
 - The owner develops in WSL2 (default NAT networking). `./scripts/serve` binds 127.0.0.1:4000 inside WSL and is reachable
   from the Windows browser at the same URL thanks to WSL localhost forwarding — no 0.0.0.0 / port proxy needed.
+- On a 390px phone viewport every post is ~15px wider than the screen because of the rrssb share buttons (pre-existing);
+  compare `scrollWidth` against master rather than expecting 390.
 - `_includes/force-https.html` redirects to https unless the host starts with `127.0.0.1` — for local/browser tests
   serve on `127.0.0.1`, not `localhost`. Disqus comment counts only load on blog.ww86.eu, so "N COMMENTS" shows as
   "COMMENTS" locally (shifts text in screenshots).
