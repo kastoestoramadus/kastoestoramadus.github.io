@@ -24,13 +24,16 @@ Agents cannot push to `master`: work on a branch and open a PR (`gh pr create -R
 fork of PanosSakkos/personal-jekyll-theme, without `-R` gh targets the upstream theme).
 
 History that matters:
-- Until Jan 2020 Travis CI (`.travis.yml`, travis-ci.org, now defunct) pushed the *source tree* to the
-  github.io repo and GitHub Pages' own Jekyll 3 build rendered it.
-- Dec 2020 – Jan 2023 posts were added directly in the github.io repo via the GitHub web editor.
+- Until Jan 2020 Travis CI (`.travis.yml`, travis-ci.org, now defunct) pushed the *source tree* to the old
+  Pages repo (now `kastoestoramadus.github.io-legacy`) and GitHub Pages' own Jekyll 3 build rendered it.
+- Dec 2020 – Jan 2023 posts were added directly in that old Pages repo via the GitHub web editor.
   They were synced back here on 2026-09-15 (3 posts, `img/breath.png`, tag pages, `CNAME`).
-- Sept 2026: the owner rejected a deploy key; publishing moved to GitHub Pages of the source repo via
-  `actions/deploy-pages`, so the custom domain must be configured on this repo, not on the old github.io repo.
-- This repo also has an old `gh-pages` branch with Pages enabled (blog.ww86.eu/dev-blog-env/) — legacy, unused.
+- Sept 2026: the owner rejected a deploy key. To publish without secrets the repos were renamed: this source repo
+  (formerly `dev-blog-env`, a fork of the theme) became `kastoestoramadus.github.io` — the user site with the custom
+  domain blog.ww86.eu, published by `actions/deploy-pages` — and the old Pages repo became
+  `kastoestoramadus.github.io-legacy` (Pages disabled, archived). `site.url` https://kastoestoramadus.github.io keeps
+  redirecting to blog.ww86.eu because the user site owns the custom domain.
+- This repo still has an old `gh-pages` branch from the theme — unused, Pages is built by the workflow.
 
 ## Layout
 
