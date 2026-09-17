@@ -68,6 +68,7 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Code blocks: fenced with a language (` ```scala `, ` ```bash `). Rouge is disabled in `_config.yml`; highlight.js 11
   highlights client-side on post pages. The cdnjs core bundle has only common languages — Scala is loaded as an extra
   module in `_includes/js.html`; add other missing ones the same way (`languages/<lang>.min.js` + SRI).
+  highlight.js has no HOCON grammar: ` ```hocon ` / ` ```conf ` are registered as aliases of `ini` in `_includes/js.html`.
   ` ```shell ` means an interactive session (lines starting with `$`); plain commands should use ` ```bash `.
 - Images in posts: `![alt](/img/file.png)`; site-relative URLs (site `baseurl` is empty).
 - Keep the theme's look: this is a conservative fork, not the rewritten upstream theme (v10+). Migrating to

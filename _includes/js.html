@@ -42,7 +42,11 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <!-- Scala is not part of the common highlight.js bundle -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>hljs.highlightAll();</script>
+  <script>
+    // highlight.js has no HOCON grammar, INI is the closest one
+    hljs.registerAliases(['hocon', 'conf'], { languageName: 'ini' });
+    hljs.highlightAll();
+  </script>
 
 {% endif %}
 
