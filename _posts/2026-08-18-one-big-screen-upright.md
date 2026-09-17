@@ -1,16 +1,18 @@
 ---
 layout: post
 section-type: post
-title: One big screen, turned upright
+title: Two screens never add up to one
 category: hardware
 tags: [ 'hardware', 'second-screen', 'productivity' ]
 ---
-Four years ago I wrote that my 40-inch 16:9 Philips has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. That was the compromise talking: 16:9 is the only shape that does both jobs, and at 4K it is finally tall enough to be worth turning. It is still the only screen on my desk, it now hangs on an arm, and it spends most of its life rotated by 90 degrees. Here is why I stopped wanting a second screen, and why the big one stands upright.
+Two 27-inch monitors have less panel and fewer pixels than one 40-inch monitor, plus a seam down the middle that nobody can move. The standard two-screen desk is not more screen. It is less screen, cut in half.
 
-## One surface is a superset of many
-A big screen can pretend to be any number of small ones. [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager or two maximised halves will cut it into whatever layout the task needs - three columns for a review, a tall editor over a wide log for debugging, one window for writing - and the layout changes in a second.
+That half of the argument is just arithmetic, and it is in the table below. The half people raise an eyebrow at is that mine stands up - a 40-inch 16:9 on an arm, rotated by 90 degrees, which is how it spends most of its life. Four years ago I wrote that this screen has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. That was the compromise talking: 16:9 is the only shape that does both jobs, and at 4K it is finally tall enough to be worth turning.
 
-Small screens cannot do the reverse. Two 27-inch monitors never become one 40-inch one: the seam in the middle is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
+## A big screen is divisible, small ones are not addable
+A big screen can pretend to be any number of small ones - [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager, or two maximised halves - and the split changes in a second to suit the task. Small screens cannot do the reverse. Two 27-inch monitors never become one 40-inch one: the seam is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
+
+That asymmetry is the whole argument. One surface divides any way you like; several surfaces never add up.
 
 <div style="margin: 1.5em 0;">
 <svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Left: one screen split into three zones by dashed lines. Right: two screens with a fixed bezel seam and a window that cannot cross it.">
@@ -30,12 +32,14 @@ Small screens cannot do the reverse. Two 27-inch monitors never become one 40-in
 </svg>
 </div>
 
-Graphics cards went through the same story. Two mid-range cards never rendered one scene as well as a single strong one, and Nvidia [stopped writing SLI profiles](https://www.pcworld.com/article/393426/rip-nvidia-slams-the-final-nail-in-slis-coffin-no-new-profiles-after-2020.html) after 2020. The reasons were different - frame pacing and driver support rather than plastic bezels - but the shape of the problem is identical: the big unit does the small one's job, never the other way round. One strong GPU happily drives several screens; no number of weak ones adds up to one strong one.
+Graphics cards taught the same lesson. Two mid-range cards never rendered one scene as well as a single strong one, and Nvidia [stopped writing SLI profiles](https://www.pcworld.com/article/393426/rip-nvidia-slams-the-final-nail-in-slis-coffin-no-new-profiles-after-2020.html) after 2020. Different reasons - frame pacing rather than plastic bezels - identical shape: one strong card drives several screens, and no number of weak ones makes a strong one.
 
-## The web is a column
-Google finished moving to [mobile-first indexing](https://developers.google.com/search/blog/2023/10/mobile-first-is-here) in 2023, so the layout that survives on the web is a narrow column that scrolls downwards. Horizontal scrolling is a bug, not a feature. Everything else I look at all day has the same shape: source files, unified diffs, logs, terminals, chats, pull requests, documentation. Content lives vertically; width is mostly margin.
+## Not work against play, but column against grid
+The web is a column. [Mobile-first indexing](https://developers.google.com/search/blog/2023/10/mobile-first-is-here) finished the job in 2023, and horizontal scrolling is a bug. Source files, unified diffs, logs, terminals, chats, pull requests, documentation: same shape. Content lives vertically, and width is mostly margin.
 
-Upright, my 4K panel is 2160 x 3840. Divide the height by a typical 19-pixel line and that is around 200 lines of code in one editor, against about 110 in landscape. A 400-line review becomes two screenfuls instead of four.
+It is tempting to call wide screens the entertainment shape and leave it there, but that is not the line. Cinema and games are wide - and so are spreadsheets, side-by-side diffs and video timelines, which are work by anyone's definition. The split is between columns and grids, and columns are what most of us stare at all day. (Entertainment only stayed wide on the desk anyway; on a phone it went vertical years ago.)
+
+Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a typical 19-pixel line, against about 110 in landscape. A 400-line review becomes two screenfuls instead of four.
 
 <div style="margin: 1.5em 0;">
 <svg viewBox="0 0 620 270" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="A landscape screen showing a narrow content column with wide empty margins, next to an upright screen where the same column fills most of the width and shows about twice as many lines.">
@@ -69,7 +73,7 @@ Upright, my 4K panel is 2160 x 3840. Divide the height by a typical 19-pixel lin
 </svg>
 </div>
 
-The honest caveat: an upright screen does not fill itself either. A page whose container stops at 1200 pixels still leaves 900 unused next to it. The height comes for free, the width only pays off when you tile - documentation beside the editor, the app beside devtools. Upright is not magic, it just moves the empty space to where a second window fits.
+The honest caveat: upright does not fill itself either. A page whose container stops at 1200 pixels leaves 900 unused beside it. Height comes for free; width only pays off when you tile - documentation beside the editor, the app beside devtools. Upright just moves the empty space to where a second window fits.
 
 ## Geometry, not marketing
 My screen is a curved 40-inch 16:9, so 88.6 x 49.8 cm of panel. Against the two dual setups people usually compare it with:
@@ -107,28 +111,28 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
 </svg>
 </div>
 
-## What it costs
-Upright, the panel is 88.6 cm tall. At 70 cm from my eyes that spans about 65 degrees vertically, while [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants the centre of a screen 15-20 degrees below eye level and the top at or below it. By the letter of that rule, a 40-inch screen standing up is simply wrong.
+## Eye level is a rule about staring, not about height
+Upright the panel is 88.6 cm tall, about 65 degrees of vertical field from 70 cm away, where [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants the centre 15-20 degrees below eye level and the top at or below it. By the letter of that rule, a screen this tall is simply wrong.
 
-The rule is quoted far more often than it is explained, so it is worth knowing what it is made of. Two mechanisms, both real and both measured. The resting posture of the eyes is [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/) and drops further the closer the target is, so downward gaze is the cheap one to hold. And looking up opens the eyelids wider: Tsubota and Nakamori [measured](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007) an exposed eye surface of 1.2 cm² in downgaze, 2.2 cm² looking straight ahead and 3.0 cm² looking up, with tear evaporation rising 3.4-fold across that range. Blinking drops from roughly 22 times a minute at rest to 7 in front of a screen, and there is your gritty eye at 5 pm.
+The rule is quoted far more often than it is explained. It rests on two measured things: the resting posture of the eyes is [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/), and looking up opens the lids wider - Tsubota and Nakamori [measured](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007) 1.2 cm² of exposed eye in downgaze against 3.0 cm² in upgaze, with tear evaporation 3.4 times higher. Blinking drops from about 22 a minute to 7 in front of a screen.
 
-Notice what that does and does not say. It is an argument about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. It is a comfort optimum averaged over a working day rather than a health limit, and how much of it you feel varies wildly between people - the reported prevalence of dry eye among screen workers runs from 9.5% to 87.5%, a spread that says more about questionnaires than about eyes.
+Both mechanisms are about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. This is a comfort optimum averaged over a working day, not a health limit - and the reported prevalence of dry eye among screen workers, anywhere from 9.5% to 87.5%, says more about questionnaires than about eyes.
 
-So I do not treat the screen as one workspace, and then the height costs nothing. The band at eye level is where the editor lives; the top third is a shelf - a running build, a log, a browser I glance at, never something I read for an hour. If you want every row to be working space instead, about 32 inches (70.8 cm tall) is where that stops being possible. Two more things worth checking on your own panel before you commit: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it, so any gamma shift moves to the top and bottom edges.
+So the height costs nothing as long as nobody reads up there. The band at eye level is where the editor lives; the top third is a shelf for a running build, a log, a browser I glance at. If you want every row to be working space instead, about 32 inches (70.8 cm tall) is where that stops being possible. Two things to check on your own panel first: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it.
 
-Landscape still wins for spreadsheets and wide tables, side-by-side diffs, video and audio timelines, films and games - the NEC/Utah study below found exactly that, its widescreen advantage evaporating on spreadsheet tasks. And the one honest argument for a real second screen: on a video call, a single screen means the meeting covers the work you are talking about.
+The one honest argument for a real second screen is narrower than it looks: on a video call, a single screen means the meeting covers the work you are talking about.
 
 ## Fewer screens, fewer invitations
-The "multiple monitors make you 42% more productive" figure comes from vendor-sponsored work, and Coding Horror [picked it apart](https://blog.codinghorror.com/does-more-than-one-monitor-improve-productivity/) long ago. The less enthusiastic results are more useful:
+The "42% more productive with multiple monitors" figure is vendor-sponsored, and Coding Horror [picked it apart](https://blog.codinghorror.com/does-more-than-one-monitor-improve-productivity/) years ago. The quieter results are the useful ones:
 
-- [The NEC/University of Utah study](https://www.sharpnecdisplays.us/about/press-release/increasing-monitor-size-translates-to-higher-worke/316): a single 24-inch widescreen beat two 20-inch screens by 6% on text editing - and lost that lead on spreadsheets.
-- [Colvin et al.](https://link.springer.com/chapter/10.1007/978-3-642-21669-5_11): no significant difference in completion time between one and two monitors, only fewer clicks and window switches.
-- [Hutchings et al.](https://dl.acm.org/doi/10.1145/989863.989867): more screen space raises the overhead of window management, sometimes to counterproductive levels.
-- [A 2021 survey of developers working from home](https://arxiv.org/abs/2103.13198): the strongest influence on perceived productivity was not the physical setup at all, but interruptions.
+- [NEC/University of Utah](https://www.sharpnecdisplays.us/about/press-release/increasing-monitor-size-translates-to-higher-worke/316): one 24-inch widescreen beat two 20-inch screens by 6% on text editing - and lost that lead on spreadsheets, exactly along the column-grid line.
+- [Colvin et al.](https://link.springer.com/chapter/10.1007/978-3-642-21669-5_11): no significant difference in completion time between one and two monitors.
+- [Hutchings et al.](https://dl.acm.org/doi/10.1145/989863.989867): more screen space raises window-management overhead, sometimes to counterproductive levels.
+- [A 2021 survey of developers at home](https://arxiv.org/abs/2103.13198): the strongest influence on perceived productivity was not the setup, but interruptions.
 
-So no percentages from me. What one surface buys is simpler than a number: there is no spare screen to park a chat window on. Anything that wants my attention has to take space away from what I am working on, which makes it my decision rather than the desk's.
+So no percentages from me, just a distinction. A second screen is not extra space, it is a standing invitation: somewhere to park a chat window where it costs nothing. On one surface everything that wants my attention has to take it from what I am working on, which makes it my decision rather than the desk's.
 
 ## How it sits on the desk
-A VESA arm behind the screen, the original stand gone, the monitor floating above an empty desk. Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
+A VESA arm behind the screen, the original stand gone, the desk underneath it free again. Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
 
 The successor I asked for in 2022 still does not exist, and turning the old screen on its side turned out to be the upgrade I could have had back then. It does not make me want less panel, though. Upright, 4K is enough, not plenty: a taller one would show more of the column, and the only part of it that has to behave itself is the band at eye level.
