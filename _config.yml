@@ -96,7 +96,7 @@ fb-share: True
 twitter-share: True
 linkedin-share: True
 reddit-share: True
-google-plus-share: True
+google-plus-share: False # Google+ was shut down in 2019
 tumblr-share: True
 pinterest-share: True
 pocket-share: True
@@ -179,7 +179,8 @@ pages_list:
 
 # Exclusion list from the generated _site
 
-exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
+exclude: ["LICENSE", "README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts",
+          "Gemfile", "Gemfile.lock", "vendor", "node_modules", ".bundle", ".jekyll-cache"]
 
 # Pagination path
 
@@ -189,7 +190,15 @@ paginate_path: "blog/page:num/"
 
 sass:
   style: compressed
+  sourcemap: never
 
-gems:
+# Code blocks are highlighted client-side by highlight.js (see _includes/js.html),
+# so kramdown emits plain <pre><code class="language-xxx"> without Rouge markup
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+plugins:
   - jekyll-paginate
   - jemoji

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-gem install jekyll jekyll-paginate jemoji html-proofer
+# Installs the gems pinned in Gemfile.lock into vendor/bundle (requires Ruby >= 3.2)
+bundle config set --local path vendor/bundle
+bundle install

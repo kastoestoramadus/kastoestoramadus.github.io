@@ -1,0 +1,54 @@
+name: Build & deploy blog
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: blog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JEKYLL_ENV: production
+      HAS_DEPLOY_KEY: ${{ secrets.PAGES_DEPLOY_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+
+      - name: Generate missing tag and category pages
+        run: |
+          ./scripts/generate-categories
+          ./scripts/generate-tags
+
+      - name: Build
+        run: bundle exec jekyll build
+
+      - name: Check links and HTML
+        run: bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
+
+      # Publishes the built _site to the repo that serves https://blog.ww86.eu
+      - name: Deploy to kastoestoramadus.github.io
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && env.HAS_DEPLOY_KEY == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          external_repository: kastoestoramadus/kastoestoramadus.github.io
+          publish_branch: master
+          publish_dir: ./_site
+          cname: blog.ww86.eu
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          full_commit_message: Deploy ${{ github.sha }} from ${{ github.repository }}
+
+      - name: Deploy skipped
+        if: github.event_name != 'pull_request' && env.HAS_DEPLOY_KEY != 'true'
+        run: echo "::notice::Deploy skipped - add the PAGES_DEPLOY_KEY secret to publish to blog.ww86.eu"
