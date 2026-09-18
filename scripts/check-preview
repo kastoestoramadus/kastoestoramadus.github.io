@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+# Guards a PR preview build (JEKYLL_ENV=preview jekyll build --baseurl /preview/pr-N --destination _preview):
+#   1. every site-relative link stays below the baseurl (html-proofer cannot tell: it resolves /img/x.png against
+#      the build root, where it exists, while on the real site it would silently hit the production copy or a 404)
+#   2. every page with a <head> is noindex
+#   3. nothing talks to Disqus or Google Analytics (their thread ids derive from the page URL: junk threads)
+# usage: ./scripts/check-preview <site-dir> <baseurl>       e.g. ./scripts/check-preview _preview /preview/pr-9
+
+require 'bundler/setup'
+require 'nokogiri'
+
+dir, baseurl = ARGV
+abort "usage: #{$PROGRAM_NAME} <site-dir> <baseurl>" if dir.nil? || baseurl.nil? || !baseurl.start_with?('/')
+
+URL_ATTRS = %w[href src poster action].freeze
+problems = []
+
+Dir.glob("#{dir}/**/*.html").sort.each do |file|
+  page = file.delete_prefix("#{dir}/")
+  html = File.read(file)
+  doc = Nokogiri::HTML(html)
+
+  urls = doc.xpath('//*').flat_map do |el|
+    from_attrs = URL_ATTRS.filter_map { |a| el[a] }
+    from_srcset = el['srcset'].to_s.split(',').map { |candidate| candidate.strip.split.first }
+    [*from_attrs, *from_srcset, el['http-equiv'].to_s.casecmp?('refresh') ? el['content'].to_s[/url=(.*)/i, 1] : nil]
+  end
+  urls.compact.each do |url|
+    next unless url.start_with?('/') && !url.start_with?('//')
+    next if url == baseurl || url.start_with?("#{baseurl}/")
+
+    problems << "#{page}: site-relative link outside #{baseurl}: #{url}"
+  end
+
+  if doc.at_xpath('//head') && !doc.at_xpath("//meta[@name='robots'][contains(@content, 'noindex')]")
+    problems << "#{page}: has a <head> but no <meta name=\"robots\" content=\"noindex\">"
+  end
+  problems << "#{page}: refers to Disqus or Google Analytics" if html.match?(/disqus\.com|google-analytics\.com/)
+end
+
+if problems.empty?
+  puts "OK: #{Dir.glob("#{dir}/**/*.html").size} pages, all links below #{baseurl}, noindex, no Disqus/GA"
+else
+  puts problems.uniq
+  abort "#{problems.uniq.size} problem(s) in the preview build"
+end

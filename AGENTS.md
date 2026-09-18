@@ -13,15 +13,59 @@ Content language: English. No application code, no test suite beyond the build a
 
 ```
 this repo, branch master (ruleset "Protect master": PR required, `build` check must pass, no direct/force push)
-  └─ GitHub Actions .github/workflows/deploy.yml
-       job build: generate tag/category pages → jekyll build (JEKYLL_ENV=production) → htmlproofer
-                  → on master only: actions/upload-pages-artifact
-       job deploy (master only): actions/deploy-pages with GITHUB_TOKEN — no secrets, no deploy keys
-          → GitHub Pages of this repo (build type "workflow"), custom domain blog.ww86.eu
+  ├─ .github/workflows/deploy.yml
+  │    job build    (the required check; read-only token, this is where all the PR's code runs)
+  │                 generate tag/category pages → jekyll build (JEKYLL_ENV=production) → htmlproofer
+  │                 PRs also: jekyll build --baseurl /preview/pr-N (JEKYLL_ENV=preview) → check-preview + htmlproofer
+  │                 → upload-artifact `site` (master) / `preview` (PRs)
+  │    job publish  (master only, contents: write)         scripts/publish-pages site       → root of gh-pages
+  │    job preview  (PRs from this repo, contents: write)  scripts/publish-pages preview N  → gh-pages preview/pr-N/
+  └─ .github/workflows/preview-cleanup.yml (PR closed)     scripts/publish-pages remove N   → deletes preview/pr-N/
+       → branch gh-pages: built HTML only, plus `.nojekyll` and `CNAME`
+          → GitHub Pages, "deploy from a branch" (gh-pages, /), custom domain blog.ww86.eu
+             → https://blog.ww86.eu/                  production
+             → https://blog.ww86.eu/preview/pr-<N>/  one preview per open PR
 ```
 
 Agents cannot push to `master`: work on a branch and open a PR (`gh pr create -R <owner>/<repo>` — this repo is a
-fork of PanosSakkos/personal-jekyll-theme, without `-R` gh targets the upstream theme).
+fork of PanosSakkos/personal-jekyll-theme, without `-R` gh targets the upstream theme). `gh pr edit` fails on this repo
+(Projects classic deprecation error): use `gh api -X PATCH repos/<owner>/<repo>/pulls/<N> -f title=...`. The PR's
+`.head.sha` lags a push by up to a minute: poll until it equals the local HEAD before merging, or the squash merge
+silently drops the newest commit.
+
+Rules of the pipeline:
+- Only `GITHUB_TOKEN`: no secrets, no deploy keys (the owner rejected one), never `pull_request_target` (it runs
+  untrusted code with a write token). `contents: write` sits on the jobs `publish`, `preview` and `cleanup` only, never
+  at workflow level. The job `build` and the plain `pull_request` trigger of `deploy.yml` are what the ruleset requires:
+  do not rename or change them (that is why the cleanup on close is a separate workflow).
+- Previews exist only for PRs from this repo, not for forks and not for Dependabot: their token is read-only. A preview
+  is live about a minute after the job (Pages has to build the branch) and disappears when the PR is closed.
+- A preview is the same site with another baseurl, and `JEKYLL_ENV=preview` instead of `production`. Everything that
+  must not happen there is gated on `production`: no Disqus (its thread ids come from the page URL, previews would
+  create junk threads), no Google Analytics, no force-https (Pages enforces https anyway). Previews carry
+  `<meta name="robots" content="noindex, nofollow">` and `robots.txt` (on master) disallows `/preview/`.
+  `_plugins/prefix-site-relative-urls.rb` prefixes the links that ignore baseurl (post images, the RSS icon) — without it
+  a preview shows production's images, or broken ones for images that only exist in the PR. `scripts/check-preview`
+  fails the build on a link outside the baseurl, a page without noindex, or a trace of Disqus/GA; html-proofer cannot
+  see the first one (it resolves `/img/x.png` against the build root, where it exists).
+- `gh-pages` is written by the workflows only, never by hand. It is an orphan branch of built output; a master publish
+  replaces everything in the root except `preview/`, a preview publish touches only its `preview/pr-N/`.
+  `CNAME` and `.nojekyll` must be in the root: `publish-pages` refuses a site without `CNAME` (the custom domain would
+  drop) and re-creates `.nojekyll`. Recreating it from scratch (drops all previews, open PRs get theirs back on their
+  next push):
+  ```bash
+  JEKYLL_ENV=production bundle exec jekyll build
+  tmp=$(mktemp -d) && cp -a _site/. "$tmp" && touch "$tmp/.nojekyll" && cd "$tmp"
+  git init -q -b gh-pages && git add -A && git commit -qm "Recreate gh-pages" \
+    && git remote add origin git@github.com:kastoestoramadus/kastoestoramadus.github.io.git \
+    && git push --force origin gh-pages
+  ```
+- Concurrency: each publishing job has its own group per target (`pages-publish-master`, `pages-preview-pr-N`; the
+  cleanup workflow shares the group of its PR). Not one shared group: a group holds one running and one *pending* job,
+  and a newer pending job cancels the older one, so a preview publish could silently cancel a queued master publish.
+  Races between groups are settled by the fetch-rebase-retry in `scripts/publish-pages`, which cannot conflict because
+  the jobs touch disjoint paths. `scripts/test-publish-pages` tests the script against a throwaway bare repo, including
+  a forced push race; CI runs it in `build`, because the script only runs for real after the merge.
 
 History that matters:
 - Until Jan 2020 Travis CI (`.travis.yml`, travis-ci.org, now defunct) pushed the *source tree* to the old
@@ -30,10 +74,12 @@ History that matters:
   They were synced back here on 2026-09-15 (3 posts, `img/breath.png`, tag pages, `CNAME`).
 - Sept 2026: the owner rejected a deploy key. To publish without secrets the repos were renamed: this source repo
   (formerly `dev-blog-env`, a fork of the theme) became `kastoestoramadus.github.io` — the user site with the custom
-  domain blog.ww86.eu, published by `actions/deploy-pages` — and the old Pages repo became
-  `kastoestoramadus.github.io-legacy` (Pages disabled, archived). `site.url` https://kastoestoramadus.github.io keeps
-  redirecting to blog.ww86.eu because the user site owns the custom domain.
-- This repo still has an old `gh-pages` branch from the theme — unused, Pages is built by the workflow.
+  domain blog.ww86.eu — and the old Pages repo became `kastoestoramadus.github.io-legacy` (Pages disabled, archived).
+  `site.url` https://kastoestoramadus.github.io keeps redirecting to blog.ww86.eu because the user site owns the custom
+  domain. At first it was published by `actions/deploy-pages` (Pages build type "workflow").
+- 2026-09-18: switched to branch-based Pages (source `gh-pages`, `/`) to get public previews of PRs; `deploy-pages` is
+  gone. The theme-era `gh-pages` branch (525 commits up to 2019-12-26, 21 of them exist nowhere else: web-editor edits)
+  was renamed `gh-pages-legacy` and a fresh orphan `gh-pages` started. Delete `gh-pages-legacy` once nobody wants it.
 
 ## Layout
 
@@ -48,8 +94,10 @@ History that matters:
 | `tags/<tag>.html`, `categories/<cat>.html` | Stub pages, one per tag/category; **must exist** or links 404 |
 | `blog/index.html` | Paginated archive (jekyll-paginate v1, 9 per page) |
 | `img/` | Images referenced from posts |
-| `scripts/` | `install`, `serve*`, `newpost`, `generate-tags`, `generate-categories` (`integrate-personal` is obsolete) |
-| `CNAME` | `blog.ww86.eu`, copied into `_site` |
+| `_plugins/prefix-site-relative-urls.rb` | Prefixes links that ignore `baseurl` with it; a no-op unless building a preview |
+| `scripts/` | `install`, `serve*`, `newpost`, `generate-tags`, `generate-categories`, `check-preview`, `publish-pages`, `test-publish-pages` (`integrate-personal` is obsolete) |
+| `CNAME` | `blog.ww86.eu`, copied into `_site` and from there to the root of `gh-pages` |
+| `robots.txt` | Disallows `/preview/` |
 
 ## Commands
 
@@ -60,6 +108,13 @@ History that matters:
 ./scripts/generate-categories && ./scripts/generate-tags
 JEKYLL_ENV=production bundle exec jekyll build
 bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
+
+./scripts/test-publish-pages            # the deploy script against a local bare repo, 1 second
+
+# the PR preview, as CI builds and checks it
+JEKYLL_ENV=preview bundle exec jekyll build --baseurl /preview/pr-9 --destination _preview
+./scripts/check-preview _preview /preview/pr-9
+bundle exec htmlproofer ./_preview --swap-urls '^/preview/pr-9:' --ignore-urls '/#disqus_thread$/' --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
 ```
 
 Versions: CI uses Ruby 4.0 (`ruby/setup-ruby`), local system Ruby 3.2 also works. `Gemfile.lock` is
@@ -80,7 +135,9 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   table scrolls, not the page); `{: .table-winner}` highlights the first data column.
 - Technical claims and code samples are run for real before publishing (scala-cli + JDK work locally) and outputs are
   pasted verbatim. Backdated posts must not mention anything newer than their date (e.g. library versions).
-- Images in posts: `![alt](/img/file.png)` with a meaningful alt text; site-relative URLs (site `baseurl` is empty).
+- Images in posts: `![alt](/img/file.png)` with a meaningful alt text; site-relative URLs (site `baseurl` is empty; previews
+  get theirs prefixed by `_plugins/prefix-site-relative-urls.rb`). Templates must still emit `{{site.baseurl}}` themselves.
+- Anything that must not run in previews (trackers, comments, redirects) is gated on `jekyll.environment == "production"`.
 - Keep the theme's look: this is a conservative fork, not the rewritten upstream theme (v10+). Migrating to
   upstream was attempted once and abandoned.
 
@@ -115,6 +172,15 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - `_includes/force-https.html` redirects to https unless the host starts with `127.0.0.1` — for local/browser tests
   serve on `127.0.0.1`, not `localhost`. Disqus comment counts only load on blog.ww86.eu, so "N COMMENTS" shows as
   "COMMENTS" locally (shifts text in screenshots).
+- `/preview/` is reserved for PR previews (`publish-pages` refuses a site that has that path): no category, permalink or
+  page may live there. Production must stay byte-identical when the preview machinery changes: build `_site` before and
+  after and `diff -r` the two (only `robots.txt` was added when previews came in).
+- `robots.txt` keeps crawlers from fetching previews, so they never see the `noindex` meta either; a preview URL that is
+  posted publicly could still show up as a bare link. Share preview links with people, not with the web.
+- Branch-based Pages rebuilds after every push to `gh-pages` (each publish, preview or not) and has a soft limit of 10
+  builds per hour, which the Actions-based `deploy-pages` did not have. A burst of pushes to a PR can delay its preview.
+- Every publish adds a commit to `gh-pages`; identical files are stored once, but the history only grows (the site
+  limit is 1 GB, previews of open PRs count towards it). Squash it by recreating the branch (recipe above) if it ever matters.
 - Verified on 2026-09-15 (Jekyll 4.4 build vs. the live Jekyll 3 GitHub Pages site, HTML diff + screenshots): differences
   are only the copyright year (`site.time`), CSS minification formatting, the removed Google+ share button and code
   blocks without Rouge wrappers (highlight.js 11 adds padding; auto-detected colors in blocks without a language differ slightly).
