@@ -141,7 +141,7 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
 ## Eye level is a rule about staring, not about height
 [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants two things at once: the centre of the screen 15-20 degrees below eye level, and the top of it at or below eye level. On a tall panel those two halves pull against each other.
 <div style="margin: 1.5em 0;">
-<svg viewBox="0 0 620 290" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Two side views of an upright 40-inch panel at 70 cm. With its top at eye level the centre falls 32 degrees below eye level; with the centre 15 degrees below eye level a quarter of the panel sits above eye level.">
+<svg viewBox="0 0 620 306" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Two side views of an upright 40-inch panel at 70 cm. With its top at eye level the centre falls 32 degrees below eye level; with the centre 15 degrees below eye level a quarter of the panel sits above eye level, and the shaded wedge shows how much of it the eyes reach without moving the neck.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="12">
     <circle cx="40" cy="60" r="5" fill="currentColor" />
     <line x1="48" y1="60" x2="180" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.6" />
@@ -153,6 +153,7 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
     <text x="190" y="145" fill="currentColor" opacity="0.75">centre</text>
     <text x="10" y="262" fill="currentColor">top at eye level, as the rule asks -</text>
     <text x="10" y="278" fill="currentColor">and the centre drops to 32&#176;, which it forbids</text>
+    <path d="M 360 60 L 500 35 L 500 178 Z" fill="currentColor" opacity="0.12" />
     <circle cx="360" cy="60" r="5" fill="currentColor" />
     <line x1="368" y1="60" x2="500" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.6" />
     <text x="368" y="52" fill="currentColor" opacity="0.6">eye level</text>
@@ -165,6 +166,7 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
     <text x="510" y="100" fill="currentColor" opacity="0.75">centre</text>
     <text x="330" y="262" fill="currentColor">centre 15&#176; below, as the rule asks -</text>
     <text x="330" y="278" fill="currentColor">and a quarter of the panel rises above eye level</text>
+    <text x="330" y="296" fill="currentColor" opacity="0.6">shaded: what the eyes reach with the neck still</text>
   </g>
 </svg>
 </div>
@@ -175,7 +177,13 @@ It is quoted far more often than it is explained. It rests on two measured thing
 
 Both mechanisms are about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. This is a comfort optimum averaged over a working day, not a health limit - and the reported prevalence of dry eye among screen workers, anywhere from 9.5% to 87.5%, says more about questionnaires than about eyes.
 
-So the height costs nothing as long as nobody reads in the top band. The editor lives at eye level; the shelf above it holds a running build, a log, a browser I glance at. Two things to check on your own panel first: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it.
+The sharper objection is not to the rule but to the people it is aimed at. Hardly anyone spends the day looking up; they spend it looking down, at a laptop on a desk or a phone in their lap. If the common error is a bent neck, a screen that lifts the eyes is a correction rather than a hazard.
+
+Up to a point, and the point is where eyes stop and vertebrae start. Gaze shifts of [20 to 30 degrees are made by the eyes](https://pmc.ncbi.nlm.nih.gov/articles/PMC8378697/), the head joining in mostly to keep them inside a comfortable range - and a head held tilted back is not a cure for a head held forward, only a different fixed posture. The thing being corrected is shakier than it sounds, too: the link between forward head posture and neck pain [holds in adults, vanishes in adolescents and is confounded by age](https://pubmed.ncbi.nlm.nih.gov/31773477/). So what a tall screen offers is not a better angle but the absence of a single one - the eyes travel a range all day instead of being pinned to a spot.
+
+Mine sits with its centre roughly at eye level, which puts nearly half the panel above it and the top strip about 32 degrees up - far enough that reading there earns a small nod, which is rather the point. Seven years, no complaints: one desk's worth of evidence, not a recommendation.
+
+So the height costs nothing, and the movement it provokes may be worth something. The editor lives at eye level; the shelf above it holds a running build, a log, a browser I glance at. Two things to check on your own panel first: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it.
 
 The one honest argument for a real second screen is narrower than it looks: on a video call, a single screen means the meeting covers the work you are talking about.
 
