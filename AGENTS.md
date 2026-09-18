@@ -54,7 +54,7 @@ Rules of the pipeline:
   drop) and re-creates `.nojekyll`. Recreating it from scratch (drops all previews, open PRs get theirs back on their
   next push):
   ```bash
-  JEKYLL_ENV=production bundle exec jekyll build
+  TZ=UTC JEKYLL_ENV=production bundle exec jekyll build    # TZ=UTC: see the feed.xml gotcha below
   tmp=$(mktemp -d) && cp -a _site/. "$tmp" && touch "$tmp/.nojekyll" && cd "$tmp"
   git init -q -b gh-pages && git add -A && git commit -qm "Recreate gh-pages" \
     && git remote add origin git@github.com:kastoestoramadus/kastoestoramadus.github.io.git \
@@ -172,6 +172,10 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - `_includes/force-https.html` redirects to https unless the host starts with `127.0.0.1` — for local/browser tests
   serve on `127.0.0.1`, not `localhost`. Disqus comment counts only load on blog.ww86.eu, so "N COMMENTS" shows as
   "COMMENTS" locally (shifts text in screenshots).
+- Posts have a date but no time, so `feed.xml` (`pubDate`) and `sitemap.xml` (`lastmod`) carry the UTC offset of the build
+  machine: `+0000` in CI, `+0200` in the owner's WSL. URLs and GUIDs are the same, but changed `pubDate`s may make feed
+  readers treat items as new. CI is the source of truth; never publish a locally built site to `gh-pages` unless it
+  was built with `TZ=UTC` (then it is byte-identical to CI's).
 - `/preview/` is reserved for PR previews (`publish-pages` refuses a site that has that path): no category, permalink or
   page may live there. Production must stay byte-identical when the preview machinery changes: build `_site` before and
   after and `diff -r` the two (only `robots.txt` was added when previews came in).
