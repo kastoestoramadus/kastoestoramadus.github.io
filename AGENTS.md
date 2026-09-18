@@ -181,8 +181,12 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   after and `diff -r` the two (only `robots.txt` was added when previews came in).
 - `robots.txt` keeps crawlers from fetching previews, so they never see the `noindex` meta either; a preview URL that is
   posted publicly could still show up as a bare link. Share preview links with people, not with the web.
-- Branch-based Pages rebuilds after every push to `gh-pages` (each publish, preview or not) and has a soft limit of 10
-  builds per hour, which the Actions-based `deploy-pages` did not have. A burst of pushes to a PR can delay its preview.
+- Branch-based Pages rebuilds after every push to `gh-pages` (each publish, preview or not), also when `github-actions`
+  pushes with `GITHUB_TOKEN` (verified: no extra step, the build takes about 30 s), and has a soft limit of 10 builds per
+  hour, which the Actions-based `deploy-pages` did not have. A burst of pushes to a PR can delay its preview.
+  Changing the Pages *source* setting does not build the branch as it is: request a build with
+  `gh api -X POST repos/<owner>/<repo>/pages/builds` (that is what the switch on 2026-09-18 needed; the live site kept
+  serving the old deployment meanwhile, no downtime).
 - Every publish adds a commit to `gh-pages`; identical files are stored once, but the history only grows (the site
   limit is 1 GB, previews of open PRs count towards it). Squash it by recreating the branch (recipe above) if it ever matters.
 - Verified on 2026-09-15 (Jekyll 4.4 build vs. the live Jekyll 3 GitHub Pages site, HTML diff + screenshots): differences
