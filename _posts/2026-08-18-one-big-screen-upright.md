@@ -170,75 +170,93 @@ So the ratio should track the size, in the opposite direction to the market: the
 </svg>
 </div>
 
-On a lid the width is not even a choice - the keyboard sets it. Height is the only free variable, so the ratio is how you spend it. In the same 13-inch chassis, 16:10 is 11% more panel than 16:9 and 3:2 is 19% more, all of it height, and the number on the box grows with it, from 13.3 inches to 13.9. The panel is not what you read on, either: the tab strip and the address bar take about 2.7 cm off the top whatever the shape, so the page grows faster than the glass - 13.9 cm of web page on 16:9 against 16.9 on 3:2, 22% more page for 19% more panel. Centimetres rather than pixels, because zoom moves pixels and leaves the glass where it is; set the same text size on every screen and this is the comparison that survives. Then hold a phone next to it. An iPhone 15 keeps 12.5 cm for the page, so a 13-inch 16:9 laptop - still what most cheap ones ship - shows about 11% more web page than a phone does. Not a multiple. A tenth.
+On a lid the width is not even a choice - the keyboard sets it. Height is the only free variable, so the ratio is how you spend it. In the same 13-inch chassis, 16:10 is 11% more panel than 16:9 and 3:2 is 19% more, all of it height, and the number on the box grows with it, from 13.3 inches to 13.9. The panel is not what you read on, either: the tab strip and the address bar take about 2.7 cm off the top whatever the shape, so the page grows faster than the glass - 13.9 cm of web page on 16:9 against 16.9 on 3:2, 22% more page for 19% more panel. Centimetres rather than pixels, because zoom moves pixels and leaves the glass where it is; set the same text size on every screen and this is the comparison that survives. Then hold a phone next to it. An iPhone 15 keeps 12.5 cm for the page against the 16:9 lid's 13.9, so whatever a laptop wins there, it is not height: it wins on width, on long lines rather than more of them. Vertically, the machine most people work on gives a web page about as much room as the phone in their pocket.
 
 <div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 256" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Four screens drawn to physical scale with the same page at the same text size: an iPhone 15 keeps 12.5 cm of page and 19 lines, a 13-inch 16:9 laptop 13.9 cm and 21 lines, a 16:10 one 15.7 cm and 24 lines, a 3:2 one 16.9 cm and 26 lines. Browser bars are shaded off the top, and the shaded side strips are the margins a page leaves beside its text.">
+<svg viewBox="0 0 620 294" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same article opened on three 13-inch lids of identical width, drawn to scale at the same text size. The page runs on past the bottom of each screen: a 16:9 lid reaches 21 lines and 13.9 cm of it, a 16:10 lid 24 lines and 15.7 cm, a 3:2 lid 26 lines and 16.9 cm. The side margins are identical on all three because the chassis width is.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="14">
-    <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">one 13-inch chassis: the keyboard fixes the width, the ratio decides the rest</text>
-    <text x="310" y="33" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">to scale, same page at the same text size - browser bars and page margins shaded</text>
-    <rect x="24" y="119.7" width="32.5" height="70.3" rx="4" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <rect x="24" y="119.7" width="32.5" height="4.5" fill="currentColor" opacity="0.32" />
-    <rect x="24" y="186.5" width="32.5" height="3.5" fill="currentColor" opacity="0.32" />
+    <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">one 13-inch chassis, one article, one text size - to scale</text>
+    <text x="310" y="33" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">the margins are identical because the keyboard fixes the width; only the height is in play</text>
+    <text x="310" y="252" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">faded: the article below the fold, where the screen has ended</text>
+    <rect x="30" y="61.5" width="33.6" height="69.3" fill="currentColor" opacity="0.13" />
+    <rect x="143.6" y="61.5" width="33.6" height="69.3" fill="currentColor" opacity="0.13" />
     <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="25.5" y1="126.2" x2="53.5" y2="126.2" /><line x1="25.5" y1="129.4" x2="51.5" y2="129.4" /><line x1="25.5" y1="132.6" x2="52.6" y2="132.6" /><line x1="25.5" y1="135.8" x2="47.3" y2="135.8" />
-      <line x1="25.5" y1="139.0" x2="52.0" y2="139.0" /><line x1="25.5" y1="142.2" x2="50.6" y2="142.2" /><line x1="25.5" y1="145.4" x2="52.9" y2="145.4" /><line x1="25.5" y1="148.6" x2="43.5" y2="148.6" />
-      <line x1="25.5" y1="151.8" x2="51.8" y2="151.8" /><line x1="25.5" y1="155.0" x2="53.2" y2="155.0" /><line x1="25.5" y1="158.2" x2="49.1" y2="158.2" /><line x1="25.5" y1="161.4" x2="52.3" y2="161.4" />
-      <line x1="25.5" y1="164.6" x2="51.2" y2="164.6" /><line x1="25.5" y1="167.8" x2="45.9" y2="167.8" /><line x1="25.5" y1="171.0" x2="52.6" y2="171.0" /><line x1="25.5" y1="174.2" x2="50.3" y2="174.2" />
-      <line x1="25.5" y1="177.4" x2="52.0" y2="177.4" /><line x1="25.5" y1="180.6" x2="48.2" y2="180.6" /><line x1="25.5" y1="183.8" x2="52.9" y2="183.8" />
+      <line x1="63.6" y1="63.5" x2="124.7" y2="63.5" /><line x1="63.6" y1="66.7" x2="139.8" y2="66.7" /><line x1="63.6" y1="69.9" x2="126.7" y2="69.9" /><line x1="63.6" y1="73.1" x2="130.4" y2="73.1" />
+      <line x1="63.6" y1="76.3" x2="138.7" y2="76.3" /><line x1="63.6" y1="79.5" x2="124.6" y2="79.5" /><line x1="63.6" y1="82.7" x2="136.9" y2="82.7" /><line x1="63.6" y1="85.9" x2="139.2" y2="85.9" />
+      <line x1="63.6" y1="89.1" x2="126.8" y2="89.1" /><line x1="63.6" y1="92.3" x2="132.6" y2="92.3" /><line x1="63.6" y1="95.5" x2="140.2" y2="95.5" /><line x1="63.6" y1="98.7" x2="125.9" y2="98.7" />
+      <line x1="63.6" y1="101.9" x2="128.8" y2="101.9" /><line x1="63.6" y1="105.1" x2="129.3" y2="105.1" /><line x1="63.6" y1="108.3" x2="129.2" y2="108.3" /><line x1="63.6" y1="111.5" x2="134.7" y2="111.5" />
+      <line x1="63.6" y1="114.7" x2="121.2" y2="114.7" /><line x1="63.6" y1="117.9" x2="124.8" y2="117.9" /><line x1="63.6" y1="121.1" x2="132.0" y2="121.1" /><line x1="63.6" y1="124.3" x2="134.9" y2="124.3" />
+      <line x1="63.6" y1="127.5" x2="132.0" y2="127.5" />
     </g>
-    <text x="40.2" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">iPhone 15</text>
-    <text x="40.2" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">12.5 cm of page</text>
-    <text x="40.2" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">19 lines</text>
-    <rect x="96" y="107.2" width="147.2" height="82.8" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <rect x="96" y="107.2" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="102" y="111.7" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="96" y="120.7" width="33.6" height="69.3" fill="currentColor" opacity="0.14" />
-    <rect x="209.6" y="120.7" width="33.6" height="69.3" fill="currentColor" opacity="0.14" />
+    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
+      <line x1="63.6" y1="130.7" x2="99.1" y2="130.7" /><line x1="63.6" y1="133.9" x2="137.1" y2="133.9" /><line x1="63.6" y1="137.1" x2="124.4" y2="137.1" /><line x1="63.6" y1="140.3" x2="120.8" y2="140.3" />
+      <line x1="63.6" y1="143.5" x2="136.6" y2="143.5" /><line x1="63.6" y1="146.7" x2="122.5" y2="146.7" /><line x1="63.6" y1="149.9" x2="126.1" y2="149.9" /><line x1="63.6" y1="153.1" x2="129.5" y2="153.1" />
+      <line x1="63.6" y1="156.3" x2="130.5" y2="156.3" /><line x1="63.6" y1="159.5" x2="130.5" y2="159.5" /><line x1="63.6" y1="162.7" x2="128.3" y2="162.7" /><line x1="63.6" y1="165.9" x2="131.7" y2="165.9" />
+      <line x1="63.6" y1="169.1" x2="137.9" y2="169.1" /><line x1="63.6" y1="172.3" x2="135.4" y2="172.3" /><line x1="63.6" y1="175.5" x2="128.4" y2="175.5" /><line x1="63.6" y1="178.7" x2="130.0" y2="178.7" />
+      <line x1="63.6" y1="181.9" x2="127.2" y2="181.9" /><line x1="63.6" y1="185.1" x2="126.9" y2="185.1" /><line x1="63.6" y1="188.3" x2="130.3" y2="188.3" /><line x1="63.6" y1="191.5" x2="127.5" y2="191.5" />
+      <line x1="63.6" y1="194.7" x2="126.9" y2="194.7" /><line x1="63.6" y1="197.9" x2="99.4" y2="197.9" /><line x1="63.6" y1="201.1" x2="133.8" y2="201.1" /><line x1="63.6" y1="204.3" x2="139.5" y2="204.3" />
+      <line x1="63.6" y1="207.5" x2="123.9" y2="207.5" /><line x1="63.6" y1="210.7" x2="139.4" y2="210.7" /><line x1="63.6" y1="213.9" x2="97.8" y2="213.9" /><line x1="63.6" y1="217.1" x2="98.5" y2="217.1" />
+      <line x1="63.6" y1="220.3" x2="132.1" y2="220.3" /><line x1="63.6" y1="223.5" x2="125.0" y2="223.5" /><line x1="63.6" y1="226.7" x2="97.2" y2="226.7" /><line x1="63.6" y1="229.9" x2="125.9" y2="229.9" />
+      <line x1="63.6" y1="233.1" x2="131.1" y2="233.1" />
+    </g>
+    <rect x="30" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
+    <rect x="36" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <rect x="30" y="48" width="147.2" height="82.8" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
+    <line x1="21" y1="130.8" x2="186.2" y2="130.8" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7" />
+    <text x="103.6" y="264" fill="currentColor" opacity="0.75" text-anchor="middle">16:9 &#183; 13.3 in</text>
+    <text x="103.6" y="281" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">13.9 cm of page, 21 lines</text>
+    <rect x="236" y="61.5" width="33.6" height="78.5" fill="currentColor" opacity="0.13" />
+    <rect x="349.6" y="61.5" width="33.6" height="78.5" fill="currentColor" opacity="0.13" />
     <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="129.6" y1="122.7" x2="205.6" y2="122.7" /><line x1="129.6" y1="125.9" x2="200.0" y2="125.9" /><line x1="129.6" y1="129.1" x2="203.2" y2="129.1" /><line x1="129.6" y1="132.3" x2="188.8" y2="132.3" />
-      <line x1="129.6" y1="135.5" x2="201.6" y2="135.5" /><line x1="129.6" y1="138.7" x2="197.6" y2="138.7" /><line x1="129.6" y1="141.9" x2="204.0" y2="141.9" /><line x1="129.6" y1="145.1" x2="178.4" y2="145.1" />
-      <line x1="129.6" y1="148.3" x2="200.8" y2="148.3" /><line x1="129.6" y1="151.5" x2="204.8" y2="151.5" /><line x1="129.6" y1="154.7" x2="193.6" y2="154.7" /><line x1="129.6" y1="157.9" x2="202.4" y2="157.9" />
-      <line x1="129.6" y1="161.1" x2="199.2" y2="161.1" /><line x1="129.6" y1="164.3" x2="184.8" y2="164.3" /><line x1="129.6" y1="167.5" x2="203.2" y2="167.5" /><line x1="129.6" y1="170.7" x2="196.8" y2="170.7" />
-      <line x1="129.6" y1="173.9" x2="201.6" y2="173.9" /><line x1="129.6" y1="177.1" x2="191.2" y2="177.1" /><line x1="129.6" y1="180.3" x2="204.0" y2="180.3" /><line x1="129.6" y1="183.5" x2="198.4" y2="183.5" />
-      <line x1="129.6" y1="186.7" x2="187.2" y2="186.7" />
+      <line x1="269.6" y1="63.5" x2="330.7" y2="63.5" /><line x1="269.6" y1="66.7" x2="345.8" y2="66.7" /><line x1="269.6" y1="69.9" x2="332.7" y2="69.9" /><line x1="269.6" y1="73.1" x2="336.4" y2="73.1" />
+      <line x1="269.6" y1="76.3" x2="344.7" y2="76.3" /><line x1="269.6" y1="79.5" x2="330.6" y2="79.5" /><line x1="269.6" y1="82.7" x2="342.9" y2="82.7" /><line x1="269.6" y1="85.9" x2="345.2" y2="85.9" />
+      <line x1="269.6" y1="89.1" x2="332.8" y2="89.1" /><line x1="269.6" y1="92.3" x2="338.6" y2="92.3" /><line x1="269.6" y1="95.5" x2="346.2" y2="95.5" /><line x1="269.6" y1="98.7" x2="331.9" y2="98.7" />
+      <line x1="269.6" y1="101.9" x2="334.8" y2="101.9" /><line x1="269.6" y1="105.1" x2="335.3" y2="105.1" /><line x1="269.6" y1="108.3" x2="335.2" y2="108.3" /><line x1="269.6" y1="111.5" x2="340.7" y2="111.5" />
+      <line x1="269.6" y1="114.7" x2="327.2" y2="114.7" /><line x1="269.6" y1="117.9" x2="330.8" y2="117.9" /><line x1="269.6" y1="121.1" x2="338.0" y2="121.1" /><line x1="269.6" y1="124.3" x2="340.9" y2="124.3" />
+      <line x1="269.6" y1="127.5" x2="338.0" y2="127.5" /><line x1="269.6" y1="130.7" x2="305.1" y2="130.7" /><line x1="269.6" y1="133.9" x2="343.1" y2="133.9" /><line x1="269.6" y1="137.1" x2="330.4" y2="137.1" />
     </g>
-    <text x="169.6" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">16:9 &#183; 13.3 in</text>
-    <text x="169.6" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">13.9 cm of page</text>
-    <text x="169.6" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">21 lines</text>
-    <rect x="269" y="98" width="147.2" height="92" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <rect x="269" y="98" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="275" y="102.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="269" y="111.5" width="33.6" height="78.5" fill="currentColor" opacity="0.14" />
-    <rect x="382.6" y="111.5" width="33.6" height="78.5" fill="currentColor" opacity="0.14" />
+    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
+      <line x1="269.6" y1="140.3" x2="326.8" y2="140.3" /><line x1="269.6" y1="143.5" x2="342.6" y2="143.5" /><line x1="269.6" y1="146.7" x2="328.5" y2="146.7" /><line x1="269.6" y1="149.9" x2="332.1" y2="149.9" />
+      <line x1="269.6" y1="153.1" x2="335.5" y2="153.1" /><line x1="269.6" y1="156.3" x2="336.5" y2="156.3" /><line x1="269.6" y1="159.5" x2="336.5" y2="159.5" /><line x1="269.6" y1="162.7" x2="334.3" y2="162.7" />
+      <line x1="269.6" y1="165.9" x2="337.7" y2="165.9" /><line x1="269.6" y1="169.1" x2="343.9" y2="169.1" /><line x1="269.6" y1="172.3" x2="341.4" y2="172.3" /><line x1="269.6" y1="175.5" x2="334.4" y2="175.5" />
+      <line x1="269.6" y1="178.7" x2="336.0" y2="178.7" /><line x1="269.6" y1="181.9" x2="333.2" y2="181.9" /><line x1="269.6" y1="185.1" x2="332.9" y2="185.1" /><line x1="269.6" y1="188.3" x2="336.3" y2="188.3" />
+      <line x1="269.6" y1="191.5" x2="333.5" y2="191.5" /><line x1="269.6" y1="194.7" x2="332.9" y2="194.7" /><line x1="269.6" y1="197.9" x2="305.4" y2="197.9" /><line x1="269.6" y1="201.1" x2="339.8" y2="201.1" />
+      <line x1="269.6" y1="204.3" x2="345.5" y2="204.3" /><line x1="269.6" y1="207.5" x2="329.9" y2="207.5" /><line x1="269.6" y1="210.7" x2="345.4" y2="210.7" /><line x1="269.6" y1="213.9" x2="303.8" y2="213.9" />
+      <line x1="269.6" y1="217.1" x2="304.5" y2="217.1" /><line x1="269.6" y1="220.3" x2="338.1" y2="220.3" /><line x1="269.6" y1="223.5" x2="331.0" y2="223.5" /><line x1="269.6" y1="226.7" x2="303.2" y2="226.7" />
+      <line x1="269.6" y1="229.9" x2="331.9" y2="229.9" /><line x1="269.6" y1="233.1" x2="337.1" y2="233.1" />
+    </g>
+    <rect x="236" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
+    <rect x="242" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <rect x="236" y="48" width="147.2" height="92" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
+    <line x1="227" y1="140" x2="392.2" y2="140" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7" />
+    <text x="309.6" y="264" fill="currentColor" opacity="0.75" text-anchor="middle">16:10 &#183; 13.7 in</text>
+    <text x="309.6" y="281" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">15.7 cm, 24 lines</text>
+    <rect x="442" y="61.5" width="33.6" height="84.6" fill="currentColor" opacity="0.13" />
+    <rect x="555.6" y="61.5" width="33.6" height="84.6" fill="currentColor" opacity="0.13" />
     <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="302.6" y1="113.5" x2="378.6" y2="113.5" /><line x1="302.6" y1="116.7" x2="373.0" y2="116.7" /><line x1="302.6" y1="119.9" x2="376.2" y2="119.9" /><line x1="302.6" y1="123.1" x2="361.8" y2="123.1" />
-      <line x1="302.6" y1="126.3" x2="374.6" y2="126.3" /><line x1="302.6" y1="129.5" x2="370.6" y2="129.5" /><line x1="302.6" y1="132.7" x2="377.0" y2="132.7" /><line x1="302.6" y1="135.9" x2="351.4" y2="135.9" />
-      <line x1="302.6" y1="139.1" x2="373.8" y2="139.1" /><line x1="302.6" y1="142.3" x2="377.8" y2="142.3" /><line x1="302.6" y1="145.5" x2="366.6" y2="145.5" /><line x1="302.6" y1="148.7" x2="375.4" y2="148.7" />
-      <line x1="302.6" y1="151.9" x2="372.2" y2="151.9" /><line x1="302.6" y1="155.1" x2="357.8" y2="155.1" /><line x1="302.6" y1="158.3" x2="376.2" y2="158.3" /><line x1="302.6" y1="161.5" x2="369.8" y2="161.5" />
-      <line x1="302.6" y1="164.7" x2="374.6" y2="164.7" /><line x1="302.6" y1="167.9" x2="364.2" y2="167.9" /><line x1="302.6" y1="171.1" x2="377.0" y2="171.1" /><line x1="302.6" y1="174.3" x2="371.4" y2="174.3" />
-      <line x1="302.6" y1="177.5" x2="360.2" y2="177.5" /><line x1="302.6" y1="180.7" x2="375.4" y2="180.7" /><line x1="302.6" y1="183.9" x2="373.0" y2="183.9" /><line x1="302.6" y1="187.1" x2="369.0" y2="187.1" />
+      <line x1="475.6" y1="63.5" x2="536.7" y2="63.5" /><line x1="475.6" y1="66.7" x2="551.8" y2="66.7" /><line x1="475.6" y1="69.9" x2="538.7" y2="69.9" /><line x1="475.6" y1="73.1" x2="542.4" y2="73.1" />
+      <line x1="475.6" y1="76.3" x2="550.7" y2="76.3" /><line x1="475.6" y1="79.5" x2="536.6" y2="79.5" /><line x1="475.6" y1="82.7" x2="548.9" y2="82.7" /><line x1="475.6" y1="85.9" x2="551.2" y2="85.9" />
+      <line x1="475.6" y1="89.1" x2="538.8" y2="89.1" /><line x1="475.6" y1="92.3" x2="544.6" y2="92.3" /><line x1="475.6" y1="95.5" x2="552.2" y2="95.5" /><line x1="475.6" y1="98.7" x2="537.9" y2="98.7" />
+      <line x1="475.6" y1="101.9" x2="540.8" y2="101.9" /><line x1="475.6" y1="105.1" x2="541.3" y2="105.1" /><line x1="475.6" y1="108.3" x2="541.2" y2="108.3" /><line x1="475.6" y1="111.5" x2="546.7" y2="111.5" />
+      <line x1="475.6" y1="114.7" x2="533.2" y2="114.7" /><line x1="475.6" y1="117.9" x2="536.8" y2="117.9" /><line x1="475.6" y1="121.1" x2="544.0" y2="121.1" /><line x1="475.6" y1="124.3" x2="546.9" y2="124.3" />
+      <line x1="475.6" y1="127.5" x2="544.0" y2="127.5" /><line x1="475.6" y1="130.7" x2="511.1" y2="130.7" /><line x1="475.6" y1="133.9" x2="549.1" y2="133.9" /><line x1="475.6" y1="137.1" x2="536.4" y2="137.1" />
+      <line x1="475.6" y1="140.3" x2="532.8" y2="140.3" /><line x1="475.6" y1="143.5" x2="548.6" y2="143.5" />
     </g>
-    <text x="342.6" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">16:10 &#183; 13.7 in</text>
-    <text x="342.6" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">15.7 cm</text>
-    <text x="342.6" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">24 lines</text>
-    <rect x="442" y="91.9" width="147.2" height="98.1" fill="none" stroke="#00cdff" stroke-width="2" />
-    <rect x="442" y="91.9" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="448" y="96.4" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="442" y="105.4" width="33.6" height="84.6" fill="currentColor" opacity="0.14" />
-    <rect x="555.6" y="105.4" width="33.6" height="84.6" fill="currentColor" opacity="0.14" />
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="475.6" y1="107.4" x2="551.6" y2="107.4" /><line x1="475.6" y1="110.6" x2="546.0" y2="110.6" /><line x1="475.6" y1="113.8" x2="549.2" y2="113.8" /><line x1="475.6" y1="117.0" x2="534.8" y2="117.0" />
-      <line x1="475.6" y1="120.2" x2="547.6" y2="120.2" /><line x1="475.6" y1="123.4" x2="543.6" y2="123.4" /><line x1="475.6" y1="126.6" x2="550.0" y2="126.6" /><line x1="475.6" y1="129.8" x2="524.4" y2="129.8" />
-      <line x1="475.6" y1="133.0" x2="546.8" y2="133.0" /><line x1="475.6" y1="136.2" x2="550.8" y2="136.2" /><line x1="475.6" y1="139.4" x2="539.6" y2="139.4" /><line x1="475.6" y1="142.6" x2="548.4" y2="142.6" />
-      <line x1="475.6" y1="145.8" x2="545.2" y2="145.8" /><line x1="475.6" y1="149.0" x2="530.8" y2="149.0" /><line x1="475.6" y1="152.2" x2="549.2" y2="152.2" /><line x1="475.6" y1="155.4" x2="542.8" y2="155.4" />
-      <line x1="475.6" y1="158.6" x2="547.6" y2="158.6" /><line x1="475.6" y1="161.8" x2="537.2" y2="161.8" /><line x1="475.6" y1="165.0" x2="550.0" y2="165.0" /><line x1="475.6" y1="168.2" x2="544.4" y2="168.2" />
-      <line x1="475.6" y1="171.4" x2="533.2" y2="171.4" /><line x1="475.6" y1="174.6" x2="548.4" y2="174.6" /><line x1="475.6" y1="177.8" x2="546.0" y2="177.8" /><line x1="475.6" y1="181.0" x2="542.0" y2="181.0" />
-      <line x1="475.6" y1="184.2" x2="550.8" y2="184.2" /><line x1="475.6" y1="187.4" x2="538.8" y2="187.4" />
+    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
+      <line x1="475.6" y1="146.7" x2="534.5" y2="146.7" /><line x1="475.6" y1="149.9" x2="538.1" y2="149.9" /><line x1="475.6" y1="153.1" x2="541.5" y2="153.1" /><line x1="475.6" y1="156.3" x2="542.5" y2="156.3" />
+      <line x1="475.6" y1="159.5" x2="542.5" y2="159.5" /><line x1="475.6" y1="162.7" x2="540.3" y2="162.7" /><line x1="475.6" y1="165.9" x2="543.7" y2="165.9" /><line x1="475.6" y1="169.1" x2="549.9" y2="169.1" />
+      <line x1="475.6" y1="172.3" x2="547.4" y2="172.3" /><line x1="475.6" y1="175.5" x2="540.4" y2="175.5" /><line x1="475.6" y1="178.7" x2="542.0" y2="178.7" /><line x1="475.6" y1="181.9" x2="539.2" y2="181.9" />
+      <line x1="475.6" y1="185.1" x2="538.9" y2="185.1" /><line x1="475.6" y1="188.3" x2="542.3" y2="188.3" /><line x1="475.6" y1="191.5" x2="539.5" y2="191.5" /><line x1="475.6" y1="194.7" x2="538.9" y2="194.7" />
+      <line x1="475.6" y1="197.9" x2="511.4" y2="197.9" /><line x1="475.6" y1="201.1" x2="545.8" y2="201.1" /><line x1="475.6" y1="204.3" x2="551.5" y2="204.3" /><line x1="475.6" y1="207.5" x2="535.9" y2="207.5" />
+      <line x1="475.6" y1="210.7" x2="551.4" y2="210.7" /><line x1="475.6" y1="213.9" x2="509.8" y2="213.9" /><line x1="475.6" y1="217.1" x2="510.5" y2="217.1" /><line x1="475.6" y1="220.3" x2="544.1" y2="220.3" />
+      <line x1="475.6" y1="223.5" x2="537.0" y2="223.5" /><line x1="475.6" y1="226.7" x2="509.2" y2="226.7" /><line x1="475.6" y1="229.9" x2="537.9" y2="229.9" /><line x1="475.6" y1="233.1" x2="543.1" y2="233.1" />
     </g>
-    <text x="515.6" y="209" fill="#00cdff" text-anchor="middle">3:2 &#183; 13.9 in</text>
-    <text x="515.6" y="227" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">16.9 cm</text>
-    <text x="515.6" y="243" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">26 lines</text>
+    <rect x="442" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
+    <rect x="448" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <rect x="442" y="48" width="147.2" height="98.1" fill="none" stroke="#00cdff" stroke-width="2" />
+    <line x1="433" y1="146.1" x2="598.2" y2="146.1" stroke="#00cdff" stroke-width="1.5" stroke-dasharray="4 4" />
+    <text x="515.6" y="264" fill="#00cdff" text-anchor="middle">3:2 &#183; 13.9 in</text>
+    <text x="515.6" y="281" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">16.9 cm, 26 lines</text>
   </g>
 </svg>
 </div>
