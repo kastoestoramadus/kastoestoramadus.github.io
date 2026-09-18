@@ -176,8 +176,6 @@ On a lid the width is not even a choice - the keyboard sets it. Height is the on
 <svg viewBox="0 0 620 294" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same article opened on two 13-inch lids of identical width, drawn to scale at the same text size. The page runs on past the bottom of each screen: the 16:9 lid stops after 21 lines and 13.9 cm of it, the 3:2 lid after 26 lines and 16.9 cm, five lines or 22 percent more. The side margins are identical because the chassis width is.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="14">
     <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">one 13-inch chassis, one article, one text size - to scale</text>
-    <text x="310" y="33" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">the margins are identical because the keyboard fixes the width; only the height is in play</text>
-    <text x="310" y="252" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">faded: the article below the fold, where the screen has ended</text>
     <rect x="81.4" y="64.2" width="40.3" height="83.2" fill="currentColor" opacity="0.13" />
     <rect x="217.7" y="64.2" width="40.3" height="83.2" fill="currentColor" opacity="0.13" />
     <g stroke="#00cdff" stroke-width="1.6" opacity="0.9">
