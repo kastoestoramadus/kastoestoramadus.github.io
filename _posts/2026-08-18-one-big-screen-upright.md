@@ -10,11 +10,29 @@ Two 27-inch monitors have less panel and fewer pixels than one 40-inch monitor, 
 That half of the argument is just arithmetic, and it is in the table below. The half people raise an eyebrow at is that mine stands up - a 40-inch 16:9 on an arm, rotated by 90 degrees, which is how it spends most of its life. Four years ago I wrote that this screen has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. That was the compromise talking: 16:9 is the only shape that does both jobs, and at 4K it is finally tall enough to be worth turning.
 
 ## A big screen is divisible, small ones are not addable
-A big screen can pretend to be any number of small ones - [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager, or two maximised halves - and the split changes in a second to suit the task. Small screens cannot do the reverse. Two 27-inch monitors never become one 40-inch one: the seam is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
+A big screen can pretend to be any number of small ones - [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager, or two maximised halves - and the split changes in a second to suit the task.
+
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 200" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="One upright screen drawn three times, split for review into two columns, for debugging into an editor over a log, and for writing into a single centred column.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <rect x="60" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
+    <line x1="110" y1="20" x2="110" y2="170" stroke="#00cdff" stroke-width="1.5" />
+    <text x="110" y="192" fill="currentColor" text-anchor="middle">review: two columns</text>
+    <rect x="260" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
+    <line x1="260" y1="122" x2="360" y2="122" stroke="#00cdff" stroke-width="1.5" />
+    <text x="310" y="192" fill="currentColor" text-anchor="middle">debug: editor over log</text>
+    <rect x="460" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
+    <line x1="482" y1="20" x2="482" y2="170" stroke="#00cdff" stroke-width="1.5" />
+    <line x1="538" y1="20" x2="538" y2="170" stroke="#00cdff" stroke-width="1.5" />
+    <text x="510" y="192" fill="currentColor" text-anchor="middle">write: one column, margins parked</text>
+  </g>
+</svg>
+</div>
+ Small screens cannot do the reverse. Two 27-inch monitors never become one 40-inch one: the seam is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
 
 That asymmetry is the whole argument. One surface divides any way you like; several surfaces never add up.
 
-<div style="margin: 1.5em 0;">
+<div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Left: one screen split into three zones by dashed lines. Right: two screens with a fixed bezel seam and a window that cannot cross it.">
   <g fill="none" stroke="currentColor" stroke-width="2" font-family="Helvetica, Arial, sans-serif">
     <rect x="15" y="20" width="250" height="140" />
@@ -39,11 +57,36 @@ The web is a column. [Mobile-first indexing](https://developers.google.com/searc
 
 It is tempting to call wide screens the entertainment shape and leave it there, but that is not the line. Cinema and games are wide - and so are spreadsheets, side-by-side diffs and video timelines, which are work by anyone's definition. The split is between columns and grids, and columns are what most of us stare at all day. (Entertainment only stayed wide on the desk anyway; on a phone it went vertical years ago.)
 
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 235" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="On the left an upright screen filled with lines of text, labelled column. On the right a wide screen filled with spreadsheet cells, labelled grid.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <rect x="95" y="20" width="110" height="170" fill="none" stroke="currentColor" stroke-width="2" />
+    <g stroke="#00cdff" stroke-width="3">
+      <line x1="110" y1="36" x2="180" y2="36" /><line x1="110" y1="50" x2="190" y2="50" /><line x1="110" y1="64" x2="165" y2="64" />
+      <line x1="110" y1="78" x2="190" y2="78" /><line x1="110" y1="92" x2="175" y2="92" /><line x1="110" y1="106" x2="190" y2="106" />
+      <line x1="110" y1="120" x2="155" y2="120" /><line x1="110" y1="134" x2="185" y2="134" /><line x1="110" y1="148" x2="170" y2="148" />
+      <line x1="110" y1="162" x2="190" y2="162" /><line x1="110" y1="176" x2="160" y2="176" />
+    </g>
+    <text x="150" y="212" fill="currentColor" text-anchor="middle">column</text>
+    <text x="150" y="230" fill="currentColor" opacity="0.7" font-size="12">code, prose, logs, chat, the web</text>
+    <rect x="325" y="45" width="230" height="120" fill="none" stroke="currentColor" stroke-width="2" />
+    <g stroke="currentColor" stroke-width="1" opacity="0.55">
+      <line x1="325" y1="69" x2="555" y2="69" /><line x1="325" y1="93" x2="555" y2="93" />
+      <line x1="325" y1="117" x2="555" y2="117" /><line x1="325" y1="141" x2="555" y2="141" />
+      <line x1="371" y1="45" x2="371" y2="165" /><line x1="417" y1="45" x2="417" y2="165" />
+      <line x1="463" y1="45" x2="463" y2="165" /><line x1="509" y1="45" x2="509" y2="165" />
+    </g>
+    <text x="440" y="212" fill="currentColor" text-anchor="middle">grid</text>
+    <text x="440" y="230" fill="currentColor" opacity="0.7" font-size="12">spreadsheets, timelines, side-by-side diffs</text>
+  </g>
+</svg>
+</div>
+
 Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a typical 19-pixel line, against about 110 in landscape. A 400-line review becomes two screenfuls instead of four.
 
 ## 16:9 is the only ratio that survives rotation
 
-<div style="margin: 1.5em 0;">
+<div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same 40-inch diagonal in 21:9, 16:9 and 4:3, each drawn lying down and standing up. Rotated widths at 110 PPI: 1730, 2160 and 2640 pixels.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="12">
     <rect x="10" y="102" width="112" height="48" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
@@ -68,7 +111,7 @@ Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a
 
 Rotate an ultrawide and you get a chimney: one column wide and taller than a door. Rotate 4:3 and the standing shape is fine, but lying down it pillarboxes every film. 16:9 turns into two text columns and turns back into cinema - not ideal in either orientation, just the only one that is usable in both. That is the whole case for the ratio, and it is why the screen I would replace this one with is still 16:9.
 
-<div style="margin: 1.5em 0;">
+<div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 270" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="A landscape screen showing a narrow content column with wide empty margins, next to an upright screen where the same column fills most of the width and shows about twice as many lines.">
   <g font-family="Helvetica, Arial, sans-serif">
     <rect x="15" y="20" width="270" height="152" fill="none" stroke="currentColor" stroke-width="2" />
@@ -121,7 +164,7 @@ My screen is a curved 40-inch 16:9, so 88.6 x 49.8 cm of panel. Against the two 
 
 One 40-inch panel has more surface and more pixels than two 27-inch ones at the same density - and the pixels are continuous.
 
-<div style="margin: 1.5em 0;">
+<div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 320" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Scale drawing: a 40-inch screen upright, 49.8 by 88.6 cm, next to two 27-inch screens side by side, 59.8 by 33.6 cm each, separated by a bezel.">
   <g font-family="Helvetica, Arial, sans-serif">
     <rect x="20" y="30" width="149" height="266" fill="none" stroke="#00cdff" stroke-width="2" />
@@ -140,7 +183,7 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
 
 ## Eye level is a rule about staring, not about height
 [OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants two things at once: the centre of the screen 15-20 degrees below eye level, and the top of it at or below eye level. On a tall panel those two halves pull against each other.
-<div style="margin: 1.5em 0;">
+<div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 306" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Two side views of an upright 40-inch panel at 70 cm. With its top at eye level the centre falls 32 degrees below eye level; with the centre 15 degrees below eye level a quarter of the panel sits above eye level, and the shaded wedge shows how much of it the eyes reach without moving the neck.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="12">
     <circle cx="40" cy="60" r="5" fill="currentColor" />
@@ -175,6 +218,25 @@ At 70 cm, both halves hold only up to about 51 cm of panel height - which a 40-i
 
 It is quoted far more often than it is explained. It rests on two measured things: the resting posture of the eyes is [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/), and looking up opens the lids wider - Tsubota and Nakamori [measured](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007) 1.2 cm² of exposed eye in downgaze against 3.0 cm² in upgaze, with tear evaporation 3.4 times higher. Blinking drops from about 22 a minute to 7 in front of a screen.
 
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Bar chart of exposed eye surface by gaze direction: looking down 1.2 square centimetres, straight ahead 2.2, looking up 3.0.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <line x1="190" y1="26" x2="190" y2="164" stroke="currentColor" stroke-width="1" opacity="0.4" />
+    <text x="180" y="45" fill="currentColor" text-anchor="end">looking down</text>
+    <path d="M 190 32 H 306 Q 310 32 310 36 V 50 Q 310 54 306 54 H 190 Z" fill="#00cdff" />
+    <text x="322" y="48" fill="currentColor" opacity="0.85">1.2 cm&#178;</text>
+    <text x="180" y="90" fill="currentColor" text-anchor="end">straight ahead</text>
+    <path d="M 190 77 H 406 Q 410 77 410 81 V 95 Q 410 99 406 99 H 190 Z" fill="#00cdff" />
+    <text x="422" y="93" fill="currentColor" opacity="0.85">2.2 cm&#178;</text>
+    <text x="180" y="135" fill="currentColor" text-anchor="end">looking up</text>
+    <path d="M 190 122 H 486 Q 490 122 490 126 V 140 Q 490 144 486 144 H 190 Z" fill="#00cdff" />
+    <text x="502" y="138" fill="currentColor" opacity="0.85">3.0 cm&#178;</text>
+    <text x="310" y="188" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">exposed eye surface by gaze direction - tear evaporation rises</text>
+    <text x="310" y="205" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">3.4-fold across the same range</text>
+  </g>
+</svg>
+</div>
+
 Both mechanisms are about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. This is a comfort optimum averaged over a working day, not a health limit - and the reported prevalence of dry eye among screen workers, anywhere from 9.5% to 87.5%, says more about questionnaires than about eyes.
 
 The sharper objection is not to the rule but to the people it is aimed at. Hardly anyone spends the day looking up; they spend it looking down, at a laptop on a desk or a phone in their lap. If the common error is a bent neck, a screen that lifts the eyes is a correction rather than a hazard.
@@ -195,9 +257,63 @@ The "42% more productive with multiple monitors" figure is vendor-sponsored, and
 - [Hutchings et al.](https://dl.acm.org/doi/10.1145/989863.989867): more screen space raises window-management overhead, sometimes to counterproductive levels.
 - [A 2021 survey of developers at home](https://arxiv.org/abs/2103.13198): the strongest influence on perceived productivity was not the setup, but interruptions.
 
+Underneath all of them sits a confound worth naming. When these studies ran, a second monitor was the only way to buy more pixels, so "two screens" and "more working area" were the same variable and no result could separate them. That is not the choice anyone faces now. The NEC/Utah setup is the one that pulls the two apart - and it pulls against the dual desk: the pair of 20-inch screens carried 48% more panel and 67% more pixels than the single 24-inch widescreen, and still lost the text-editing task.
+
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 200" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="To scale: two 20-inch 4:3 screens totalling 2477 square centimetres and 3.8 megapixels, against one 24-inch widescreen of 1670 square centimetres and 2.3 megapixels, which won the text-editing task.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <rect x="25" y="40" width="122" height="91" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+    <rect x="153" y="40" width="122" height="91" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+    <line x1="150" y1="36" x2="150" y2="135" stroke="currentColor" stroke-width="5" opacity="0.6" />
+    <text x="150" y="158" fill="currentColor" text-anchor="middle">two 20-inch: 2477 cm&#178;, 3.8 Mpx</text>
+    <text x="150" y="176" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">more of everything, and it lost</text>
+    <rect x="400" y="37" width="155" height="97" fill="none" stroke="#00cdff" stroke-width="2" />
+    <text x="477" y="158" fill="#00cdff" text-anchor="middle">one 24-inch: 1670 cm&#178;, 2.3 Mpx</text>
+    <text x="477" y="176" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">6% faster at text editing</text>
+  </g>
+</svg>
+</div>
+
 So no percentages from me, just a distinction. A second screen is not extra space, it is a standing invitation: somewhere to park a chat window where it costs nothing. On one surface everything that wants my attention has to take it from what I am working on, which makes it my decision rather than the desk's.
 
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 205" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="On two screens a chat window fills the second one and costs nothing. On one screen the same chat window has to take space away from the editor.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <rect x="20" y="25" width="115" height="130" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="160" y="25" width="115" height="130" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="166" y="31" width="103" height="118" fill="#00cdff" opacity="0.35" />
+    <text x="217" y="96" fill="#00cdff" text-anchor="middle">chat</text>
+    <text x="147" y="180" fill="currentColor" text-anchor="middle">two screens: it costs nothing,</text>
+    <text x="147" y="198" fill="currentColor" text-anchor="middle">so it never closes</text>
+    <rect x="395" y="25" width="180" height="130" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="395" y="25" width="126" height="130" fill="currentColor" opacity="0.12" />
+    <text x="458" y="96" fill="currentColor" opacity="0.8" text-anchor="middle">editor</text>
+    <rect x="521" y="25" width="54" height="130" fill="#00cdff" opacity="0.35" />
+    <text x="548" y="96" fill="#00cdff" text-anchor="middle">chat</text>
+    <text x="485" y="180" fill="currentColor" text-anchor="middle">one surface: it has to take</text>
+    <text x="485" y="198" fill="currentColor" text-anchor="middle">the space from something</text>
+  </g>
+</svg>
+</div>
+
 ## How it sits on the desk
-A VESA arm behind the screen, the original stand gone, the desk underneath it free again. Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
+A VESA arm behind the screen, the original stand gone, the desk underneath it free again.
+
+<div style="margin: 1.5em 0; text-align: center;">
+<svg viewBox="0 0 620 210" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Two desks seen from above. The left one carries two monitor stands taking up the back of the surface. The right one has a single clamp at the back edge and the desk free.">
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
+    <rect x="25" y="25" width="250" height="130" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="45" y="32" width="90" height="42" fill="currentColor" opacity="0.28" />
+    <rect x="165" y="32" width="90" height="42" fill="currentColor" opacity="0.28" />
+    <text x="150" y="180" fill="currentColor" text-anchor="middle">two stands: the back third</text>
+    <text x="150" y="198" fill="currentColor" text-anchor="middle">of the desk is furniture</text>
+    <rect x="345" y="25" width="250" height="130" fill="none" stroke="currentColor" stroke-width="2" />
+    <rect x="455" y="22" width="30" height="10" fill="#00cdff" />
+    <text x="470" y="180" fill="currentColor" text-anchor="middle">one arm clamped at the edge:</text>
+    <text x="470" y="198" fill="currentColor" text-anchor="middle">the desk comes back</text>
+  </g>
+</svg>
+</div>
+ Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
 
 None of which is a love letter to my particular monitor. The successor I asked for in 2022 still does not exist, and turning the old screen on its side was only the upgrade I could have had back then. Upright, 4K is enough, not plenty: put a 6K or 8K 16:9 on the shelf, curved, and it goes on the arm the same afternoon. Only the band at eye level has to behave itself - and shelves can always be taller.
