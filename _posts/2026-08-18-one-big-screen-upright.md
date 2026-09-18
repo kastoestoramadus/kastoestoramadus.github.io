@@ -170,21 +170,71 @@ So the ratio should track the size, in the opposite direction to the market: the
 </svg>
 </div>
 
-On a lid the width is not even a choice - the keyboard sets it. Height is the only free variable, so the ratio is how you spend it. In the same 13-inch chassis, 16:10 is 11% more panel than 16:9 and 3:2 is 19% more, all of it height, and the number on the box grows with it, from 13.3 inches to 13.9.
+On a lid the width is not even a choice - the keyboard sets it. Height is the only free variable, so the ratio is how you spend it. In the same 13-inch chassis, 16:10 is 11% more panel than 16:9 and 3:2 is 19% more, all of it height, and the number on the box grows with it, from 13.3 inches to 13.9. The panel is not what you read on, either: the browser takes a fixed 120 pixels off the top whatever the shape, so the page grows faster than the glass - 600 pixels of web page on 16:9 against 733 on 3:2, 22% more page for 19% more panel. Which sounds abstract until you hold a phone next to it. An iPhone 15 is 852 page pixels tall and gives about 740 of them to the page: a 13-inch 3:2 laptop only draws level with it, and the 16:9 one shows a fifth less web page than a phone does.
 
 <div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 235" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Three panels of the same width, the width of a 13-inch lid: 16:9 with 486 square centimetres and a 13.3-inch diagonal, 16:10 with 11 percent more panel and 13.7 inches, and 3:2 with 19 percent more panel and 13.9 inches.">
+<svg viewBox="0 0 620 256" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same web page drawn in page pixels on four devices: an iPhone 15 leaves about 740 pixels of page, a 13-inch 16:9 laptop only 600, a 16:10 one 680 and a 3:2 one 733. The 16:9 laptop shows less of the page than the phone does.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="14">
     <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">one 13-inch chassis: the keyboard fixes the width, the ratio decides the rest</text>
-    <rect x="25" y="92" width="147" height="83" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <rect x="205" y="83" width="147" height="92" fill="none" stroke="currentColor" stroke-width="2" />
-    <rect x="385" y="77" width="147" height="98" fill="none" stroke="#00cdff" stroke-width="2" />
-    <text x="98" y="197" fill="currentColor" opacity="0.75" text-anchor="middle">16:9</text>
-    <text x="98" y="215" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">486 cm&#178;, 13.3 inches</text>
-    <text x="278" y="197" fill="currentColor" text-anchor="middle">16:10</text>
-    <text x="278" y="215" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">+11% panel, 13.7 inches</text>
-    <text x="458" y="197" fill="#00cdff" text-anchor="middle">3:2</text>
-    <text x="458" y="215" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">+19% panel, 13.9 inches</text>
+    <text x="310" y="33" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">same page, same browser bars, drawn in page pixels rather than centimetres</text>
+    <rect x="22" y="91.5" width="45.4" height="98.5" rx="4" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
+    <rect x="22" y="91.5" width="45.4" height="6" fill="currentColor" opacity="0.28" />
+    <rect x="22" y="184.9" width="45.4" height="5.1" fill="currentColor" opacity="0.28" />
+    <g stroke="#00cdff" stroke-width="1.5" opacity="0.9">
+      <line x1="28" y1="99.5" x2="59.7" y2="99.5" /><line x1="28" y1="102.7" x2="57.4" y2="102.7" /><line x1="28" y1="106.0" x2="58.7" y2="106.0" /><line x1="28" y1="109.2" x2="52.7" y2="109.2" />
+      <line x1="28" y1="112.5" x2="58.1" y2="112.5" /><line x1="28" y1="115.7" x2="56.4" y2="115.7" /><line x1="28" y1="118.9" x2="59.1" y2="118.9" /><line x1="28" y1="122.2" x2="48.4" y2="122.2" />
+      <line x1="28" y1="125.4" x2="57.7" y2="125.4" /><line x1="28" y1="128.7" x2="59.4" y2="128.7" /><line x1="28" y1="131.9" x2="54.7" y2="131.9" /><line x1="28" y1="135.1" x2="58.4" y2="135.1" />
+      <line x1="28" y1="138.4" x2="57.1" y2="138.4" /><line x1="28" y1="141.6" x2="51.0" y2="141.6" /><line x1="28" y1="144.9" x2="58.7" y2="144.9" /><line x1="28" y1="148.1" x2="56.1" y2="148.1" />
+      <line x1="28" y1="151.3" x2="58.1" y2="151.3" /><line x1="28" y1="154.6" x2="53.7" y2="154.6" /><line x1="28" y1="157.8" x2="59.1" y2="157.8" /><line x1="28" y1="161.1" x2="56.7" y2="161.1" />
+      <line x1="28" y1="164.3" x2="52.0" y2="164.3" /><line x1="28" y1="167.5" x2="58.4" y2="167.5" /><line x1="28" y1="170.8" x2="57.4" y2="170.8" /><line x1="28" y1="174.0" x2="55.7" y2="174.0" />
+      <line x1="28" y1="177.3" x2="59.4" y2="177.3" /><line x1="28" y1="180.5" x2="54.4" y2="180.5" />
+    </g>
+    <text x="44.7" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">iPhone 15</text>
+    <text x="44.7" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">852 px screen</text>
+    <text x="44.7" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">about 740 of page</text>
+    <rect x="104" y="106.8" width="148" height="83.2" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
+    <rect x="104" y="106.8" width="148" height="13.9" fill="currentColor" opacity="0.28" />
+    <rect x="110" y="111.8" width="104" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <g stroke="#00cdff" stroke-width="1.5" opacity="0.9">
+      <line x1="110" y1="122.7" x2="239.2" y2="122.7" /><line x1="110" y1="125.9" x2="229.7" y2="125.9" /><line x1="110" y1="129.2" x2="235.1" y2="129.2" /><line x1="110" y1="132.4" x2="210.6" y2="132.4" />
+      <line x1="110" y1="135.7" x2="232.4" y2="135.7" /><line x1="110" y1="138.9" x2="225.6" y2="138.9" /><line x1="110" y1="142.1" x2="236.5" y2="142.1" /><line x1="110" y1="145.4" x2="193.0" y2="145.4" />
+      <line x1="110" y1="148.6" x2="231.0" y2="148.6" /><line x1="110" y1="151.9" x2="237.8" y2="151.9" /><line x1="110" y1="155.1" x2="218.8" y2="155.1" /><line x1="110" y1="158.3" x2="233.8" y2="158.3" />
+      <line x1="110" y1="161.6" x2="228.3" y2="161.6" /><line x1="110" y1="164.8" x2="203.8" y2="164.8" /><line x1="110" y1="168.1" x2="235.1" y2="168.1" /><line x1="110" y1="171.3" x2="224.2" y2="171.3" />
+      <line x1="110" y1="174.5" x2="232.4" y2="174.5" /><line x1="110" y1="177.8" x2="214.7" y2="177.8" /><line x1="110" y1="181.0" x2="236.5" y2="181.0" /><line x1="110" y1="184.3" x2="227.0" y2="184.3" />
+      <line x1="110" y1="187.5" x2="207.9" y2="187.5" />
+    </g>
+    <text x="178" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">16:9</text>
+    <text x="178" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">13.3 inches</text>
+    <text x="178" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">600 px of page</text>
+    <rect x="278" y="97.5" width="148" height="92.5" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
+    <rect x="278" y="97.5" width="148" height="13.9" fill="currentColor" opacity="0.28" />
+    <rect x="284" y="102.5" width="104" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <g stroke="#00cdff" stroke-width="1.5" opacity="0.9">
+      <line x1="284" y1="113.4" x2="413.2" y2="113.4" /><line x1="284" y1="116.6" x2="403.7" y2="116.6" /><line x1="284" y1="119.9" x2="409.1" y2="119.9" /><line x1="284" y1="123.1" x2="384.6" y2="123.1" />
+      <line x1="284" y1="126.4" x2="406.4" y2="126.4" /><line x1="284" y1="129.6" x2="399.6" y2="129.6" /><line x1="284" y1="132.8" x2="410.5" y2="132.8" /><line x1="284" y1="136.1" x2="367.0" y2="136.1" />
+      <line x1="284" y1="139.3" x2="405.0" y2="139.3" /><line x1="284" y1="142.6" x2="411.8" y2="142.6" /><line x1="284" y1="145.8" x2="392.8" y2="145.8" /><line x1="284" y1="149.0" x2="407.8" y2="149.0" />
+      <line x1="284" y1="152.3" x2="402.3" y2="152.3" /><line x1="284" y1="155.5" x2="377.8" y2="155.5" /><line x1="284" y1="158.8" x2="409.1" y2="158.8" /><line x1="284" y1="162.0" x2="398.2" y2="162.0" />
+      <line x1="284" y1="165.2" x2="406.4" y2="165.2" /><line x1="284" y1="168.5" x2="388.7" y2="168.5" /><line x1="284" y1="171.7" x2="410.5" y2="171.7" /><line x1="284" y1="175.0" x2="401.0" y2="175.0" />
+      <line x1="284" y1="178.2" x2="381.9" y2="178.2" /><line x1="284" y1="181.4" x2="407.8" y2="181.4" /><line x1="284" y1="184.7" x2="403.7" y2="184.7" /><line x1="284" y1="187.9" x2="396.9" y2="187.9" />
+    </g>
+    <text x="352" y="209" fill="currentColor" opacity="0.75" text-anchor="middle">16:10</text>
+    <text x="352" y="227" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">13.7 inches</text>
+    <text x="352" y="243" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">680 px, +13%</text>
+    <rect x="452" y="91.4" width="148" height="98.6" fill="none" stroke="#00cdff" stroke-width="2" />
+    <rect x="452" y="91.4" width="148" height="13.9" fill="currentColor" opacity="0.28" />
+    <rect x="458" y="96.4" width="104" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
+    <g stroke="#00cdff" stroke-width="1.5" opacity="0.9">
+      <line x1="458" y1="107.3" x2="587.2" y2="107.3" /><line x1="458" y1="110.5" x2="577.7" y2="110.5" /><line x1="458" y1="113.8" x2="583.1" y2="113.8" /><line x1="458" y1="117.0" x2="558.6" y2="117.0" />
+      <line x1="458" y1="120.3" x2="580.4" y2="120.3" /><line x1="458" y1="123.5" x2="573.6" y2="123.5" /><line x1="458" y1="126.7" x2="584.5" y2="126.7" /><line x1="458" y1="130.0" x2="541.0" y2="130.0" />
+      <line x1="458" y1="133.2" x2="579.0" y2="133.2" /><line x1="458" y1="136.5" x2="585.8" y2="136.5" /><line x1="458" y1="139.7" x2="566.8" y2="139.7" /><line x1="458" y1="142.9" x2="581.8" y2="142.9" />
+      <line x1="458" y1="146.2" x2="576.3" y2="146.2" /><line x1="458" y1="149.4" x2="551.8" y2="149.4" /><line x1="458" y1="152.7" x2="583.1" y2="152.7" /><line x1="458" y1="155.9" x2="572.2" y2="155.9" />
+      <line x1="458" y1="159.1" x2="580.4" y2="159.1" /><line x1="458" y1="162.4" x2="562.7" y2="162.4" /><line x1="458" y1="165.6" x2="584.5" y2="165.6" /><line x1="458" y1="168.9" x2="575.0" y2="168.9" />
+      <line x1="458" y1="172.1" x2="555.9" y2="172.1" /><line x1="458" y1="175.3" x2="581.8" y2="175.3" /><line x1="458" y1="178.6" x2="577.7" y2="178.6" /><line x1="458" y1="181.8" x2="570.9" y2="181.8" />
+      <line x1="458" y1="185.1" x2="585.8" y2="185.1" /><line x1="458" y1="188.3" x2="565.4" y2="188.3" />
+    </g>
+    <text x="526" y="209" fill="#00cdff" text-anchor="middle">3:2</text>
+    <text x="526" y="227" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">13.9 inches</text>
+    <text x="526" y="243" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">733 px, +22%</text>
   </g>
 </svg>
 </div>
