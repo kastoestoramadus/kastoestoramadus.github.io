@@ -13,7 +13,7 @@
 					<description>&lt;p&gt;Two 27-inch monitors have less panel and fewer pixels than one 40-inch monitor, plus a seam down the middle that nobody can move. The standard two-screen desk is not more screen. It is less screen, cut in half.&lt;/p&gt;
 </description>
 				
-				<pubDate>Tue, 18 Aug 2026 00:00:00 +0200</pubDate>
+				<pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/hardware/2026/08/18/one-big-screen-upright.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2026/08/18/one-big-screen-upright.html</guid>
 			</item>
@@ -25,7 +25,7 @@
 					<description>&lt;p&gt;Every project I’ve worked on in banking and big data ends up with a config zoo: JSON for APIs, YAML for Kubernetes, properties for Spark, TOML for some Python tool. For application configuration there is one format I always come back to: HOCON (Human-Optimized Config Object Notation). Akka, Pekko, Play and scalafmt use it, and after years with it I think it simply beats the competition. Instead of listing features, let me show them.&lt;/p&gt;
 </description>
 				
-				<pubDate>Fri, 16 Jan 2026 00:00:00 +0100</pubDate>
+				<pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/dev/2026/01/16/hocon-beats-the-competition.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/01/16/hocon-beats-the-competition.html</guid>
 			</item>
@@ -37,7 +37,7 @@
 					<description>&lt;p&gt;I wanted to learn the basics of ZIO 2 and Scala 3, so I built a small project with them.&lt;/p&gt;
 </description>
 				
-				<pubDate>Sat, 31 Dec 2022 00:00:00 +0100</pubDate>
+				<pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/software/2022/12/31/ZIO2-SCALA3.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/software/2022/12/31/ZIO2-SCALA3.html</guid>
 			</item>
@@ -49,7 +49,7 @@
 					<description>&lt;p&gt;This is a side story about how computer displays follow the TV mainstream.&lt;/p&gt;
 </description>
 				
-				<pubDate>Thu, 10 Feb 2022 00:00:00 +0100</pubDate>
+				<pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/hardware/2022/02/10/big-wide-displays-extintion.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2022/02/10/big-wide-displays-extintion.html</guid>
 			</item>
@@ -61,7 +61,7 @@
 					<description>&lt;p&gt;This whole post is a complaint about the useless security practices of a bank I’ve worked for. I believe most of them apply to other banks as well.&lt;/p&gt;
 </description>
 				
-				<pubDate>Sat, 12 Dec 2020 00:00:00 +0100</pubDate>
+				<pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/dev/2020/12/12/big-banks-security-overkill.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2020/12/12/big-banks-security-overkill.html</guid>
 			</item>
@@ -73,7 +73,7 @@
 					<description>&lt;p&gt;I recently searched for a photo-editing laptop for my sister. Here are my thoughts on CPUs with more cores.&lt;/p&gt;
 </description>
 				
-				<pubDate>Thu, 26 Dec 2019 00:00:00 +0100</pubDate>
+				<pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</guid>
 			</item>
@@ -85,7 +85,7 @@
 					<description>&lt;p&gt;&lt;img src=&quot;https://fossbytes.com/wp-content/uploads/2016/11/windows-linux.jpg&quot; alt=&quot;Windows and Linux mascots holding hands&quot; /&gt;&lt;/p&gt;
 </description>
 				
-				<pubDate>Tue, 22 Jan 2019 00:00:00 +0100</pubDate>
+				<pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</guid>
 			</item>
@@ -97,7 +97,7 @@
 					<description>&lt;p&gt;Intel Optane is a great caching solution for HDDs. It gives you huge disk space that is almost as fast as a SATA SSD, with a much longer lifespan than SSDs have. Some stores sell it in a cheap bundle with a CPU and/or a motherboard.&lt;/p&gt;
 </description>
 				
-				<pubDate>Mon, 10 Sep 2018 00:00:00 +0200</pubDate>
+				<pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2018/09/10/no-optane-with-dual-os.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2018/09/10/no-optane-with-dual-os.html</guid>
 			</item>
@@ -109,7 +109,7 @@
 					<description>&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1200/1*TMRayUTb65ScYlvwYz1JPA.jpeg&quot; alt=&quot;Planned obsolescence poster quoting industrial designer Brooks Stevens, 1958&quot; /&gt;&lt;/p&gt;
 </description>
 				
-				<pubDate>Wed, 22 Aug 2018 00:00:00 +0200</pubDate>
+				<pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2018/08/22/short-time-support-against-ecology.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2018/08/22/short-time-support-against-ecology.html</guid>
 			</item>
@@ -121,7 +121,7 @@
 					<description>&lt;p&gt;&lt;img align=&quot;right&quot; src=&quot;/img/PriotizedSlack.png&quot; alt=&quot;Slack sidebar with starred channels on top&quot; /&gt;&lt;/p&gt;
 </description>
 				
-				<pubDate>Fri, 03 Aug 2018 00:00:00 +0200</pubDate>
+				<pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/apps/2018/08/03/low-distraction-slack.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/apps/2018/08/03/low-distraction-slack.html</guid>
 			</item>
