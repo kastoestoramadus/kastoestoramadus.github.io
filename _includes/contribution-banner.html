@@ -1,0 +1,34 @@
+{% comment %}
+  Live open-source PR counts from the GitHub Search API (CORS-open, no token; 10 requests/min per IP, cached 10 min).
+  {% include contribution-banner.html author="kastoestoramadus" repos="ekrich/sconfig,lightbend/config" %}
+  Without JavaScript or when the API fails, the plain links stay.
+{% endcomment %}
+{% assign cb_repos = include.repos | split: "," %}
+<div class="contribution-banner" data-author="{{ include.author }}" style="margin: 1.5em 0; padding: 12px 16px; border: 2px solid #00cdff; border-radius: 4px;">
+  <strong>Open-source PRs by <a href="https://github.com/{{ include.author }}">{{ include.author }}</a>, live from GitHub</strong>
+  <ul style="list-style: none; margin: 8px 0 0; padding: 0;">
+  {% for repo in cb_repos %}
+    <li data-repo="{{ repo }}"><a href="https://github.com/{{ repo }}/pulls?q=is%3Apr+author%3A{{ include.author }}">{{ repo }}</a> <span class="cb-counts"></span></li>
+  {% endfor %}
+  </ul>
+</div>
+<script>
+(function () {
+  var box = document.querySelector('.contribution-banner[data-author="{{ include.author }}"]');
+  if (!box || !window.fetch) return;
+  function count(repo, state) {
+    var key = 'cb:' + repo + ':' + state, now = Date.now();
+    try { var c = JSON.parse(sessionStorage.getItem(key)); if (c && now - c.t < 600000) return Promise.resolve(c.n); } catch (e) {}
+    var q = 'repo:' + repo + ' author:' + box.dataset.author + ' is:pr is:' + state;
+    return fetch('https://api.github.com/search/issues?per_page=1&q=' + encodeURIComponent(q))
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { try { sessionStorage.setItem(key, JSON.stringify({t: now, n: j.total_count})); } catch (e) {} return j.total_count; });
+  }
+  box.querySelectorAll('li[data-repo]').forEach(function (li) {
+    var repo = li.dataset.repo;
+    Promise.all([count(repo, 'merged'), count(repo, 'open')]).then(function (n) {
+      li.querySelector('.cb-counts').textContent = '- ' + n[0] + ' merged, ' + n[1] + ' open';
+    }).catch(function () {});
+  });
+})();
+</script>

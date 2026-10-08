@@ -94,6 +94,7 @@ History that matters:
 | `tags/<tag>.html`, `categories/<cat>.html` | Stub pages, one per tag/category; **must exist** or links 404 |
 | `blog/index.html` | Paginated archive (jekyll-paginate v1, 9 per page) |
 | `img/` | Images referenced from posts |
+| `_includes/contribution-banner.html` | Live PR counts (merged/open per repo) fetched client-side from the GitHub Search API, cached 10 min; `{% include contribution-banner.html author="..." repos="owner/a,owner/b" %}`. Unauthenticated limit is 10 requests/min per IP; the plain links remain when the call fails |
 | `_plugins/prefix-site-relative-urls.rb` | Prefixes links that ignore `baseurl` with it; a no-op unless building a preview |
 | `scripts/` | `install`, `serve*`, `newpost`, `generate-tags`, `generate-categories`, `check-preview`, `publish-pages`, `test-publish-pages` (`integrate-personal` is obsolete) |
 | `CNAME` | `blog.ww86.eu`, copied into `_site` and from there to the root of `gh-pages` |
