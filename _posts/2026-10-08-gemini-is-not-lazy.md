@@ -17,20 +17,22 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 
 Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.
 
-So I ask Gemini to write the instructions that push it beyond that default: examine each candidate, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; I type `go` and that's it, the long prompt runs.
+So I ask Gemini to write the instructions that push it beyond that default: examine each perspective, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; I type `go` and that's it, the long prompt runs.
 
 “Work harder” means more of the requested work gets done. More words alone would not help.
 
 ## What changed in the trial
 
-**Flash without `/xh` versus Flash executing the prompt from `/xh`.** All the trials used Flash through Gemini's desktop/web chat interface. The input in both cases was: `Review recommended cat toys. I want to buy some.` We compare executed answers; the generated prompt is the intermediate step.
+**Flash without `/xh` versus Flash executing the prompt from `/xh`.** All the trials used Flash through Gemini's desktop/web chat interface. We compare executed answers; the generated prompt is the intermediate step.
 
-The two sessions below show **answer excerpts**, translated from the [Polish originals](#polski). The right-hand result is the first batch, not the whole job.
+The four sessions below show **answer excerpts**; the Polish ones are translated from the [Polish originals](#polski). The right-hand results are the first batches, not the whole job.
+
+**Example one - a shopping brief.** The input in both cases was `Review recommended cat toys. I want to buy some.`
 
 <div class="session-comparison" markdown="1">
 <section class="session-panel" aria-labelledby="session-plain-en" markdown="1">
 
-### Flash: plain request
+### Flash: plain request - cat toys
 {: #session-plain-en}
 
 **Input:** `Review recommended cat toys. I want to buy some.`
@@ -44,7 +46,7 @@ The two sessions below show **answer excerpts**, translated from the [Polish ori
 </section>
 <section class="session-panel" aria-labelledby="session-skill-en" markdown="1">
 
-### Flash: after `/xh`
+### Flash: after `/xh` - cat toys
 {: #session-skill-en}
 
 **Input:** `/xh Review recommended cat toys. I want to buy some.`, then `go` without invoking the skill again.
@@ -70,7 +72,58 @@ Waiting for your signal (n or NEXT) to generate the next batch of recommendation
 
 The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links. The links still fall short: Cat Dancer leads to a category, and the Allegro link went through Google Search. They do not verify the quoted prices or safety claims.
 
-This trial combines a more specific brief with batching. It does not isolate the benefit of the meta skill over writing that same brief myself, or compare cheap and expensive models.
+**Example two - a conceptual question.** The question in both cases was `czym jest bóg?` (what is God), asked in Polish.
+
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-god-plain-en" markdown="1">
+
+### Flash: plain request - what is God
+{: #session-god-plain-en}
+
+**Input:** `czym jest bóg?`
+
+**Answer excerpt - the opening (translated):**
+
+> The question of what God is touches the very fabric of human reflection - and depending on the perspective from which we look at it, the answer takes a completely different shape. There is no single coherent definition, because the history of humanity has produced several fundamentally different approaches.
+
+**Answer excerpt - the first perspective (translated):**
+
+> **1. Theistic view (monotheistic religions)** In Christianity, Judaism and Islam God is understood as a personal, transcendent being - the Creator of the universe, who exists beyond time and space, but at the same time enters history and enters into a relationship with people. He is characterised by absolute perfection, omnipotence, omniscience and complete goodness.
+
+**Answer excerpt - the closing lines (translated):**
+
+> What God is, then, depends on whether we are looking for a Person, a personal Meaning, a Law of Nature, an ultimate Cause or a Structure of our own psyche. Which of these perspectives is closest to you, or from what angle would you like to explore this concept further?
+
+</section>
+<section class="session-panel" aria-labelledby="session-god-skill-en" markdown="1">
+
+### Flash: after `/xh` - what is God
+{: #session-god-skill-en}
+
+**Input:** `/xh czym jest bóg`, then `wykonaj` (run) without invoking the skill again.
+
+**Answer excerpt - the first module of batch one (translated):**
+
+> **1. CLASSICAL THEISM AND MONOTHEISTIC RELIGIONS**
+>
+> **Ontological framework:** God is understood as a personal being, wholly transcendent with respect to creation, existing necessarily beyond time (eternity as *nunc stans*) and space. He is characterised by absolute ontological simplicity (*divina simplicitas*), which means that in God there is no division into act and potency, essence and existence, or attributes and their subject. God creates the world *ex nihilo* (out of nothing) and sustains it in being (*creatio continua*), yet without entering into a relation of ontological dependence with it - the world depends on God, but God in his essence does not depend on the world.
+>
+> **Nuance and distinguishing subtleties:** classical theism vs Open Theism: classical theism assumes absolute immutability (*immutabilitas*), impassibility (*impassibilitas*) and God's absolute omniscience covering all future contingent events. Open theism rejects the traditional conception of immutability and of full deterministic knowledge of the future of free beings; God is framed there as a relational, dynamic subject, entering a genuine dialogue with time and human decisions, voluntarily limiting his absolute insight into the future.
+>
+> **Main representatives and works, step by step:** St Thomas Aquinas (*Summa Theologiae*): God as *Ipsum Esse Subsistens* (self-subsistent pure existence). Aquinas argues that in every created being existence (*esse*) differs from essence (*essentia*). To avoid an infinite regress in the chain of causes, there must exist a being in which essence *is* existence. That being is God. Al-Ghazali (*Tahafut al-Falasifa* / *The Incoherence of the Philosophers*): defends rigorous Islamic monotheism (Tawhid) against the Neoplatonising Islamic philosophers (Avicenna). Al-Ghazali argues for the creation of the world in time by God's free, personal will, rejecting the conception of an eternal, necessary emanation.
+>
+> **Criticism and weak points:** the problem of evil (Epicurus / Mackie) - the impossibility of reconciling omnipotence, omnibenevolence and omniscience with the fact of undeserved suffering; the paradox of omnipotence (can God create a stone he cannot lift?); the contradiction between God's immutability and impassibility and his personal care and the hearing of prayers.
+>
+> **Verification / sources:** Stanford Encyclopedia of Philosophy: Classical Theism | SEP: Open Theism
+
+Batch one holds three modules (classical theism, the philosophical Absolute, pantheism and process thought); the remaining six wait for `NEXT`.
+
+</section>
+</div>
+
+Both answers are useful, and the difference is in the shape. The baseline surveys five perspectives in a page and ends by asking which one to explore; the prompt from `/xh` opens a nine-module plan and delivers the first batch as specified: ontological framework, the nuances that blur in everyday use, two named works with their arguments, and the standard objections. It stops after the batch instead of handing the choice back to me.
+
+Two limits are worth stating. The sources come as names rather than verified quotations, and they still have to be opened by hand. And the trial does not isolate the skill's contribution from my writing an equally detailed brief myself, or compare cheap and expensive models.
 
 ## Copy the meta skill
 {: #copy-skill-en}
@@ -116,20 +169,22 @@ Important: [scripts bundled with skills cannot make internet requests](https://s
 
 Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.
 
-Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdego kandydata, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; wpisuję `uruchom` i gotowe, długi prompt się wykonuje.
+Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdą perspektywę, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; wpisuję `uruchom` i gotowe, długi prompt się wykonuje.
 
 „Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.
 
 ## Co zmieniło się w próbie
 
-**Flash bez `/xh` kontra Flash wykonujący prompt z `/xh`.** Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. W obu przypadkach punktem wyjścia było: `Przejrzyj co się poleca kotom do zabawy. chcę kupić`. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.
+**Flash bez `/xh` kontra Flash wykonujący prompt z `/xh`.** Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.
 
-Poniżej **oryginalne fragmenty odpowiedzi** z dwóch sesji. Po prawej jest pierwsza partia, nie wynik całego zadania.
+Poniżej **oryginalne fragmenty odpowiedzi** z czterech sesji. Po prawej stronie są pierwsze partie, nie wynik całego zadania.
+
+**Przykład pierwszy — zakupy dla kota.** W obu przypadkach punktem wyjścia było: `Przejrzyj co się poleca kotom do zabawy. chcę kupić`.
 
 <div class="session-comparison" markdown="1">
 <section class="session-panel" aria-labelledby="session-plain-pl" markdown="1">
 
-### Flash: zwykła prośba
+### Flash: zwykła prośba — zakupy dla kota
 {: #session-plain-pl}
 
 **Polecenie:** `Przejrzyj co się poleca kotom do zabawy. chcę kupić`
@@ -143,7 +198,7 @@ Poniżej **oryginalne fragmenty odpowiedzi** z dwóch sesji. Po prawej jest pier
 </section>
 <section class="session-panel" aria-labelledby="session-skill-pl" markdown="1">
 
-### Flash: po `/xh`
+### Flash: po `/xh` — zakupy dla kota
 {: #session-skill-pl}
 
 **Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `go` bez ponownego wywołania skilla.
@@ -169,7 +224,58 @@ Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomend
 
 Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami. Te ostatnie nadal zawodzą: Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie.
 
-Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela korzyści ze skilla od korzyści z samodzielnego napisania równie dokładnej instrukcji ani nie porównuje taniego modelu z drogim.
+**Przykład drugi — pytanie pojęciowe.** W obu przypadkach punktem wyjścia było pytanie: `czym jest bóg?`.
+
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-god-plain-pl" markdown="1">
+
+### Flash: zwykła prośba — czym jest bóg
+{: #session-god-plain-pl}
+
+**Polecenie:** `czym jest bóg?`
+
+**Fragment odpowiedzi — otwarcie:**
+
+> Pytanie o to, czym jest Bóg, dotyka samego zrębu ludzkiej refleksji — i w zależności od perspektywy, z której na nie spojrzymy, odpowiedź przyjmuje zupełnie inny kształt. Nie ma jednej spójnej definicji, ponieważ historia ludzkości wypracowała kilka zasadniczo odmiennych ujęć.
+
+**Fragment odpowiedzi — pierwsze ujęcie:**
+
+> **1. Ujęcie teistyczne (religie monoteistyczne)** — w chrześcijaństwie, judaizmie i islamie Bóg jest rozumiany jako osobowy, transcendentny byt — Stwórca wszechświata, który istnieje poza czasem i przestrzenią, ale jednocześnie wkracza w historię i wchodzi w relację z ludźmi. Cechują go absolutna doskonałość, omnipotencja (wszechmoc), omniscience (wszechwiedza) oraz całkowita dobroć.
+
+**Fragment odpowiedzi — zamknięcie:**
+
+> To, czym jest Bóg, zależy więc od tego, czy szukamy Osoby, Osobowego Sensu, Prawa Natury, Ostatecznej Przyczyny czy Struktury naszej własnej psychiki. Która z tych perspektyw jest Ci najbliższa lub pod jakim kątem chcesz to pojęcie pogłębić?
+
+</section>
+<section class="session-panel" aria-labelledby="session-god-skill-pl" markdown="1">
+
+### Flash: po `/xh` — czym jest bóg
+{: #session-god-skill-pl}
+
+**Polecenie:** `/xh czym jest bóg`, potem `wykonaj` bez ponownego wywołania skilla.
+
+**Fragment odpowiedzi — pierwszy moduł pierwszej partii:**
+
+> **1. TEIZM KLASYCZNY I RELIGIE MONOTEISTYCZNE**
+>
+> **Ramy Ontologiczne:** Bóg jest rozumiany jako byt osobowy, całkowicie transcendentny wobec stworzenia, istniejący w sposób konieczny poza czasem (wieczność jako nunc stans) i przestrzenią. Cechuje go absolutna prostota ontologiczna (divina simplicitas), co oznacza, że w Bogu nie ma podziału na akty i możności, istotę i istnienie, czy cechy i ich podmiot. Bóg stwarza świat ex nihilo (z niczego) i podtrzymuje go w istnieniu (creatio continua), nie wchodząc z nim jednak w relację zależności ontologicznej — świat zależy od Boga, ale Bóg w swojej istocie nie zależy od świata.
+>
+> **Niuans i Subtelności Różnicujące:** Teizm Klasyczny vs Teizm Otwarty (Open Theism): teizm klasyczny zakłada absolutną niezmienność (immutabilitas), beznamiętność (impassibilitas) oraz bezwzględną wszechwiedzę Boga obejmującą wszystkie przyszłe zdarzenia przygodne. Teizm otwarty odrzuca tradycyjną koncepcję niezmienności i pełnej deterministycznej wiedzy o przyszłości wolnych istot; Bóg jest w nim ujęty jako podmiot relacyjny, dynamiczny, wchodzący w autentyczny dialog z czasem i ludzkimi decyzjami, dobrowolnie ograniczający swój absolutny wgląd w przyszłość.
+>
+> **Główni Przedstawiciele i Dzieła Krok po Kroku:** Św. Tomasz z Akwinu (Summa Theologiae): Bóg jako Ipsum Esse Subsistens (Samoistne Czyste Istnienie). Tomasz argumentuje, że w każdym bycie stworzonym istnienie (esse) różni się od istoty (essentia). Aby uniknąć regresu w nieskończoność w łańcuchu przyczyn, musi istnieć byt, w którym istota JEST istnieniem. Tym bytem jest Bóg. Al-Ghazali (Tahafut al-Falasifa / Niezborność filozofów): Broni rygorystycznego monoteizmu islamskiego (Tawhid) przeciwko neoplatonizującym filozofom islamskim (Avicennie). Al-Ghazali argumentuje na rzecz stworzenia świata w czasie przez wolną, osobową wolę Boga, odrzucając koncepcję wiecznej, koniecznej emanacji.
+>
+> **Krytyka i Słabe Punkty:** Problem Zła (Epicurus / Mackie) — niemożność pogodzenia wszechmocy, wszechdobroci i wszechwiedzy z faktem istnienia niezasłużonego cierpienia; paradoks wszechmocy (czy Bóg może stworzyć kamień, którego nie zdoła podnieść?); sprzeczność między niezmiennością i beznamiętnością Boga a Jego osobową troską i wysłuchiwaniem modlitw.
+>
+> **Weryfikacja / Źródła:** Stanford Encyclopedia of Philosophy: Classical Theism | SEP: Open Theism
+
+Pierwsza partia to trzy moduły (teizm klasyczny, Absolut filozoficzny, panteizm i filozofia procesu); pozostałe sześć czekają na `NEXT`.
+
+</section>
+</div>
+
+Obie odpowiedzi są użyteczne, a różnica jest w kształcie. Zwykła odpowiedź przerzuca pięć perspektyw na jednej stronie i kończy pytaniem, którą pogłębić; prompt z `/xh` otwiera dziewięciomodułowy plan i dostarcza pierwszą partię zgodnie ze sztywnym szablonem: ramy ontologiczne, niuanse różnicujące, dwóch nazwanych przedstawicieli z argumentacją i standardową krytykę. Partia kończy się sama, zamiast oddawać mi decyzję.
+
+Dwie uczciwe granice. Źródła są nazwami, nie zweryfikowanymi cytatami, i nadal trzeba je otworzyć ręcznie. A próba nie oddziela wkładu skilla od napisania równie dokładnej instrukcji samodzielnie ani nie porównuje taniego modelu z drogim.
 
 ## Meta skill do skopiowania
 {: #copy-skill-pl}
