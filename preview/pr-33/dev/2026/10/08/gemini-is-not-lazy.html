@@ -209,7 +209,7 @@
 
           <div id="english" class="post-language" lang="en">
 
-  <p><strong>TLDR:</strong> A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: let the model draft the prompt, review it, then type <code>n</code> for each next batch.</p>
+  <p><strong>TLDR:</strong> A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: generate the prompt in a skill, run it in the normal session, then type <code>n</code> for each next batch.</p>
 
   <p>I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.</p>
 
@@ -217,7 +217,9 @@
 
   <h2 id="let-it-write-the-brief">Let it write the brief</h2>
 
-  <p>I gave my meta-prompt skill this request: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code> — find cat toys worth buying. <code>/xh</code> is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products. I typed <code>go</code>; Gemini covered the first three and ended with:</p>
+  <p>I gave my meta-prompt skill this request: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code> — find cat toys worth buying. <code>/xh</code> is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.</p>
+
+  <p>The hand-off matters: in my setup, the skill has limited MCP access, often without Gmail. It only writes the prompt. I run that prompt in the normal Gemini session with the connections the task needs; writing “use Gmail” cannot grant access. I typed <code>go</code>; Gemini covered the first three and ended with:</p>
 
   <pre><code class="language-plaintext">Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
 </code></pre>
@@ -256,7 +258,7 @@ Finish with a comparison and a recommendation for the stated use case.
 
 <div id="polski" class="post-language" lang="pl">
 
-  <p><strong>TLDR:</strong> Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: model układa prompt, ja go sprawdzam, a potem wpisuję <code>n</code> po każdą następną partię.</p>
+  <p><strong>TLDR:</strong> Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: generuję prompt w skillu, uruchamiam go w zwykłej sesji, a potem wpisuję <code>n</code> po każdą następną partię.</p>
 
   <p>Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia złotych miesięcznie. Gemini nadal daje mi krótką odpowiedź z propozycją kontynuacji. Chcę porównania, a nie zaproszenia do ponownego poproszenia o nie.</p>
 
@@ -264,7 +266,9 @@ Finish with a comparison and a recommendation for the stated use case.
 
   <h2 id="niech-sam-napisze-instrukcj">Niech sam napisze instrukcję</h2>
 
-  <p>Do skilla układającego meta-prompty wpisałem: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. <code>/xh</code> jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach. Wpisałem <code>go</code>; Gemini omówił pierwsze trzy i zakończył tak:</p>
+  <p>Do skilla układającego meta-prompty wpisałem: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. <code>/xh</code> jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach.</p>
+
+  <p>Przekazanie zadania jest istotne: w mojej konfiguracji skill ma ograniczony dostęp do MCP, często bez Gmaila. Tylko pisze prompt. Uruchamiam go w zwykłej sesji Gemini z połączeniami potrzebnymi do zadania; wpisanie „użyj Gmaila” nie daje dostępu. Wpisałem <code>go</code>; Gemini omówił pierwsze trzy i zakończył tak:</p>
 
   <pre><code class="language-plaintext">Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
 </code></pre>
