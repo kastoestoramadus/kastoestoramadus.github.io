@@ -51,10 +51,7 @@ What the reviews asked for:
 - the full `sbt test doc` and `javac --release 8`,
 - the behaviour change in the first line of the description.
 
-## How I keep AI honest
-- Every claim in a PR description is run against the unfixed library first.
-- Tests go in a separate commit and must fail red; the description says how many ("6 of 8 fail without the fix").
-- One PR, one fix. A mixed one got `CHANGES_REQUESTED`: "simpler is better".
-- Two AIs agreeing is not validation, they share blind spots. What counts is the red test, the fixed point (render, parse, render gives the same text), the other library as reference, and a maintainer reading the diff.
+## Next
+How the AI agents were kept honest (probes, red tests, a second pair of eyes that is not another model) deserves a post of its own.
 
 The formatter that started all this is coming along in [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt) ;)
