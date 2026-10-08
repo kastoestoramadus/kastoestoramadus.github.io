@@ -70,7 +70,7 @@ Waiting for your signal (n or NEXT) to generate the next batch of recommendation
 </section>
 </div>
 
-The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links. The links still fall short: Cat Dancer leads to a category, and the Allegro link went through Google Search. They do not verify the quoted prices or safety claims.
+The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links.
 
 **Example two - a conceptual question.** The question in both cases was `czym jest bóg?` (what is God), asked in Polish.
 
@@ -122,8 +122,6 @@ Batch one holds three modules (classical theism, the philosophical Absolute, pan
 </div>
 
 Both answers are useful, and the difference is in the shape. The baseline surveys five perspectives in a page and ends by asking which one to explore; the prompt from `/xh` opens a nine-module plan and delivers the first batch as specified: ontological framework, the nuances that blur in everyday use, two named works with their arguments, and the standard objections. It stops after the batch instead of handing the choice back to me.
-
-Two limits are worth stating. The sources come as names rather than verified quotations, and they still have to be opened by hand. And the trial does not isolate the skill's contribution from my writing an equally detailed brief myself, or compare cheap and expensive models.
 
 ## Copy the meta skill
 {: #copy-skill-en}
@@ -222,7 +220,7 @@ Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomend
 </section>
 </div>
 
-Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami. Te ostatnie nadal zawodzą: Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie.
+Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami.
 
 **Przykład drugi — pytanie pojęciowe.** W obu przypadkach punktem wyjścia było pytanie: `czym jest bóg?`.
 
@@ -274,8 +272,6 @@ Pierwsza partia to trzy moduły (teizm klasyczny, Absolut filozoficzny, panteizm
 </div>
 
 Obie odpowiedzi są użyteczne, a różnica jest w kształcie. Zwykła odpowiedź przerzuca pięć perspektyw na jednej stronie i kończy pytaniem, którą pogłębić; prompt z `/xh` otwiera dziewięciomodułowy plan i dostarcza pierwszą partię zgodnie ze sztywnym szablonem: ramy ontologiczne, niuanse różnicujące, dwóch nazwanych przedstawicieli z argumentacją i standardową krytykę. Partia kończy się sama, zamiast oddawać mi decyzję.
-
-Dwie uczciwe granice. Źródła są nazwami, nie zweryfikowanymi cytatami, i nadal trzeba je otworzyć ręcznie. A próba nie oddziela wkładu skilla od napisania równie dokładnej instrukcji samodzielnie ani nie porównuje taniego modelu z drogim.
 
 ## Meta skill do skopiowania
 {: #copy-skill-pl}
