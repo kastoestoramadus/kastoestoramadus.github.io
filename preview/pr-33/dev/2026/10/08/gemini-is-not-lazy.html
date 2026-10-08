@@ -19,7 +19,7 @@
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html">
-  <title>{ IT blog - Waldemar Wosiński } | Gemini is not lazy, it is brief</title>
+  <title>{ IT blog - Waldemar Wosiński } | Getting more out of Gemini for less</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
@@ -177,7 +177,7 @@
 <!-- Swipe Instructions End -->
 
 
-          <h1><strong>Gemini is not lazy, it is brief</strong></h1>
+          <h1><strong>Getting more out of Gemini for less</strong></h1>
           <h4>
             <strong>08 Oct 2026</strong>
             <small>
@@ -199,297 +199,101 @@
 
           <div style="text-align: left">
 
-          <p><em>(Polish readers: a full Polish version is at the end of this post.)</em></p>
+          
+            <nav class="post-language-switch" aria-label="Language / Język">
+  <a href="#english" lang="en" hreflang="en" data-post-title="Getting more out of Gemini for less">English</a>
+  <a href="#polski" lang="pl" hreflang="pl" data-post-title="Jak wycisnąć więcej z taniego Gemini">Polski</a>
+</nav>
 
-<p>A paid Gemini answers like a colleague with somewhere else to be: three confident paragraphs, a summary of the summary, and an offer to continue if I would like. Everyone reads that as laziness. Google’s own prompt guide says it out loud - Gemini 3 models “provide direct and efficient answers” by default, and “if you need a more conversational or detailed response, you must explicitly request it in your instructions”. Brevity is the factory setting, not a fault.</p>
+          
 
-<p>I bought a year of Google AI Plus on the 400 GB tier for 239,99 zł - twenty zł a month. The model in the box is the same one the expensive tiers serve; what tiers sell is quota, Drive space and bigger research allowances, not effort. What my plan lacks is not a setting, it is a habit of asking.</p>
+          <div id="english" class="post-language" lang="en">
 
-<h2 id="thinking-is-not-effort">Thinking is not effort</h2>
-<p>The app does have a dial: Standard thinking, the default, Extended thinking, “best for complex problem solving”, and Deep think - Ultra only, “requires the Pro model”, and it “generally can take a few minutes”. The footnote is the honest one: “more advanced models and higher thinking levels consume more of your usage.”</p>
+  <p><strong>TLDR:</strong> A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: let the model draft the prompt, review it, then type <code>n</code> for each next batch.</p>
 
-<p>That dial buys reasoning, and reasoning is not the deliverable. Thought summaries are off by default - “only the final output is returned” - so the extra thinking happens where I cannot audit it. And <code>max_output_tokens</code> “includes thought tokens” and acts as “a hard cutoff”: a long think and a long answer do not fit in one budget, and at the cap the model “stops generating with status ‘incomplete’ and returns truncated or empty output”. A higher thinking level can make the visible answer shorter, because thinking eats the room the answer wanted. Google’s remedy is to lower the thinking level, not to raise the ceiling.</p>
+  <p>I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.</p>
 
-<p>So the lever that shapes the work is the prompt, and a prompt for real work has two jobs: say what to produce, and say how it will be checked. Everything else is decoration - the fearsome persona included, and the research agrees it is decoration.</p>
+  <p><a href="https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices">Google’s Gemini 3 guide</a> describes a preference for concise answers and recommends clear instructions. More thinking does not tell the model which fields my report needs or when the job is done.</p>
 
-<p>Which is why, in my own use, Flash with a precise prompt beats Pro with thinking. The top levels need the Pro model and minutes of latency, and they buy mostly arithmetic and symbolic reasoning: a meta-analysis of more than a hundred papers found step-by-step gains cluster in exactly those tasks, and on reasoning models the measured gain is marginal against a significant token bill. For a report, the shape of the answer matters more than the depth of the model, and shape is set by the prompt. Flash answers faster and cheaper; the protocol does the rest.</p>
+  <h2 id="let-it-write-the-brief">Let it write the brief</h2>
 
-<h2 id="what-the-evidence-supports-and-what-it-does-not">What the evidence supports, and what it does not</h2>
+  <p>I use a meta-prompt skill through my own <code>/gh</code> shortcut, not a built-in Gemini command. I describe the task — say, compare three HDDs for a NAS with links — and it drafts the session prompt. I review it, type “execute”, then <code>n</code> after each batch.</p>
 
-<div class="table-responsive">
+  <p>The useful part of the “armoured prompt” is its structure. Here is a starting point:</p>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Lever</th>
-        <th>What the evidence shows</th>
-        <th>Source</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>An explicit output budget</td>
-        <td>Models respect short length targets and “deteriorate sharply” beyond them; about 4,000 words is a hard ceiling for one answer</td>
-        <td><a href="https://arxiv.org/abs/2505.16234">LIFEBench</a>, <a href="https://arxiv.org/abs/2409.16191">HelloBench</a></td>
-      </tr>
-      <tr>
-        <td>Plan, then write in batches</td>
-        <td>Plan-then-write subtasks reached 20,000+ words at maintained quality; a single pass caps near 2,000</td>
-        <td><a href="https://arxiv.org/abs/2408.07055">LongWriter</a></td>
-      </tr>
-      <tr>
-        <td>Restate the plan every turn</td>
-        <td>Constraint compliance decays across turns and as constraints accumulate; long inputs and long sessions rot</td>
-        <td><a href="https://arxiv.org/abs/2410.15553">Multi-IF</a>, <a href="https://arxiv.org/abs/2310.20410">FollowBench</a>, <a href="https://www.trychroma.com/research/context-rot">Context Rot</a></td>
-      </tr>
-      <tr>
-        <td>Verify with a tool, not a hunch</td>
-        <td>Self-correction without external feedback fails or harms; tool-using critique improves results</td>
-        <td><a href="https://arxiv.org/abs/2310.01798">Huang et al.</a>, <a href="https://arxiv.org/abs/2305.11738">CRITIC</a></td>
-      </tr>
-      <tr>
-        <td>A meta-prompt that writes the prompt</td>
-        <td>Generated prompts beat hand-written ones: 17.1% on one benchmark, up to 31% in another</td>
-        <td><a href="https://arxiv.org/abs/2401.12954">Meta-Prompting</a>, <a href="https://arxiv.org/abs/2305.03495">APO</a></td>
-      </tr>
-      <tr>
-        <td>A fearsome persona</td>
-        <td>162 expert roles across 2,410 factual questions: no gain, and low-knowledge personas can hurt</td>
-        <td><a href="https://arxiv.org/abs/2311.10054">Zheng et al.</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <pre><code class="language-plaintext">Compare &lt;items&gt; for &lt;use case&gt;.
+First propose shared criteria and a numbered plan. Wait for approval.
 
-</div>
+Use current primary sources for specifications, prices and availability.
+Open cited pages; link the source supporting each material claim.
+Separate facts from judgement. Mark missing evidence UNVERIFIED.
+If search or page access is unavailable, say so. Do not invent data.
 
-<p>Start with the ceiling on one answer. HelloBench found most models cannot write more than about 4,000 words, whatever length they were asked for; LIFEBench, across 10,800 instances, found them following short targets and then falling apart. My protocol asks for batches of five items and then stops, because a thousand-odd words sits inside the reliable zone and the rest of the plan lives in a ledger instead of the model’s memory. LongWriter shows the same shape from the other end: one pass caps near 2,000 words, while plan-then-write subtasks reached 20,000+ at maintained quality.</p>
+For each item: finding, source, trade-off, missing information.
+Keep the same criteria and required fields for every item.
 
-<p>Batching also protects the instructions. FollowBench measured accuracy falling as constraints accumulate; Multi-IF caught a strong model sliding from 0.877 compliance on turn one to 0.707 by turn three. “Lost in the Middle” (75.8% when the fact is first, 53.8% when it is buried), Chroma’s Context Rot report and Microsoft’s multi-turn study (39% average drop across six tasks) say the same about long context in general. Restating a ledger at the top of every batch is how a plan survives turn ten.</p>
-
-<p>Verification gets the strictest clause, because here the research is unambiguous. “Large Language Models Cannot Self-Correct Reasoning Yet” found self-correction without external feedback often fails and sometimes makes things worse; models in Tyen et al. could not locate their own reasoning errors but fixed them readily when shown where; CRITIC found tool-assisted critique - a search, an interpreter - consistently improves results. Hence the source rules: a link must come out of this session’s searches, a claim carries the sentence that supports it, and what could not be checked is marked <code>[UNVERIFIED]</code>. “Double-check your work” is theatre; a search is evidence.</p>
-
-<p>The leverage sits in the meta-layer: a meta-prompt scaffold beat standard prompting by 17.1% on the same model, and automatic prompt optimisation lifted an initial prompt by up to 31%. I am not writing a better prompt than the model can - I am asking the model to write the prompt, as a specification rather than a wish.</p>
-
-<p>The folklore deserves naming too. Expert personas: 162 roles across 2,410 factual questions, no improvement, with best-persona selection barely above random. Emotional pressure and promised tips: no significant effect. The armour in an armoured prompt is structural - output budget, batching, evidence rules, a rigid template - not a tone of voice.</p>
-
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 190" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Left: one long answer drawn as bars that fade out and end in a dashed bar that never gets written. Right: four short bars of equal strength, separated by the letter n.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
-    <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">the same task, two ways - one long answer, or four short ones</text>
-    <text x="15" y="44" fill="currentColor">one answer</text>
-    <rect x="15" y="54" width="290" height="18" fill="#00cdff" opacity="0.9" />
-    <rect x="15" y="78" width="268" height="18" fill="#00cdff" opacity="0.62" />
-    <rect x="15" y="102" width="232" height="18" fill="#00cdff" opacity="0.34" />
-    <rect x="15" y="126" width="150" height="18" fill="none" stroke="#00cdff" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6" />
-    <line x1="318" y1="30" x2="318" y2="152" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" opacity="0.3" />
-    <text x="345" y="44" fill="currentColor">four batches</text>
-    <rect x="345" y="54" width="150" height="18" fill="#00cdff" opacity="0.9" />
-    <rect x="345" y="78" width="150" height="18" fill="#00cdff" opacity="0.9" />
-    <rect x="345" y="102" width="150" height="18" fill="#00cdff" opacity="0.9" />
-    <rect x="345" y="126" width="150" height="18" fill="#00cdff" opacity="0.9" />
-    <text x="505" y="69" fill="#00cdff">n</text>
-    <text x="505" y="93" fill="#00cdff">n</text>
-    <text x="505" y="117" fill="#00cdff">n</text>
-    <text x="310" y="176" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">one answer fades and stops early; four batches stay even, one letter apart</text>
-  </g>
-</svg>
-</div>
-
-<h2 id="the-prompt-i-no-longer-write">The prompt I no longer write</h2>
-<p>The tool is a meta-prompt. I type a skill command and one line of intent - <code>/gh compare three HDDs for a NAS, with links</code> - and it returns a full session prompt with five clauses: an extreme role with a ban on saving tokens, on preambles and on summaries of summaries; a search protocol with a search per claim and links as <code>[name](url)</code>, never raw text and never from memory; flow control in batches of five, then a stop and one letter to continue; a rigid data template whose fields cannot be skipped; and autonomy, with capitals reserved for the one case where a human has to act. Then I type “execute”, and after every batch, <code>n</code>.</p>
-
-<p>The block below is that protocol trimmed to its bones, with the additions from the next section folded in:</p>
-
-<pre><code class="language-text">ROLE
-You are a senior &lt;domain&gt; reviewer writing for publication, not a chat assistant.
-Do not save tokens: no preambles, no restating the question, no "in this article".
-
-SOURCES
-Run a search for every factual claim before you make it.
-Link only URLs that came back in this session, as [name](url) - never from memory.
-Quote the sentence that supports the claim. Mark what you could not check as [UNVERIFIED].
-
-BATCHES
-Work through the plan in batches of five items, then stop.
-End each batch with the ledger: DONE / NEXT / UNVERIFIED.
-Wait for one letter: n = next batch, d = deeper, s = skip, x = stop.
-If only a human can unblock you, print DECISION NEEDED: &lt;question&gt; and continue with the rest.
-
-TEMPLATE - every item, no omissions
-1. Claim. 2. Evidence (link + quoted sentence). 3. Confidence (high / medium / low).
-4. What would falsify it.
+Work through at most five plan items per batch, then stop.
+Start each batch with DONE / NEXT / UNVERIFIED and the remaining plan.
+n = next batch; d = expand the last item; s = skip it; x = stop.
+Ask a specific question if a decision blocks progress.
+Finish with a comparison and a recommendation for the stated use case.
 </code></pre>
 
-<h2 id="five-additions-of-mine">Five additions of mine</h2>
-<ol>
-  <li><strong>A ledger, first line of every batch.</strong> DONE / NEXT / UNVERIFIED, restated before new material. Constraint compliance decays across turns, so the plan has to be re-read, not remembered - and I see the state of a long job at a glance.</li>
-  <li><strong>More letters than <code>n</code>.</strong> <code>d</code> goes deeper on the last item, <code>s</code> skips, <code>x</code> stops, and DECISION NEEDED: in capitals marks the one thing only a human can decide. One letter per decision is the cheapest control surface I have found for a chat window.</li>
-  <li><strong>Evidence rules with teeth.</strong> Quote the supporting sentence; link only what came back in this session; mark the rest <code>[UNVERIFIED]</code>. This is where invented citations die: a model allowed to link only what it retrieved has nothing to hallucinate from.</li>
-  <li><strong>Diverge, then a reviewer whose only job is to delete.</strong> Ask for three competing angles before the writing starts, then hand the result to a second pass with one instruction: remove what repeats, pads or contradicts, keep the rest verbatim. Models reward length when they judge text, so pruning has to be adversarial to be worth anything. This post went through that pass; a second reviewer is welcome to cut more.</li>
-  <li><strong>A fresh chat per deliverable, short persistent instructions.</strong> Google’s own advice for skills is to “keep it concise: focus your instructions only on the unique guidelines for the task”; Gems on personal accounts become skills next month, 100 active at most. The armoured prompt belongs in the first message of a session, not in settings - long sessions rot, and a twelve-clause preamble in every chat would be half-ignored.</li>
-</ol>
+  <p>Five is convenient, not magic. I want an answer small enough to inspect before the next one. The ledger makes omissions visible.</p>
 
-<h2 id="where-it-travels-and-where-it-does-not">Where it travels, and where it does not</h2>
-<p>The protocol is text, so it works wherever there is a prompt box: the web app, the phone, AI Studio, the API - where <code>thinking_level</code> is a request parameter rather than a menu item. What does not travel is the dial: thinking levels live in the app’s model menu, the top one needs Ultra and the Pro model, and the persistent instructions live in settings. Where the dial is missing or hidden, the prompt is the only effort control, and the only one that runs on Flash.</p>
+  <h2 id="keep-the-evidence-cut-the-rest">Keep the evidence, cut the rest</h2>
 
-<p>The plan’s other half pays off here too: up to ten active scheduled actions, written as a prompt and run daily, weekly or monthly, with the result delivered into the chat “within the hour leading up to your delivery time”. Ten recurring slots, each a small program - a weekly status report, a Monday digest, a monthly repository review. Written once as an armoured prompt, they stop being a chat and become a service.</p>
+  <p><a href="https://arxiv.org/abs/2408.07055">LongWriter</a> produced long, coherent texts by splitting writing into planned subtasks. <a href="https://arxiv.org/abs/2310.01798">Huang et al.</a> found that self-correction without external feedback could fail or worsen reasoning in the tested models. These support decomposition and external checks; neither validates this exact Gemini workflow.</p>
 
-<p>And one surface the protocol does not travel to at all: Gemini Live, which is voice, camera and screen sharing on Android - not in the web app, and, for now, without Gems (“Gems can’t be used with Gemini Live”). Live sits outside the usage limits as far as I can tell, and it is excellent once you know what not to expect from Gemini 3: it is a conversation about what the camera sees, not a worker with a specification.</p>
+  <p>Once the work is complete, I ask for an editing pass: remove repetition, filler and contradictions; preserve useful facts and links. I start the next deliverable in a fresh chat.</p>
 
-<h2 id="what-the-tier-adds-over-free">What the tier adds over free</h2>
-<p>The subscription does not buy a better Gemini, and it is worth being precise about what it does buy, because “the same model, with more of it” undersells the list.</p>
-
-<ul>
-  <li><strong>Limits.</strong> “AI Plus 2x higher than standard limits”, in Google’s own words - and the standard limits are what you hit first on the free tier.</li>
-  <li><strong>Storage.</strong> Drive goes from the free 15 GB to 400 GB, and the research and notebook allowances grow with the plan.</li>
-  <li><strong>Features behind the door.</strong> “Some features are only available with Google AI subscription plans”, and scheduled actions are among them - the free tier prepares their content “up to several hours in advance”, a paid plan “within the hour leading up to your delivery time”. That delivery window is the difference between a report written for today and a report written for whenever the free tier got round to it; video generation and the early and priority access rows sit on the same side of the line.</li>
-  <li><strong>And Antigravity.</strong> Google’s agent IDE sells its own credits and plans, and nothing in my subscription reaches it - worth knowing before buying the plan for that.</li>
-</ul>
-
-<p>That is the honest ledger: more usage, more storage, a few paid-only doors, and one Google product that ignores the whole thing. The model itself is a stopgap too - until Gemini 4 arrives, Gemini is simply the handicap - and the one lever the subscription never touches is the prompt.</p>
-
-<h2 id="what-it-costs">What it costs</h2>
-<p>The bill is paid in turns, not in money: batches are more messages, evidence demands more searching, and the reviewer pass doubles the reading. The app decides when to search - you can ask, not force - and a grounded answer carries a Sources section when it does. Deep Research is the same trade in Google’s own packaging: multi-step searching with links, quotas unpublished in absolute numbers, available from the entry plan.</p>
-
-<p>None of it makes the model right, and none of it makes citations true by decree. A protocol makes the model thorough, and thoroughness is what I want from a drafting assistant, not the last word; the citations that matter I still open myself.</p>
-
-<p>Two things are true about a cheap plan at once: it serves the same models as the expensive plans, and it behaves like a lazy one until asked not to. Effort is not the tier. It is the first message, the ledger, the letter <code>n</code>, and the reviewer that deletes. The cheapest upgrade in AI is not a bigger plan - it is a stricter prompt.</p>
-
-<hr />
-
-<h2 id="wersja-polska">Wersja polska</h2>
-
-<h3 id="gemini-nie-jest-leniwy-jest-zwięzły">Gemini nie jest leniwy, jest zwięzły</h3>
-<p>Płatny Gemini odpowiada jak kolega, któremu gdzieś się śpieszy: trzy pewne siebie akapity, streszczenie streszczenia i propozycja, że może dokończy, jeśli chcę. Wszyscy czytają to jako lenistwo. Tymczasem sam przewodnik Google po promptach mówi to na głos - modele Gemini 3 domyślnie “provide direct and efficient answers”, a “if you need a more conversational or detailed response, you must explicitly request it in your instructions”. Zwięzłość to ustawienie fabryczne, nie usterka.</p>
-
-<p>Kupiłem Google AI Plus na rok, w wariancie 400 GB, za 239,99 zł - dwadzieścia złotych miesięcznie. W środku siedzi ten sam model, który obsługują drogie plany, a plany sprzedają limit, miejsce na Dysku i większe pule researchu, nie wysiłek. Brakuje nie ustawienia, tylko nawyku dopominania się.</p>
-
-<h3 id="myślenie-to-nie-wysiłek">Myślenie to nie wysiłek</h3>
-<p>W aplikacji jest pokrętło: Standard (domyślne), Extended thinking, “best for complex problem solving”, oraz Deep think - tylko dla Ultra, “requires the Pro model”, i “generally can take a few minutes”. Najuczciwsza jest ta uwaga: “more advanced models and higher thinking levels consume more of your usage”.</p>
-
-<p>Pokrętło kupuje rozumowanie, a rozumowanie nie jest produktem. Podsumowania myślenia są domyślnie wyłączone - “only the final output is returned” - więc dodatkowe myślenie dzieje się tam, gdzie nie mogę go sprawdzić. A <code>max_output_tokens</code> “includes thought tokens” i działa jak “a hard cutoff”: długie myślenie i długa odpowiedź nie mieszczą się w jednym budżecie, a po dobiciu do sufitu model “stops generating with status ‘incomplete’ and returns truncated or empty output”. Wyższy poziom myślenia potrafi więc skrócić widoczną odpowiedź, bo zjada miejsce, którego chciała odpowiedź. Rada Google jest odwrotna niż intuicja: obniż poziom myślenia, nie podnoś limitu.</p>
-
-<p>Dźwignią, która kształtuje pracę, jest więc prompt, a prompt do prawdziwej roboty ma dwa zadania: powiedzieć, co ma powstać, i powiedzieć, jak to będzie sprawdzone. Reszta to dekoracja - łącznie z groźną personą, i badania potwierdzają, że to dekoracja.</p>
-
-<p>Dlatego w moim własnym użyciu Flash z precyzyjnym promptem bije Pro z thinkingiem. Najwyższe poziomy myślenia wymagają modelu Pro i minut zwłoki, a kupują głównie rozumowanie arytmetyczne i symboliczne; meta-analiza ponad stu prac pokazała, że zyski z “krok po kroku” koncentrują się właśnie w takich zadaniach, a na modelach rozumujących zmierzony zysk jest marginalny wobec rachunku za tokeny. Przy pisaniu raportu kształt odpowiedzi znaczy więcej niż głębia modelu, a kształt ustawia prompt. Flash odpowiada szybciej i taniej, a resztę robi protokół.</p>
-
-<h3 id="co-mówią-dowody-a-czego-nie">Co mówią dowody, a czego nie</h3>
-
-<div class="table-responsive">
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Dźwignia</th>
-        <th>Co pokazują dowody</th>
-        <th>Źródło</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Jawny budżet wyjścia</td>
-        <td>Modele trzymają krótkie cele, a dłużej “deteriorate sharply”; około 4000 słów to twardy sufit jednej odpowiedzi</td>
-        <td><a href="https://arxiv.org/abs/2505.16234">LIFEBench</a>, <a href="https://arxiv.org/abs/2409.16191">HelloBench</a></td>
-      </tr>
-      <tr>
-        <td>Plan, potem pisanie partiami</td>
-        <td>Podzadania “plan, potem pisz” dochodziły do 20 000+ słów bez utraty jakości; pojedyncze przejście kończy się przy 2000</td>
-        <td><a href="https://arxiv.org/abs/2408.07055">LongWriter</a></td>
-      </tr>
-      <tr>
-        <td>Powtarzaj plan w każdej turze</td>
-        <td>Zgodność z ograniczeniami spada z turami i wraz z ich liczbą; długie wejścia i długie sesje gniją</td>
-        <td><a href="https://arxiv.org/abs/2410.15553">Multi-IF</a>, <a href="https://arxiv.org/abs/2310.20410">FollowBench</a>, <a href="https://www.trychroma.com/research/context-rot">Context Rot</a></td>
-      </tr>
-      <tr>
-        <td>Weryfikuj narzędziem, nie przeczuciem</td>
-        <td>Samokorekta bez zewnętrznego sygnału zawodzi lub szkodzi; krytyka z użyciem narzędzi poprawia wyniki</td>
-        <td><a href="https://arxiv.org/abs/2310.01798">Huang i wsp.</a>, <a href="https://arxiv.org/abs/2305.11738">CRITIC</a></td>
-      </tr>
-      <tr>
-        <td>Meta-prompt, który pisze prompt</td>
-        <td>Generowane prompty biją pisane ręcznie: 17,1% na jednym benchmarku, do 31% w innym</td>
-        <td><a href="https://arxiv.org/abs/2401.12954">Meta-Prompting</a>, <a href="https://arxiv.org/abs/2305.03495">APO</a></td>
-      </tr>
-      <tr>
-        <td>Groźna persona</td>
-        <td>162 role eksperckie na 2410 pytaniach faktograficznych: brak poprawy, a persony o niskiej wiedzy szkodzą</td>
-        <td><a href="https://arxiv.org/abs/2311.10054">Zheng i wsp.</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <p>This costs more turns and reading. The prompt cannot grant tool access or guarantee citations: I still open the links that carry the recommendation.</p>
 
 </div>
 
-<p>Najpierw sufit jednej odpowiedzi. HelloBench: większość modeli nie napisze więcej niż około 4000 słów, niezależnie od tego, o jaką długość je poproszono; LIFEBench, na 10 800 przypadkach, pokazał, że modele trzymają krótkie cele, a potem się rozsypują. Mój protokół prosi o partie po pięć punktów i wtedy się zatrzymuje, bo odpowiedź na tysiąc kilkaset słów leży w strefie niezawodnej, a resztę planu trzyma licznik, nie pamięć modelu. LongWriter pokazuje to samo z drugiej strony: pojedyncze przejście kończy się w okolicy 2000 słów, a podzadania “najpierw plan, potem pisz” dochodziły do ponad 20 000 słów bez utraty jakości.</p>
+<div id="polski" class="post-language" lang="pl">
 
-<p>Partie chronią też instrukcje. FollowBench mierzył spadek dokładności, gdy ograniczeń przybywa; Multi-IF przyłapał mocny model na zejściu z 0,877 zgodności w pierwszej turze do 0,707 w trzeciej. “Lost in the Middle” (75,8% trafień, gdy fakt jest na początku, 53,8%, gdy jest zakopany), raport Context Rot od Chromy i badanie Microsoftu o wieloturowości - średni spadek 39% w sześciu zadaniach. Kontekst nie jest darmowy. Powtarzanie licznika na początku każdej partii to sposób, w jaki plan dożywa dziesiątej tury.</p>
+  <p><strong>TLDR:</strong> Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: model układa prompt, ja go sprawdzam, a potem wpisuję <code>n</code> po każdą następną partię.</p>
 
-<p>Weryfikacja dostaje najostrzejszą klauzulę, bo tu badania są jednoznaczne. “Large Language Models Cannot Self-Correct Reasoning Yet”: samokorekta bez zewnętrznego sygnału często zawodzi, a czasem psuje odpowiedź; modele z pracy Tyena i wsp. nie umiały znaleźć własnego błędu w rozumowaniu, ale naprawiały go od razu, gdy wskazano im miejsce; CRITIC pokazał, że krytyka z użyciem narzędzi - wyszukiwarki, interpretera - poprawia wyniki. Stąd zasady źródeł: link musi pochodzić z wyszukiwań tej sesji, twierdzenie niesie ze sobą zdanie, które je potwierdza, a czego nie dało się sprawdzić, dostaje znacznik <code>[UNVERIFIED]</code>. “Sprawdź dwa razy” to teatr; wyszukiwanie to dowód.</p>
+  <p>Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia złotych miesięcznie. Gemini nadal daje mi krótką odpowiedź z propozycją kontynuacji. Chcę porównania, a nie zaproszenia do ponownego poproszenia o nie.</p>
 
-<p>Dźwignia siedzi w meta-warstwie: szkielet meta-promptu pobił zwykłe promptowanie o 17,1% na tym samym modelu, a automatyczna optymalizacja promptu podniosła startowy prompt o nawet 31%. Nie piszę lepszego promptu, niż potrafi model - proszę model, żeby napisał prompt jako specyfikację, nie życzenie.</p>
+  <p><a href="https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices">Przewodnik Google po Gemini 3</a> opisuje skłonność do zwięzłych odpowiedzi i zaleca jasne instrukcje. Więcej myślenia nie mówi modelowi, jakich pól potrzebuję w raporcie ani kiedy robota jest skończona.</p>
 
-<p>Folklór też trzeba nazwać. Eksperckie persony: 162 role na 2410 pytaniach faktograficznych, zero poprawy, a wybór najlepszej persony ledwo ponad losowość. Presja emocjonalna i obiecywane napiwki: brak istotnego efektu. Pancerz w pancernym promptcie jest więc strukturalny - budżet wyjścia, partie, zasady źródeł, sztywny szablon - a nie w tonie głosu. Wykres powyżej pokazuje to samo w dwóch kolumnach: jedna odpowiedź blednie i urywa się przed końcem, cztery partie trzymają równy poziom.</p>
+  <h2 id="niech-sam-napisze-instrukcj">Niech sam napisze instrukcję</h2>
 
-<h3 id="prompt-którego-już-nie-piszę">Prompt, którego już nie piszę</h3>
-<p>Narzędzie to meta-prompt. Wpisuję komendę skilla i jedną linię intencji - <code>/gh porównaj trzy dyski HDD do NAS-a, z linkami</code> - a ono zwraca pełny prompt sesyjny z pięcioma klauzulami: ekstremalna rola z zakazem oszczędzania tokenów, wstępów i streszczania streszczeń; protokół wyszukiwania z osobnym wyszukiwaniem do każdego twierdzenia i linkami jako <code>[nazwa](url)</code>, nigdy gołym tekstem i nigdy z pamięci; sterowanie przepływem w partiach po pięć punktów, potem stop i jedna litera na kontynuację; sztywny szablon danych, z którego nie wolno niczego pominąć; i autonomia, z wielkimi literami zarezerwowanymi na ten jeden przypadek, gdy działać musi człowiek. Potem piszę “wykonaj”, a po każdej partii - <code>n</code>.</p>
+  <p>Korzystam ze skilla do meta-promptów przez własny skrót <code>/gh</code>, nie wbudowaną komendę Gemini. Opisuję zadanie — choćby porównanie trzech dysków HDD do NAS-a, z linkami — a skill układa prompt sesyjny. Sprawdzam go, wpisuję „wykonaj”, a po każdej partii — <code>n</code>.</p>
 
-<p>Blok poniżej to protokół sprowadzony do kości, z dodatkami z następnej sekcji w środku:</p>
+  <p>Przydatną częścią „pancernego promptu” jest jego struktura. Od tego można zacząć:</p>
 
-<pre><code class="language-text">ROLA
-Jesteś doświadczonym recenzentem w domenie &lt;X&gt;, piszesz do publikacji, nie na czacie.
-Nie oszczędzaj tokenów: żadnych wstępów, powtarzania pytania, "w tym artykule".
+  <pre><code class="language-plaintext">Porównaj &lt;elementy&gt; do &lt;zastosowania&gt;.
+Najpierw zaproponuj wspólne kryteria i numerowany plan. Czekaj na akceptację.
 
-ŹRÓDŁA
-Do każdego twierdzenia faktograficznego najpierw uruchom wyszukiwanie.
-Linkuj wyłącznie adresy, które wróciły w tej sesji, jako [nazwa](url) - nigdy z pamięci.
-Zacytuj zdanie, które potwierdza tezę. Czego nie sprawdziłeś, oznacz [UNVERIFIED].
+Sprawdzaj specyfikacje, ceny i dostępność w aktualnych źródłach pierwotnych.
+Otwieraj cytowane strony; przy istotnych twierdzeniach linkuj źródło dowodu.
+Oddzielaj fakty od oceny. Brak dowodu oznacz NIESPRAWDZONE.
+Jeśli nie masz wyszukiwarki lub dostępu do strony, powiedz to. Nie wymyślaj danych.
 
-PARTIE
-Pracuj partiami po pięć punktów planu, potem się zatrzymaj.
-Każdą partię kończ licznikiem: ZROBIONE / NASTĘPNE / NIESPRAWDZONE.
-Czekaj na jedną literę: n = następna partia, d = głębiej, s = pomiń, x = stop.
-Jeśli odblokować Cię może tylko człowiek, wypisz DECISION NEEDED: &lt;pytanie&gt; i rób dalej resztę.
+Dla każdego elementu: ustalenie, źródło, kompromis, brakujące informacje.
+Stosuj te same kryteria i wymagane pola do wszystkich elementów.
 
-SZABLON - każdy punkt, bez pomijania
-1. Teza. 2. Dowód (link + cytowane zdanie). 3. Pewność (wysoka / średnia / niska).
-4. Co by ją obaliło.
+Pracuj nad najwyżej pięcioma punktami planu w jednej partii, potem się zatrzymaj.
+Zacznij partię od ZROBIONE / NASTĘPNE / NIESPRAWDZONE i pozostałego planu.
+n = następna partia; d = rozwiń ostatni punkt; s = pomiń go; x = stop.
+Jeśli postęp wymaga decyzji, zadaj konkretne pytanie.
+Zakończ porównaniem i rekomendacją dla podanego zastosowania.
 </code></pre>
 
-<h3 id="pięć-dodatków-ode-mnie">Pięć dodatków ode mnie</h3>
-<ol>
-  <li><strong>Licznik w pierwszej linii każdej partii.</strong> ZROBIONE / NASTĘPNE / NIESPRAWDZONE, powtórzone przed nowym materiałem. Zgodność z ograniczeniami spada z każdą turą, więc plan trzeba odczytywać, a nie pamiętać; przy okazji widzę stan długiej roboty na jedno spojrzenie.</li>
-  <li><strong>Więcej liter niż <code>n</code>.</strong> <code>d</code> wchodzi głębiej w ostatni punkt, <code>s</code> pomija, <code>x</code> zatrzymuje, a DECISION NEEDED: wielkimi literami znaczy ten jeden raz, gdy decyduje człowiek. Jedna litera na decyzję to najtańsza powierzchnia sterowania, jaką znalazłem w oknie czatu.</li>
-  <li><strong>Zasady źródeł z zębami.</strong> Cytuj zdanie, które potwierdza; linkuj tylko to, co wróciło w sesji; resztę oznaczaj <code>[UNVERIFIED]</code>. Tu giną wymyślone cytowania: model, który może linkować wyłącznie to, co naprawdę pobrał, nie ma z czego halucynować.</li>
-  <li><strong>Najpierw rozbieżność, potem recenzent, którego jedynym zadaniem jest wycinanie.</strong> Poproś o trzy konkurencyjne ujęcia, zanim zacznie się pisanie, a potem oddaj wynik drugiemu przebiegowi z jednym poleceniem: usuń to, co się powtarza, watę i sprzeczności, resztę zostaw dosłownie. Modele oceniające tekst nagradzają długość, więc przycinanie musi być wrogie, żeby cokolwiek dało. Ten post przeszedł taki przebieg; kolejny recenzent może ciąć dalej.</li>
-  <li><strong>Świeży czat na każdy deliverable, krótkie instrukcje stałe.</strong> Google samo radzi przy skillach: “keep it concise: focus your instructions only on the unique guidelines for the task”, a Gemy na kontach osobistych zamieniają się w skille w przyszłym miesiącu - maksymalnie 100 aktywnych. Pancerny prompt należy do pierwszej wiadomości sesji, nie do ustawień: długie sesje gniją, a dwunastoklauzulowy wstęp w każdym czacie byłby w połowie ignorowany.</li>
-</ol>
+  <p>Pięć to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed następną. Licznik ujawnia pominięcia.</p>
 
-<h3 id="gdzie-to-działa-a-gdzie-nie">Gdzie to działa, a gdzie nie</h3>
-<p>Protokół jest tekstem, więc działa wszędzie, gdzie jest pole na prompt: aplikacja web, telefon, AI Studio i API - tam <code>thinking_level</code> jest parametrem żądania, nie pozycją w menu. Nie podróżuje za to pokrętło: poziomy myślenia siedzą w menu modelu w aplikacji, najwyższy wymaga Ultra i modelu Pro, a instrukcje stałe mieszkają w ustawieniach. Tam, gdzie pokrętła nie ma albo jest ukryte, prompt zostaje jedyną dźwignią wysiłku - i jedyną, która działa też na Flashu.</p>
+  <h2 id="zostawi-dowody-wyci-reszt">Zostawić dowody, wyciąć resztę</h2>
 
-<p>Druga połowa wartości planu gra tu do tej samej bramki: płatny plan daje do dziesięciu aktywnych zaplanowanych akcji, pisanych jako prompt i uruchamianych codziennie, co tydzień albo co miesiąc, z wynikiem dostarczanym do czatu “within the hour leading up to your delivery time”. Dziesięć cyklicznych slotów, każdy jak mały program - cotygodniowy raport, poniedziałkowy przegląd tematu, miesięczne podsumowanie repozytorium. Zapisane raz jako pancerny prompt przestają być czatem i stają się usługą.</p>
+  <p><a href="https://arxiv.org/abs/2408.07055">LongWriter</a> uzyskał długie, spójne teksty przez podział pisania na zaplanowane podzadania. <a href="https://arxiv.org/abs/2310.01798">Huang i wsp.</a> pokazali, że samokorekta bez zewnętrznej informacji zwrotnej mogła zawieść lub pogorszyć rozumowanie badanych modeli. To argumenty za podziałem pracy i zewnętrzną kontrolą; żadne z tych badań nie sprawdza mojego konkretnego sposobu pracy z Gemini.</p>
 
-<p>Jest jeszcze jedna powierzchnia, do której protokół nie dociera wcale: Gemini Live, czyli głos, kamera i udostępnianie ekranu na Androidzie - nie w aplikacji webowej i, póki co, bez Gemów (“Gems can’t be used with Gemini Live”). Live jest, o ile widzę, poza limitami użycia, i jest świetny, gdy wie się, czego nie oczekiwać od Gemini 3: to rozmowa o tym, co widzi kamera, a nie pracownik ze specyfikacją.</p>
+  <p>Po skończonej pracy proszę o przebieg redakcyjny: usuń powtórzenia, watę i sprzeczności; zachowaj przydatne fakty i linki. Następny materiał zaczynam w świeżym czacie.</p>
 
-<h3 id="co-płatny-plan-daje-ponad-darmowy">Co płatny plan daje ponad darmowy</h3>
-<p>Abonament nie kupuje lepszego Geminiego i warto dokładnie powiedzieć, co kupuje, bo “ten sam model, tylko więcej” sprzedaje tę listę poniżej wartości.</p>
+  <p>Płacę za to większą liczbą tur i większą ilością czytania. Prompt nie daje dostępu do narzędzi ani nie gwarantuje wiarygodności cytowań: linki, na których opiera się rekomendacja, nadal otwieram sam.</p>
 
-<ul>
-  <li><strong>Limity.</strong> “AI Plus 2x higher than standard limits”, jak to ujmuje Google - czyli dwa razy wyżej niż standard, a to standard dobija się na darmowym planie pierwszy.</li>
-  <li><strong>Miejsce.</strong> Dysk rośnie z darmowych 15 GB do 400 GB, a limity researchu i notatników rosną razem z planem.</li>
-  <li><strong>Funkcje za drzwiami.</strong> “Some features are only available with Google AI subscription plans”, a zaplanowane akcje są wśród nich - darmowy plan przygotowuje ich treść “up to several hours in advance”, płatny “within the hour leading up to your delivery time”. Ten czas dostawy to różnica między raportem pisanym na dziś a raportem pisanym na wtedy, kiedy darmowemu planowi się zachce; generowanie wideo i wiersze o wczesnym oraz priorytetowym dostępie leżą po tej samej stronie linii.</li>
-  <li><strong>I Antigravity.</strong> IDE agentowe Google sprzedaje własne kredyty i plany, a mój abonament tam nie dociera - warto wiedzieć, zanim kupi się plan dla niego.</li>
-</ul>
-
-<p>Uczciwy bilans: więcej użycia, więcej miejsca, kilka drzwi tylko dla płacących i jeden produkt Google, który całość ignoruje. Sam model też jest prowizorką - póki nie ma Gemini 4, to Gemini jest tym słabym ogniwem - a jedyna dźwignia, której abonament nigdy nie dotyka, to prompt.</p>
-
-<h3 id="ile-to-kosztuje">Ile to kosztuje</h3>
-<p>Rachunek płacę turami, nie pieniędzmi: partie to więcej wiadomości, dowody to więcej wyszukiwania, a przebieg recenzenta podwaja czytanie. O tym, czy szukać, decyduje aplikacja - o wyszukiwanie można poprosić, ale nie można go wymusić - a odpowiedź z ugruntowaniem dostaje sekcję źródeł, gdy już je znajdzie. Deep Research to ten sam handel w opakowaniu Google: wieloetapowe szukanie z linkami, limity niepublikowane w liczbach bezwzględnych, dostępne od najtańszego planu.</p>
-
-<p>Nic z tego nie czyni modelu prawym i nic nie czyni cytowań prawdziwymi na rozkaz. Protokół czyni model starannym, a staranności oczekuję od asystenta piszącego, nie ostatniego słowa; cytowania, które mają znaczenie, otwieram sam.</p>
-
-<p>Dwie rzeczy są prawdziwe o tanim planie jednocześnie: dostarcza te same modele co drogie plany i zachowuje się jak leniwy, dopóki się go nie poprosi. Wysiłek to nie tier. To pierwsza wiadomość, licznik, litera <code>n</code> i recenzent, który wycina. Najtańszy upgrade w AI to nie większy plan - to ostrzejszy prompt.</p>
+</div>
 
 
           </div>
@@ -500,7 +304,7 @@ SZABLON - każdy punkt, bez pomijania
   <ul class="rrssb-buttons clearfix">
     
       <li class="rrssb-email">
-        <a href="mailto:?subject=Gemini is not lazy, it is brief&body=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html" data-proofer-ignore>
+        <a href="mailto:?subject=Getting more out of Gemini for less&body=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html" data-proofer-ignore>
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
               <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
@@ -513,7 +317,7 @@ SZABLON - każdy punkt, bez pomijania
     
     
       <li class="rrssb-facebook">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Gemini is not lazy, it is brief" class="popup">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting more out of Gemini for less" class="popup">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
               class="cls-2" fill-rule="evenodd"/></svg>
@@ -524,7 +328,7 @@ SZABLON - każdy punkt, bez pomijania
     
     
       <li class="rrssb-twitter">
-        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&text=Gemini is not lazy, it is brief"
+        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&text=Getting more out of Gemini for less"
         class="popup">
           <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"/></svg></span>
           <span class="rrssb-text">twitter</span>
@@ -546,7 +350,7 @@ SZABLON - każdy punkt, bez pomijania
     
     
       <li class="rrssb-reddit">
-        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Gemini is not lazy, it is brief" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting more out of Gemini for less" target="_blank">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
               <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
@@ -728,7 +532,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, 'Gemini is not lazy, it is brief', 'https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html');
+    history.pushState({}, 'Getting more out of Gemini for less', 'https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html');
   }
 }
 </script>
@@ -738,6 +542,10 @@ function addTohistory() {
 
 <!-- Javascript End -->
 
+
+    
+      <script src="/preview/pr-33/js/post-language-switch.js"></script>
+    
 
   </body>
 </html>
