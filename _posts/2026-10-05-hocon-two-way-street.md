@@ -5,7 +5,7 @@ title: HOCON - a two-way street between sconfig and lightbend/config
 category: dev
 tags: [ 'scala', 'hocon', 'config', 'opensource' ]
 ---
-**TLDR:** Since January I have fixed the renderer in [sconfig](https://github.com/ekrich/sconfig) (Scala port of HOCON): 38 PRs, 18 merged. The port and the Java original [lightbend/config](https://github.com/lightbend/config) share their bugs, so I probe both and send the fix to both: 12 PRs upstream, 3 merged. Bugfixes get merged there, features don't. AI agents did much of the typing; every claim was checked by running code.
+**TLDR:** Since January I have fixed the renderer in [sconfig](https://github.com/ekrich/sconfig) (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original [lightbend/config](https://github.com/lightbend/config) share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don't. AI agents did much of the typing; every claim was checked by running code.
 
 This follows [HOCON - the config format YAML should have been]({% post_url 2026-01-16-hocon-beats-the-competition %}).
 
@@ -41,7 +41,7 @@ ConfigFactory.parseString("a = 1e999").root().render(ConfigRenderOptions.concise
 ```
 
 ## What gets merged upstream
-Lightbend has put lightbend/config in maintenance only: its README calls the library "feature complete", promises to keep it running on new JVM versions and to "rarely make any other changes". My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) is stuck, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
+Lightbend has put lightbend/config in maintenance only: its README calls the library "feature complete", promises to keep it running on new JVM versions and to "rarely make any other changes". My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) was closed unmerged, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
 
 What the reviews asked for:
 - change behaviour, add no API,
@@ -55,4 +55,4 @@ What the reviews asked for:
 - One PR, one fix. A mixed one got `CHANGES_REQUESTED`: "simpler is better".
 - Two AIs agreeing is not validation, they share blind spots. What counts is the red test, the fixed point (render, parse, render gives the same text), the other library as reference, and a maintainer reading the diff.
 
-The formatter that started all this is coming along in [hocon-formatter](https://github.com/kastoestoramadus/hocon-formatter) ;)
+The formatter that started all this is coming along in [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt) ;)
