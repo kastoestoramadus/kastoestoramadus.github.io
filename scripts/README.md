@@ -16,6 +16,17 @@ generate-categories
 generate-tags
   - Generate all the tags that are used in the \_posts
 
+check-preview <site-dir> <baseurl>
+  - Guards a PR preview build (`JEKYLL_ENV=preview jekyll build --baseurl /preview/pr-N --destination _preview`): every link
+  stays below the baseurl, every page is noindex, nothing refers to Disqus or Google Analytics. Run by CI.
+
+publish-pages <gh-pages-checkout> site|preview|remove ...
+  - Publishes a built site, a PR preview or the removal of a preview into a checkout of the gh-pages branch and pushes it,
+  rebasing and retrying when another publish got in between. Run by CI with GITHUB_TOKEN, see AGENTS.md.
+
+test-publish-pages
+  - Tests publish-pages against a throwaway local repo (no network). Run by CI.
+
 integrate-personal
   - Integrates the latest bug fixes and new features from personal-jekyll-theme repository.
   Make sure to read [this](https://github.com/PanosSakkos/personal-jekyll-theme/wiki/Integrating-latest-bug-fixes-and-features-into-your-past-fork) before using it.

@@ -5,32 +5,10 @@ title: Two screens never add up to one
 category: hardware
 tags: [ 'hardware', 'second-screen', 'productivity' ]
 ---
-Two 27-inch monitors have less panel and fewer pixels than one 40-inch monitor, plus a seam down the middle that nobody can move. The standard two-screen desk is not more screen. It is less screen, cut in half.
+**TLDR:** Two 27-inch monitors have less panel and fewer pixels than one 40-inch monitor, plus a seam nobody can move. I use a 40-inch 16:9 standing upright on an arm. 16:9 is the only ratio that works both lying down and standing up, and on a laptop, where you cannot rotate, the ratio decides how much height you get.
 
-That half of the argument is just arithmetic, and it is in the table below. The half people raise an eyebrow at is that mine stands up - a 40-inch 16:9 on an arm, rotated by 90 degrees, which is how it spends most of its life. Four years ago I wrote that this screen has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}) and praised it for working like two big, almost square screens side by side. That was the compromise talking: 16:9 is the only shape that does both jobs, and at 4K it is finally tall enough to be worth turning.
-
-## A big screen is divisible, small ones are not addable
-A big screen can pretend to be any number of small ones - [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager, or two maximised halves - and the split changes in a second to suit the task.
-
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 200" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="One upright screen drawn three times, split for review into two columns, for debugging into an editor over a log, and for writing into a single centred column.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
-    <rect x="60" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
-    <line x1="110" y1="20" x2="110" y2="170" stroke="#00cdff" stroke-width="1.5" />
-    <text x="110" y="192" fill="currentColor" text-anchor="middle">review: two columns</text>
-    <rect x="260" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
-    <line x1="260" y1="122" x2="360" y2="122" stroke="#00cdff" stroke-width="1.5" />
-    <text x="310" y="192" fill="currentColor" text-anchor="middle">debug: editor over log</text>
-    <rect x="460" y="20" width="100" height="150" fill="none" stroke="currentColor" stroke-width="2" />
-    <line x1="482" y1="20" x2="482" y2="170" stroke="#00cdff" stroke-width="1.5" />
-    <line x1="538" y1="20" x2="538" y2="170" stroke="#00cdff" stroke-width="1.5" />
-    <text x="510" y="192" fill="currentColor" text-anchor="middle">write: one column, margins parked</text>
-  </g>
-</svg>
-</div>
- Small screens cannot do the reverse. Two 27-inch monitors never become one 40-inch one: the seam is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
-
-That asymmetry is the whole argument. One surface divides any way you like; several surfaces never add up.
+## One surface divides, several never add up
+A big screen can pretend to be any number of small ones - [FancyZones](https://learn.microsoft.com/en-us/windows/powertoys/fancyzones), a tiling window manager, or two maximised halves - and the split changes in a second. Two 27-inch monitors never become one 40-inch one: the seam is permanent, and so are the two stands, the two calibrations and the window that has to pick a side.
 
 <div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Left: one screen split into three zones by dashed lines. Right: two screens with a fixed bezel seam and a window that cannot cross it.">
@@ -50,41 +28,30 @@ That asymmetry is the whole argument. One surface divides any way you like; seve
 </svg>
 </div>
 
-Graphics cards taught the same lesson. Two mid-range cards never rendered one scene as well as a single strong one, and Nvidia [stopped writing SLI profiles](https://www.pcworld.com/article/393426/rip-nvidia-slams-the-final-nail-in-slis-coffin-no-new-profiles-after-2020.html) after 2020. Different reasons - frame pacing rather than plastic bezels - identical shape: one strong card drives several screens, and no number of weak ones makes a strong one.
+## Geometry
+My screen is a curved 40-inch 16:9: 88.6 x 49.8 cm of panel.
 
-## Not work against play, but column against grid
-The web is a column. [Mobile-first indexing](https://developers.google.com/search/blog/2023/10/mobile-first-is-here) finished the job in 2023, and horizontal scrolling is a bug. Source files, unified diffs, logs, terminals, chats, pull requests, documentation: same shape. Content lives vertically, and width is mostly margin.
+<div class="table-responsive" markdown="1">
 
-It is tempting to call wide screens the entertainment shape and leave it there, but that is not the line. Cinema and games are wide - and so are spreadsheets, side-by-side diffs and video timelines, which are work by anyone's definition. The split is between columns and grids, and columns are what most of us stare at all day. (Entertainment only stayed wide on the desk anyway; on a phone it went vertical years ago.)
+| | one 40" 4K | two 27" 1440p | two 24" 1080p |
+|---|:-:|:-:|:-:|
+| Panel area | 4411 cm² | 4019 cm² | 3176 cm² |
+| Pixels | 8.3 Mpx | 7.4 Mpx | 4.1 Mpx |
+| Density | 110 PPI | 109 PPI | 92 PPI |
+| Scaling needed | none | none | none |
+| Seams | 0 | 1 | 1 |
+| Stands on the desk | 1 (or none, on an arm) | 2 | 2 |
+{: .table .table-winner}
 
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 235" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="On the left an upright screen filled with lines of text, labelled column. On the right a wide screen filled with spreadsheet cells, labelled grid.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
-    <rect x="95" y="20" width="110" height="170" fill="none" stroke="currentColor" stroke-width="2" />
-    <g stroke="#00cdff" stroke-width="3">
-      <line x1="110" y1="36" x2="180" y2="36" /><line x1="110" y1="50" x2="190" y2="50" /><line x1="110" y1="64" x2="165" y2="64" />
-      <line x1="110" y1="78" x2="190" y2="78" /><line x1="110" y1="92" x2="175" y2="92" /><line x1="110" y1="106" x2="190" y2="106" />
-      <line x1="110" y1="120" x2="155" y2="120" /><line x1="110" y1="134" x2="185" y2="134" /><line x1="110" y1="148" x2="170" y2="148" />
-      <line x1="110" y1="162" x2="190" y2="162" /><line x1="110" y1="176" x2="160" y2="176" />
-    </g>
-    <text x="150" y="212" fill="currentColor" text-anchor="middle">column</text>
-    <text x="150" y="230" fill="currentColor" opacity="0.7" font-size="12">code, prose, logs, chat, the web</text>
-    <rect x="325" y="45" width="230" height="120" fill="none" stroke="currentColor" stroke-width="2" />
-    <g stroke="currentColor" stroke-width="1" opacity="0.55">
-      <line x1="325" y1="69" x2="555" y2="69" /><line x1="325" y1="93" x2="555" y2="93" />
-      <line x1="325" y1="117" x2="555" y2="117" /><line x1="325" y1="141" x2="555" y2="141" />
-      <line x1="371" y1="45" x2="371" y2="165" /><line x1="417" y1="45" x2="417" y2="165" />
-      <line x1="463" y1="45" x2="463" y2="165" /><line x1="509" y1="45" x2="509" y2="165" />
-    </g>
-    <text x="440" y="212" fill="currentColor" text-anchor="middle">grid</text>
-    <text x="440" y="230" fill="currentColor" opacity="0.7" font-size="12">spreadsheets, timelines, side-by-side diffs</text>
-  </g>
-</svg>
 </div>
 
-Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a typical 19-pixel line, against about 110 in landscape. A 400-line review becomes two screenfuls instead of four.
+More surface and more pixels at the same density - and the pixels are continuous.
+
+## Why upright
+The web, source files, diffs, logs, terminals and chats are columns: content lives vertically, and width is mostly margin. Wide is for grids - spreadsheets, side-by-side diffs, video timelines. Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a typical 19-pixel line, against about 110 in landscape. A 400-line review becomes two screenfuls instead of four. Width pays off when you tile: documentation beside the editor, the app beside devtools.
 
 ## 16:9 is the only ratio that survives rotation
+Four years ago I wrote that this screen has [no successor]({% post_url 2022-02-10-big-wide-displays-extintion %}). It still has not, and turning it on its side was the upgrade I could have had back then.
 
 <div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same 40-inch diagonal in 21:9, 16:9 and 4:3, each drawn lying down and standing up. Rotated widths at 110 PPI: 1730, 2160 and 2640 pixels.">
@@ -109,46 +76,10 @@ Upright, my 4K panel is 2160 x 3840: around 200 lines of code in one editor at a
 </svg>
 </div>
 
-Rotate an ultrawide and you get a chimney: one column wide and taller than a door. Rotate 4:3 and the standing shape is fine, but lying down it pillarboxes every film. 16:9 turns into two text columns and turns back into cinema - not ideal in either orientation, just the only one that is usable in both. That is the whole case for the ratio, and it is why the screen I would replace this one with is still 16:9.
-
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 270" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="A landscape screen showing a narrow content column with wide empty margins, next to an upright screen where the same column fills most of the width and shows about twice as many lines.">
-  <g font-family="Helvetica, Arial, sans-serif">
-    <rect x="15" y="20" width="270" height="152" fill="none" stroke="currentColor" stroke-width="2" />
-    <g fill="currentColor" opacity="0.18">
-      <rect x="15" y="20" width="93" height="152" /><rect x="192" y="20" width="93" height="152" />
-    </g>
-    <g stroke="#00cdff" stroke-width="3">
-      <line x1="118" y1="34" x2="175" y2="34" /><line x1="118" y1="48" x2="182" y2="48" /><line x1="118" y1="62" x2="160" y2="62" />
-      <line x1="118" y1="76" x2="182" y2="76" /><line x1="118" y1="90" x2="170" y2="90" /><line x1="118" y1="104" x2="182" y2="104" />
-      <line x1="118" y1="118" x2="150" y2="118" /><line x1="118" y1="132" x2="178" y2="132" /><line x1="118" y1="146" x2="165" y2="146" />
-      <line x1="118" y1="160" x2="182" y2="160" />
-    </g>
-    <text x="15" y="196" fill="currentColor" font-size="14">landscape: the column uses a third of the width,</text>
-    <text x="15" y="214" fill="currentColor" font-size="14">the margins are grey pixels you paid for</text>
-    <rect x="380" y="20" width="152" height="225" fill="none" stroke="currentColor" stroke-width="2" />
-    <g fill="currentColor" opacity="0.18">
-      <rect x="380" y="20" width="33" height="225" /><rect x="499" y="20" width="33" height="225" />
-    </g>
-    <g stroke="#00cdff" stroke-width="3">
-      <line x1="423" y1="32" x2="480" y2="32" /><line x1="423" y1="44" x2="489" y2="44" /><line x1="423" y1="56" x2="465" y2="56" />
-      <line x1="423" y1="68" x2="489" y2="68" /><line x1="423" y1="80" x2="475" y2="80" /><line x1="423" y1="92" x2="489" y2="92" />
-      <line x1="423" y1="104" x2="455" y2="104" /><line x1="423" y1="116" x2="483" y2="116" /><line x1="423" y1="128" x2="470" y2="128" />
-      <line x1="423" y1="140" x2="489" y2="140" /><line x1="423" y1="152" x2="462" y2="152" /><line x1="423" y1="164" x2="486" y2="164" />
-      <line x1="423" y1="176" x2="478" y2="176" /><line x1="423" y1="188" x2="489" y2="188" /><line x1="423" y1="200" x2="458" y2="200" />
-      <line x1="423" y1="212" x2="484" y2="212" /><line x1="423" y1="224" x2="472" y2="224" /><line x1="423" y1="236" x2="489" y2="236" />
-    </g>
-    <text x="325" y="265" fill="currentColor" font-size="13">upright: the same column, twice the content</text>
-  </g>
-</svg>
-</div>
-
-The honest caveat: upright does not fill itself either. A page whose container stops at 1200 pixels leaves 900 unused beside it. Height comes for free; width only pays off when you tile - documentation beside the editor, the app beside devtools. Upright just moves the empty space to where a second window fits.
+An ultrawide rotated is a chimney, taller than a door. A rotated 4:3 is fine, but lying down it pillarboxes every film. 16:9 turns into two text columns and back into cinema - the only ratio usable in both. That is why the screen I would replace this one with is still 16:9.
 
 ## On a laptop, the ratio is the only rotation you get
-A screen on an arm can be turned, so its shape only has to survive both orientations. A lid cannot be turned: whatever height it has, it keeps for good - and height is what runs out first.
-
-So the ratio should track the size, in the opposite direction to the market: the smaller the panel, the squarer it should be. A small laptop wants 3:2, a larger one 16:10, and 16:9 only starts to pay where the height is there anyway. No laptop is big enough for that. The largest ones sold are 18-inch 16:10 machines - 24 cm of panel height, less than half of what a 40-inch 16:9 has lying down, and a quarter of what it has standing up.
+A lid cannot be turned, and height is what runs out first. So the smaller the panel, the squarer it should be: 3:2 for a small laptop, 16:10 for a larger one. The keyboard sets the width, so in the same 13-inch chassis 3:2 is 19% more panel than 16:9, all of it height. That is why [3:2 and 16:10 coming back](https://www.theverge.com/2021/1/19/22238671/16-9-aspect-ratio-hp-elite-folio-dell-latitude-lenovo-thinkbook-plus-legion-7) is the display trend I like best.
 
 <div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 280" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Four panels drawn to scale on a common baseline: a 13-inch 3:2 laptop 18.7 cm tall, a 16-inch 16:10 laptop 21.5 cm, a 40-inch 16:9 screen lying down 49.8 cm, and the same screen standing up 88.6 cm.">
@@ -170,122 +101,9 @@ So the ratio should track the size, in the opposite direction to the market: the
 </svg>
 </div>
 
-On a lid the width is not even a choice - the keyboard sets it. Height is the only free variable, so the ratio is how you spend it. In the same 13-inch chassis, 16:10 is 11% more panel than 16:9 and 3:2 is 19% more, all of it height, and the number on the box grows with it, from 13.3 inches to 13.9. The panel is not what you read on, either: the tab strip and the address bar take about 2.7 cm off the top whatever the shape, so the page grows faster than the glass - 13.9 cm of web page on 16:9 against 16.9 on 3:2, 22% more page for 19% more panel. Centimetres rather than pixels, because zoom moves pixels and leaves the glass where it is; set the same text size on every screen and this is the comparison that survives. Then hold a phone next to it. An iPhone 15 keeps 12.5 cm for the page against the 16:9 lid's 13.9, so whatever a laptop wins there, it is not height: it wins on width, on long lines rather than more of them. Vertically, the machine most people work on gives a web page about as much room as the phone in their pocket.
+## Eye level
+[OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants the centre of the screen 15-20 degrees below eye level and the top at or below it. On a tall panel those two pull apart:
 
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 294" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The same article opened on three 13-inch lids of identical width, drawn to scale at the same text size. The page runs on past the bottom of each screen: a 16:9 lid reaches 21 lines and 13.9 cm of it, a 16:10 lid 24 lines and 15.7 cm, a 3:2 lid 26 lines and 16.9 cm. The side margins are identical on all three because the chassis width is.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="14">
-    <text x="310" y="16" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">one 13-inch chassis, one article, one text size - to scale</text>
-    <text x="310" y="33" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">the margins are identical because the keyboard fixes the width; only the height is in play</text>
-    <text x="310" y="252" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">faded: the article below the fold, where the screen has ended</text>
-    <rect x="30" y="61.5" width="33.6" height="69.3" fill="currentColor" opacity="0.13" />
-    <rect x="143.6" y="61.5" width="33.6" height="69.3" fill="currentColor" opacity="0.13" />
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="63.6" y1="63.5" x2="124.7" y2="63.5" /><line x1="63.6" y1="66.7" x2="139.8" y2="66.7" /><line x1="63.6" y1="69.9" x2="126.7" y2="69.9" /><line x1="63.6" y1="73.1" x2="130.4" y2="73.1" />
-      <line x1="63.6" y1="76.3" x2="138.7" y2="76.3" /><line x1="63.6" y1="79.5" x2="124.6" y2="79.5" /><line x1="63.6" y1="82.7" x2="136.9" y2="82.7" /><line x1="63.6" y1="85.9" x2="139.2" y2="85.9" />
-      <line x1="63.6" y1="89.1" x2="126.8" y2="89.1" /><line x1="63.6" y1="92.3" x2="132.6" y2="92.3" /><line x1="63.6" y1="95.5" x2="140.2" y2="95.5" /><line x1="63.6" y1="98.7" x2="125.9" y2="98.7" />
-      <line x1="63.6" y1="101.9" x2="128.8" y2="101.9" /><line x1="63.6" y1="105.1" x2="129.3" y2="105.1" /><line x1="63.6" y1="108.3" x2="129.2" y2="108.3" /><line x1="63.6" y1="111.5" x2="134.7" y2="111.5" />
-      <line x1="63.6" y1="114.7" x2="121.2" y2="114.7" /><line x1="63.6" y1="117.9" x2="124.8" y2="117.9" /><line x1="63.6" y1="121.1" x2="132.0" y2="121.1" /><line x1="63.6" y1="124.3" x2="134.9" y2="124.3" />
-      <line x1="63.6" y1="127.5" x2="132.0" y2="127.5" />
-    </g>
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
-      <line x1="63.6" y1="130.7" x2="99.1" y2="130.7" /><line x1="63.6" y1="133.9" x2="137.1" y2="133.9" /><line x1="63.6" y1="137.1" x2="124.4" y2="137.1" /><line x1="63.6" y1="140.3" x2="120.8" y2="140.3" />
-      <line x1="63.6" y1="143.5" x2="136.6" y2="143.5" /><line x1="63.6" y1="146.7" x2="122.5" y2="146.7" /><line x1="63.6" y1="149.9" x2="126.1" y2="149.9" /><line x1="63.6" y1="153.1" x2="129.5" y2="153.1" />
-      <line x1="63.6" y1="156.3" x2="130.5" y2="156.3" /><line x1="63.6" y1="159.5" x2="130.5" y2="159.5" /><line x1="63.6" y1="162.7" x2="128.3" y2="162.7" /><line x1="63.6" y1="165.9" x2="131.7" y2="165.9" />
-      <line x1="63.6" y1="169.1" x2="137.9" y2="169.1" /><line x1="63.6" y1="172.3" x2="135.4" y2="172.3" /><line x1="63.6" y1="175.5" x2="128.4" y2="175.5" /><line x1="63.6" y1="178.7" x2="130.0" y2="178.7" />
-      <line x1="63.6" y1="181.9" x2="127.2" y2="181.9" /><line x1="63.6" y1="185.1" x2="126.9" y2="185.1" /><line x1="63.6" y1="188.3" x2="130.3" y2="188.3" /><line x1="63.6" y1="191.5" x2="127.5" y2="191.5" />
-      <line x1="63.6" y1="194.7" x2="126.9" y2="194.7" /><line x1="63.6" y1="197.9" x2="99.4" y2="197.9" /><line x1="63.6" y1="201.1" x2="133.8" y2="201.1" /><line x1="63.6" y1="204.3" x2="139.5" y2="204.3" />
-      <line x1="63.6" y1="207.5" x2="123.9" y2="207.5" /><line x1="63.6" y1="210.7" x2="139.4" y2="210.7" /><line x1="63.6" y1="213.9" x2="97.8" y2="213.9" /><line x1="63.6" y1="217.1" x2="98.5" y2="217.1" />
-      <line x1="63.6" y1="220.3" x2="132.1" y2="220.3" /><line x1="63.6" y1="223.5" x2="125.0" y2="223.5" /><line x1="63.6" y1="226.7" x2="97.2" y2="226.7" /><line x1="63.6" y1="229.9" x2="125.9" y2="229.9" />
-      <line x1="63.6" y1="233.1" x2="131.1" y2="233.1" />
-    </g>
-    <rect x="30" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="36" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="30" y="48" width="147.2" height="82.8" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <line x1="21" y1="130.8" x2="186.2" y2="130.8" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7" />
-    <text x="103.6" y="264" fill="currentColor" opacity="0.75" text-anchor="middle">16:9 &#183; 13.3 in</text>
-    <text x="103.6" y="281" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">13.9 cm of page, 21 lines</text>
-    <rect x="236" y="61.5" width="33.6" height="78.5" fill="currentColor" opacity="0.13" />
-    <rect x="349.6" y="61.5" width="33.6" height="78.5" fill="currentColor" opacity="0.13" />
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="269.6" y1="63.5" x2="330.7" y2="63.5" /><line x1="269.6" y1="66.7" x2="345.8" y2="66.7" /><line x1="269.6" y1="69.9" x2="332.7" y2="69.9" /><line x1="269.6" y1="73.1" x2="336.4" y2="73.1" />
-      <line x1="269.6" y1="76.3" x2="344.7" y2="76.3" /><line x1="269.6" y1="79.5" x2="330.6" y2="79.5" /><line x1="269.6" y1="82.7" x2="342.9" y2="82.7" /><line x1="269.6" y1="85.9" x2="345.2" y2="85.9" />
-      <line x1="269.6" y1="89.1" x2="332.8" y2="89.1" /><line x1="269.6" y1="92.3" x2="338.6" y2="92.3" /><line x1="269.6" y1="95.5" x2="346.2" y2="95.5" /><line x1="269.6" y1="98.7" x2="331.9" y2="98.7" />
-      <line x1="269.6" y1="101.9" x2="334.8" y2="101.9" /><line x1="269.6" y1="105.1" x2="335.3" y2="105.1" /><line x1="269.6" y1="108.3" x2="335.2" y2="108.3" /><line x1="269.6" y1="111.5" x2="340.7" y2="111.5" />
-      <line x1="269.6" y1="114.7" x2="327.2" y2="114.7" /><line x1="269.6" y1="117.9" x2="330.8" y2="117.9" /><line x1="269.6" y1="121.1" x2="338.0" y2="121.1" /><line x1="269.6" y1="124.3" x2="340.9" y2="124.3" />
-      <line x1="269.6" y1="127.5" x2="338.0" y2="127.5" /><line x1="269.6" y1="130.7" x2="305.1" y2="130.7" /><line x1="269.6" y1="133.9" x2="343.1" y2="133.9" /><line x1="269.6" y1="137.1" x2="330.4" y2="137.1" />
-    </g>
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
-      <line x1="269.6" y1="140.3" x2="326.8" y2="140.3" /><line x1="269.6" y1="143.5" x2="342.6" y2="143.5" /><line x1="269.6" y1="146.7" x2="328.5" y2="146.7" /><line x1="269.6" y1="149.9" x2="332.1" y2="149.9" />
-      <line x1="269.6" y1="153.1" x2="335.5" y2="153.1" /><line x1="269.6" y1="156.3" x2="336.5" y2="156.3" /><line x1="269.6" y1="159.5" x2="336.5" y2="159.5" /><line x1="269.6" y1="162.7" x2="334.3" y2="162.7" />
-      <line x1="269.6" y1="165.9" x2="337.7" y2="165.9" /><line x1="269.6" y1="169.1" x2="343.9" y2="169.1" /><line x1="269.6" y1="172.3" x2="341.4" y2="172.3" /><line x1="269.6" y1="175.5" x2="334.4" y2="175.5" />
-      <line x1="269.6" y1="178.7" x2="336.0" y2="178.7" /><line x1="269.6" y1="181.9" x2="333.2" y2="181.9" /><line x1="269.6" y1="185.1" x2="332.9" y2="185.1" /><line x1="269.6" y1="188.3" x2="336.3" y2="188.3" />
-      <line x1="269.6" y1="191.5" x2="333.5" y2="191.5" /><line x1="269.6" y1="194.7" x2="332.9" y2="194.7" /><line x1="269.6" y1="197.9" x2="305.4" y2="197.9" /><line x1="269.6" y1="201.1" x2="339.8" y2="201.1" />
-      <line x1="269.6" y1="204.3" x2="345.5" y2="204.3" /><line x1="269.6" y1="207.5" x2="329.9" y2="207.5" /><line x1="269.6" y1="210.7" x2="345.4" y2="210.7" /><line x1="269.6" y1="213.9" x2="303.8" y2="213.9" />
-      <line x1="269.6" y1="217.1" x2="304.5" y2="217.1" /><line x1="269.6" y1="220.3" x2="338.1" y2="220.3" /><line x1="269.6" y1="223.5" x2="331.0" y2="223.5" /><line x1="269.6" y1="226.7" x2="303.2" y2="226.7" />
-      <line x1="269.6" y1="229.9" x2="331.9" y2="229.9" /><line x1="269.6" y1="233.1" x2="337.1" y2="233.1" />
-    </g>
-    <rect x="236" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="242" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="236" y="48" width="147.2" height="92" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55" />
-    <line x1="227" y1="140" x2="392.2" y2="140" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7" />
-    <text x="309.6" y="264" fill="currentColor" opacity="0.75" text-anchor="middle">16:10 &#183; 13.7 in</text>
-    <text x="309.6" y="281" fill="currentColor" opacity="0.75" font-size="12" text-anchor="middle">15.7 cm, 24 lines</text>
-    <rect x="442" y="61.5" width="33.6" height="84.6" fill="currentColor" opacity="0.13" />
-    <rect x="555.6" y="61.5" width="33.6" height="84.6" fill="currentColor" opacity="0.13" />
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.9">
-      <line x1="475.6" y1="63.5" x2="536.7" y2="63.5" /><line x1="475.6" y1="66.7" x2="551.8" y2="66.7" /><line x1="475.6" y1="69.9" x2="538.7" y2="69.9" /><line x1="475.6" y1="73.1" x2="542.4" y2="73.1" />
-      <line x1="475.6" y1="76.3" x2="550.7" y2="76.3" /><line x1="475.6" y1="79.5" x2="536.6" y2="79.5" /><line x1="475.6" y1="82.7" x2="548.9" y2="82.7" /><line x1="475.6" y1="85.9" x2="551.2" y2="85.9" />
-      <line x1="475.6" y1="89.1" x2="538.8" y2="89.1" /><line x1="475.6" y1="92.3" x2="544.6" y2="92.3" /><line x1="475.6" y1="95.5" x2="552.2" y2="95.5" /><line x1="475.6" y1="98.7" x2="537.9" y2="98.7" />
-      <line x1="475.6" y1="101.9" x2="540.8" y2="101.9" /><line x1="475.6" y1="105.1" x2="541.3" y2="105.1" /><line x1="475.6" y1="108.3" x2="541.2" y2="108.3" /><line x1="475.6" y1="111.5" x2="546.7" y2="111.5" />
-      <line x1="475.6" y1="114.7" x2="533.2" y2="114.7" /><line x1="475.6" y1="117.9" x2="536.8" y2="117.9" /><line x1="475.6" y1="121.1" x2="544.0" y2="121.1" /><line x1="475.6" y1="124.3" x2="546.9" y2="124.3" />
-      <line x1="475.6" y1="127.5" x2="544.0" y2="127.5" /><line x1="475.6" y1="130.7" x2="511.1" y2="130.7" /><line x1="475.6" y1="133.9" x2="549.1" y2="133.9" /><line x1="475.6" y1="137.1" x2="536.4" y2="137.1" />
-      <line x1="475.6" y1="140.3" x2="532.8" y2="140.3" /><line x1="475.6" y1="143.5" x2="548.6" y2="143.5" />
-    </g>
-    <g stroke="#00cdff" stroke-width="1.4" opacity="0.22">
-      <line x1="475.6" y1="146.7" x2="534.5" y2="146.7" /><line x1="475.6" y1="149.9" x2="538.1" y2="149.9" /><line x1="475.6" y1="153.1" x2="541.5" y2="153.1" /><line x1="475.6" y1="156.3" x2="542.5" y2="156.3" />
-      <line x1="475.6" y1="159.5" x2="542.5" y2="159.5" /><line x1="475.6" y1="162.7" x2="540.3" y2="162.7" /><line x1="475.6" y1="165.9" x2="543.7" y2="165.9" /><line x1="475.6" y1="169.1" x2="549.9" y2="169.1" />
-      <line x1="475.6" y1="172.3" x2="547.4" y2="172.3" /><line x1="475.6" y1="175.5" x2="540.4" y2="175.5" /><line x1="475.6" y1="178.7" x2="542.0" y2="178.7" /><line x1="475.6" y1="181.9" x2="539.2" y2="181.9" />
-      <line x1="475.6" y1="185.1" x2="538.9" y2="185.1" /><line x1="475.6" y1="188.3" x2="542.3" y2="188.3" /><line x1="475.6" y1="191.5" x2="539.5" y2="191.5" /><line x1="475.6" y1="194.7" x2="538.9" y2="194.7" />
-      <line x1="475.6" y1="197.9" x2="511.4" y2="197.9" /><line x1="475.6" y1="201.1" x2="545.8" y2="201.1" /><line x1="475.6" y1="204.3" x2="551.5" y2="204.3" /><line x1="475.6" y1="207.5" x2="535.9" y2="207.5" />
-      <line x1="475.6" y1="210.7" x2="551.4" y2="210.7" /><line x1="475.6" y1="213.9" x2="509.8" y2="213.9" /><line x1="475.6" y1="217.1" x2="510.5" y2="217.1" /><line x1="475.6" y1="220.3" x2="544.1" y2="220.3" />
-      <line x1="475.6" y1="223.5" x2="537.0" y2="223.5" /><line x1="475.6" y1="226.7" x2="509.2" y2="226.7" /><line x1="475.6" y1="229.9" x2="537.9" y2="229.9" /><line x1="475.6" y1="233.1" x2="543.1" y2="233.1" />
-    </g>
-    <rect x="442" y="48" width="147.2" height="13.5" fill="currentColor" opacity="0.32" />
-    <rect x="448" y="52.5" width="103.2" height="5" rx="2.5" fill="currentColor" opacity="0.45" />
-    <rect x="442" y="48" width="147.2" height="98.1" fill="none" stroke="#00cdff" stroke-width="2" />
-    <line x1="433" y1="146.1" x2="598.2" y2="146.1" stroke="#00cdff" stroke-width="1.5" stroke-dasharray="4 4" />
-    <text x="515.6" y="264" fill="#00cdff" text-anchor="middle">3:2 &#183; 13.9 in</text>
-    <text x="515.6" y="281" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">16.9 cm, 26 lines</text>
-  </g>
-</svg>
-</div>
-
-The objection is video, and at a fixed width it does not hold: a 16:9 film is exactly as large on the 3:2 panel, with the extra height left over above it. It only shrinks if you compare at equal diagonals - which is the comparison shops make, because for the same glass a wider ratio prints a bigger number. The same panel area sells as 13.3 inches at 16:9 and as 12.8 at 3:2, so half an inch of the diagonal is marketing rather than screen.
-
-Which is why [3:2 and 16:10 coming back](https://www.theverge.com/2021/1/19/22238671/16-9-aspect-ratio-hp-elite-folio-dell-latitude-lenovo-thinkbook-plus-legion-7) is the display trend of the last few years I am happiest about. It is the same argument as the big screen's, arriving from the other end: on a laptop you buy height with the ratio, because you cannot buy it with rotation.
-
-## Geometry, not marketing
-My screen is a curved 40-inch 16:9, so 88.6 x 49.8 cm of panel. Against the two dual setups people usually compare it with:
-
-<div class="table-responsive" markdown="1">
-
-| | one 40" 4K | two 27" 1440p | two 24" 1080p |
-|---|:-:|:-:|:-:|
-| Panel area | 4411 cm² | 4019 cm² | 3176 cm² |
-| Pixels | 8.3 Mpx | 7.4 Mpx | 4.1 Mpx |
-| Density | 110 PPI | 109 PPI | 92 PPI |
-| Scaling needed | none | none | none |
-| Seams | 0 | 1 | 1 |
-| Stands on the desk | 1 (or none, on an arm) | 2 | 2 |
-{: .table .table-winner}
-
-</div>
-
-One 40-inch panel has more surface and more pixels than two 27-inch ones at the same density - and the pixels are continuous.
-
-## Eye level is a rule about staring, not about height
-[OSHA](https://www.osha.gov/etools/computer-workstations/components/monitors) wants two things at once: the centre of the screen 15-20 degrees below eye level, and the top of it at or below eye level. On a tall panel those two halves pull against each other.
 <div style="margin: 1.5em 0; text-align: center;">
 <svg viewBox="0 0 620 306" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Two side views of an upright 40-inch panel at 70 cm. With its top at eye level the centre falls 32 degrees below eye level; with the centre 15 degrees below eye level a quarter of the panel sits above eye level, and the shaded wedge shows how much of it the eyes reach without moving the neck.">
   <g font-family="Helvetica, Arial, sans-serif" font-size="12">
@@ -317,71 +135,16 @@ One 40-inch panel has more surface and more pixels than two 27-inch ones at the 
 </svg>
 </div>
 
-At 70 cm, both halves hold only up to about 51 cm of panel height - which a 40-inch 16:9 lying down (49.8 cm) just squeaks under, and which nothing standing up can meet. The rule has no answer for a tall screen, so the thing to read is its mechanism.
+At 70 cm both hold only up to about 51 cm of panel height: a 40-inch 16:9 lying down (49.8 cm) just squeaks under, nothing standing up can. The rule rests on the eyes resting [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/) and on looking up opening the lids wider ([Tsubota and Nakamori](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007): 1.2 cm² of exposed eye in downgaze against 3.0 cm² in upgaze). Both are about sustained gaze: an hour with the eyes up dries them, a two-second glance does not.
 
-It is quoted far more often than it is explained. It rests on two measured things: the resting posture of the eyes is [about 15 degrees below horizontal](https://pubmed.ncbi.nlm.nih.gov/2798019/), and looking up opens the lids wider - Tsubota and Nakamori [measured](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/641007) 1.2 cm² of exposed eye in downgaze against 3.0 cm² in upgaze, with tear evaporation about 240% higher. Blinking drops from about 22 a minute to 7 in front of a screen.
-
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 215" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="Bar chart of exposed eye surface by gaze direction: looking down 1.2 square centimetres, straight ahead 2.2, looking up 3.0.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
-    <line x1="190" y1="26" x2="190" y2="164" stroke="currentColor" stroke-width="1" opacity="0.4" />
-    <text x="180" y="45" fill="currentColor" text-anchor="end">looking down</text>
-    <path d="M 190 32 H 306 Q 310 32 310 36 V 50 Q 310 54 306 54 H 190 Z" fill="#00cdff" />
-    <text x="322" y="48" fill="currentColor" opacity="0.85">1.2 cm&#178;</text>
-    <text x="180" y="90" fill="currentColor" text-anchor="end">straight ahead</text>
-    <path d="M 190 77 H 406 Q 410 77 410 81 V 95 Q 410 99 406 99 H 190 Z" fill="#00cdff" />
-    <text x="422" y="93" fill="currentColor" opacity="0.85">2.2 cm&#178;</text>
-    <text x="180" y="135" fill="currentColor" text-anchor="end">looking up</text>
-    <path d="M 190 122 H 486 Q 490 122 490 126 V 140 Q 490 144 486 144 H 190 Z" fill="#00cdff" />
-    <text x="502" y="138" fill="currentColor" opacity="0.85">3.0 cm&#178;</text>
-    <text x="310" y="188" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">exposed eye surface by gaze direction - tear evaporation</text>
-    <text x="310" y="205" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">rises by about 240% across the same range</text>
-  </g>
-</svg>
-</div>
-
-Both mechanisms are about **sustained** gaze, not about where the panel ends. Holding your eyes up for an hour dries them; glancing up for two seconds does not. This is a comfort optimum averaged over a working day, not a health limit - and the reported prevalence of dry eye among screen workers, anywhere from 9.5% to 87.5%, says more about questionnaires than about eyes.
-
-The sharper objection is not to the rule but to the people it is aimed at. Hardly anyone spends the day looking up; they spend it looking down, at a laptop on a desk or a phone in their lap. If the common error is a bent neck, a screen that lifts the eyes is a correction rather than a hazard.
-
-Up to a point, and the point is where eyes stop and vertebrae start. Gaze shifts of [20 to 30 degrees are made by the eyes](https://pmc.ncbi.nlm.nih.gov/articles/PMC8378697/), the head joining in mostly to keep them inside a comfortable range - and a head held tilted back is not a cure for a head held forward, only a different fixed posture. The thing being corrected is shakier than it sounds, too: the link between forward head posture and neck pain [holds in adults, vanishes in adolescents and is confounded by age](https://pubmed.ncbi.nlm.nih.gov/31773477/). So what a tall screen offers is not a better angle but the absence of a single one - the eyes travel a range all day instead of being pinned to a spot.
-
-Mine sits with its centre roughly at eye level, which puts nearly half the panel above it and the top strip about 32 degrees up - far enough that reading there earns a small nod, which is rather the point. Seven years, no complaints: one desk's worth of evidence, not a recommendation.
-
-So the height costs nothing, and the movement it provokes may be worth something. The editor lives at eye level; the shelf above it holds a running build, a log, a browser I glance at. Two things to check on your own panel first: a curved screen now bends top to bottom, and a VA panel's viewing angles rotate with it.
-
-The one honest argument for a real second screen is narrower than it looks: on a video call, a single screen means the meeting covers the work you are talking about.
+Mine sits with its centre roughly at eye level, so the top strip is about 32 degrees up - far enough that reading there earns a small nod, which is rather the point. The editor lives at eye level; the shelf above holds a running build, a log, a browser I glance at. Seven years, no complaints: one desk's worth of evidence, not a recommendation. Check two things on your panel first: a curved screen bends top to bottom, and a VA panel's viewing angles rotate with it.
 
 ## Fewer screens, fewer invitations
-The "42% more productive with multiple monitors" figure is vendor-sponsored, and Coding Horror [picked it apart](https://blog.codinghorror.com/does-more-than-one-monitor-improve-productivity/) years ago. The quieter results are the useful ones:
-
-- [NEC/University of Utah](https://www.sharpnecdisplays.us/about/press-release/increasing-monitor-size-translates-to-higher-worke/316): one 24-inch widescreen beat two 20-inch screens by 6% on text editing - and lost that lead on spreadsheets, exactly along the column-grid line.
+The "42% more productive with multiple monitors" figure is vendor-sponsored. The quieter results:
+- [NEC/University of Utah](https://www.sharpnecdisplays.us/about/press-release/increasing-monitor-size-translates-to-higher-worke/316): one 24-inch widescreen beat two 20-inch screens by 6% on text editing, although the pair carried 48% more panel and 67% more pixels - and lost that lead on spreadsheets, along the column-grid line.
 - [Colvin et al.](https://link.springer.com/chapter/10.1007/978-3-642-21669-5_11): no significant difference in completion time between one and two monitors.
-- [Hutchings et al.](https://dl.acm.org/doi/10.1145/989863.989867): more screen space raises window-management overhead, sometimes to counterproductive levels.
-- [A 2021 survey of developers at home](https://arxiv.org/abs/2103.13198): the strongest influence on perceived productivity was not the setup, but interruptions.
 
-Underneath all of them sits a confound worth naming. When these studies ran, a second monitor was the only way to buy more pixels, so "two screens" and "more working area" were the same variable and no result could separate them. That is not the choice anyone faces now. The NEC/Utah setup is the one that pulls the two apart - and it pulls against the dual desk: the pair of 20-inch screens carried 48% more panel and 67% more pixels than the single 24-inch widescreen, and still lost the text-editing task.
+A second screen is not extra space, it is a standing invitation: somewhere to park a chat window where it costs nothing. On one surface everything that wants my attention has to take it from what I am working on. The one real argument for a second screen: on a video call, a single screen means the meeting covers the work you are talking about.
 
-<div style="margin: 1.5em 0; text-align: center;">
-<svg viewBox="0 0 620 195" width="100%" style="max-width: 620px; height: auto;" role="img" aria-label="The 2008 NEC/Utah test conditions drawn to scale: two 20-inch screens with 48 percent more panel and 67 percent more pixels, which lost the text-editing task to one 24-inch widescreen by 6 percent.">
-  <g font-family="Helvetica, Arial, sans-serif" font-size="13">
-    <text x="310" y="18" fill="currentColor" opacity="0.6" font-size="12" text-anchor="middle">the two conditions of that study, drawn to scale</text>
-    <rect x="30" y="45" width="122" height="91" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
-    <rect x="158" y="45" width="122" height="91" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
-    <line x1="155" y1="41" x2="155" y2="140" stroke="currentColor" stroke-width="5" opacity="0.6" />
-    <text x="155" y="162" fill="currentColor" text-anchor="middle">two 20-inch: 48% more panel, 67% more pixels</text>
-    <text x="155" y="182" fill="currentColor" opacity="0.7" font-size="12" text-anchor="middle">and it still lost</text>
-    <rect x="400" y="42" width="155" height="97" fill="none" stroke="#00cdff" stroke-width="2" />
-    <text x="477" y="162" fill="#00cdff" text-anchor="middle">one 24-inch widescreen</text>
-    <text x="477" y="182" fill="#00cdff" opacity="0.85" font-size="12" text-anchor="middle">6% faster at text editing</text>
-  </g>
-</svg>
-</div>
-So no percentages from me, just a distinction. A second screen is not extra space, it is a standing invitation: somewhere to park a chat window where it costs nothing. On one surface everything that wants my attention has to take it from what I am working on, which makes it my decision rather than the desk's.
-
-## How it sits on the desk
-A VESA arm behind the screen, the original stand gone, the desk underneath it free again.
-
- Rotating takes a few seconds - pull it towards me, turn it, push it back. Upright for work, landscape for films and for gaming with my daughter, which is still the best argument for a big 16:9 that I know.
-
-None of which is a love letter to my particular monitor. The successor I asked for in 2022 still does not exist, and turning the old screen on its side was only the upgrade I could have had back then. Upright, 4K is enough, not plenty: put a 6K or 8K 16:9 on the shelf, curved, and it goes on the arm the same afternoon. Only the band at eye level has to behave itself - and shelves can always be taller.
+## On the desk
+A VESA arm, the original stand gone, the desk underneath free again. Rotating takes a few seconds. Upright for work, landscape for films and for gaming with my daughter. Upright, 4K is enough, not plenty: put a 6K or 8K 16:9 on the arm, curved, and it replaces this one the same afternoon.
