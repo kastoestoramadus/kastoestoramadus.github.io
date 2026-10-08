@@ -153,6 +153,9 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   "more cores" posts). Compare the list of generated `.html` files before/after any content refactoring.
 - Every fenced code block has a language (`plaintext` for output/tables). Internal links to posts use `{% post_url %}`
   (not available in `about.html`/`contact.html`, which are rendered via `markdownify` — use plain paths there).
+- Bilingual posts: use `bilingual: true`, `title-pl`, and `lang`-marked `.post-language` sections with IDs `english`
+  and `polski`; keep a TLDR in each. `_includes/post-language-switch.html` and `js/post-language-switch.js` handle
+  switching; both translations must remain readable without JavaScript (verify in a browser).
 - **Be terse, in the author's pre-AI manner** (see the 2018 Optane/Slack and 2022 ZIO2 posts: 170-350 words, short
   `##` sections, one claim per paragraph, opinions stated flat). Rules for writing and editing posts:
   - Start with a `**TLDR:**` of two or three sentences (result first), before any context.

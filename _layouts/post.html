@@ -34,6 +34,10 @@
 
           <div style="text-align: left">
 
+          {% if page.bilingual %}
+            {% include post-language-switch.html %}
+          {% endif %}
+
           {{ page.content | markdownify }}
 
           </div>
@@ -62,6 +66,10 @@
     {% include footer.html %}
 
     {% include js.html %}
+
+    {% if page.bilingual %}
+      <script src="{{site.baseurl}}/js/post-language-switch.js"></script>
+    {% endif %}
 
   </body>
 </html>
