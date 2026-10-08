@@ -14,7 +14,7 @@ This follows [HOCON - the config format YAML should have been]({% post_url 2026-
 ## Same bug in both
 sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.
 
-My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (16 of my sconfig PRs). Once the loop closed fully: I reported [#829](https://github.com/lightbend/config/issues/829), the maintainer fixed it in [#841](https://github.com/lightbend/config/pull/841), and I ported it as [sconfig#590](https://github.com/ekrich/sconfig/pull/590).
+My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (about 16 of my sconfig PRs, 10 of them literally titled "Port ..."). Once the loop closed fully: I reported [#829](https://github.com/lightbend/config/issues/829), the maintainer fixed it in [#841](https://github.com/lightbend/config/pull/841), and I ported it as [sconfig#590](https://github.com/ekrich/sconfig/pull/590).
 
 Twin pairs open now:
 
