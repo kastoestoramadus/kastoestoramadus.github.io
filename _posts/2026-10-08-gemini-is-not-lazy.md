@@ -11,7 +11,7 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 
 **TLDR:** I have plenty of Gemini usage available, even without Plus, but its short answers leave much of the work to me. My workaround: let Gemini tell itself how to work harder. A reusable meta skill turns one line into demanding instructions, making even fast Flash useful to me without my writing those instructions each time.
 
-**Try it now:** [copy the skill below](#copy-skill-en) and follow [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). A skill is a saved set of instructions you can reuse in Gemini chats. This one is a *meta* skill because it writes the instructions for the next task. The copyable version includes untested revisions, marked below.
+**Try it now:** [copy the skill below](#copy-skill-en) and follow [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). A skill is a saved set of instructions you can reuse in Gemini chats. This one is a *meta* skill because it writes the instructions for the next task.
 
 ## Let Gemini tell itself how to work harder
 
@@ -98,26 +98,6 @@ This trial combines a more specific brief with batching. It does not isolate the
 
 I also tried: `/xh I'd like to check cat news regularly; give me some.` Gemini returned a scheduled and an interactive variant. After `go with option a`, it created “Cat report — every day by 9 AM”. This demonstrates creating the schedule; I have not included an executed news report here.
 
-The skill returned two modes despite “regularly”, and broadened “last 24 hours” to “last 24 hours or week”. The proposed revision below instructs it to select one mode and preserve the window. **That revision has not been retested in Gemini.**
-
-## What the subscription adds
-
-I paid PLN 239.99 for a year of Plus: about USD 61 at [NBP's 8 October 2026 rate](https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json) of PLN 3.9132 per USD. That is my purchase price, not a standing offer. With Gmail already in use, having Gemini close at hand is useful too.
-
-<div class="table-responsive" markdown="1">
-
-| Capability | Without an AI plan | With Plus |
-|---|---|---|
-| This workflow | No Plus requirement | Same meta skill, more usage available |
-| Gemini allowance | Standard access | Advertised 2× access; more research, notebook and media-generation usage |
-| Storage | Free account: [up to 15 GB](https://support.google.com/mail/answer/9312312?hl=en-GB) | 400 GB across Gmail, Drive and Photos |
-| Scheduled actions | Rolling out to personal accounts; preparation may be hours before delivery | Preparation within the hour before delivery |
-{: .table}
-
-</div>
-
-Sources: [Plus benefits](https://one.google.com/intl/en/about/google-ai-plans/) and [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en). Features vary by region; scheduling allows up to ten active actions. That gives the same skill a daily use for the available allowance. These are app limits, not a measured API token budget.
-
 ## Copy the meta skill
 {: #copy-skill-en}
 
@@ -190,9 +170,7 @@ Adapt these rules to the task. Do not add irrelevant fields or filler.
 
 For a conversation, invoke `/xh` with your request, inspect the generated prompt, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. For recurring work, include “scheduled action” and the schedule in your request, then use the generated instructions to set up the action. `/xh` is my chosen name, not a built-in command.
 
-In my tests, Gmail was unavailable while using the skill. [Google documents Workspace support for skills](https://support.google.com/gemini/answer/18560919?hl=en-GB), so I cannot call this a general MCP restriction. I generate the prompt in the skill and execute it in the normal session with the required connections. Separately, [scripts bundled with skills cannot make internet requests](https://support.google.com/gemini/answer/17094296?hl=en); this does not prohibit Gemini itself from using supported Connected Apps.
-
-This costs more turns and reading. The prompt cannot grant tool access or guarantee citations: I still open the links that carry the recommendation.
+Important: [scripts bundled with skills cannot make internet requests](https://support.google.com/gemini/answer/17094296?hl=en); hence printing the prompt into the session first and only then executing it.
 
 </div>
 
@@ -200,7 +178,7 @@ This costs more turns and reading. The prompt cannot grant tool access or guaran
 
 **TLDR:** Mam sporą pulę użycia Gemini, nawet bez Plus, ale jego zdawkowe odpowiedzi zostawiają mi dużą część pracy. Mój sposób: niech Gemini sam sobie powie, jak pracować intensywniej. Meta skill zamienia jedno zdanie w wymagające instrukcje, dzięki którym nawet szybki Flash staje się dla mnie użyteczny, bez ręcznego rozpisywania tych instrukcji za każdym razem.
 
-**Wypróbuj od razu:** [skopiuj skill poniżej](#copy-skill-pl) i skorzystaj z [instrukcji tworzenia skilli Google](https://support.google.com/gemini/answer/17094296?hl=pl). Skill to zapisany zestaw instrukcji do wielokrotnego użycia w czatach Gemini. Ten jest *meta* skillem, bo pisze instrukcje następnego zadania. Wersja do skopiowania zawiera opisane poniżej, jeszcze nieprzetestowane zmiany.
+**Wypróbuj od razu:** [skopiuj skill poniżej](#copy-skill-pl) i skorzystaj z [instrukcji tworzenia skilli Google](https://support.google.com/gemini/answer/17094296?hl=pl). Skill to zapisany zestaw instrukcji do wielokrotnego użycia w czatach Gemini. Ten jest *meta* skillem, bo pisze instrukcje następnego zadania.
 
 ## Niech Gemini sam sobie powie, jak pracować intensywniej
 
@@ -287,26 +265,6 @@ Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela ko
 
 Spróbowałem też: `/xh chciałbym cyklicznie sprawdzać newsy o kotach, daj mi jakieś`. Gemini zwrócił wariant cykliczny i konwersacyjny. Po `go with option a` utworzył „Raport o kotach — codziennie do 9:00”. To pokazuje utworzenie harmonogramu; nie zamieszczam tu wykonanego raportu z wiadomościami.
 
-Mimo słowa „cyklicznie” skill zwrócił dwa tryby, a „ostatnie 24 godziny” rozszerzył do „ostatnie 24 godziny lub tydzień”. Proponowana wersja poniżej nakazuje wybór jednego trybu i zachowanie okna. **Ta wersja nie została ponownie przetestowana w Gemini.**
-
-## Co wnosi abonament
-
-Kupiłem rok Plus za 239,99 PLN, około 20 PLN miesięcznie. To cena mojego zakupu, nie stała oferta. Gdy korzysta się już z Gmaila, Gemini pod ręką też się przydaje.
-
-<div class="table-responsive" markdown="1">
-
-| Możliwość | Bez planu AI | Z Plus |
-|---|---|---|
-| Ta metoda | Nie wymaga Plus | Ten sam meta skill, większa pula użycia |
-| Dostęp do Gemini | Standardowy | Reklamowany 2× większy; więcej użycia researchu, notatników i generowania multimediów |
-| Miejsce na dane | Konto darmowe: [do 15 GB](https://support.google.com/mail/answer/9312312?hl=pl) | 400 GB dla Gmaila, Dysku i Zdjęć |
-| Scheduled actions | Wdrażane na kontach osobistych; wynik może powstawać kilka godzin wcześniej | Przygotowanie w ciągu godziny przed dostarczeniem |
-{: .table}
-
-</div>
-
-Źródła: [korzyści Plus](https://one.google.com/intl/en/about/google-ai-plans/) i [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en). Funkcje zależą od regionu; limit to dziesięć aktywnych harmonogramów. Ten sam skill pozwala więc codziennie wykorzystywać dostępną pulę. To limity aplikacji, nie zmierzony budżet tokenów API.
-
 ## Meta skill do skopiowania
 {: #copy-skill-pl}
 
@@ -379,8 +337,6 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
 
 Dla rozmowy wywołaj `/xh` ze swoją prośbą, sprawdź wygenerowany prompt i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. Dla zadania cyklicznego dopisz w prośbie „scheduled action” i harmonogram, a następnie użyj wygenerowanych instrukcji do ustawienia zadania. `/xh` to moja nazwa, nie wbudowana komenda.
 
-W moich testach Gmail był niedostępny podczas używania skilla. [Google dokumentuje obsługę Workspace przez skille](https://support.google.com/gemini/answer/18560919?hl=en-GB), więc nie mogę nazwać tego ogólnym ograniczeniem MCP. Generuję prompt w skillu, a wykonuję go w zwykłej sesji z potrzebnymi połączeniami. Osobno: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=en); to nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.
-
-Płacę za to większą liczbą tur i większą ilością czytania. Prompt nie daje dostępu do narzędzi ani nie gwarantuje wiarygodności cytowań: linki, na których opiera się rekomendacja, nadal otwieram sam.
+Ważne: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=pl); stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.
 
 </div>
