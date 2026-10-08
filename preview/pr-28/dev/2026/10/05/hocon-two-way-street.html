@@ -201,29 +201,16 @@
 
           <div style="text-align: left">
 
-          <p>In January I wrote <a href="/preview/pr-28/dev/2026/01/16/hocon-beats-the-competition.html">HOCON - the config format YAML should have been</a> and ended it with a promise: I’ve spent the last months <a href="https://github.com/ekrich/sconfig/pulls?q=is%3Apr+author%3Akastoestoramadus">fixing the renderer in sconfig</a>. The work grew into a loop between the two HOCON implementations - the Java original <a href="https://github.com/lightbend/config">lightbend/config</a> and its Scala port <a href="https://github.com/ekrich/sconfig">sconfig</a> - with fixes travelling both ways. The scoreboard: 38 PRs into sconfig (18 merged), 12 into lightbend/config (3 merged), six twin pairs open in both repos at once. AI agents did a lot of the typing. This post is about what they were allowed to claim.</p>
+          <p><strong>TLDR:</strong> Since January I have fixed the renderer in <a href="https://github.com/ekrich/sconfig">sconfig</a> (Scala port of HOCON): 38 PRs, 18 merged. The port and the Java original <a href="https://github.com/lightbend/config">lightbend/config</a> share their bugs, so I probe both and send the fix to both: 12 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.</p>
 
-<h2 id="one-bug-two-libraries">One bug, two libraries</h2>
+<p>This follows <a href="/preview/pr-28/dev/2026/01/16/hocon-beats-the-competition.html">HOCON - the config format YAML should have been</a>.</p>
 
-<p>sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. Both projects implement the same algorithms, line for line, so porting is mechanical and every bug is, with high probability, in both. That is the engine of everything below.</p>
+<h2 id="same-bug-in-both">Same bug in both</h2>
+<p>sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.</p>
 
-<p>lightbend/config is in maintenance mode: “feature complete”, they “will rarely make any other changes”. My feature PR there (<a href="https://github.com/lightbend/config/pull/815">#815</a>, formatting) never got through; three bugfixes were merged within days:</p>
+<p>My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (16 of my sconfig PRs). Once the loop closed fully: I reported <a href="https://github.com/lightbend/config/issues/829">#829</a>, the maintainer fixed it in <a href="https://github.com/lightbend/config/pull/841">#841</a>, and I ported it as <a href="https://github.com/ekrich/sconfig/pull/590">sconfig#590</a>.</p>
 
-<ul>
-  <li><a href="https://github.com/lightbend/config/pull/867">#867</a> - list comments stayed stable across render round trips. Open to merged in 46 minutes.</li>
-  <li><a href="https://github.com/lightbend/config/pull/871">#871</a> - a comment above a <code>+=</code> field was rendered twice. The parser copied the comment onto the synthetic list element; the fix clears it there, one line of real change.</li>
-  <li><a href="https://github.com/lightbend/config/pull/866">#866</a> - <code>parseDuration</code>/<code>parseBytes</code> compiled their regexes on every read; now once. <code>getDuration</code> went from 1520 to 387 bytes allocated per read.</li>
-</ul>
-
-<p>Bugfixes fit through that door, features don’t. What the maintainer’s reviews asked for: fix behaviour without adding API, put tests next to the existing ones and follow the naming, prove it with the full <code>sbt test doc</code> and <code>javac --release 8</code>, and say in the first line of the description what behaviour changes. 46 minutes is what a small, well-evidenced diff looks like to a maintainer with ten minutes.</p>
-
-<h2 id="the-loop">The loop</h2>
-
-<p>Java to Scala: when a fix lands upstream, the port inherits the bug until someone ports it - 16 of my sconfig PRs are such ports. Scala to Java: probing the port kept surfacing bugs that live in the Java original too. Each became a probe - same config, same render options, run against both libraries. Identical misbehaviour means the bug is upstream, and I open twin PRs.</p>
-
-<p>The loop closed itself once: I reported a rendering bug upstream in December (<a href="https://github.com/lightbend/config/issues/829">#829</a>), the maintainer fixed it in April (<a href="https://github.com/lightbend/config/pull/841">#841</a>), I ported the fix back into sconfig (<a href="https://github.com/ekrich/sconfig/pull/590">#590</a>).</p>
-
-<p>The six twin pairs open right now:</p>
+<p>Twin pairs open now:</p>
 
 <div class="table-responsive">
 
@@ -271,11 +258,8 @@
 
 </div>
 
-<h2 id="two-bugs-up-close">Two bugs up close</h2>
-
-<p>Both “before” outputs are verbatim from com.typesafe:config <strong>1.4.9</strong>, the current release.</p>
-
-<p><code>ConfigRenderOptions.concise</code> is documented to give valid JSON, but a double that overflows renders as a bare token no JSON parser accepts:</p>
+<h2 id="bug-example">Bug example</h2>
+<p><code>ConfigRenderOptions.concise</code> is documented to give valid JSON, but an overflowing double renders as a token no JSON parser accepts (com.typesafe:config 1.4.9):</p>
 
 <pre><code class="language-plaintext">ConfigFactory.parseString("a = 1e999").root().render(ConfigRenderOptions.concise())
 
@@ -283,31 +267,26 @@
 {"a":"Infinity"}        // after sconfig#634 / lightbend#872
 </code></pre>
 
-<p>The fix quotes the value; <code>getDouble</code> still returns <code>Infinity</code>, and the behaviour change is stated in the PR’s first line.</p>
+<h2 id="what-gets-merged-upstream">What gets merged upstream</h2>
+<p>lightbend/config is in maintenance mode: “feature complete”, changes “rarely”. My feature PR (<a href="https://github.com/lightbend/config/pull/815">#815</a>, formatting) is stuck, while three bugfixes were merged within days: <a href="https://github.com/lightbend/config/pull/867">#867</a> (in 46 minutes), <a href="https://github.com/lightbend/config/pull/871">#871</a> and <a href="https://github.com/lightbend/config/pull/866">#866</a>.</p>
 
-<p>The second one fails quietly:</p>
-
-<pre><code class="language-plaintext">cache { max-bytes = 9223372036854775808 }    // 2^63, one past Long.MaxValue
-
-getValue("cache.max-bytes").valueType   // STRING - JSON has no such literal
-getLong("cache.max-bytes")              // 9223372036854775807 - no error
-getInt("cache.max-bytes")               // WrongType
-</code></pre>
-
-<p>A literal beyond the long range is not a number at all, so it sits there as a STRING. <code>getLong</code> converts it through a double and silently hands back <code>Long.MaxValue</code>: your 9-exabyte limit just became 8, while <code>getInt</code> on the same value throws. The twin PRs (<a href="https://github.com/ekrich/sconfig/pull/635">sconfig#635</a> / <a href="https://github.com/lightbend/config/pull/873">#873</a>) make <code>getLong</code> throw <code>WrongType</code>.</p>
-
-<h2 id="the-workflow">The workflow</h2>
-
+<p>What the reviews asked for:</p>
 <ul>
-  <li><strong>Probes before claims.</strong> Every claim in a PR description was executed against the unfixed library first.</li>
-  <li><strong>Tests in a separate commit, red first.</strong> The descriptions state the count: “6 of 8 fail without the fix”. If you cannot say how many tests fail red, you have a demo, not a regression test.</li>
-  <li><strong>One PR, one fix.</strong> A port that also carried renderer fixes got <code>CHANGES_REQUESTED</code>: “simpler is better”. One PR per upstream fix also keeps the twin pairing auditable.</li>
-  <li><strong>Two AIs agreeing is not validation.</strong> The second model shares training data, taste and blind spots with the first. What counted: a red test before the fix, the fixed-point property (render ∘ parse is the identity - a property of the spec, not of anyone’s opinion), the other library as a reference implementation, and a human maintainer reading the diff. The agents draft; the pipeline and the maintainers decide.</li>
+  <li>change behaviour, add no API,</li>
+  <li>tests next to the existing ones, the project’s naming,</li>
+  <li>the full <code>sbt test doc</code> and <code>javac --release 8</code>,</li>
+  <li>the behaviour change in the first line of the description.</li>
 </ul>
 
-<h2 id="summary">Summary</h2>
+<h2 id="how-i-keep-ai-honest">How I keep AI honest</h2>
+<ul>
+  <li>Every claim in a PR description is run against the unfixed library first.</li>
+  <li>Tests go in a separate commit and must fail red; the description says how many (“6 of 8 fail without the fix”).</li>
+  <li>One PR, one fix. A mixed one got <code>CHANGES_REQUESTED</code>: “simpler is better”.</li>
+  <li>Two AIs agreeing is not validation, they share blind spots. What counts is the red test, the fixed point (render, parse, render gives the same text), the other library as reference, and a maintainer reading the diff.</li>
+</ul>
 
-<p>A “will rarely make any other changes” README is not a wall, it is a budget: a one-file behaviour fix with a red test and a reproducible probe fits it. Running the port and the original as a pair is a bug net - a probe against both is the cheapest lie detector I own. The formatter that started all of this is coming along in <a href="https://github.com/kastoestoramadus/hocon-formatter">hocon-formatter</a>, now that rendering round-trips reliably. More on that when it earns its own post ;)</p>
+<p>The formatter that started all this is coming along in <a href="https://github.com/kastoestoramadus/hocon-formatter">hocon-formatter</a> ;)</p>
 
 
           </div>

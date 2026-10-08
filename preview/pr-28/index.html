@@ -355,7 +355,7 @@ If you want to have a static message in your intro layout, disable the dynamic-t
           <small> <a href="/preview/pr-28/dev/2026/10/05/hocon-two-way-street.html#disqus_thread">Comments</a></small>
         </h4>
 
-        <p>In January I wrote HOCON - the config format YAML should have been and ended it with a promise: I’ve spent the last months fixing the renderer in sconfig. The work grew into a loop between the two HOCON implementations - the Java original lightbend/config and its Scala port sconfig - with fixes travelling both ways. The scoreboard: 38 PRs into sconfig (18 merged), 12 into lightbend/config (3 merged), six twin pairs open in both repos at once. AI agents did a lot of the typing. This post is about...
+        <p>TLDR: Since January I have fixed the renderer in sconfig (Scala port of HOCON): 38 PRs, 18 merged. The port and the Java original lightbend/config share their bugs, so I probe both and send the fix to both: 12 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.</p> <p>This follows HOCON - the config format YAML should have been.</p> <p>Same bug in both sconfig exists because Scala.js and Scala Native have no JVM, so they...
 
         <h4><a href="/preview/pr-28/blog/">More posts</a></h4>
 
