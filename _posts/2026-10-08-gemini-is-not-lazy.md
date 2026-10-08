@@ -15,6 +15,12 @@ I bought a year of Google AI Plus for PLN 239.99 — about USD 61 a year, or USD
 
 [Google's Gemini 3 guide](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) describes a preference for concise answers and recommends clear instructions. More thinking does not tell the model which fields my report needs or when the job is done.
 
+## A plain request
+
+Without a skill or a generated prompt, I asked: `Review recommended cat toys. I want to buy some.` Gemini covered five categories, named some models and offered to narrow the choice based on my cat's preferences. An excerpt, translated from Polish:
+
+> **Recommended models:** *Purr Propulsion* / *GoCat Da Bird* wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.
+
 ## Let it write the brief
 
 My request to the meta-prompt skill, translated from Polish, was: `/xh Review recommended cat toys. I want to buy some.` `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
@@ -25,7 +31,7 @@ In my tests, Gmail was unavailable while using the skill. [Google documents Work
 
 One documented restriction matters for workflows that need internet requests: [scripts bundled with skills cannot make them](https://support.google.com/gemini/answer/17094296?hl=en). That does not prohibit Gemini itself from using supported Connected Apps.
 
-## Run the prompt without the skill
+## Execute the generated prompt
 
 In a normal Gemini turn, without invoking the skill, I typed `go` to execute the generated prompt. The first batch included a wire-and-cardboard toy. Here is part of Gemini's actual response, translated from Polish:
 
@@ -77,6 +83,12 @@ Kupiłem rok Google AI Plus za 239,99 PLN, czyli mniej więcej 20 PLN miesięczn
 
 [Przewodnik Google po Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) opisuje skłonność do zwięzłych odpowiedzi i zaleca jasne instrukcje. Więcej myślenia nie mówi modelowi, jakich pól potrzebuję w raporcie ani kiedy robota jest skończona.
 
+## Zwykłe zapytanie
+
+Bez skilla i bez wygenerowanego promptu zapytałem: `Przejrzyj co się poleca kotom do zabawy. chcę kupić`. Gemini omówił pięć kategorii, wymienił kilka modeli i zaproponował zawężenie wyboru do preferencji mojego kota. Fragment odpowiedzi:
+
+> **Polecane modele:** Wędki typu *Purr Propulsion* / *GoCat Da Bird* (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.
+
 ## Niech sam napisze instrukcję
 
 Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach.
@@ -85,7 +97,7 @@ W moich testach Gmail był niedostępny podczas używania skilla. [Google dokume
 
 Przy zadaniach wymagających żądań internetowych istotne jest jedno udokumentowane ograniczenie: [skrypty dołączone do skilli nie mogą ich wykonywać](https://support.google.com/gemini/answer/17094296?hl=en). To nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.
 
-## Uruchom prompt bez skilla
+## Wykonaj wygenerowany prompt
 
 W zwykłej wiadomości do Gemini, bez wywoływania skilla, wpisałem `go`, żeby wykonać wygenerowany prompt. Pierwsza partia zawierała zabawkę z drutu i kartonu. Fragment rzeczywistej odpowiedzi Gemini:
 
