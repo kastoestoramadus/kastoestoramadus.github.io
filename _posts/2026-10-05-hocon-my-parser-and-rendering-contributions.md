@@ -65,7 +65,4 @@ From the two reviews that asked for changes ([#871](https://github.com/lightbend
 - Follow the code's conventions: `UPPER_SNAKE_CASE` for static constants, the helpers the neighbouring tests use.
 - Trim the PR description to the problem and the fix.
 
-## Next
-The rules the agents follow live in the repository: [sconfig#609](https://github.com/ekrich/sconfig/pull/609) adds `AGENTS.md`, a porting guide and a porting skill. It is still under review, the Scala-feature changes were split out into [#613](https://github.com/ekrich/sconfig/pull/613) on the maintainer's request. How they work, and what they changed in practice, deserves a post of its own.
-
 The formatter that started all this is coming along in [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt) ;)
