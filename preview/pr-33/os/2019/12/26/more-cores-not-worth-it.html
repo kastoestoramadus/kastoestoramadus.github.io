@@ -18,7 +18,7 @@
   <meta name="author" content="Waldemar Wosiński">
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="/preview/pr-33/os/2019/12/26/more-cores-not-worth-it.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+  <link rel="canonical" href="/preview/pr-33/os/2019/12/26/more-cores-not-worth-it.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
   <title>{ IT blog - Waldemar Wosiński } | Small gains from more cores in laptops</title>
 
   <!-- Bootstrap Core CSS -->
@@ -26,7 +26,7 @@
         integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom CSS -->
-  <link href="/preview/pr-33/css/grayscale.css?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" rel="stylesheet">
+  <link href="/preview/pr-33/css/grayscale.css?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" rel="stylesheet">
   
 
   <!-- Custom Fonts -->
@@ -34,9 +34,9 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" />
+  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" />
   
-    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
   
 
   
@@ -47,16 +47,16 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 
   <!-- Android Web App mode -->
 
-  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 
 
 
@@ -82,14 +82,14 @@
 
 
 
-<meta name="preview-build" content="8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+<meta name="preview-build" content="97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 <style>
 body { padding-bottom: 90px; }
 #preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 #preview-status a, #preview-status button { color: #00cdff; }
 #preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
 </style>
-<script defer src="/preview/pr-33/preview-status.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+<script defer src="/preview/pr-33/preview-status.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
 </head>
 
 <!-- HEAD End -->
@@ -107,11 +107,11 @@ body { padding-bottom: 90px; }
         <i class="fa fa-bars"></i>
       </button>
       
-        <a class="navbar-brand" href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+        <a class="navbar-brand" href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
       
           <div>
             
-              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="">
+              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="">
             
             { IT blog - Waldemar Wosiński }
           </div>
@@ -125,27 +125,27 @@ body { padding-bottom: 90px; }
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#about"> About </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#about"> About </a>
             
             </li>
           
             <li>
             
               
-                <a href="/preview/pr-33/blog/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"> Blog </a>
+                <a href="/preview/pr-33/blog/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"> Blog </a>
               
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#timeline"> Timeline </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#timeline"> Timeline </a>
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#contact"> Contact </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#contact"> Contact </a>
             
             </li>
           
@@ -190,17 +190,17 @@ body { padding-bottom: 90px; }
             <strong>26 Dec 2019</strong>
             <small>
               . category:
-              <a class="category" href="/preview/pr-33/categories/hardware.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+              <a class="category" href="/preview/pr-33/categories/hardware.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
                 hardware
               </a>.
-              <a href="/preview/pr-33/os/2019/12/26/more-cores-not-worth-it.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#disqus_thread">Comments</a>
+              <a href="/preview/pr-33/os/2019/12/26/more-cores-not-worth-it.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#disqus_thread">Comments</a>
               <br />
               
-                <a class="tag" href="/preview/pr-33/tags/hardware.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#hardware</a>
+                <a class="tag" href="/preview/pr-33/tags/hardware.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#hardware</a>
               
-                <a class="tag" href="/preview/pr-33/tags/intel.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#intel</a>
+                <a class="tag" href="/preview/pr-33/tags/intel.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#intel</a>
               
-                <a class="tag" href="/preview/pr-33/tags/cpu.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#cpu</a>
+                <a class="tag" href="/preview/pr-33/tags/cpu.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#cpu</a>
               
             </small>
           </h4>
@@ -217,7 +217,7 @@ body { padding-bottom: 90px; }
 <p>On laptops, power efficiency is crucial. To add cores and keep the same TDP (a CPU power consumption indicator, in watts), manufacturers had to save power somewhere.</p>
 
 <h2 id="the-cost-of-higher-performance">The cost of higher performance</h2>
-<p><img src="/preview/pr-33/img/powerConsumptionPerFreq.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="Chart: i7-2600K power consumption rising steeply with clock speed" /></p>
+<p><img src="/preview/pr-33/img/powerConsumptionPerFreq.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="Chart: i7-2600K power consumption rising steeply with clock speed" /></p>
 
 <p>Power ~ Frequency × Voltage²</p>
 
@@ -231,9 +231,9 @@ body { padding-bottom: 90px; }
 <h2 id="where-are-the-gains">Where are the gains?</h2>
 <p>Let’s compare a 9th-gen 4-core CPU with a 6-core one. Both have a 45 W TDP.</p>
 
-<p><img src="/preview/pr-33/img/9300Hand9750H.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="Intel Core i5-9300H vs i7-9750H: 4 vs 6 cores, both 45 W" /></p>
+<p><img src="/preview/pr-33/img/9300Hand9750H.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="Intel Core i5-9300H vs i7-9750H: 4 vs 6 cores, both 45 W" /></p>
 
-<p><img src="/preview/pr-33/img/9300Hvs9750H.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="UserBenchmark: i7-9750H is 6-23% faster than i5-9300H" /></p>
+<p><img src="/preview/pr-33/img/9300Hvs9750H.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="UserBenchmark: i7-9750H is 6-23% faster than i5-9300H" /></p>
 
 <ul>
   <li>Single-thread performance is higher thanks to slightly higher clock speeds.</li>
@@ -251,7 +251,7 @@ body { padding-bottom: 90px; }
 
 <p>10th-gen 4-core i5-10210U vs 6-core i7-10710U:</p>
 
-<p><img src="/preview/pr-33/img/10210Uvs10710U.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="UserBenchmark: i7-10710U is 2-10% faster than i5-10210U" /></p>
+<p><img src="/preview/pr-33/img/10210Uvs10710U.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="UserBenchmark: i7-10710U is 2-10% faster than i5-10210U" /></p>
 
 <h2 id="why-pricier-cpus-still-get-higher-clock-speeds">Why pricier CPUs still get higher clock speeds</h2>
 <p>There are two more reasons why more expensive CPUs reach higher clock speeds at the same TDP:</p>
@@ -399,7 +399,7 @@ body { padding-bottom: 90px; }
 
           
           <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="Me" />
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="Me" />
             <p class="col-xs-8 col-sm-9 col-md-10">
               Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
             </p>
@@ -421,7 +421,7 @@ body { padding-bottom: 90px; }
     
     <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
     
-    <li><a href="/preview/pr-33/feed.xml?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    <li><a href="/preview/pr-33/feed.xml?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
     
     
 </ul>
@@ -479,7 +479,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
-  <script src="/preview/pr-33/js/highlight-hocon.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+  <script src="/preview/pr-33/js/highlight-hocon.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
   <script>
     hljs.highlightAll();
   </script>
@@ -494,7 +494,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 
   <!-- Share buttons Start -->
 
-  <script src="/preview/pr-33/js/rrssb.min.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+  <script src="/preview/pr-33/js/rrssb.min.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
 
   <!-- Share buttons End -->
 
@@ -518,8 +518,8 @@ function addTohistory() {
 
     
 
-  <aside id="preview-status" aria-label="Pull request preview" data-revision="8ed99541f8a464822fbc6edfc3b62f4dfac73292" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
-  <span>Preview PR #33 · revision 8ed9954</span>
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="97d6d579a5c27aacb25a0cbb5d388c0760354c22" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
+  <span>Preview PR #33 · revision 97d6d57</span>
   <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
   <button type="button" id="preview-refresh" hidden>Refresh preview</button>
 </aside>

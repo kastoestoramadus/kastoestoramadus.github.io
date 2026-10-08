@@ -18,15 +18,15 @@
   <meta name="author" content="Waldemar Wosiński">
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <title>{ IT blog - Waldemar Wosiński } | Getting more out of Gemini for less</title>
+  <link rel="canonical" href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <title>{ IT blog - Waldemar Wosiński } | Getting useful work out of Gemini Flash</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom CSS -->
-  <link href="/preview/pr-33/css/grayscale.css?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" rel="stylesheet">
+  <link href="/preview/pr-33/css/grayscale.css?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" rel="stylesheet">
   
 
   <!-- Custom Fonts -->
@@ -34,9 +34,9 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" />
+  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" />
   
-    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
   
 
   
@@ -47,16 +47,16 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
-  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 
   <!-- Android Web App mode -->
 
-  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 
 
 
@@ -82,14 +82,14 @@
 
 
 
-<meta name="preview-build" content="8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+<meta name="preview-build" content="97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
 <style>
 body { padding-bottom: 90px; }
 #preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 #preview-status a, #preview-status button { color: #00cdff; }
 #preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
 </style>
-<script defer src="/preview/pr-33/preview-status.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+<script defer src="/preview/pr-33/preview-status.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
 </head>
 
 <!-- HEAD End -->
@@ -107,11 +107,11 @@ body { padding-bottom: 90px; }
         <i class="fa fa-bars"></i>
       </button>
       
-        <a class="navbar-brand" href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+        <a class="navbar-brand" href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
       
           <div>
             
-              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="">
+              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="">
             
             { IT blog - Waldemar Wosiński }
           </div>
@@ -125,27 +125,27 @@ body { padding-bottom: 90px; }
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#about"> About </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#about"> About </a>
             
             </li>
           
             <li>
             
               
-                <a href="/preview/pr-33/blog/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"> Blog </a>
+                <a href="/preview/pr-33/blog/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"> Blog </a>
               
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#timeline"> Timeline </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#timeline"> Timeline </a>
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#contact"> Contact </a>
+                <a href="/preview/pr-33/?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#contact"> Contact </a>
             
             </li>
           
@@ -185,22 +185,22 @@ body { padding-bottom: 90px; }
 <!-- Swipe Instructions End -->
 
 
-          <h1><strong>Getting more out of Gemini for less</strong></h1>
+          <h1><strong>Getting useful work out of Gemini Flash</strong></h1>
           <h4>
             <strong>08 Oct 2026</strong>
             <small>
               . category:
-              <a class="category" href="/preview/pr-33/categories/dev.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">
+              <a class="category" href="/preview/pr-33/categories/dev.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">
                 dev
               </a>.
-              <a href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1#disqus_thread">Comments</a>
+              <a href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1#disqus_thread">Comments</a>
               <br />
               
-                <a class="tag" href="/preview/pr-33/tags/ai.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#ai</a>
+                <a class="tag" href="/preview/pr-33/tags/ai.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#ai</a>
               
-                <a class="tag" href="/preview/pr-33/tags/gemini.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#gemini</a>
+                <a class="tag" href="/preview/pr-33/tags/gemini.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#gemini</a>
               
-                <a class="tag" href="/preview/pr-33/tags/prompt-engineering.html?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1">#prompt-engineering</a>
+                <a class="tag" href="/preview/pr-33/tags/prompt-engineering.html?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1">#prompt-engineering</a>
               
             </small>
           </h4>
@@ -209,112 +209,170 @@ body { padding-bottom: 90px; }
 
           
             <nav class="post-language-switch" aria-label="Language / Język">
-  <a href="#english" lang="en" hreflang="en" data-post-title="Getting more out of Gemini for less">English</a>
-  <a href="#polski" lang="pl" hreflang="pl" data-post-title="Jak wycisnąć więcej z taniego Gemini">Polski</a>
+  <a href="#english" lang="en" hreflang="en" data-post-title="Getting useful work out of Gemini Flash">English</a>
+  <a href="#polski" lang="pl" hreflang="pl" data-post-title="Jak skłonić Gemini Flash do konkretnej pracy">Polski</a>
 </nav>
 
           
 
           <div id="english" class="post-language" lang="en">
 
-  <p><strong>TLDR:</strong> A cheap Gemini plan becomes more useful when I specify the work and check the sources. My meta skill writes the instructions: batches controlled by <code>n</code> for interactive work, or a complete report for daily scheduled actions.</p>
+  <p><strong>TLDR:</strong> My meta skill makes Gemini useful to me even with the fast Flash model: I give it one line, and it writes the detailed instructions needed to get substantial work done. It addresses my frustration with short answers and repeated prompting while plenty of usage remains, even without Plus. One skill prepares either interactive batches or a complete scheduled report.</p>
 
-  <p>I bought a year of Google AI Plus for PLN 239.99 — about USD 61 a year, or USD 5 a month, at the <a href="https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json">8 October 2026 exchange rate</a>. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.</p>
+  <p>The friction is familiar: a short overview, an offer to continue, another turn explaining that I wanted the actual comparison. I have room to use Gemini more, but directing it starts to become the job. “Token saving” is how this feels from my side; I cannot tell what internal mechanism produces it.</p>
 
-  <h2 id="what-plus-buys">What Plus buys</h2>
+  <h2 id="let-gemini-specify-the-work">Let Gemini specify the work</h2>
 
-  <p><a href="https://one.google.com/about/google-ai-plans/">Google AI Plus</a> includes 400 GB across Gmail, Drive and Photos, advertises twice the Gemini access of non-AI subscribers, and adds more access to Deep Research, notebook features and image, music and video generation. Gmail features depend on region. Antigravity’s expanded limits are listed under Pro and Ultra, not Plus.</p>
+  <p><code>/xh</code> is my name for a meta-prompt skill. I give it the intent; it writes the task prompt. Execution is a separate step in a normal Gemini turn. This makes the proposed scope and criteria visible before the work starts.</p>
 
-  <p>The useful part for routine work is <a href="https://support.google.com/gemini/answer/16316416?hl=en">scheduled actions</a>: up to ten active tasks, including daily reports. With an AI plan, Gemini prepares them within the hour before delivery; without one, it may prepare them several hours earlier. Scheduling is therefore not exclusive to Plus.</p>
+  <p>The important requirements are shared comparison criteria, sources beside claims, explicit missing evidence and a completion condition. A thinking setting cannot specify those for me. Batches let me inspect progress; an unattended run needs a complete report without conversational pauses.</p>
 
-  <p>The same meta skill can turn a one-line request into instructions for a daily news digest, offer check or review. Define the scope, evidence and report once, then let scheduled runs put the available usage to work. Unlike the interactive example below, scheduled instructions must complete the report without waiting for <code>go</code> or <code>n</code>.</p>
+  <p>The point is to make Gemini do the work of expanding the brief. Success means less steering for a useful result, not simply a longer answer.</p>
 
-  <h2 id="same-request-two-results">Same request, two results</h2>
+  <h2 id="what-changed-in-the-trial">What changed in the trial</h2>
 
-  <h3 id="plain-request">Plain request</h3>
+  <p><strong>Flash without <code>/xh</code> versus Flash executing the prompt from <code>/xh</code>.</strong> All the trials used Flash through Gemini’s desktop/web chat interface. The input in both cases was: <code>Review recommended cat toys. I want to buy some.</code> We compare executed answers; the generated prompt is the intermediate step.</p>
 
-  <p>Without a skill or a generated prompt, I asked: <code>Review recommended cat toys. I want to buy some.</code> Gemini covered five categories, named some models and offered to narrow the choice based on my cat’s preferences. An excerpt, translated from Polish:</p>
+  <div class="table-responsive">
 
-  <blockquote>
-    <p><strong>Recommended models:</strong> <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.</p>
-  </blockquote>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Check</th>
+          <th>Flash: plain request</th>
+          <th>Flash: prompt from <code>/xh</code>, executed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Scope of recorded output</td>
+          <td>Five categories, example models and play/safety advice</td>
+          <td>First batch: telescopic feather wand, Cat Dancer, Aumüller toy</td>
+        </tr>
+        <tr>
+          <td>Buying detail</td>
+          <td>General selection advice; offer to tailor it to the cat</td>
+          <td>Product fields, indicative prices and purchase links</td>
+        </tr>
+        <tr>
+          <td>What remains</td>
+          <td>Narrow the choice</td>
+          <td>Verify claims and links; finish remaining batches and comparison</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <blockquote>
-    <p><strong>What to look for:</strong> Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).</p>
-  </blockquote>
+  </div>
 
-  <h3 id="generated-prompt-executed-in-the-normal-session">Generated prompt, executed in the normal session</h3>
+  <details>
+    <summary>Evidence: excerpts from both Flash answers (translated from Polish)</summary>
 
-  <p>I gave the same request to my meta-prompt skill: <code>/xh Review recommended cat toys. I want to buy some.</code> Then I typed <code>go</code> in a normal Gemini turn, without invoking the skill. In the latest test, the first batch named a telescopic feather wand, Cat Dancer and an Aumüller toy. An excerpt from the actual Cat Dancer result:</p>
+    <h3 id="plain-request">Plain request</h3>
 
-  <blockquote>
-    <p><strong>Safety and durability:</strong> Very high durability of the metal wire. The cardboard elements are safe for cats’ teeth and gums, but wear out with heavy use.</p>
+    <p>An excerpt from the answer to the plain request:</p>
 
-    <p><strong>Approximate price:</strong> around 15–20 PLN.</p>
+    <blockquote>
+      <p><strong>Recommended models:</strong> <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.</p>
+    </blockquote>
 
-    <p><strong>Where to buy / link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Check Cat Dancer at Zooplus</a></p>
-  </blockquote>
+    <blockquote>
+      <p><strong>What to look for:</strong> Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).</p>
+    </blockquote>
 
-  <p>After three items, Gemini stopped with:</p>
+    <h3 id="generated-prompt-executed-in-the-normal-session">Generated prompt, executed in the normal session</h3>
 
-  <pre><code class="language-plaintext">Waiting for your signal (n or NEXT) to generate the next batch of recommendations.
+    <p>I invoked <code>/xh</code> with the same request, then typed <code>go</code> in a normal Gemini turn without invoking the skill again. An excerpt from the resulting Cat Dancer entry:</p>
+
+    <blockquote>
+      <p><strong>Safety and durability:</strong> Very high durability of the metal wire. The cardboard elements are safe for cats’ teeth and gums, but wear out with heavy use.</p>
+
+      <p><strong>Approximate price:</strong> around 15–20 PLN.</p>
+
+      <p><strong>Where to buy / link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Check Cat Dancer at Zooplus</a></p>
+    </blockquote>
+
+    <p>After three items, Gemini stopped with:</p>
+
+    <pre><code class="language-plaintext">Waiting for your signal (n or NEXT) to generate the next batch of recommendations.
 </code></pre>
 
-  <p>The plain answer gives a broad overview; the prompted batch gives detail per product, including prices and links. Those links need checking: the Cat Dancer link goes to a category, and the Allegro recommendation went through Google Search. The extra detail is not proof of accuracy. Both excerpts are translated; the <a href="#polski">original evidence is in Polish</a>. The recorded prompted result is the first batch, not a completed report.</p>
+  </details>
+
+  <p>The <a href="#polski">original excerpts are in Polish</a>. Product-level detail is useful, but the Cat Dancer link leads to a category and the Allegro link went through Google Search. Those links do not verify the quoted prices or the safety claims. The first batch is not a completed buying comparison.</p>
+
+  <p>This trial combines a more specific brief with batching. It does not isolate the benefit of the meta skill over writing that same brief myself, or compare cheap and expensive models.</p>
 
   <h2 id="the-same-skill-for-scheduled-actions">The same skill for scheduled actions</h2>
 
   <p>I also tried: <code>/xh I'd like to check cat news regularly; give me some.</code> Gemini returned a scheduled and an interactive variant. After <code>go with option a</code>, it created “Cat report — every day by 9 AM”. This demonstrates creating the schedule; I have not included an executed news report here.</p>
 
-  <p>The test exposed two gaps: the router missed “regularly”, and the scheduled instructions changed “last 24 hours” to “last 24 hours or week”. The copyable version below recognises recurring work explicitly, selects one mode and preserves a single time window. No separate scheduled-prompt skill is needed.</p>
+  <p>The skill returned two modes despite “regularly”, and broadened “last 24 hours” to “last 24 hours or week”. The proposed revision below instructs it to select one mode and preserve the window. <strong>That revision has not been retested in Gemini.</strong></p>
+
+  <h2 id="what-the-subscription-adds">What the subscription adds</h2>
+
+  <p>I paid PLN 239.99 for a year of Plus: about USD 61 at <a href="https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json">NBP’s 8 October 2026 rate</a> of PLN 3.9132 per USD. That is my purchase price, not a standing offer. <a href="https://one.google.com/intl/en/about/google-ai-plans/">Plus</a> adds 400 GB for Gmail, Drive and Photos, advertised 2× Gemini access, and more research, notebook and media-generation usage. Features vary by region. With Gmail already in use, having Gemini close at hand is useful too.</p>
+
+  <p>The method does not require Plus. What I loosely call “tokens” here is the app’s usage allowance, not a measured API token budget.</p>
+
+  <p><a href="https://support.google.com/gemini/answer/16316416?hl=en">Scheduled actions</a> can put those allowances to daily use with instructions prepared by the same skill. Google allows up to ten active actions and is rolling scheduling out to personal accounts without an AI plan too. An AI plan moves preparation into the hour before delivery; free accounts may prepare content several hours earlier. A daily report still needs a defined reporting window and working sources.</p>
 
   <h2 id="copy-the-meta-skill">Copy the meta skill</h2>
 
-  <p>Create a Gemini skill with the instructions below and name it <code>xh</code> (or choose your own name). These instructions adapt the supplied two-mode skill with clearer routing and source rules; they are not the unchanged instructions used in the tests. The skill <strong>generates a task prompt</strong>; it does not carry out the task.</p>
+  <p>Create a Gemini skill named <code>xh</code>, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below. They adapt the two-mode skill used in the trials; they are not a verbatim record of that tested version.</p>
 
   <details>
     <summary>Full meta-skill instructions — expand to copy</summary>
 
     <pre><code class="language-plaintext">Turn the user's request into a complete, ready-to-run session prompt.
 Do not answer the request, research it or execute the resulting prompt.
+Apply this skill only when asked to generate or revise a task prompt.
+Do not reapply it to go, n/NEXT or execution of a prompt already generated.
 Output one plaintext code block containing the task prompt, followed by:
 For interactive tasks: "Run this prompt in a normal Gemini session. Type go to start."
 For scheduled tasks: "Use these instructions in a scheduled action and set its schedule."
+For one-off unattended tasks: "Run these instructions once in a normal Gemini session."
 
-Choose exactly one mode from the user's intent, not merely a keyword.
-Scheduled/background/automatic/recurring/daily/regularly means scheduled mode.
-This includes Polish: zaplanowane, w tle, cyklicznie, regularnie, codziennie.
-Otherwise use interactive mode. Honour an explicitly requested mode.
+Choose exactly one execution mode. Honour an explicitly requested mode first.
+A scheduled action or recurring delivery means unattended mode; recognise
+recurring/daily/regularly and Polish cyklicznie/regularnie/codziennie in context.
+A one-off background task is also unattended, but does not imply recurrence.
+Otherwise use interactive mode. Do not infer a schedule from the topic alone.
 Do not output both alternatives unless asked.
 
 The generated prompt must include:
 1. The user's objective and deliverable. Preserve stated constraints.
    State assumptions; ask only for information that blocks useful work.
-2. A domain-specific role, shared evaluation criteria and a numbered plan.
+2. Relevant domain criteria, a bounded numbered plan and a completion condition.
+   For comparisons, name the alternatives and shared criteria before the details.
 3. A search protocol when the task needs current or external information:
    use available search, page access and Connected Apps as needed;
    open cited pages; use clickable Markdown links [name](URL) beside claims;
    link directly to products/articles; label category/search pages as leads;
+   a retrieved URL alone is not verification: the page must support the claim;
    distinguish verified facts, opinions and uncertainty;
    disclose unavailable tools or unverified data, never invent evidence.
    Display results as normal Markdown, not inside code blocks.
 4. A fixed per-item template tailored to the task. For buying advice include
    model/source link, use case, evidence, advantages, risks, suitability,
    current price/currency and a recommendation. Mark missing fields UNVERIFIED.
-5. For interactive work: batches of at most three items, then stop. Preserve the plan.
-   End each batch with DONE / NEXT / UNVERIFIED.
-   n or NEXT = next batch; d = expand; s = skip; x = stop.
-   Use capitals only for status labels or a decision requiring the user.
-6. A final comparison and recommendation after all batches are complete.
-7. For interactive work: "Do not execute yet. Wait for go."
+5. For interactive work: at most three items per batch; stop only if work remains.
+   End with DONE / NEXT / UNVERIFIED. Keep the remaining plan visible.
+   n or NEXT = next batch; d = expand the last batch;
+   s = skip the next planned item and record the omission; x = stop.
+6. Deliver the requested conclusion in the final batch without another go/n.
+   For comparisons, include a recommendation and the evidence still missing.
+7. For interactive work: wait for go unless the user already asked to execute.
 
-For a scheduled action, instead generate self-contained instructions for one run.
-Keep the requested schedule/time zone separate; do not create the schedule yourself.
-Complete the report without go/n pauses, within available tools and usage limits.
-Preserve one reporting time window. State a missing window as an assumption.
+For unattended work, generate self-contained instructions for one run.
+Keep any requested schedule/time zone separate; do not invent or create a schedule.
+Complete the report without go/n pauses or questions awaiting a human reply.
+Use stated assumptions for non-blocking gaps; report blockers and finish useful work.
+Preserve one reporting time window; never broaden it just to find more results.
+For "last 24 hours", anchor it to the actual run time and state the checked interval.
+State a missing window as an assumption. Stay within available tools and usage limits.
 Use an "up to N" report limit where useful, not an obligation to fill N slots.
 Do not promise all information or 100% coverage; report the scope actually checked.
-Distinguish confirmed findings, unverified leads and a failed check.
+Distinguish confirmed findings, no matching results, unverified leads and failed checks.
 Compare with earlier runs only if their results are actually available.
 
 Adapt these rules to the task. Do not add irrelevant fields or filler.
@@ -322,7 +380,7 @@ Adapt these rules to the task. Do not add irrelevant fields or filler.
 
   </details>
 
-  <p>Invoke it with <code>/xh</code> and your request, copy its generated prompt into the normal session, then type <code>go</code>. Use <code>n</code> for the next batch. <code>/xh</code> is a chosen skill name, not a built-in Gemini command.</p>
+  <p>For a conversation, invoke <code>/xh</code> with your request, inspect the generated prompt, then run it in a normal Gemini turn with <code>go</code>; <code>n</code> continues unfinished work. For recurring work, include “scheduled action” and the schedule in your request, then use the generated instructions to set up the action. <code>/xh</code> is my chosen name, not a built-in command.</p>
 
   <p>In my tests, Gmail was unavailable while using the skill. <a href="https://support.google.com/gemini/answer/18560919?hl=en-GB">Google documents Workspace support for skills</a>, so I cannot call this a general MCP restriction. I generate the prompt in the skill and execute it in the normal session with the required connections. Separately, <a href="https://support.google.com/gemini/answer/17094296?hl=en">scripts bundled with skills cannot make internet requests</a>; this does not prohibit Gemini itself from using supported Connected Apps.</p>
 
@@ -332,104 +390,162 @@ Adapt these rules to the task. Do not add irrelevant fields or filler.
 
 <div id="polski" class="post-language" lang="pl">
 
-  <p><strong>TLDR:</strong> Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie i sprawdzam źródła. Mój meta skill układa instrukcje: partie sterowane przez <code>n</code> przy pracy w rozmowie albo kompletny raport do codziennych scheduled actions.</p>
+  <p><strong>TLDR:</strong> Mój meta skill sprawia, że Gemini staje się dla mnie użyteczny nawet na szybkim Flashu: podaję jedno zdanie, a model sam rozpisuje instrukcje potrzebne do wykonania konkretnej pracy. To sposób na zdawkowe odpowiedzi i ciągłe dopominanie, mimo sporej dostępnej puli użycia — także bez Plus. Jeden skill przygotowuje pracę partiami albo pełny raport cykliczny.</p>
 
-  <p>Kupiłem rok Google AI Plus za 239,99 PLN, czyli mniej więcej 20 PLN miesięcznie. Gemini nadal daje mi krótką odpowiedź z propozycją kontynuacji. Chcę porównania, a nie zaproszenia do ponownego poproszenia o nie.</p>
+  <p>Problem wygląda znajomo: krótki przegląd, propozycja kontynuacji, kolejna tura tłumaczenia, że chciałem właściwego porównania. Mam jeszcze z czego korzystać, ale kierowanie modelem zaczyna być osobną robotą. Z mojej strony wygląda to jak „oszczędzanie tokenów”; nie wiem, jaki mechanizm wewnętrzny za tym stoi.</p>
 
-  <h2 id="co-daje-plus">Co daje Plus</h2>
+  <h2 id="niech-gemini-rozpisze-sobie-zadanie">Niech Gemini rozpisze sobie zadanie</h2>
 
-  <p><a href="https://one.google.com/about/google-ai-plans/">Google AI Plus</a> obejmuje 400 GB dla Gmaila, Dysku i Zdjęć, reklamuje dwukrotnie większy dostęp do Gemini niż bez planu AI i daje więcej dostępu do Deep Research, funkcji notatników oraz generowania obrazów, muzyki i filmów. Funkcje Gmaila zależą od regionu. Zwiększone limity Antigravity są wymienione przy Pro i Ultra, nie Plus.</p>
+  <p><code>/xh</code> to moja nazwa skilla do meta-promptów. Podaję intencję; skill pisze prompt zadania. Wykonanie jest osobnym krokiem w zwykłej wiadomości do Gemini. Dzięki temu proponowany zakres i kryteria widać, zanim zacznie się praca.</p>
 
-  <p>Do regularnej pracy przydają się <a href="https://support.google.com/gemini/answer/16316416?hl=en">scheduled actions</a>: do dziesięciu aktywnych zadań, w tym codzienne raporty. Z planem AI Gemini przygotowuje je w ciągu godziny przed dostarczeniem; bez niego może zrobić to kilka godzin wcześniej. Sam harmonogram nie jest więc wyłączną zaletą Plus.</p>
+  <p>Istotne wymagania to wspólne kryteria porównania, źródła przy twierdzeniach, jawne braki w dowodach i warunek zakończenia. Ustawienie poziomu myślenia nie określi ich za mnie. Partie pozwalają kontrolować postęp; wykonanie bez mojego udziału wymaga pełnego raportu bez pauz na rozmowę.</p>
 
-  <p>Ten sam meta skill może zamienić jednozdaniową prośbę w instrukcje codziennego przeglądu wiadomości, ofert lub recenzji. Raz określasz zakres, dowody i raport, a cykliczne wykonania wykorzystują dostępną pulę użycia. W odróżnieniu od przykładu rozmowy poniżej instrukcje zadania cyklicznego muszą kończyć raport bez czekania na <code>go</code> ani <code>n</code>.</p>
+  <p>Sedno: niech Gemini wykona także pracę rozpisania zadania. Miarą sukcesu jest mniej mojego sterowania do uzyskania użytecznego wyniku, nie sama długość odpowiedzi.</p>
 
-  <h2 id="to-samo-pytanie-dwa-wyniki">To samo pytanie, dwa wyniki</h2>
+  <h2 id="co-zmienio-si-w-prbie">Co zmieniło się w próbie</h2>
 
-  <h3 id="zwyke-zapytanie">Zwykłe zapytanie</h3>
+  <p><strong>Flash bez <code>/xh</code> kontra Flash wykonujący prompt z <code>/xh</code>.</strong> Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. W obu przypadkach punktem wyjścia było: <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.</p>
 
-  <p>Bez skilla i bez wygenerowanego promptu zapytałem: <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. Gemini omówił pięć kategorii, wymienił kilka modeli i zaproponował zawężenie wyboru do preferencji mojego kota. Fragment odpowiedzi:</p>
+  <div class="table-responsive">
 
-  <blockquote>
-    <p><strong>Polecane modele:</strong> Wędki typu <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.</p>
-  </blockquote>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Co sprawdzamy</th>
+          <th>Flash: zwykła prośba</th>
+          <th>Flash: wykonany prompt z <code>/xh</code></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zakres zapisanego wyniku</td>
+          <td>Pięć kategorii, przykładowe modele, porady o zabawie i bezpieczeństwie</td>
+          <td>Pierwsza partia: teleskopowa wędka z piórami, Cat Dancer, zabawka Aumüller</td>
+        </tr>
+        <tr>
+          <td>Konkret zakupowy</td>
+          <td>Ogólne kryteria wyboru; propozycja dopasowania do kota</td>
+          <td>Pola dla produktów, orientacyjne ceny i linki zakupowe</td>
+        </tr>
+        <tr>
+          <td>Co pozostaje</td>
+          <td>Zawęzić wybór</td>
+          <td>Sprawdzić twierdzenia i linki; dokończyć partie i porównanie</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <blockquote>
-    <p><strong>Na co zwrócić uwagę:</strong> Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).</p>
-  </blockquote>
+  </div>
 
-  <h3 id="wygenerowany-prompt-wykonany-w-zwykej-sesji">Wygenerowany prompt wykonany w zwykłej sesji</h3>
+  <details>
+    <summary>Materiał porównawczy: oryginalne fragmenty obu odpowiedzi Flasha</summary>
 
-  <p>To samo pytanie podałem skillowi układającemu meta-prompty: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. Potem w zwykłej wiadomości do Gemini, bez wywoływania skilla, wpisałem <code>go</code>. W najnowszym teście pierwsza partia wymieniła teleskopową wędkę z piórami, Cat Dancer i zabawkę Aumüller. Fragment rzeczywistego wyniku dla Cat Dancer:</p>
+    <h3 id="zwyke-zapytanie">Zwykłe zapytanie</h3>
 
-  <blockquote>
-    <p><strong>Bezpieczeństwo i trwałość:</strong> Bardzo wysoka trwałość metalowego drutu. Tekturowe elementy są bezpieczne dla kocich zębów i dziąseł, ale mocno eksploatowane z czasem ulegają zużyciu.</p>
+    <p>Fragment odpowiedzi na zwykłą prośbę:</p>
 
-    <p><strong>Orientacyjna cena:</strong> ok. 15 – 20 PLN</p>
+    <blockquote>
+      <p><strong>Polecane modele:</strong> Wędki typu <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.</p>
+    </blockquote>
 
-    <p><strong>Gdzie kupić / Link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Sprawdź Cat Dancer w Zooplus</a></p>
-  </blockquote>
+    <blockquote>
+      <p><strong>Na co zwrócić uwagę:</strong> Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).</p>
+    </blockquote>
 
-  <p>Po trzech pozycjach Gemini zatrzymał się tak:</p>
+    <h3 id="wygenerowany-prompt-wykonany-w-zwykej-sesji">Wygenerowany prompt wykonany w zwykłej sesji</h3>
 
-  <pre><code class="language-plaintext">Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomendacji.
+    <p>Wywołałem <code>/xh</code> z tą samą prośbą, potem wpisałem <code>go</code> w zwykłej wiadomości do Gemini, bez ponownego wywołania skilla. Fragment otrzymanego opisu Cat Dancer:</p>
+
+    <blockquote>
+      <p><strong>Bezpieczeństwo i trwałość:</strong> Bardzo wysoka trwałość metalowego drutu. Tekturowe elementy są bezpieczne dla kocich zębów i dziąseł, ale mocno eksploatowane z czasem ulegają zużyciu.</p>
+
+      <p><strong>Orientacyjna cena:</strong> ok. 15 – 20 PLN</p>
+
+      <p><strong>Gdzie kupić / Link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Sprawdź Cat Dancer w Zooplus</a></p>
+    </blockquote>
+
+    <p>Po trzech pozycjach Gemini zatrzymał się tak:</p>
+
+    <pre><code class="language-plaintext">Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomendacji.
 </code></pre>
 
-  <p>Zwykła odpowiedź daje przegląd kategorii; partia po wygenerowanym prompcie podaje szczegóły produktów, w tym ceny i linki. Te linki wymagają sprawdzenia: Cat Dancer prowadzi do kategorii, a rekomendacja Allegro prowadziła przez Google Search. Więcej szczegółów nie dowodzi trafności. Powyżej jest oryginalny polski materiał; zapisany wynik wykonania to pierwsza partia, nie ukończony raport.</p>
+  </details>
+
+  <p>Szczegóły produktów są użyteczne, ale link Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Te odnośniki nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie. Pierwsza partia nie jest ukończonym porównaniem zakupowym.</p>
+
+  <p>Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela korzyści ze skilla od korzyści z samodzielnego napisania równie dokładnej instrukcji ani nie porównuje taniego modelu z drogim.</p>
 
   <h2 id="ten-sam-skill-do-scheduled-actions">Ten sam skill do scheduled actions</h2>
 
   <p>Spróbowałem też: <code>/xh chciałbym cyklicznie sprawdzać newsy o kotach, daj mi jakieś</code>. Gemini zwrócił wariant cykliczny i konwersacyjny. Po <code>go with option a</code> utworzył „Raport o kotach — codziennie do 9:00”. To pokazuje utworzenie harmonogramu; nie zamieszczam tu wykonanego raportu z wiadomościami.</p>
 
-  <p>Test pokazał dwie luki: router nie rozpoznał „cyklicznie”, a instrukcje harmonogramu zmieniły „ostatnie 24 godziny” na „ostatnie 24 godziny lub tydzień”. Wersja do skopiowania poniżej rozpoznaje zadania cykliczne, wybiera jeden tryb i zachowuje jedno okno czasowe. Nie potrzeba osobnego skilla do scheduled prompts.</p>
+  <p>Mimo słowa „cyklicznie” skill zwrócił dwa tryby, a „ostatnie 24 godziny” rozszerzył do „ostatnie 24 godziny lub tydzień”. Proponowana wersja poniżej nakazuje wybór jednego trybu i zachowanie okna. <strong>Ta wersja nie została ponownie przetestowana w Gemini.</strong></p>
+
+  <h2 id="co-wnosi-abonament">Co wnosi abonament</h2>
+
+  <p>Kupiłem rok Plus za 239,99 PLN, około 20 PLN miesięcznie. To cena mojego zakupu, nie stała oferta. <a href="https://one.google.com/intl/en/about/google-ai-plans/">Plus</a> dodaje 400 GB dla Gmaila, Dysku i Zdjęć, reklamowany dwukrotnie większy dostęp do Gemini oraz większą pulę na research, notatniki i generowanie multimediów. Funkcje zależą od regionu. Gdy korzysta się już z Gmaila, Gemini pod ręką też się przydaje.</p>
+
+  <p>Metoda nie wymaga Plus. To, co potocznie nazywam tu „tokenami”, jest pulą użycia aplikacji, a nie zmierzonym budżetem tokenów API.</p>
+
+  <p><a href="https://support.google.com/gemini/answer/16316416?hl=en">Scheduled actions</a> pozwalają codziennie korzystać z tej puli według instrukcji przygotowanych przez ten sam skill. Google dopuszcza do dziesięciu aktywnych zadań i udostępnia harmonogramy także kontom osobistym bez planu AI. Plan AI przesuwa przygotowanie wyniku na godzinę przed dostarczeniem; konto bez planu może przygotować go kilka godzin wcześniej. Codzienny raport nadal potrzebuje określonego okna czasowego i działających źródeł.</p>
 
   <h2 id="meta-skill-do-skopiowania">Meta skill do skopiowania</h2>
 
-  <p>Utwórz skill w Gemini, wklej poniższe instrukcje i nazwij go <code>xh</code> (lub wybierz własną nazwę). To adaptacja przekazanego skilla z dwoma trybami, z doprecyzowaniem wyboru trybu i źródeł; nie niezmienione instrukcje użyte w testach. Skill <strong>generuje prompt zadania</strong>, zamiast wykonywać zadanie.</p>
+  <p>Utwórz w Gemini skill <code>xh</code> z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej. To adaptacja skilla z dwoma trybami użytego w próbach, a nie wierny zapis testowanej wersji.</p>
 
   <details>
     <summary>Pełne instrukcje meta skilla — rozwiń i skopiuj</summary>
 
     <pre><code class="language-plaintext">Zamień prośbę użytkownika w kompletny prompt gotowy do uruchomienia w sesji.
 Nie odpowiadaj na prośbę, nie wyszukuj informacji ani nie wykonuj tego promptu.
+Stosuj ten skill tylko na prośbę o wygenerowanie lub zmianę promptu zadania.
+Nie stosuj go ponownie do go, n/NEXT ani wykonania już wygenerowanego promptu.
 Zwróć jeden blok kodu plaintext z promptem zadania, a pod nim:
 Dla rozmowy: „Uruchom ten prompt w zwykłej sesji Gemini. Wpisz go.”
 Dla zadania cyklicznego: „Użyj tych instrukcji w scheduled action i ustaw harmonogram.”
+Dla jednorazowej pracy bez udziału człowieka: „Wykonaj te instrukcje raz w zwykłej sesji Gemini.”
 
-Wybierz dokładnie jeden tryb według intencji, nie tylko słowa kluczowego.
-Zaplanowane/w tle/automatycznie/cyklicznie/codziennie/regularnie oznacza tryb cykliczny.
-Dotyczy też angielskich: scheduled, background, recurring, daily, regularly.
-W pozostałych przypadkach wybierz rozmowę. Respektuj tryb wskazany wprost.
+Wybierz jeden tryb wykonania. Pierwszeństwo ma tryb wskazany wprost.
+Scheduled action lub cykliczne dostarczanie wyniku oznacza pracę bez udziału człowieka;
+rozpoznawaj cyklicznie/regularnie/codziennie i recurring/daily/regularly w kontekście.
+Jednorazowe zadanie w tle też nie wymaga udziału człowieka, ale nie oznacza cykliczności.
+W innych przypadkach wybierz rozmowę. Nie wnioskuj harmonogramu z samego tematu.
 Nie zwracaj obu wariantów, chyba że użytkownik o to poprosi.
 
 Wygenerowany prompt musi zawierać:
 1. Cel i oczekiwany wynik. Zachowaj podane ograniczenia.
    Określ założenia; pytaj tylko o dane, bez których nie da się użytecznie działać.
-2. Rolę dopasowaną do dziedziny, wspólne kryteria oceny i numerowany plan.
+2. Kryteria właściwe dla dziedziny, ograniczony numerowany plan i warunek zakończenia.
+   Przy porównaniu pokaż warianty i wspólne kryteria przed szczegółami.
 3. Protokół wyszukiwania, gdy zadanie potrzebuje informacji aktualnych lub zewnętrznych:
    używaj dostępnej wyszukiwarki, dostępu do stron i połączonych aplikacji;
    otwieraj cytowane strony; dodawaj klikalne linki Markdown [nazwa](URL) przy tezach;
    linkuj bezpośrednio produkty/artykuły; kategorie i wyszukiwarki oznacz jako tropy;
+   sam znaleziony URL nie jest weryfikacją: treść strony musi potwierdzać tezę;
    oddzielaj sprawdzone fakty, opinie i niepewność;
    ujawniaj niedostępne narzędzia i niesprawdzone dane, nie wymyślaj dowodów.
    Wyniki prezentuj jako zwykły Markdown, nie w blokach kodu.
 4. Stały szablon pozycji dopasowany do zadania. Przy poradach zakupowych uwzględnij
    model/link do źródła, zastosowanie, dowody, zalety, ryzyka, dopasowanie,
    aktualną cenę/walutę i rekomendację. Braki oznacz NIESPRAWDZONE.
-5. Przy pracy w rozmowie: partie po najwyżej trzy pozycje, potem stop. Zachowaj plan.
-   Kończ partię licznikiem ZROBIONE / NASTĘPNE / NIESPRAWDZONE.
-   n lub NEXT = następna partia; d = rozwiń; s = pomiń; x = stop.
-   Wielkie litery stosuj tylko w etykietach statusu lub przy decyzji użytkownika.
-6. Końcowe porównanie i rekomendację po ukończeniu wszystkich partii.
-7. Przy pracy w rozmowie: „Jeszcze nie wykonuj zadania. Czekaj na go.”
+5. Przy rozmowie: najwyżej trzy pozycje w partii; pauza tylko gdy zostało coś do zrobienia.
+   Kończ przez ZROBIONE / NASTĘPNE / NIESPRAWDZONE. Pokazuj pozostały plan.
+   n lub NEXT = następna partia; d = rozwiń ostatnią partię;
+   s = pomiń następną zaplanowaną pozycję i odnotuj pominięcie; x = stop.
+6. W ostatniej partii podaj wnioski bez dodatkowego go/n.
+   Przy porównaniu dodaj rekomendację i brakujące dowody.
+7. Przy rozmowie: czekaj na go, chyba że użytkownik już polecił wykonanie.
 
-Dla scheduled action wygeneruj samodzielne instrukcje jednego uruchomienia.
-Podany harmonogram i strefę czasową zachowaj osobno; nie twórz harmonogramu sam.
-Kończ raport bez pauz go/n, w granicach dostępnych narzędzi i limitów użycia.
-Zachowaj jedno okno czasowe raportu. Brakujące okno określ jako założenie.
+Dla pracy bez udziału człowieka wygeneruj samodzielne instrukcje jednego uruchomienia.
+Podany harmonogram i strefę zachowaj osobno; nie wymyślaj ani nie twórz harmonogramu.
+Kończ raport bez pauz go/n i bez pytań oczekujących na odpowiedź człowieka.
+Przy nieblokujących brakach podaj założenia; zgłoś blokady i wykonaj możliwą część pracy.
+Zachowaj jedno okno raportu; nie rozszerzaj go tylko po to, by znaleźć więcej wyników.
+„Ostatnie 24 godziny” licz od faktycznej chwili wykonania i podaj sprawdzony przedział.
+Brakujące okno określ jako założenie. Działaj w granicach dostępnych narzędzi i limitów.
 W razie potrzeby ogranicz raport przez „do N”, nie obowiązek zapełnienia N pozycji.
 Nie obiecuj wszystkich informacji ani 100% pokrycia; podaj faktycznie sprawdzony zakres.
-Oddzielaj potwierdzone wyniki, niesprawdzone tropy i nieudane sprawdzenie.
+Oddzielaj potwierdzone wyniki, brak pasujących wyników, niesprawdzone tropy i błędy sprawdzenia.
 Porównuj z wcześniejszymi uruchomieniami tylko wtedy, gdy masz ich rzeczywiste wyniki.
 
 Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
@@ -437,7 +553,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
 
   </details>
 
-  <p>Wywołaj skill przez <code>/xh</code> i swoją prośbę, przekopiuj wygenerowany prompt do zwykłej sesji, potem wpisz <code>go</code>. Następną partię uruchamiaj przez <code>n</code>. <code>/xh</code> to wybrana nazwa skilla, nie wbudowana komenda Gemini.</p>
+  <p>Dla rozmowy wywołaj <code>/xh</code> ze swoją prośbą, sprawdź wygenerowany prompt i uruchom go w zwykłej wiadomości do Gemini przez <code>go</code>; <code>n</code> kontynuuje niedokończoną pracę. Dla zadania cyklicznego dopisz w prośbie „scheduled action” i harmonogram, a następnie użyj wygenerowanych instrukcji do ustawienia zadania. <code>/xh</code> to moja nazwa, nie wbudowana komenda.</p>
 
   <p>W moich testach Gmail był niedostępny podczas używania skilla. <a href="https://support.google.com/gemini/answer/18560919?hl=en-GB">Google dokumentuje obsługę Workspace przez skille</a>, więc nie mogę nazwać tego ogólnym ograniczeniem MCP. Generuję prompt w skillu, a wykonuję go w zwykłej sesji z potrzebnymi połączeniami. Osobno: <a href="https://support.google.com/gemini/answer/17094296?hl=en">skrypty dołączone do skilli nie mogą wykonywać żądań internetowych</a>; to nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.</p>
 
@@ -454,7 +570,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
   <ul class="rrssb-buttons clearfix">
     
       <li class="rrssb-email">
-        <a href="mailto:?subject=Getting more out of Gemini for less&body=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html" data-proofer-ignore>
+        <a href="mailto:?subject=Getting useful work out of Gemini Flash&body=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html" data-proofer-ignore>
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
               <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
@@ -467,7 +583,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
     
     
       <li class="rrssb-facebook">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting more out of Gemini for less" class="popup">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting useful work out of Gemini Flash" class="popup">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
               class="cls-2" fill-rule="evenodd"/></svg>
@@ -478,7 +594,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
     
     
       <li class="rrssb-twitter">
-        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&text=Getting more out of Gemini for less"
+        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&text=Getting useful work out of Gemini Flash"
         class="popup">
           <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"/></svg></span>
           <span class="rrssb-text">twitter</span>
@@ -500,7 +616,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
     
     
       <li class="rrssb-reddit">
-        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting more out of Gemini for less" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting useful work out of Gemini Flash" target="_blank">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
               <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
@@ -576,7 +692,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
 
           
           <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" alt="Me" />
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" alt="Me" />
             <p class="col-xs-8 col-sm-9 col-md-10">
               Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
             </p>
@@ -598,7 +714,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
     
     <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
     
-    <li><a href="/preview/pr-33/feed.xml?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    <li><a href="/preview/pr-33/feed.xml?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
     
     
 </ul>
@@ -656,7 +772,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
-  <script src="/preview/pr-33/js/highlight-hocon.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+  <script src="/preview/pr-33/js/highlight-hocon.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
   <script>
     hljs.highlightAll();
   </script>
@@ -671,7 +787,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 
   <!-- Share buttons Start -->
 
-  <script src="/preview/pr-33/js/rrssb.min.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+  <script src="/preview/pr-33/js/rrssb.min.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
 
   <!-- Share buttons End -->
 
@@ -682,7 +798,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, 'Getting more out of Gemini for less', 'https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html');
+    history.pushState({}, 'Getting useful work out of Gemini Flash', 'https://kastoestoramadus.github.io/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html');
   }
 }
 </script>
@@ -694,11 +810,11 @@ function addTohistory() {
 
 
     
-      <script src="/preview/pr-33/js/post-language-switch.js?preview=8ed99541f8a464822fbc6edfc3b62f4dfac73292-37844043777-1"></script>
+      <script src="/preview/pr-33/js/post-language-switch.js?preview=97d6d579a5c27aacb25a0cbb5d388c0760354c22-37846546845-1"></script>
     
 
-  <aside id="preview-status" aria-label="Pull request preview" data-revision="8ed99541f8a464822fbc6edfc3b62f4dfac73292" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
-  <span>Preview PR #33 · revision 8ed9954</span>
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="97d6d579a5c27aacb25a0cbb5d388c0760354c22" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
+  <span>Preview PR #33 · revision 97d6d57</span>
   <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
   <button type="button" id="preview-refresh" hidden>Refresh preview</button>
 </aside>
