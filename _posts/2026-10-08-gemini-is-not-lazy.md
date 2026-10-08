@@ -199,7 +199,7 @@ Poniżej **oryginalne fragmenty odpowiedzi** z czterech sesji. Po prawej stronie
 ### Flash: po `/xh` — zakupy dla kota
 {: #session-skill-pl}
 
-**Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `go` bez ponownego wywołania skilla.
+**Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `uruchom` bez ponownego wywołania skilla.
 
 **Fragment odpowiedzi — Cat Dancer:**
 
@@ -300,7 +300,7 @@ Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy b
 
 </details>
 
-Aby użyć skilla, wywołaj `/xh` ze swoją prośbą i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. `/xh` to moja nazwa, nie wbudowana komenda.
+Aby użyć skilla, wywołaj `/xh` ze swoją prośbą i wpisz `uruchom`; `n` kontynuuje niedokończoną pracę. `/xh` to moja nazwa, nie wbudowana komenda.
 
 Ważne: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=pl); stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.
 
