@@ -9,11 +9,19 @@ title-pl: Jak wycisnąć więcej z taniego Gemini
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: generate the prompt in a skill, run it in the normal session, then type `n` for each next batch.
+**TLDR:** A cheap Gemini plan becomes more useful when I specify the work and check the sources. My meta skill writes the instructions: batches controlled by `n` for interactive work, or a complete report for daily scheduled actions.
 
 I bought a year of Google AI Plus for PLN 239.99 — about USD 61 a year, or USD 5 a month, at the [8 October 2026 exchange rate](https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json). Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
 
 [Google's Gemini 3 guide](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) describes a preference for concise answers and recommends clear instructions. More thinking does not tell the model which fields my report needs or when the job is done.
+
+## What Plus buys
+
+[Google AI Plus](https://one.google.com/about/google-ai-plans/) includes 400 GB across Gmail, Drive and Photos, advertises twice the Gemini access of non-AI subscribers, and adds more access to Deep Research, notebook features and image, music and video generation. Gmail features depend on region. Antigravity's expanded limits are listed under Pro and Ultra, not Plus.
+
+The useful part for routine work is [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en): up to ten active tasks, including daily reports. With an AI plan, Gemini prepares them within the hour before delivery; without one, it may prepare them several hours earlier. Scheduling is therefore not exclusive to Plus.
+
+The same meta skill can turn a one-line request into instructions for a daily news digest, offer check or review. Define the scope, evidence and report once, then let scheduled runs put the available usage to work. For example: `/xh Write instructions for a daily scheduled report on Scala releases: official sources, release dates, clickable links and practical impact. Complete each report without waiting for me.` Copy the generated instructions into a scheduled action and set your delivery time. Unlike the interactive example below, this mode must not wait for `go` or `n`. It must report unavailable tools or sources rather than pretend the check succeeded.
 
 ## Same request, two results
 
@@ -52,7 +60,8 @@ Create a Gemini skill with the instructions below and name it `xh` (or choose yo
 Turn the user's request into a complete, ready-to-run session prompt.
 Do not answer the request, research it or execute the resulting prompt.
 Output one plaintext code block containing the task prompt, followed by:
-"Run this prompt in a normal Gemini session with the tools it needs. Type go to start."
+For interactive tasks: "Run this prompt in a normal Gemini session. Type go to start."
+For scheduled tasks: "Use these instructions in a scheduled action and set its schedule."
 
 The generated prompt must include:
 1. The user's objective and deliverable. Preserve stated constraints.
@@ -67,12 +76,18 @@ The generated prompt must include:
 4. A fixed per-item template tailored to the task. For buying advice include
    model/source link, use case, evidence, advantages, risks, suitability,
    current price/currency and a recommendation. Mark missing fields UNVERIFIED.
-5. Batches of at most three items, followed by a stop. Preserve the plan.
+5. For interactive work: batches of at most three items, then stop. Preserve the plan.
    End each batch with DONE / NEXT / UNVERIFIED.
    n or NEXT = next batch; d = expand; s = skip; x = stop.
    Use capitals only for status labels or a decision requiring the user.
 6. A final comparison and recommendation after all batches are complete.
-7. A hard hand-off: "Do not execute yet. Wait for go."
+7. For interactive work: "Do not execute yet. Wait for go."
+
+For a scheduled action, instead generate self-contained instructions for one run.
+Keep the requested schedule/time zone separate; do not create the schedule yourself.
+Complete the report without go/n pauses, within available tools and usage limits.
+Distinguish confirmed findings, unverified leads and a failed check.
+Compare with earlier runs only if their results are actually available.
 
 Adapt these rules to the task. Do not add irrelevant fields or filler.
 ```
@@ -87,11 +102,19 @@ This costs more turns and reading. The prompt cannot grant tool access or guaran
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: generuję prompt w skillu, uruchamiam go w zwykłej sesji, a potem wpisuję `n` po każdą następną partię.
+**TLDR:** Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie i sprawdzam źródła. Mój meta skill układa instrukcje: partie sterowane przez `n` przy pracy w rozmowie albo kompletny raport do codziennych scheduled actions.
 
 Kupiłem rok Google AI Plus za 239,99 PLN, czyli mniej więcej 20 PLN miesięcznie. Gemini nadal daje mi krótką odpowiedź z propozycją kontynuacji. Chcę porównania, a nie zaproszenia do ponownego poproszenia o nie.
 
 [Przewodnik Google po Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) opisuje skłonność do zwięzłych odpowiedzi i zaleca jasne instrukcje. Więcej myślenia nie mówi modelowi, jakich pól potrzebuję w raporcie ani kiedy robota jest skończona.
+
+## Co daje Plus
+
+[Google AI Plus](https://one.google.com/about/google-ai-plans/) obejmuje 400 GB dla Gmaila, Dysku i Zdjęć, reklamuje dwukrotnie większy dostęp do Gemini niż bez planu AI i daje więcej dostępu do Deep Research, funkcji notatników oraz generowania obrazów, muzyki i filmów. Funkcje Gmaila zależą od regionu. Zwiększone limity Antigravity są wymienione przy Pro i Ultra, nie Plus.
+
+Do regularnej pracy przydają się [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en): do dziesięciu aktywnych zadań, w tym codzienne raporty. Z planem AI Gemini przygotowuje je w ciągu godziny przed dostarczeniem; bez niego może zrobić to kilka godzin wcześniej. Sam harmonogram nie jest więc wyłączną zaletą Plus.
+
+Ten sam meta skill może zamienić jednozdaniową prośbę w instrukcje codziennego przeglądu wiadomości, ofert lub recenzji. Raz określasz zakres, dowody i raport, a cykliczne wykonania wykorzystują dostępną pulę użycia. Przykład: `/xh Napisz instrukcje do codziennego scheduled action o wydaniach Scali: oficjalne źródła, daty wydań, klikalne linki i praktyczne znaczenie. Kończ każdy raport bez czekania na mnie.` Wygenerowane instrukcje wklej do scheduled action i ustaw godzinę dostarczenia. W odróżnieniu od przykładu rozmowy poniżej ten tryb nie może czekać na `go` ani `n`. Niedostępne narzędzia lub źródła ma zgłaszać, zamiast udawać udaną weryfikację.
 
 ## To samo pytanie, dwa wyniki
 
@@ -129,7 +152,8 @@ Utwórz skill w Gemini, wklej poniższe instrukcje i nazwij go `xh` (lub wybierz
 Zamień prośbę użytkownika w kompletny prompt gotowy do uruchomienia w sesji.
 Nie odpowiadaj na prośbę, nie wyszukuj informacji ani nie wykonuj tego promptu.
 Zwróć jeden blok kodu plaintext z promptem zadania, a pod nim:
-„Uruchom ten prompt w zwykłej sesji Gemini z potrzebnymi narzędziami. Wpisz go.”
+Dla rozmowy: „Uruchom ten prompt w zwykłej sesji Gemini. Wpisz go.”
+Dla zadania cyklicznego: „Użyj tych instrukcji w scheduled action i ustaw harmonogram.”
 
 Wygenerowany prompt musi zawierać:
 1. Cel i oczekiwany wynik. Zachowaj podane ograniczenia.
@@ -144,12 +168,18 @@ Wygenerowany prompt musi zawierać:
 4. Stały szablon pozycji dopasowany do zadania. Przy poradach zakupowych uwzględnij
    model/link do źródła, zastosowanie, dowody, zalety, ryzyka, dopasowanie,
    aktualną cenę/walutę i rekomendację. Braki oznacz NIESPRAWDZONE.
-5. Partie po najwyżej trzy pozycje, potem zatrzymanie. Zachowaj plan.
+5. Przy pracy w rozmowie: partie po najwyżej trzy pozycje, potem stop. Zachowaj plan.
    Kończ partię licznikiem ZROBIONE / NASTĘPNE / NIESPRAWDZONE.
    n lub NEXT = następna partia; d = rozwiń; s = pomiń; x = stop.
    Wielkie litery stosuj tylko w etykietach statusu lub przy decyzji użytkownika.
 6. Końcowe porównanie i rekomendację po ukończeniu wszystkich partii.
-7. Jednoznaczne przekazanie: „Jeszcze nie wykonuj zadania. Czekaj na go.”
+7. Przy pracy w rozmowie: „Jeszcze nie wykonuj zadania. Czekaj na go.”
+
+Dla scheduled action wygeneruj samodzielne instrukcje jednego uruchomienia.
+Podany harmonogram i strefę czasową zachowaj osobno; nie twórz harmonogramu sam.
+Kończ raport bez pauz go/n, w granicach dostępnych narzędzi i limitów użycia.
+Oddzielaj potwierdzone wyniki, niesprawdzone tropy i nieudane sprawdzenie.
+Porównuj z wcześniejszymi uruchomieniami tylko wtedy, gdy masz ich rzeczywiste wyniki.
 
 Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
 ```
