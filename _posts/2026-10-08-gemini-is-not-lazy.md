@@ -25,17 +25,6 @@ So I ask Gemini to write the instructions that push it beyond that default: exam
 
 **Flash without `/xh` versus Flash executing the prompt from `/xh`.** All the trials used Flash through Gemini's desktop/web chat interface. The input in both cases was: `Review recommended cat toys. I want to buy some.` We compare executed answers; the generated prompt is the intermediate step.
 
-<div class="table-responsive" markdown="1">
-
-| Check | Flash: plain request | Flash: prompt from `/xh`, executed |
-|---|---|---|
-| Scope of recorded output | Five categories, example models and play/safety advice | First batch: telescopic feather wand, Cat Dancer, Aumüller toy |
-| Buying detail | General selection advice; offer to tailor it to the cat | Product fields, indicative prices and purchase links |
-| What remains | Narrow the choice | Verify claims and links; finish remaining batches and comparison |
-{: .table}
-
-</div>
-
 The two sessions below show **answer excerpts**, translated from the [Polish originals](#polski). The right-hand result is the first batch, not the whole job.
 
 <div class="session-comparison" markdown="1">
@@ -168,7 +157,7 @@ Adapt these rules to the task. Do not add irrelevant fields or filler.
 
 </details>
 
-For a conversation, invoke `/xh` with your request, inspect the generated prompt, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. For recurring work, include “scheduled action” and the schedule in your request, then use the generated instructions to set up the action. `/xh` is my chosen name, not a built-in command.
+For a conversation, invoke `/xh` with your request, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. For recurring work, include “scheduled action” and the schedule in your request, then use the generated instructions to set up the action. `/xh` is my chosen name, not a built-in command.
 
 Important: [scripts bundled with skills cannot make internet requests](https://support.google.com/gemini/answer/17094296?hl=en); hence printing the prompt into the session first and only then executing it.
 
@@ -191,17 +180,6 @@ Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia
 ## Co zmieniło się w próbie
 
 **Flash bez `/xh` kontra Flash wykonujący prompt z `/xh`.** Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. W obu przypadkach punktem wyjścia było: `Przejrzyj co się poleca kotom do zabawy. chcę kupić`. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.
-
-<div class="table-responsive" markdown="1">
-
-| Co sprawdzamy | Flash: zwykła prośba | Flash: wykonany prompt z `/xh` |
-|---|---|---|
-| Zakres zapisanego wyniku | Pięć kategorii, przykładowe modele, porady o zabawie i bezpieczeństwie | Pierwsza partia: teleskopowa wędka z piórami, Cat Dancer, zabawka Aumüller |
-| Konkret zakupowy | Ogólne kryteria wyboru; propozycja dopasowania do kota | Pola dla produktów, orientacyjne ceny i linki zakupowe |
-| Co pozostaje | Zawęzić wybór | Sprawdzić twierdzenia i linki; dokończyć partie i porównanie |
-{: .table}
-
-</div>
 
 Poniżej **oryginalne fragmenty odpowiedzi** z dwóch sesji. Po prawej jest pierwsza partia, nie wynik całego zadania.
 
@@ -335,7 +313,7 @@ Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
 
 </details>
 
-Dla rozmowy wywołaj `/xh` ze swoją prośbą, sprawdź wygenerowany prompt i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. Dla zadania cyklicznego dopisz w prośbie „scheduled action” i harmonogram, a następnie użyj wygenerowanych instrukcji do ustawienia zadania. `/xh` to moja nazwa, nie wbudowana komenda.
+Dla rozmowy wywołaj `/xh` ze swoją prośbą i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. Dla zadania cyklicznego dopisz w prośbie „scheduled action” i harmonogram, a następnie użyj wygenerowanych instrukcji do ustawienia zadania. `/xh` to moja nazwa, nie wbudowana komenda.
 
 Ważne: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=pl); stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.
 
