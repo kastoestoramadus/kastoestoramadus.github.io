@@ -55,8 +55,6 @@ Finish with a comparison and a recommendation for the stated use case.
 
 Three is convenient, not magic. I want an answer small enough to inspect before typing `n`. The ledger makes omissions visible.
 
-Once the work is complete, I ask for an editing pass: remove repetition, filler and contradictions; preserve useful facts and links. I start the next deliverable in a fresh chat.
-
 This costs more turns and reading. The prompt cannot grant tool access or guarantee citations: I still open the links that carry the recommendation.
 
 </div>
@@ -106,8 +104,6 @@ Zakończ porównaniem i rekomendacją dla podanego zastosowania.
 ```
 
 Trzy to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed wpisaniem `n`. Licznik ujawnia pominięcia.
-
-Po skończonej pracy proszę o przebieg redakcyjny: usuń powtórzenia, watę i sprzeczności; zachowaj przydatne fakty i linki. Następny materiał zaczynam w świeżym czacie.
 
 Płacę za to większą liczbą tur i większą ilością czytania. Prompt nie daje dostępu do narzędzi ani nie gwarantuje wiarygodności cytowań: linki, na których opiera się rekomendacja, nadal otwieram sam.
 
