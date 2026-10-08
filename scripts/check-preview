@@ -35,6 +35,17 @@ Dir.glob("#{dir}/**/*.html").sort.each do |file|
   if doc.at_xpath('//head') && !doc.at_xpath("//meta[@name='robots'][contains(@content, 'noindex')]")
     problems << "#{page}: has a <head> but no <meta name=\"robots\" content=\"noindex\">"
   end
+  if doc.at_xpath('//head')
+    build = doc.at_xpath("//meta[@name='preview-build']")&.[]('content')
+    problems << "#{page}: missing preview build identity" if build.to_s.empty?
+    problems << "#{page}: missing preview freshness banner" unless doc.at_css('#preview-status')
+    doc.css('script[src], link[rel="stylesheet"], img[src]').each do |el|
+      url = el['src'] || el['href']
+      next unless url.start_with?("#{baseurl}/")
+
+      problems << "#{page}: unversioned preview asset: #{url}" unless url.include?('preview=')
+    end
+  end
   problems << "#{page}: refers to Disqus or Google Analytics" if html.match?(/disqus\.com|google-analytics\.com/)
 end
 

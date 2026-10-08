@@ -48,6 +48,9 @@ Rules of the pipeline:
   a preview shows production's images, or broken ones for images that only exist in the PR. `scripts/check-preview`
   fails the build on a link outside the baseurl, a page without noindex, or a trace of Disqus/GA; html-proofer cannot
   see the first one (it resolves `/img/x.png` against the build root, where it exists).
+- Preview freshness controls must run only under `JEKYLL_ENV=preview`: GitHub Pages cannot set custom Cache-Control
+  headers. Keep versioned URLs and the revision/freshness banner out of production; compare production build bytes
+  before and after changing this mechanism. A stale revision can also mean the Pages deployment has not finished.
 - `gh-pages` is written by the workflows only, never by hand. It is an orphan branch of built output; a master publish
   replaces everything in the root except `preview/`, a preview publish touches only its `preview/pr-N/`.
   `CNAME` and `.nojekyll` must be in the root: `publish-pages` refuses a site without `CNAME` (the custom domain would
