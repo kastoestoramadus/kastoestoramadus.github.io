@@ -308,18 +308,60 @@
 </code></pre>
 
 <h2 id="what-gets-merged-upstream">What gets merged upstream</h2>
-<p>My feature PR (<a href="https://github.com/lightbend/config/pull/815">#815</a>, formatting) was closed unmerged, while three bugfixes were merged within days: <a href="https://github.com/lightbend/config/pull/867">#867</a> (in 46 minutes), <a href="https://github.com/lightbend/config/pull/871">#871</a> and <a href="https://github.com/lightbend/config/pull/866">#866</a>.</p>
+<p>Three of my PRs were merged into lightbend/config, all of them ports of sconfig fixes, all bugfixes, each with the full <code>sbt test doc</code> run in the description (593 to 603 tests). #867 and #871 add a test that fails without the fix; #866 only reduces allocations, so the existing tests cover it:</p>
 
-<p>What the reviews asked for:</p>
+<div class="table-responsive">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>lightbend/config</th>
+        <th>Fix</th>
+        <th>Size</th>
+        <th>Open to merged</th>
+        <th>Ported from</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://github.com/lightbend/config/pull/867">#867</a></td>
+        <td>list comments get an extra space on every render round trip</td>
+        <td>2 files</td>
+        <td>46 minutes</td>
+        <td><a href="https://github.com/ekrich/sconfig/pull/472">sconfig#472</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/lightbend/config/pull/871">#871</a></td>
+        <td>a comment above <code>a += 2</code> is rendered twice</td>
+        <td>4 files</td>
+        <td>3 days</td>
+        <td><a href="https://github.com/ekrich/sconfig/pull/601">sconfig#601</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/lightbend/config/pull/866">#866</a></td>
+        <td><code>getDuration</code> and <code>getMemorySize</code> compile a regex on every read</td>
+        <td>1 file</td>
+        <td>3 days</td>
+        <td><a href="https://github.com/ekrich/sconfig/pull/473">sconfig#473</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p>My feature PR <a href="https://github.com/lightbend/config/pull/815">#815</a> (formatting) took five months to get a reply, which called it less intrusive than expected and asked whether I would take it to a full implementation. Three months later: “we at Akka do not have capacity to take this forward”. I closed it myself on 6 October, once <a href="https://github.com/lightbend/config/pull/841">#841</a> had fixed the problem it worked around.</p>
+
+<h2 id="what-the-reviews-asked-for">What the reviews asked for</h2>
+<p>From the two reviews that asked for changes (<a href="https://github.com/lightbend/config/pull/871">#871</a>, <a href="https://github.com/lightbend/config/pull/866">#866</a>):</p>
 <ul>
-  <li>Change behaviour, add no API,</li>
-  <li>Tests next to the existing ones, the project’s naming,</li>
-  <li>The full <code>sbt test doc</code> and <code>javac --release 8</code>,</li>
-  <li>The behaviour change in the first line of the description.</li>
+  <li>Put the tests into the existing test classes (<code>ConcatenationTest</code>, <code>ConfParserTest</code>, <code>ConfigTest</code>), not into a new single-purpose one.</li>
+  <li>Cover the edge cases the tests missed: a trailing same-line comment (<code>a += 2 # c</code>) and a dotted path (<code>x.a += 2</code>).</li>
+  <li>Follow the code’s conventions: <code>UPPER_SNAKE_CASE</code> for static constants, the helpers the neighbouring tests use.</li>
+  <li>Trim the PR description to the problem and the fix.</li>
 </ul>
 
 <h2 id="next">Next</h2>
-<p>How the AI agents were kept honest (probes, red tests, a second pair of eyes that is not another model) deserves a post of its own.</p>
+<p>The rules the agents follow live in the repository: <a href="https://github.com/ekrich/sconfig/pull/609">sconfig#609</a> adds <code>AGENTS.md</code>, a porting guide and a porting skill. It is still under review, the Scala-feature changes were split out into <a href="https://github.com/ekrich/sconfig/pull/613">#613</a> on the maintainer’s request. How they work, and what they changed in practice, deserves a post of its own.</p>
 
 <p>The formatter that started all this is coming along in <a href="https://github.com/kastoestoramadus/hocon-fmt">hocon-fmt</a> ;)</p>
 
