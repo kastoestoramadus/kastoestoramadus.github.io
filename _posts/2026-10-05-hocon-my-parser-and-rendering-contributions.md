@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: HOCON - a two-way street between sconfig and lightbend/config
+title: HOCON - my parser and rendering contributions
 category: dev
 tags: [ 'scala', 'hocon', 'config', 'opensource' ]
 ---
