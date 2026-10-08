@@ -72,21 +72,6 @@ The baseline was already useful as an overview. The change I wanted was product-
 
 This trial combines a more specific brief with batching. It does not isolate the benefit of the meta skill over writing that same brief myself, or compare cheap and expensive models.
 
-## One skill, two ways to run the work
-
-<div class="table-responsive" markdown="1">
-
-| | Interactive chat | Scheduled action |
-|---|---|---|
-| Ask `/xh` for | A task to work through in chat | A recurring task, with its schedule |
-| Execution | `go` starts; `n` / `NEXT` continues batches | Each run delivers the report without waiting for me |
-| Control | I can inspect a batch and redirect the work | Scope, sources and reporting window must be set in advance |
-{: .table}
-
-</div>
-
-I also tried: `/xh I'd like to check cat news regularly; give me some.` Gemini returned a scheduled and an interactive variant. After `go with option a`, it created “Cat report — every day by 9 AM”. This demonstrates creating the schedule; I have not included an executed news report here.
-
 ## Copy the meta skill
 {: #copy-skill-en}
 
@@ -115,7 +100,7 @@ When the user asks for a prompt for a new session, generate a ready block of tex
 
 </details>
 
-For a conversation, invoke `/xh` with your request, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. For recurring work, include “scheduled action” and the schedule in your request. `/xh` is my chosen name, not a built-in command.
+To use it, invoke `/xh` with your request, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. `/xh` is my chosen name, not a built-in command.
 
 Important: [scripts bundled with skills cannot make internet requests](https://support.google.com/gemini/answer/17094296?hl=en); hence printing the prompt into the session first and only then executing it.
 
@@ -186,21 +171,6 @@ Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na
 
 Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela korzyści ze skilla od korzyści z samodzielnego napisania równie dokładnej instrukcji ani nie porównuje taniego modelu z drogim.
 
-## Jeden skill, dwa sposoby wykonania
-
-<div class="table-responsive" markdown="1">
-
-| | Rozmowa | Scheduled action |
-|---|---|---|
-| O co proszę `/xh` | Zadanie do przejścia w czacie | Zadanie cykliczne z harmonogramem |
-| Wykonanie | `go` uruchamia; `n` / `NEXT` kontynuuje partie | Każde uruchomienie daje raport bez czekania na mnie |
-| Kontrola | Mogę sprawdzić partię i skorygować kierunek | Zakres, źródła i okno raportu trzeba określić z góry |
-{: .table}
-
-</div>
-
-Spróbowałem też: `/xh chciałbym cyklicznie sprawdzać newsy o kotach, daj mi jakieś`. Gemini zwrócił wariant cykliczny i konwersacyjny. Po `go with option a` utworzył „Raport o kotach — codziennie do 9:00”. To pokazuje utworzenie harmonogramu; nie zamieszczam tu wykonanego raportu z wiadomościami.
-
 ## Meta skill do skopiowania
 {: #copy-skill-pl}
 
@@ -228,7 +198,7 @@ Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy b
 
 </details>
 
-Dla rozmowy wywołaj `/xh` ze swoją prośbą i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. Dla zadania cyklicznego dopisz w prośbie „scheduled action” i harmonogram. `/xh` to moja nazwa, nie wbudowana komenda.
+Aby użyć skilla, wywołaj `/xh` ze swoją prośbą i uruchom go w zwykłej wiadomości do Gemini przez `go`; `n` kontynuuje niedokończoną pracę. `/xh` to moja nazwa, nie wbudowana komenda.
 
 Ważne: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=pl); stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.
 
