@@ -55,10 +55,6 @@ Finish with a comparison and a recommendation for the stated use case.
 
 Three is convenient, not magic. I want an answer small enough to inspect before typing `n`. The ledger makes omissions visible.
 
-## Keep the evidence, cut the rest
-
-[LongWriter](https://arxiv.org/abs/2408.07055) produced long, coherent texts by splitting writing into planned subtasks. [Huang et al.](https://arxiv.org/abs/2310.01798) found that self-correction without external feedback could fail or worsen reasoning in the tested models. These support decomposition and external checks; neither validates this exact Gemini workflow.
-
 Once the work is complete, I ask for an editing pass: remove repetition, filler and contradictions; preserve useful facts and links. I start the next deliverable in a fresh chat.
 
 This costs more turns and reading. The prompt cannot grant tool access or guarantee citations: I still open the links that carry the recommendation.
@@ -110,10 +106,6 @@ Zakończ porównaniem i rekomendacją dla podanego zastosowania.
 ```
 
 Trzy to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed wpisaniem `n`. Licznik ujawnia pominięcia.
-
-## Zostawić dowody, wyciąć resztę
-
-[LongWriter](https://arxiv.org/abs/2408.07055) uzyskał długie, spójne teksty przez podział pisania na zaplanowane podzadania. [Huang i wsp.](https://arxiv.org/abs/2310.01798) pokazali, że samokorekta bez zewnętrznej informacji zwrotnej mogła zawieść lub pogorszyć rozumowanie badanych modeli. To argumenty za podziałem pracy i zewnętrzną kontrolą; żadne z tych badań nie sprawdza mojego konkretnego sposobu pracy z Gemini.
 
 Po skończonej pracy proszę o przebieg redakcyjny: usuń powtórzenia, watę i sprzeczności; zachowaj przydatne fakty i linki. Następny materiał zaczynam w świeżym czacie.
 
