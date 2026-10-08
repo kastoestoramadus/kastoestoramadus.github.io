@@ -18,7 +18,7 @@
   <meta name="author" content="Waldemar Wosiński">
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+  <link rel="canonical" href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
   <title>{ IT blog - Waldemar Wosiński } | Getting useful work out of Gemini Flash</title>
 
   <!-- Bootstrap Core CSS -->
@@ -26,7 +26,7 @@
         integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom CSS -->
-  <link href="/preview/pr-33/css/grayscale.css?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1" rel="stylesheet">
+  <link href="/preview/pr-33/css/grayscale.css?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1" rel="stylesheet">
   
 
   <!-- Custom Fonts -->
@@ -34,9 +34,9 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1" />
+  <link rel="stylesheet" href="/preview/pr-33/css/rrssb.css?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1" />
   
-    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-33/img/favicon.ico?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
   
 
   
@@ -47,16 +47,16 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
-  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
-  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
-  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
-  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
-  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-33/img/web-app/icon-36p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-33/img/web-app/icon-48p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-33/img/web-app/icon-72p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-33/img/web-app/icon-96p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-33/img/web-app/icon-144p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-33/img/web-app/icon-192p.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
 
   <!-- Android Web App mode -->
 
-  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+  <link rel="manifest" href="/preview/pr-33/manifest.json?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
 
 
 
@@ -82,14 +82,14 @@
 
 
 
-<meta name="preview-build" content="90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+<meta name="preview-build" content="c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
 <style>
 body { padding-bottom: 90px; }
 #preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 #preview-status a, #preview-status button { color: #00cdff; }
 #preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
 </style>
-<script defer src="/preview/pr-33/preview-status.js?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1"></script>
+<script defer src="/preview/pr-33/preview-status.js?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1"></script>
 </head>
 
 <!-- HEAD End -->
@@ -107,11 +107,11 @@ body { padding-bottom: 90px; }
         <i class="fa fa-bars"></i>
       </button>
       
-        <a class="navbar-brand" href="/preview/pr-33/?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+        <a class="navbar-brand" href="/preview/pr-33/?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
       
           <div>
             
-              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1" alt="">
+              <img src="/preview/pr-33/img/black-lab-glass.ico?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1" alt="">
             
             { IT blog - Waldemar Wosiński }
           </div>
@@ -125,27 +125,27 @@ body { padding-bottom: 90px; }
           
             <li>
             
-                <a href="/preview/pr-33/?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1#about"> About </a>
+                <a href="/preview/pr-33/?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1#about"> About </a>
             
             </li>
           
             <li>
             
               
-                <a href="/preview/pr-33/blog/?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1"> Blog </a>
+                <a href="/preview/pr-33/blog/?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1"> Blog </a>
               
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1#timeline"> Timeline </a>
+                <a href="/preview/pr-33/?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1#timeline"> Timeline </a>
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-33/?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1#contact"> Contact </a>
+                <a href="/preview/pr-33/?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1#contact"> Contact </a>
             
             </li>
           
@@ -190,17 +190,17 @@ body { padding-bottom: 90px; }
             <strong>08 Oct 2026</strong>
             <small>
               . category:
-              <a class="category" href="/preview/pr-33/categories/dev.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">
+              <a class="category" href="/preview/pr-33/categories/dev.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">
                 dev
               </a>.
-              <a href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1#disqus_thread">Comments</a>
+              <a href="/preview/pr-33/dev/2026/10/08/gemini-is-not-lazy.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1#disqus_thread">Comments</a>
               <br />
               
-                <a class="tag" href="/preview/pr-33/tags/ai.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">#ai</a>
+                <a class="tag" href="/preview/pr-33/tags/ai.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">#ai</a>
               
-                <a class="tag" href="/preview/pr-33/tags/gemini.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">#gemini</a>
+                <a class="tag" href="/preview/pr-33/tags/gemini.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">#gemini</a>
               
-                <a class="tag" href="/preview/pr-33/tags/prompt-engineering.html?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1">#prompt-engineering</a>
+                <a class="tag" href="/preview/pr-33/tags/prompt-engineering.html?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1">#prompt-engineering</a>
               
             </small>
           </h4>
@@ -225,20 +225,22 @@ body { padding-bottom: 90px; }
 
   <p>Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.</p>
 
-  <p>So I ask Gemini to write the instructions that push it beyond that default: examine each candidate, search for evidence, fill the relevant fields and carry the work through. <code>/xh</code> is my chosen skill name. It generates the prompt; I type <code>go</code> and that’s it, the long prompt runs.</p>
+  <p>So I ask Gemini to write the instructions that push it beyond that default: examine each perspective, search for evidence, fill the relevant fields and carry the work through. <code>/xh</code> is my chosen skill name. It generates the prompt; I type <code>go</code> and that’s it, the long prompt runs.</p>
 
   <p>“Work harder” means more of the requested work gets done. More words alone would not help.</p>
 
   <h2 id="what-changed-in-the-trial">What changed in the trial</h2>
 
-  <p><strong>Flash without <code>/xh</code> versus Flash executing the prompt from <code>/xh</code>.</strong> All the trials used Flash through Gemini’s desktop/web chat interface. The input in both cases was: <code>Review recommended cat toys. I want to buy some.</code> We compare executed answers; the generated prompt is the intermediate step.</p>
+  <p><strong>Flash without <code>/xh</code> versus Flash executing the prompt from <code>/xh</code>.</strong> All the trials used Flash through Gemini’s desktop/web chat interface. We compare executed answers; the generated prompt is the intermediate step.</p>
 
-  <p>The two sessions below show <strong>answer excerpts</strong>, translated from the <a href="#polski">Polish originals</a>. The right-hand result is the first batch, not the whole job.</p>
+  <p>The four sessions below show <strong>answer excerpts</strong>; the Polish ones are translated from the <a href="#polski">Polish originals</a>. The right-hand results are the first batches, not the whole job.</p>
+
+  <p><strong>Example one - a shopping brief.</strong> The input in both cases was <code>Review recommended cat toys. I want to buy some.</code></p>
 
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-plain-en">
 
-      <h3 id="session-plain-en">Flash: plain request</h3>
+      <h3 id="session-plain-en">Flash: plain request - cat toys</h3>
 
       <p><strong>Input:</strong> <code>Review recommended cat toys. I want to buy some.</code></p>
 
@@ -255,7 +257,7 @@ body { padding-bottom: 90px; }
     </section>
     <section class="session-panel" aria-labelledby="session-skill-en">
 
-      <h3 id="session-skill-en">Flash: after <code>/xh</code></h3>
+      <h3 id="session-skill-en">Flash: after <code>/xh</code> - cat toys</h3>
 
       <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code>, then <code>go</code> without invoking the skill again.</p>
 
@@ -283,7 +285,71 @@ body { padding-bottom: 90px; }
 
   <p>The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links. The links still fall short: Cat Dancer leads to a category, and the Allegro link went through Google Search. They do not verify the quoted prices or safety claims.</p>
 
-  <p>This trial combines a more specific brief with batching. It does not isolate the benefit of the meta skill over writing that same brief myself, or compare cheap and expensive models.</p>
+  <p><strong>Example two - a conceptual question.</strong> The question in both cases was <code>czym jest bóg?</code> (what is God), asked in Polish.</p>
+
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-god-plain-en">
+
+      <h3 id="session-god-plain-en">Flash: plain request - what is God</h3>
+
+      <p><strong>Input:</strong> <code>czym jest bóg?</code></p>
+
+      <p><strong>Answer excerpt - the opening (translated):</strong></p>
+
+      <blockquote>
+        <p>The question of what God is touches the very fabric of human reflection - and depending on the perspective from which we look at it, the answer takes a completely different shape. There is no single coherent definition, because the history of humanity has produced several fundamentally different approaches.</p>
+      </blockquote>
+
+      <p><strong>Answer excerpt - the first perspective (translated):</strong></p>
+
+      <blockquote>
+        <p><strong>1. Theistic view (monotheistic religions)</strong> In Christianity, Judaism and Islam God is understood as a personal, transcendent being - the Creator of the universe, who exists beyond time and space, but at the same time enters history and enters into a relationship with people. He is characterised by absolute perfection, omnipotence, omniscience and complete goodness.</p>
+      </blockquote>
+
+      <p><strong>Answer excerpt - the closing lines (translated):</strong></p>
+
+      <blockquote>
+        <p>What God is, then, depends on whether we are looking for a Person, a personal Meaning, a Law of Nature, an ultimate Cause or a Structure of our own psyche. Which of these perspectives is closest to you, or from what angle would you like to explore this concept further?</p>
+      </blockquote>
+
+    </section>
+    <section class="session-panel" aria-labelledby="session-god-skill-en">
+
+      <h3 id="session-god-skill-en">Flash: after <code>/xh</code> - what is God</h3>
+
+      <p><strong>Input:</strong> <code>/xh czym jest bóg</code>, then <code>wykonaj</code> (run) without invoking the skill again.</p>
+
+      <p><strong>Answer excerpt - the first module of batch one (translated):</strong></p>
+
+      <blockquote>
+        <p><strong>1. CLASSICAL THEISM AND MONOTHEISTIC RELIGIONS</strong></p>
+
+        <p><strong>Ontological framework:</strong> God is understood as a personal being, wholly transcendent with respect to creation, existing necessarily beyond time (eternity as <em>nunc stans</em>) and space. He is characterised by absolute ontological simplicity (<em>divina simplicitas</em>), which means that in God there is no division into act and potency, essence and existence, or attributes and their subject. God creates the world <em>ex nihilo</em> (out of nothing) and sustains it in being (<em>creatio continua</em>), yet without entering into a relation of ontological dependence with it - the world depends on God, but God in his essence does not depend on the world.</p>
+
+        <p><strong>Nuance and distinguishing subtleties:</strong> classical theism vs Open Theism: classical theism assumes absolute immutability (<em>immutabilitas</em>), impassibility (<em>impassibilitas</em>) and God’s absolute omniscience covering all future contingent events. Open theism rejects the traditional conception of immutability and of full deterministic knowledge of the future of free beings; God is framed there as a relational, dynamic subject, entering a genuine dialogue with time and human decisions, voluntarily limiting his absolute insight into the future.</p>
+
+        <p><strong>Main representatives and works, step by step:</strong> St Thomas Aquinas (<em>Summa Theologiae</em>): God as <em>Ipsum Esse Subsistens</em> (self-subsistent pure existence). Aquinas argues that in every created being existence (<em>esse</em>) differs from essence (<em>essentia</em>). To avoid an infinite regress in the chain of causes, there must exist a being in which essence <em>is</em> existence. That being is God. Al-Ghazali (<em>Tahafut al-Falasifa</em> / <em>The Incoherence of the Philosophers</em>): defends rigorous Islamic monotheism (Tawhid) against the Neoplatonising Islamic philosophers (Avicenna). Al-Ghazali argues for the creation of the world in time by God’s free, personal will, rejecting the conception of an eternal, necessary emanation.</p>
+
+        <p><strong>Criticism and weak points:</strong> the problem of evil (Epicurus / Mackie) - the impossibility of reconciling omnipotence, omnibenevolence and omniscience with the fact of undeserved suffering; the paradox of omnipotence (can God create a stone he cannot lift?); the contradiction between God’s immutability and impassibility and his personal care and the hearing of prayers.</p>
+
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Verification / sources:</strong> Stanford Encyclopedia of Philosophy: Classical Theism</td>
+              <td>SEP: Open Theism</td>
+            </tr>
+          </tbody>
+        </table>
+      </blockquote>
+
+      <p>Batch one holds three modules (classical theism, the philosophical Absolute, pantheism and process thought); the remaining six wait for <code>NEXT</code>.</p>
+
+    </section>
+  </div>
+
+  <p>Both answers are useful, and the difference is in the shape. The baseline surveys five perspectives in a page and ends by asking which one to explore; the prompt from <code>/xh</code> opens a nine-module plan and delivers the first batch as specified: ontological framework, the nuances that blur in everyday use, two named works with their arguments, and the standard objections. It stops after the batch instead of handing the choice back to me.</p>
+
+  <p>Two limits are worth stating. The sources come as names rather than verified quotations, and they still have to be opened by hand. And the trial does not isolate the skill’s contribution from my writing an equally detailed brief myself, or compare cheap and expensive models.</p>
 
   <h2 id="copy-skill-en">Copy the meta skill</h2>
 
@@ -327,20 +393,22 @@ When the user asks for a prompt for a new session, generate a ready block of tex
 
   <p>Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.</p>
 
-  <p>Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdego kandydata, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. <code>/xh</code> to moja nazwa skilla. Generuje prompt; wpisuję <code>uruchom</code> i gotowe, długi prompt się wykonuje.</p>
+  <p>Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdą perspektywę, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. <code>/xh</code> to moja nazwa skilla. Generuje prompt; wpisuję <code>uruchom</code> i gotowe, długi prompt się wykonuje.</p>
 
   <p>„Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.</p>
 
   <h2 id="co-zmienio-si-w-prbie">Co zmieniło się w próbie</h2>
 
-  <p><strong>Flash bez <code>/xh</code> kontra Flash wykonujący prompt z <code>/xh</code>.</strong> Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. W obu przypadkach punktem wyjścia było: <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.</p>
+  <p><strong>Flash bez <code>/xh</code> kontra Flash wykonujący prompt z <code>/xh</code>.</strong> Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.</p>
 
-  <p>Poniżej <strong>oryginalne fragmenty odpowiedzi</strong> z dwóch sesji. Po prawej jest pierwsza partia, nie wynik całego zadania.</p>
+  <p>Poniżej <strong>oryginalne fragmenty odpowiedzi</strong> z czterech sesji. Po prawej stronie są pierwsze partie, nie wynik całego zadania.</p>
+
+  <p><strong>Przykład pierwszy — zakupy dla kota.</strong> W obu przypadkach punktem wyjścia było: <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>.</p>
 
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-plain-pl">
 
-      <h3 id="session-plain-pl">Flash: zwykła prośba</h3>
+      <h3 id="session-plain-pl">Flash: zwykła prośba — zakupy dla kota</h3>
 
       <p><strong>Polecenie:</strong> <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code></p>
 
@@ -357,7 +425,7 @@ When the user asks for a prompt for a new session, generate a ready block of tex
     </section>
     <section class="session-panel" aria-labelledby="session-skill-pl">
 
-      <h3 id="session-skill-pl">Flash: po <code>/xh</code></h3>
+      <h3 id="session-skill-pl">Flash: po <code>/xh</code> — zakupy dla kota</h3>
 
       <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>go</code> bez ponownego wywołania skilla.</p>
 
@@ -385,7 +453,71 @@ When the user asks for a prompt for a new session, generate a ready block of tex
 
   <p>Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami. Te ostatnie nadal zawodzą: Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie.</p>
 
-  <p>Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela korzyści ze skilla od korzyści z samodzielnego napisania równie dokładnej instrukcji ani nie porównuje taniego modelu z drogim.</p>
+  <p><strong>Przykład drugi — pytanie pojęciowe.</strong> W obu przypadkach punktem wyjścia było pytanie: <code>czym jest bóg?</code>.</p>
+
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-god-plain-pl">
+
+      <h3 id="session-god-plain-pl">Flash: zwykła prośba — czym jest bóg</h3>
+
+      <p><strong>Polecenie:</strong> <code>czym jest bóg?</code></p>
+
+      <p><strong>Fragment odpowiedzi — otwarcie:</strong></p>
+
+      <blockquote>
+        <p>Pytanie o to, czym jest Bóg, dotyka samego zrębu ludzkiej refleksji — i w zależności od perspektywy, z której na nie spojrzymy, odpowiedź przyjmuje zupełnie inny kształt. Nie ma jednej spójnej definicji, ponieważ historia ludzkości wypracowała kilka zasadniczo odmiennych ujęć.</p>
+      </blockquote>
+
+      <p><strong>Fragment odpowiedzi — pierwsze ujęcie:</strong></p>
+
+      <blockquote>
+        <p><strong>1. Ujęcie teistyczne (religie monoteistyczne)</strong> — w chrześcijaństwie, judaizmie i islamie Bóg jest rozumiany jako osobowy, transcendentny byt — Stwórca wszechświata, który istnieje poza czasem i przestrzenią, ale jednocześnie wkracza w historię i wchodzi w relację z ludźmi. Cechują go absolutna doskonałość, omnipotencja (wszechmoc), omniscience (wszechwiedza) oraz całkowita dobroć.</p>
+      </blockquote>
+
+      <p><strong>Fragment odpowiedzi — zamknięcie:</strong></p>
+
+      <blockquote>
+        <p>To, czym jest Bóg, zależy więc od tego, czy szukamy Osoby, Osobowego Sensu, Prawa Natury, Ostatecznej Przyczyny czy Struktury naszej własnej psychiki. Która z tych perspektyw jest Ci najbliższa lub pod jakim kątem chcesz to pojęcie pogłębić?</p>
+      </blockquote>
+
+    </section>
+    <section class="session-panel" aria-labelledby="session-god-skill-pl">
+
+      <h3 id="session-god-skill-pl">Flash: po <code>/xh</code> — czym jest bóg</h3>
+
+      <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, potem <code>wykonaj</code> bez ponownego wywołania skilla.</p>
+
+      <p><strong>Fragment odpowiedzi — pierwszy moduł pierwszej partii:</strong></p>
+
+      <blockquote>
+        <p><strong>1. TEIZM KLASYCZNY I RELIGIE MONOTEISTYCZNE</strong></p>
+
+        <p><strong>Ramy Ontologiczne:</strong> Bóg jest rozumiany jako byt osobowy, całkowicie transcendentny wobec stworzenia, istniejący w sposób konieczny poza czasem (wieczność jako nunc stans) i przestrzenią. Cechuje go absolutna prostota ontologiczna (divina simplicitas), co oznacza, że w Bogu nie ma podziału na akty i możności, istotę i istnienie, czy cechy i ich podmiot. Bóg stwarza świat ex nihilo (z niczego) i podtrzymuje go w istnieniu (creatio continua), nie wchodząc z nim jednak w relację zależności ontologicznej — świat zależy od Boga, ale Bóg w swojej istocie nie zależy od świata.</p>
+
+        <p><strong>Niuans i Subtelności Różnicujące:</strong> Teizm Klasyczny vs Teizm Otwarty (Open Theism): teizm klasyczny zakłada absolutną niezmienność (immutabilitas), beznamiętność (impassibilitas) oraz bezwzględną wszechwiedzę Boga obejmującą wszystkie przyszłe zdarzenia przygodne. Teizm otwarty odrzuca tradycyjną koncepcję niezmienności i pełnej deterministycznej wiedzy o przyszłości wolnych istot; Bóg jest w nim ujęty jako podmiot relacyjny, dynamiczny, wchodzący w autentyczny dialog z czasem i ludzkimi decyzjami, dobrowolnie ograniczający swój absolutny wgląd w przyszłość.</p>
+
+        <p><strong>Główni Przedstawiciele i Dzieła Krok po Kroku:</strong> Św. Tomasz z Akwinu (Summa Theologiae): Bóg jako Ipsum Esse Subsistens (Samoistne Czyste Istnienie). Tomasz argumentuje, że w każdym bycie stworzonym istnienie (esse) różni się od istoty (essentia). Aby uniknąć regresu w nieskończoność w łańcuchu przyczyn, musi istnieć byt, w którym istota JEST istnieniem. Tym bytem jest Bóg. Al-Ghazali (Tahafut al-Falasifa / Niezborność filozofów): Broni rygorystycznego monoteizmu islamskiego (Tawhid) przeciwko neoplatonizującym filozofom islamskim (Avicennie). Al-Ghazali argumentuje na rzecz stworzenia świata w czasie przez wolną, osobową wolę Boga, odrzucając koncepcję wiecznej, koniecznej emanacji.</p>
+
+        <p><strong>Krytyka i Słabe Punkty:</strong> Problem Zła (Epicurus / Mackie) — niemożność pogodzenia wszechmocy, wszechdobroci i wszechwiedzy z faktem istnienia niezasłużonego cierpienia; paradoks wszechmocy (czy Bóg może stworzyć kamień, którego nie zdoła podnieść?); sprzeczność między niezmiennością i beznamiętnością Boga a Jego osobową troską i wysłuchiwaniem modlitw.</p>
+
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Weryfikacja / Źródła:</strong> Stanford Encyclopedia of Philosophy: Classical Theism</td>
+              <td>SEP: Open Theism</td>
+            </tr>
+          </tbody>
+        </table>
+      </blockquote>
+
+      <p>Pierwsza partia to trzy moduły (teizm klasyczny, Absolut filozoficzny, panteizm i filozofia procesu); pozostałe sześć czekają na <code>NEXT</code>.</p>
+
+    </section>
+  </div>
+
+  <p>Obie odpowiedzi są użyteczne, a różnica jest w kształcie. Zwykła odpowiedź przerzuca pięć perspektyw na jednej stronie i kończy pytaniem, którą pogłębić; prompt z <code>/xh</code> otwiera dziewięciomodułowy plan i dostarcza pierwszą partię zgodnie ze sztywnym szablonem: ramy ontologiczne, niuanse różnicujące, dwóch nazwanych przedstawicieli z argumentacją i standardową krytykę. Partia kończy się sama, zamiast oddawać mi decyzję.</p>
+
+  <p>Dwie uczciwe granice. Źródła są nazwami, nie zweryfikowanymi cytatami, i nadal trzeba je otworzyć ręcznie. A próba nie oddziela wkładu skilla od napisania równie dokładnej instrukcji samodzielnie ani nie porównuje taniego modelu z drogim.</p>
 
   <h2 id="copy-skill-pl">Meta skill do skopiowania</h2>
 
@@ -549,7 +681,7 @@ Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy b
 
           
           <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1" alt="Me" />
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-33/img/author.png?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1" alt="Me" />
             <p class="col-xs-8 col-sm-9 col-md-10">
               Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
             </p>
@@ -571,7 +703,7 @@ Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy b
     
     <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
     
-    <li><a href="/preview/pr-33/feed.xml?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    <li><a href="/preview/pr-33/feed.xml?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
     
     
 </ul>
@@ -629,7 +761,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
-  <script src="/preview/pr-33/js/highlight-hocon.js?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1"></script>
+  <script src="/preview/pr-33/js/highlight-hocon.js?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1"></script>
   <script>
     hljs.highlightAll();
   </script>
@@ -644,7 +776,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 
   <!-- Share buttons Start -->
 
-  <script src="/preview/pr-33/js/rrssb.min.js?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1"></script>
+  <script src="/preview/pr-33/js/rrssb.min.js?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1"></script>
 
   <!-- Share buttons End -->
 
@@ -667,11 +799,11 @@ function addTohistory() {
 
 
     
-      <script src="/preview/pr-33/js/post-language-switch.js?preview=90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46-37854069228-1"></script>
+      <script src="/preview/pr-33/js/post-language-switch.js?preview=c9c5fb9d252a49de9f4a2c86b4136b3aea57804b-37854838008-1"></script>
     
 
-  <aside id="preview-status" aria-label="Pull request preview" data-revision="90ddf1db3cf60a8dcac92ed9f3b93e9fd6df1e46" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
-  <span>Preview PR #33 · revision 90ddf1d</span>
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="c9c5fb9d252a49de9f4a2c86b4136b3aea57804b" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="33">
+  <span>Preview PR #33 · revision c9c5fb9</span>
   <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
   <button type="button" id="preview-refresh" hidden>Refresh preview</button>
 </aside>
