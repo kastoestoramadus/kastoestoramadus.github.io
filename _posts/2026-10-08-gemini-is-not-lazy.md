@@ -25,7 +25,17 @@ In my tests, Gmail was unavailable while using the skill. [Google documents Work
 
 One documented restriction matters for workflows that need internet requests: [scripts bundled with skills cannot make them](https://support.google.com/gemini/answer/17094296?hl=en). That does not prohibit Gemini itself from using supported Connected Apps.
 
-I typed `go`; Gemini covered the first three and ended with this message (translated):
+## Run the prompt without the skill
+
+In a normal Gemini turn, without invoking the skill, I typed `go` to execute the generated prompt. The first batch included a wire-and-cardboard toy. Here is part of Gemini's actual response, translated from Polish:
+
+> **Safety and risks:** The toy is extremely simple, but requires supervision. The wire itself is safe, but after extended use the paper ends may be torn apart and swallowed. It is worth checking their condition before each session.
+>
+> **Estimated cost in PLN and value for money:** 15–25 PLN. Excellent value for money; one of the cheapest yet most effective accessories on the market.
+>
+> **Expert verdict and recommendation:** A must-have in every home with a cat. Remember to let the cat physically catch the end of the toy and offer a treat or meal at the end of play (completing the hunting sequence).
+
+After three items, Gemini stopped with:
 
 ```plaintext
 Waiting for your signal: type "n" or "NEXT" to move to the next batch, or give feedback.
@@ -75,7 +85,17 @@ W moich testach Gmail był niedostępny podczas używania skilla. [Google dokume
 
 Przy zadaniach wymagających żądań internetowych istotne jest jedno udokumentowane ograniczenie: [skrypty dołączone do skilli nie mogą ich wykonywać](https://support.google.com/gemini/answer/17094296?hl=en). To nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.
 
-Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
+## Uruchom prompt bez skilla
+
+W zwykłej wiadomości do Gemini, bez wywoływania skilla, wpisałem `go`, żeby wykonać wygenerowany prompt. Pierwsza partia zawierała zabawkę z drutu i kartonu. Fragment rzeczywistej odpowiedzi Gemini:
+
+> **Kwestie bezpieczeństwa i ryzyka:** Zabawka jest niezwykle prosta, ale wymaga nadzoru. Sam drut jest bezpieczny, lecz po dłuższym użytkowaniu papierowe końcówki mogą zostać rozszarpane i połknięte. Warto sprawdzać ich stan przed każdą sesją.
+>
+> **Szacowany koszt w PLN i stosunek jakości do ceny:** 15 – 25 PLN. Genialny stosunek ceny do jakości; jeden z najtańszych, a zarazem najbardziej skutecznym akcesoriów na rynku.
+>
+> **Werdykt eksperta i rekomendacja:** Pozycja obowiązkowa w każdym domu z kotem. Pamiętaj, aby na koniec zabawy dać kotu fizycznie pochwycić końcówkę i zaoferować mu smakołyk lub posiłek (zamknięcie łańcucha łowieckiego).
+
+Po trzech pozycjach Gemini zatrzymał się tak:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
