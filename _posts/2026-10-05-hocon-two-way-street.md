@@ -7,6 +7,8 @@ tags: [ 'scala', 'hocon', 'config', 'opensource' ]
 ---
 **TLDR:** Since January I have fixed the renderer in [sconfig](https://github.com/ekrich/sconfig) (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original [lightbend/config](https://github.com/lightbend/config) share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don't. AI agents did much of the typing; every claim was checked by running code.
 
+{% include contribution-banner.html author="kastoestoramadus" %}
+
 This follows [HOCON - the config format YAML should have been]({% post_url 2026-01-16-hocon-beats-the-competition %}).
 
 ## Same bug in both
