@@ -41,7 +41,7 @@ ConfigFactory.parseString("a = 1e999").root().render(ConfigRenderOptions.concise
 ```
 
 ## What gets merged upstream
-lightbend/config is in maintenance mode: "feature complete", changes "rarely". My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) is stuck, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
+Lightbend has put lightbend/config in maintenance only: its README calls the library "feature complete", promises to keep it running on new JVM versions and to "rarely make any other changes". My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) is stuck, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
 
 What the reviews asked for:
 - change behaviour, add no API,
