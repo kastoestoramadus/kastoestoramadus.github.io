@@ -248,7 +248,7 @@
 <h2 id="same-bug-in-both">Same bug in both</h2>
 <p>sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.</p>
 
-<p>My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (16 of my sconfig PRs). Once the loop closed fully: I reported <a href="https://github.com/lightbend/config/issues/829">#829</a>, the maintainer fixed it in <a href="https://github.com/lightbend/config/pull/841">#841</a>, and I ported it as <a href="https://github.com/ekrich/sconfig/pull/590">sconfig#590</a>.</p>
+<p>My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (about 16 of my sconfig PRs, 10 of them literally titled “Port …”). Once the loop closed fully: I reported <a href="https://github.com/lightbend/config/issues/829">#829</a>, the maintainer fixed it in <a href="https://github.com/lightbend/config/pull/841">#841</a>, and I ported it as <a href="https://github.com/ekrich/sconfig/pull/590">sconfig#590</a>.</p>
 
 <p>Twin pairs open now:</p>
 
