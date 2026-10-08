@@ -460,3 +460,89 @@ body {
 .fourofour {
   border: 1px solid $primary-color !important;
 }
+
+.post-language-switch {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+  scroll-margin-top: 90px;
+
+  @media (max-width: 767px) {
+    scroll-margin-top: 160px;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 18px;
+    border: 1px solid $secondary-color;
+    border-radius: 4px;
+    text-decoration: none;
+
+    &[aria-current="true"] {
+      background: $secondary-color;
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $secondary-color;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.post-language {
+  scroll-margin-top: 90px;
+
+  &[hidden] { display: none; }
+
+  h2, h3 {
+    scroll-margin-top: 90px;
+
+    @media (max-width: 767px) {
+      scroll-margin-top: 160px;
+    }
+  }
+
+  // The prompt is prose meant to be copied, so it should fit on a phone.
+  pre code.language-plaintext {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .table-responsive .table {
+    table-layout: fixed;
+    width: 100%;
+
+    th, td {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .session-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+
+    @media (max-width: 767px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .session-panel {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid $secondary-color;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+
+    h3 { margin-top: 0; }
+    p, blockquote { font-size: 17px; }
+    blockquote { padding: 8px 12px; }
+    code { white-space: normal; }
+  }
+}
