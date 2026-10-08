@@ -9,7 +9,7 @@ title-pl: Jak wycisnąć więcej z taniego Gemini
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: let the model draft the prompt, review it, then type `n` for each next batch.
+**TLDR:** A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: generate the prompt in a skill, run it in the normal session, then type `n` for each next batch.
 
 I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
 
@@ -17,7 +17,9 @@ I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Ge
 
 ## Let it write the brief
 
-I gave my meta-prompt skill this request: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić` — find cat toys worth buying. `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products. I typed `go`; Gemini covered the first three and ended with:
+I gave my meta-prompt skill this request: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić` — find cat toys worth buying. `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
+
+The hand-off matters: in my setup, the skill has limited MCP access, often without Gmail. It only writes the prompt. I run that prompt in the normal Gemini session with the connections the task needs; writing “use Gmail” cannot grant access. I typed `go`; Gemini covered the first three and ended with:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
@@ -58,7 +60,7 @@ This costs more turns and reading. The prompt cannot grant tool access or guaran
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: model układa prompt, ja go sprawdzam, a potem wpisuję `n` po każdą następną partię.
+**TLDR:** Tani plan Gemini daje mi więcej pożytku, gdy określam zadanie, dzielę pracę na partie i sprawdzam źródła. Mój skrót: generuję prompt w skillu, uruchamiam go w zwykłej sesji, a potem wpisuję `n` po każdą następną partię.
 
 Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia złotych miesięcznie. Gemini nadal daje mi krótką odpowiedź z propozycją kontynuacji. Chcę porównania, a nie zaproszenia do ponownego poproszenia o nie.
 
@@ -66,7 +68,9 @@ Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia zło
 
 ## Niech sam napisze instrukcję
 
-Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
+Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach.
+
+Przekazanie zadania jest istotne: w mojej konfiguracji skill ma ograniczony dostęp do MCP, często bez Gmaila. Tylko pisze prompt. Uruchamiam go w zwykłej sesji Gemini z połączeniami potrzebnymi do zadania; wpisanie „użyj Gmaila” nie daje dostępu. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
