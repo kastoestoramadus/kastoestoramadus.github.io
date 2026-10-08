@@ -17,9 +17,13 @@ I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Ge
 
 ## Let it write the brief
 
-I use a meta-prompt skill through my own `/gh` shortcut, not a built-in Gemini command. I describe the task — say, compare three HDDs for a NAS with links — and it drafts the session prompt. I review it, type “execute”, then `n` after each batch.
+I gave my meta-prompt skill this request: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić` — find cat toys worth buying. `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products. I typed `go`; Gemini covered the first three and ended with:
 
-The useful part of the “armoured prompt” is its structure. Here is a starting point:
+```plaintext
+Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
+```
+
+The useful part of the “armoured prompt” is its structure. Below is my shorter, reusable version, with a progress ledger added:
 
 ```plaintext
 Compare <items> for <use case>.
@@ -33,14 +37,14 @@ If search or page access is unavailable, say so. Do not invent data.
 For each item: finding, source, trade-off, missing information.
 Keep the same criteria and required fields for every item.
 
-Work through at most five plan items per batch, then stop.
+Work through at most three plan items per batch, then stop.
 Start each batch with DONE / NEXT / UNVERIFIED and the remaining plan.
 n = next batch; d = expand the last item; s = skip it; x = stop.
 Ask a specific question if a decision blocks progress.
 Finish with a comparison and a recommendation for the stated use case.
 ```
 
-Five is convenient, not magic. I want an answer small enough to inspect before the next one. The ledger makes omissions visible.
+Three is convenient, not magic. I want an answer small enough to inspect before typing `n`. The ledger makes omissions visible.
 
 ## Keep the evidence, cut the rest
 
@@ -62,9 +66,13 @@ Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia zło
 
 ## Niech sam napisze instrukcję
 
-Korzystam ze skilla do meta-promptów przez własny skrót `/gh`, nie wbudowaną komendę Gemini. Opisuję zadanie — choćby porównanie trzech dysków HDD do NAS-a, z linkami — a skill układa prompt sesyjny. Sprawdzam go, wpisuję „wykonaj”, a po każdej partii — `n`.
+Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
 
-Przydatną częścią „pancernego promptu” jest jego struktura. Od tego można zacząć:
+```plaintext
+Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
+```
+
+Przydatną częścią „pancernego promptu” jest jego struktura. Poniżej moja krótsza wersja do ponownego użycia, z dodanym licznikiem postępu:
 
 ```plaintext
 Porównaj <elementy> do <zastosowania>.
@@ -78,14 +86,14 @@ Jeśli nie masz wyszukiwarki lub dostępu do strony, powiedz to. Nie wymyślaj d
 Dla każdego elementu: ustalenie, źródło, kompromis, brakujące informacje.
 Stosuj te same kryteria i wymagane pola do wszystkich elementów.
 
-Pracuj nad najwyżej pięcioma punktami planu w jednej partii, potem się zatrzymaj.
+Pracuj nad najwyżej trzema punktami planu w jednej partii, potem się zatrzymaj.
 Zacznij partię od ZROBIONE / NASTĘPNE / NIESPRAWDZONE i pozostałego planu.
 n = następna partia; d = rozwiń ostatni punkt; s = pomiń go; x = stop.
 Jeśli postęp wymaga decyzji, zadaj konkretne pytanie.
 Zakończ porównaniem i rekomendacją dla podanego zastosowania.
 ```
 
-Pięć to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed następną. Licznik ujawnia pominięcia.
+Trzy to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed wpisaniem `n`. Licznik ujawnia pominięcia.
 
 ## Zostawić dowody, wyciąć resztę
 
