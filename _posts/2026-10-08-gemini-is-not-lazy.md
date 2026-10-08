@@ -107,6 +107,8 @@ The protocol is text, so it works wherever there is a prompt box: the web app, t
 
 The plan's other half pays off here too: up to ten active scheduled actions, written as a prompt and run daily, weekly or monthly, with the result delivered into the chat "within the hour leading up to your delivery time". Ten recurring slots, each a small program - a weekly status report, a Monday digest, a monthly repository review. Written once as an armoured prompt, they stop being a chat and become a service.
 
+And one surface the protocol does not travel to at all: Gemini Live, which is voice, camera and screen sharing on the phone - not in the web app, and, for now, without Gems ("Gems can't be used with Gemini Live"). Live sits outside the usage limits as far as I can tell, and it is excellent once you know what not to expect from Gemini 3: it is a conversation about what the camera sees, not a worker with a specification.
+
 ## What the tier adds over free
 The subscription does not buy a better Gemini, and it is worth being precise about what it does buy, because "the same model, with more of it" undersells the list.
 
@@ -205,6 +207,8 @@ SZABLON - każdy punkt, bez pomijania
 Protokół jest tekstem, więc działa wszędzie, gdzie jest pole na prompt: aplikacja web, telefon, AI Studio i API - tam `thinking_level` jest parametrem żądania, nie pozycją w menu. Nie podróżuje za to pokrętło: poziomy myślenia siedzą w menu modelu w aplikacji, najwyższy wymaga Ultra i modelu Pro, a instrukcje stałe mieszkają w ustawieniach. Tam, gdzie pokrętła nie ma albo jest ukryte, prompt zostaje jedyną dźwignią wysiłku - i jedyną, która działa też na Flashu.
 
 Druga połowa wartości planu gra tu do tej samej bramki: płatny plan daje do dziesięciu aktywnych zaplanowanych akcji, pisanych jako prompt i uruchamianych codziennie, co tydzień albo co miesiąc, z wynikiem dostarczanym do czatu "within the hour leading up to your delivery time". Dziesięć cyklicznych slotów, każdy jak mały program - cotygodniowy raport, poniedziałkowy przegląd tematu, miesięczne podsumowanie repozytorium. Zapisane raz jako pancerny prompt przestają być czatem i stają się usługą.
+
+Jest jeszcze jedna powierzchnia, do której protokół nie dociera wcale: Gemini Live, czyli głos, kamera i udostępnianie ekranu na telefonie - nie w aplikacji webowej i, póki co, bez Gemów ("Gems can't be used with Gemini Live"). Live jest, o ile widzę, poza limitami użycia, i jest świetny, gdy wie się, czego nie oczekiwać od Gemini 3: to rozmowa o tym, co widzi kamera, a nie pracownik ze specyfikacją.
 
 ### Co płatny plan daje ponad darmowy
 Abonament nie kupuje lepszego Geminiego i warto dokładnie powiedzieć, co kupuje, bo "ten sam model, tylko więcej" sprzedaje tę listę poniżej wartości.
