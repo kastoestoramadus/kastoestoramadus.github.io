@@ -225,7 +225,19 @@
 
   <p>One documented restriction matters for workflows that need internet requests: <a href="https://support.google.com/gemini/answer/17094296?hl=en">scripts bundled with skills cannot make them</a>. That does not prohibit Gemini itself from using supported Connected Apps.</p>
 
-  <p>I typed <code>go</code>; Gemini covered the first three and ended with this message (translated):</p>
+  <h2 id="run-the-prompt-without-the-skill">Run the prompt without the skill</h2>
+
+  <p>In a normal Gemini turn, without invoking the skill, I typed <code>go</code> to execute the generated prompt. The first batch included a wire-and-cardboard toy. Here is part of Gemini’s actual response, translated from Polish:</p>
+
+  <blockquote>
+    <p><strong>Safety and risks:</strong> The toy is extremely simple, but requires supervision. The wire itself is safe, but after extended use the paper ends may be torn apart and swallowed. It is worth checking their condition before each session.</p>
+
+    <p><strong>Estimated cost in PLN and value for money:</strong> 15–25 PLN. Excellent value for money; one of the cheapest yet most effective accessories on the market.</p>
+
+    <p><strong>Expert verdict and recommendation:</strong> A must-have in every home with a cat. Remember to let the cat physically catch the end of the toy and offer a treat or meal at the end of play (completing the hunting sequence).</p>
+  </blockquote>
+
+  <p>After three items, Gemini stopped with:</p>
 
   <pre><code class="language-plaintext">Waiting for your signal: type "n" or "NEXT" to move to the next batch, or give feedback.
 </code></pre>
@@ -273,7 +285,19 @@ Finish with a comparison and a recommendation for the stated use case.
 
   <p>Przy zadaniach wymagających żądań internetowych istotne jest jedno udokumentowane ograniczenie: <a href="https://support.google.com/gemini/answer/17094296?hl=en">skrypty dołączone do skilli nie mogą ich wykonywać</a>. To nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.</p>
 
-  <p>Wpisałem <code>go</code>; Gemini omówił pierwsze trzy i zakończył tak:</p>
+  <h2 id="uruchom-prompt-bez-skilla">Uruchom prompt bez skilla</h2>
+
+  <p>W zwykłej wiadomości do Gemini, bez wywoływania skilla, wpisałem <code>go</code>, żeby wykonać wygenerowany prompt. Pierwsza partia zawierała zabawkę z drutu i kartonu. Fragment rzeczywistej odpowiedzi Gemini:</p>
+
+  <blockquote>
+    <p><strong>Kwestie bezpieczeństwa i ryzyka:</strong> Zabawka jest niezwykle prosta, ale wymaga nadzoru. Sam drut jest bezpieczny, lecz po dłuższym użytkowaniu papierowe końcówki mogą zostać rozszarpane i połknięte. Warto sprawdzać ich stan przed każdą sesją.</p>
+
+    <p><strong>Szacowany koszt w PLN i stosunek jakości do ceny:</strong> 15 – 25 PLN. Genialny stosunek ceny do jakości; jeden z najtańszych, a zarazem najbardziej skutecznym akcesoriów na rynku.</p>
+
+    <p><strong>Werdykt eksperta i rekomendacja:</strong> Pozycja obowiązkowa w każdym domu z kotem. Pamiętaj, aby na koniec zabawy dać kotu fizycznie pochwycić końcówkę i zaoferować mu smakołyk lub posiłek (zamknięcie łańcucha łowieckiego).</p>
+  </blockquote>
+
+  <p>Po trzech pozycjach Gemini zatrzymał się tak:</p>
 
   <pre><code class="language-plaintext">Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
 </code></pre>
