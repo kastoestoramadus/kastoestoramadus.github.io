@@ -19,7 +19,7 @@ I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Ge
 
 I gave my meta-prompt skill this request: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić` — find cat toys worth buying. `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
 
-The hand-off matters: in my setup, the skill has limited MCP access, often without Gmail. It only writes the prompt. I run that prompt in the normal Gemini session with the connections the task needs; writing “use Gmail” cannot grant access. I typed `go`; Gemini covered the first three and ended with:
+In my tests, Gmail was unavailable while using the skill. [Google documents Workspace support for skills](https://support.google.com/gemini/answer/18560919?hl=en-GB), so I cannot call this a general MCP restriction. I keep generation separate from execution: the skill writes the prompt; I run it in the normal session with the required connections. I typed `go`; Gemini covered the first three and ended with:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
@@ -70,7 +70,7 @@ Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia zło
 
 Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach.
 
-Przekazanie zadania jest istotne: w mojej konfiguracji skill ma ograniczony dostęp do MCP, często bez Gmaila. Tylko pisze prompt. Uruchamiam go w zwykłej sesji Gemini z połączeniami potrzebnymi do zadania; wpisanie „użyj Gmaila” nie daje dostępu. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
+W moich testach Gmail był niedostępny podczas używania skilla. [Google dokumentuje obsługę Workspace przez skille](https://support.google.com/gemini/answer/18560919?hl=en-GB), więc nie mogę nazwać tego ogólnym ograniczeniem MCP. Oddzielam generowanie od wykonania: skill pisze prompt, a ja uruchamiam go w zwykłej sesji z potrzebnymi połączeniami. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
