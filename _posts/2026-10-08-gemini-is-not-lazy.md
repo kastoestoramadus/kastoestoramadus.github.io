@@ -11,18 +11,22 @@ title-pl: Jak wycisnąć więcej z taniego Gemini
 
 **TLDR:** A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: generate the prompt in a skill, run it in the normal session, then type `n` for each next batch.
 
-I bought a year of Google AI Plus for 239.99 zł, roughly twenty zł a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
+I bought a year of Google AI Plus for PLN 239.99, roughly PLN 20 a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
 
 [Google's Gemini 3 guide](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) describes a preference for concise answers and recommends clear instructions. More thinking does not tell the model which fields my report needs or when the job is done.
 
 ## Let it write the brief
 
-I gave my meta-prompt skill this request: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić` — find cat toys worth buying. `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
+My request to the meta-prompt skill, translated from Polish, was: `/xh Review recommended cat toys. I want to buy some.` `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
 
-In my tests, Gmail was unavailable while using the skill. [Google documents Workspace support for skills](https://support.google.com/gemini/answer/18560919?hl=en-GB), so I cannot call this a general MCP restriction. I keep generation separate from execution: the skill writes the prompt; I run it in the normal session with the required connections. I typed `go`; Gemini covered the first three and ended with:
+In my tests, Gmail was unavailable while using the skill. [Google documents Workspace support for skills](https://support.google.com/gemini/answer/18560919?hl=en-GB), so I cannot call this a general MCP restriction. I keep generation separate from execution: the skill writes the prompt; I run it in the normal session with the required connections.
+
+One documented restriction matters for workflows that need internet requests: [scripts bundled with skills cannot make them](https://support.google.com/gemini/answer/17094296?hl=en). That does not prohibit Gemini itself from using supported Connected Apps.
+
+I typed `go`; Gemini covered the first three and ended with this message (translated):
 
 ```plaintext
-Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
+Waiting for your signal: type "n" or "NEXT" to move to the next batch, or give feedback.
 ```
 
 The useful part of the “armoured prompt” is its structure. Below is my shorter, reusable version, with a progress ledger added:
@@ -71,7 +75,11 @@ Kupiłem rok Google AI Plus za 239,99 zł, czyli mniej więcej dwadzieścia zło
 
 Do skilla układającego meta-prompty wpisałem: `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`. `/xh` jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach.
 
-W moich testach Gmail był niedostępny podczas używania skilla. [Google dokumentuje obsługę Workspace przez skille](https://support.google.com/gemini/answer/18560919?hl=en-GB), więc nie mogę nazwać tego ogólnym ograniczeniem MCP. Oddzielam generowanie od wykonania: skill pisze prompt, a ja uruchamiam go w zwykłej sesji z potrzebnymi połączeniami. Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
+W moich testach Gmail był niedostępny podczas używania skilla. [Google dokumentuje obsługę Workspace przez skille](https://support.google.com/gemini/answer/18560919?hl=en-GB), więc nie mogę nazwać tego ogólnym ograniczeniem MCP. Oddzielam generowanie od wykonania: skill pisze prompt, a ja uruchamiam go w zwykłej sesji z potrzebnymi połączeniami.
+
+Przy zadaniach wymagających żądań internetowych istotne jest jedno udokumentowane ograniczenie: [skrypty dołączone do skilli nie mogą ich wykonywać](https://support.google.com/gemini/answer/17094296?hl=en). To nie zakazuje samemu Gemini korzystania z obsługiwanych połączonych aplikacji.
+
+Wpisałem `go`; Gemini omówił pierwsze trzy i zakończył tak:
 
 ```plaintext
 Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
