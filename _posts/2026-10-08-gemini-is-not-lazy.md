@@ -11,7 +11,7 @@ title-pl: Jak wycisnąć więcej z taniego Gemini
 
 **TLDR:** A cheap Gemini plan becomes more useful when I specify the work, split it into batches and check the sources. My shortcut: generate the prompt in a skill, run it in the normal session, then type `n` for each next batch.
 
-I bought a year of Google AI Plus for PLN 239.99, roughly PLN 20 a month. Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
+I bought a year of Google AI Plus for PLN 239.99 — about USD 61 a year, or USD 5 a month, at the [8 October 2026 exchange rate](https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json). Gemini still gives me a short answer and an offer to continue. I want the comparison, not an invitation to ask for it again.
 
 [Google's Gemini 3 guide](https://ai.google.dev/gemini-api/docs/gemini-3#prompting-best-practices) describes a preference for concise answers and recommends clear instructions. More thinking does not tell the model which fields my report needs or when the job is done.
 
