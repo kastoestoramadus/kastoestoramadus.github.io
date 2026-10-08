@@ -217,9 +217,12 @@
 
   <h2 id="let-it-write-the-brief">Let it write the brief</h2>
 
-  <p>I use a meta-prompt skill through my own <code>/gh</code> shortcut, not a built-in Gemini command. I describe the task — say, compare three HDDs for a NAS with links — and it drafts the session prompt. I review it, type “execute”, then <code>n</code> after each batch.</p>
+  <p>I gave my meta-prompt skill this request: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code> — find cat toys worth buying. <code>/xh</code> is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products. I typed <code>go</code>; Gemini covered the first three and ended with:</p>
 
-  <p>The useful part of the “armoured prompt” is its structure. Here is a starting point:</p>
+  <pre><code class="language-plaintext">Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
+</code></pre>
+
+  <p>The useful part of the “armoured prompt” is its structure. Below is my shorter, reusable version, with a progress ledger added:</p>
 
   <pre><code class="language-plaintext">Compare &lt;items&gt; for &lt;use case&gt;.
 First propose shared criteria and a numbered plan. Wait for approval.
@@ -232,14 +235,14 @@ If search or page access is unavailable, say so. Do not invent data.
 For each item: finding, source, trade-off, missing information.
 Keep the same criteria and required fields for every item.
 
-Work through at most five plan items per batch, then stop.
+Work through at most three plan items per batch, then stop.
 Start each batch with DONE / NEXT / UNVERIFIED and the remaining plan.
 n = next batch; d = expand the last item; s = skip it; x = stop.
 Ask a specific question if a decision blocks progress.
 Finish with a comparison and a recommendation for the stated use case.
 </code></pre>
 
-  <p>Five is convenient, not magic. I want an answer small enough to inspect before the next one. The ledger makes omissions visible.</p>
+  <p>Three is convenient, not magic. I want an answer small enough to inspect before typing <code>n</code>. The ledger makes omissions visible.</p>
 
   <h2 id="keep-the-evidence-cut-the-rest">Keep the evidence, cut the rest</h2>
 
@@ -261,9 +264,12 @@ Finish with a comparison and a recommendation for the stated use case.
 
   <h2 id="niech-sam-napisze-instrukcj">Niech sam napisze instrukcję</h2>
 
-  <p>Korzystam ze skilla do meta-promptów przez własny skrót <code>/gh</code>, nie wbudowaną komendę Gemini. Opisuję zadanie — choćby porównanie trzech dysków HDD do NAS-a, z linkami — a skill układa prompt sesyjny. Sprawdzam go, wpisuję „wykonaj”, a po każdej partii — <code>n</code>.</p>
+  <p>Do skilla układającego meta-prompty wpisałem: <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>. <code>/xh</code> jest moim skrótem, nie wbudowaną komendą Gemini. Skill ułożył prompt z siedmioma polami na pozycję, planem trzech partii i zatrzymaniem po trzech produktach. Wpisałem <code>go</code>; Gemini omówił pierwsze trzy i zakończył tak:</p>
 
-  <p>Przydatną częścią „pancernego promptu” jest jego struktura. Od tego można zacząć:</p>
+  <pre><code class="language-plaintext">Czekam na sygnał: wpisz "n" lub "NEXT", aby przejść do kolejnej partii, lub podaj uwagi.
+</code></pre>
+
+  <p>Przydatną częścią „pancernego promptu” jest jego struktura. Poniżej moja krótsza wersja do ponownego użycia, z dodanym licznikiem postępu:</p>
 
   <pre><code class="language-plaintext">Porównaj &lt;elementy&gt; do &lt;zastosowania&gt;.
 Najpierw zaproponuj wspólne kryteria i numerowany plan. Czekaj na akceptację.
@@ -276,14 +282,14 @@ Jeśli nie masz wyszukiwarki lub dostępu do strony, powiedz to. Nie wymyślaj d
 Dla każdego elementu: ustalenie, źródło, kompromis, brakujące informacje.
 Stosuj te same kryteria i wymagane pola do wszystkich elementów.
 
-Pracuj nad najwyżej pięcioma punktami planu w jednej partii, potem się zatrzymaj.
+Pracuj nad najwyżej trzema punktami planu w jednej partii, potem się zatrzymaj.
 Zacznij partię od ZROBIONE / NASTĘPNE / NIESPRAWDZONE i pozostałego planu.
 n = następna partia; d = rozwiń ostatni punkt; s = pomiń go; x = stop.
 Jeśli postęp wymaga decyzji, zadaj konkretne pytanie.
 Zakończ porównaniem i rekomendacją dla podanego zastosowania.
 </code></pre>
 
-  <p>Pięć to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed następną. Licznik ujawnia pominięcia.</p>
+  <p>Trzy to wygodna liczba, nie magiczna. Chcę odpowiedzi dość małej, bym mógł ją sprawdzić przed wpisaniem <code>n</code>. Licznik ujawnia pominięcia.</p>
 
   <h2 id="zostawi-dowody-wyci-reszt">Zostawić dowody, wyciąć resztę</h2>
 
