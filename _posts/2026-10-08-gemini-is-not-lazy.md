@@ -9,17 +9,17 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** My meta skill makes Gemini useful to me even with the fast Flash model: I give it one line, and it writes the detailed instructions needed to get substantial work done. It addresses my frustration with short answers and repeated prompting while plenty of usage remains, even without Plus. One skill prepares either interactive batches or a complete scheduled report.
+**TLDR:** I have plenty of Gemini usage available, even without Plus, but its short answers leave much of the work to me. My workaround: let Gemini tell itself how to work harder. A reusable meta skill turns one line into demanding instructions, making even fast Flash useful to me without my writing those instructions each time.
 
-The friction is familiar: a short overview, an offer to continue, another turn explaining that I wanted the actual comparison. I have room to use Gemini more, but directing it starts to become the job. “Token saving” is how this feels from my side; I cannot tell what internal mechanism produces it.
+**Try it now:** [copy the skill below](#copy-skill-en) and follow [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). A skill is a saved set of instructions you can reuse in Gemini chats. This one is a *meta* skill because it writes the instructions for the next task. The copyable version includes untested revisions, marked below.
 
-## Let Gemini specify the work
+## Let Gemini tell itself how to work harder
 
-`/xh` is my name for a meta-prompt skill. I give it the intent; it writes the task prompt. Execution is a separate step in a normal Gemini turn. This makes the proposed scope and criteria visible before the work starts.
+Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.
 
-The important requirements are shared comparison criteria, sources beside claims, explicit missing evidence and a completion condition. A thinking setting cannot specify those for me. Batches let me inspect progress; an unattended run needs a complete report without conversational pauses.
+So I ask Gemini to write the instructions that push it beyond that default: examine each candidate, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; a normal Gemini turn executes it.
 
-The point is to make Gemini do the work of expanding the brief. Success means less steering for a useful result, not simply a longer answer.
+“Work harder” means more of the requested work gets done. More words alone would not help.
 
 ## What changed in the trial
 
@@ -36,21 +36,33 @@ The point is to make Gemini do the work of expanding the brief. Success means le
 
 </div>
 
-<details markdown="1">
-<summary>Evidence: excerpts from both Flash answers (translated from Polish)</summary>
+The two sessions below show **answer excerpts**, translated from the [Polish originals](#polski). The right-hand result is the first batch, not the whole job.
 
-### Plain request
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-plain-en" markdown="1">
 
-An excerpt from the answer to the plain request:
+### Flash: plain request
+{: #session-plain-en}
+
+**Input:** `Review recommended cat toys. I want to buy some.`
+
+**Answer excerpt — wands:**
 
 > **Recommended models:** *Purr Propulsion* / *GoCat Da Bird* wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.
 
 > **What to look for:** Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).
 
-### Generated prompt, executed in the normal session
+</section>
+<section class="session-panel" aria-labelledby="session-skill-en" markdown="1">
 
-I invoked `/xh` with the same request, then typed `go` in a normal Gemini turn without invoking the skill again. An excerpt from the resulting Cat Dancer entry:
+### Flash: after `/xh`
+{: #session-skill-en}
 
+**Input:** `/xh Review recommended cat toys. I want to buy some.`, then `go` without invoking the skill again.
+
+**Answer excerpt — Cat Dancer:**
+
+> **Why it is worth considering (behaviourist's perspective):** An exceptionally simple yet ingenious design. The springy metal wire makes the rolled-up pieces of cardboard at the end move unpredictably, imitating flying insects. It is well suited to cats that quickly lose interest in conventional soft toys.
 
 > **Safety and durability:** Very high durability of the metal wire. The cardboard elements are safe for cats' teeth and gums, but wear out with heavy use.
 >
@@ -58,19 +70,31 @@ I invoked `/xh` with the same request, then typed `go` in a normal Gemini turn w
 >
 > **Where to buy / link:** [Check Cat Dancer at Zooplus](https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota)
 
-After three items, Gemini stopped with:
+After three entries:
 
 ```plaintext
 Waiting for your signal (n or NEXT) to generate the next batch of recommendations.
 ```
 
-</details>
+</section>
+</div>
 
-The [original excerpts are in Polish](#polski). Product-level detail is useful, but the Cat Dancer link leads to a category and the Allegro link went through Google Search. Those links do not verify the quoted prices or the safety claims. The first batch is not a completed buying comparison.
+The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links. The links still fall short: Cat Dancer leads to a category, and the Allegro link went through Google Search. They do not verify the quoted prices or safety claims.
 
 This trial combines a more specific brief with batching. It does not isolate the benefit of the meta skill over writing that same brief myself, or compare cheap and expensive models.
 
-## The same skill for scheduled actions
+## One skill, two ways to run the work
+
+<div class="table-responsive" markdown="1">
+
+| | Interactive chat | Scheduled action |
+|---|---|---|
+| Ask `/xh` for | A task to work through in chat | A recurring task, with its schedule |
+| Execution | `go` starts; `n` / `NEXT` continues batches | Each run delivers the report without waiting for me |
+| Control | I can inspect a batch and redirect the work | Scope, sources and reporting window must be set in advance |
+{: .table}
+
+</div>
 
 I also tried: `/xh I'd like to check cat news regularly; give me some.` Gemini returned a scheduled and an interactive variant. After `go with option a`, it created “Cat report — every day by 9 AM”. This demonstrates creating the schedule; I have not included an executed news report here.
 
@@ -78,13 +102,24 @@ The skill returned two modes despite “regularly”, and broadened “last 24 h
 
 ## What the subscription adds
 
-I paid PLN 239.99 for a year of Plus: about USD 61 at [NBP's 8 October 2026 rate](https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json) of PLN 3.9132 per USD. That is my purchase price, not a standing offer. [Plus](https://one.google.com/intl/en/about/google-ai-plans/) adds 400 GB for Gmail, Drive and Photos, advertised 2× Gemini access, and more research, notebook and media-generation usage. Features vary by region. With Gmail already in use, having Gemini close at hand is useful too.
+I paid PLN 239.99 for a year of Plus: about USD 61 at [NBP's 8 October 2026 rate](https://api.nbp.pl/api/exchangerates/rates/a/usd/2026-10-08/?format=json) of PLN 3.9132 per USD. That is my purchase price, not a standing offer. With Gmail already in use, having Gemini close at hand is useful too.
 
-The method does not require Plus. What I loosely call “tokens” here is the app's usage allowance, not a measured API token budget.
+<div class="table-responsive" markdown="1">
 
-[Scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en) can put those allowances to daily use with instructions prepared by the same skill. Google allows up to ten active actions and is rolling scheduling out to personal accounts without an AI plan too. An AI plan moves preparation into the hour before delivery; free accounts may prepare content several hours earlier. A daily report still needs a defined reporting window and working sources.
+| Capability | Without an AI plan | With Plus |
+|---|---|---|
+| This workflow | No Plus requirement | Same meta skill, more usage available |
+| Gemini allowance | Standard access | Advertised 2× access; more research, notebook and media-generation usage |
+| Storage | Free account: [up to 15 GB](https://support.google.com/mail/answer/9312312?hl=en-GB) | 400 GB across Gmail, Drive and Photos |
+| Scheduled actions | Rolling out to personal accounts; preparation may be hours before delivery | Preparation within the hour before delivery |
+{: .table}
+
+</div>
+
+Sources: [Plus benefits](https://one.google.com/intl/en/about/google-ai-plans/) and [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en). Features vary by region; scheduling allows up to ten active actions. That gives the same skill a daily use for the available allowance. These are app limits, not a measured API token budget.
 
 ## Copy the meta skill
+{: #copy-skill-en}
 
 Create a Gemini skill named `xh`, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below. They adapt the two-mode skill used in the trials; they are not a verbatim record of that tested version.
 
@@ -93,6 +128,10 @@ Create a Gemini skill named `xh`, with the description “Generate a task prompt
 
 ```plaintext
 Turn the user's request into a complete, ready-to-run session prompt.
+Its purpose is to make Gemini do thorough work instead of defaulting to an overview.
+Require substantive detail, active investigation and completion of the stated scope.
+Do not drop relevant work merely to shorten the answer or offer to do it later.
+Spend available output on evidence and analysis, not repetition or decorative prose.
 Do not answer the request, research it or execute the resulting prompt.
 Apply this skill only when asked to generate or revise a task prompt.
 Do not reapply it to go, n/NEXT or execution of a prompt already generated.
@@ -159,17 +198,17 @@ This costs more turns and reading. The prompt cannot grant tool access or guaran
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Mój meta skill sprawia, że Gemini staje się dla mnie użyteczny nawet na szybkim Flashu: podaję jedno zdanie, a model sam rozpisuje instrukcje potrzebne do wykonania konkretnej pracy. To sposób na zdawkowe odpowiedzi i ciągłe dopominanie, mimo sporej dostępnej puli użycia — także bez Plus. Jeden skill przygotowuje pracę partiami albo pełny raport cykliczny.
+**TLDR:** Mam sporą pulę użycia Gemini, nawet bez Plus, ale jego zdawkowe odpowiedzi zostawiają mi dużą część pracy. Mój sposób: niech Gemini sam sobie powie, jak pracować intensywniej. Meta skill zamienia jedno zdanie w wymagające instrukcje, dzięki którym nawet szybki Flash staje się dla mnie użyteczny, bez ręcznego rozpisywania tych instrukcji za każdym razem.
 
-Problem wygląda znajomo: krótki przegląd, propozycja kontynuacji, kolejna tura tłumaczenia, że chciałem właściwego porównania. Mam jeszcze z czego korzystać, ale kierowanie modelem zaczyna być osobną robotą. Z mojej strony wygląda to jak „oszczędzanie tokenów”; nie wiem, jaki mechanizm wewnętrzny za tym stoi.
+**Wypróbuj od razu:** [skopiuj skill poniżej](#copy-skill-pl) i skorzystaj z [instrukcji tworzenia skilli Google](https://support.google.com/gemini/answer/17094296?hl=pl). Skill to zapisany zestaw instrukcji do wielokrotnego użycia w czatach Gemini. Ten jest *meta* skillem, bo pisze instrukcje następnego zadania. Wersja do skopiowania zawiera opisane poniżej, jeszcze nieprzetestowane zmiany.
 
-## Niech Gemini rozpisze sobie zadanie
+## Niech Gemini sam sobie powie, jak pracować intensywniej
 
-`/xh` to moja nazwa skilla do meta-promptów. Podaję intencję; skill pisze prompt zadania. Wykonanie jest osobnym krokiem w zwykłej wiadomości do Gemini. Dzięki temu proponowany zakres i kryteria widać, zanim zacznie się praca.
+Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.
 
-Istotne wymagania to wspólne kryteria porównania, źródła przy twierdzeniach, jawne braki w dowodach i warunek zakończenia. Ustawienie poziomu myślenia nie określi ich za mnie. Partie pozwalają kontrolować postęp; wykonanie bez mojego udziału wymaga pełnego raportu bez pauz na rozmowę.
+Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdego kandydata, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; zwykła wiadomość do Gemini uruchamia wykonanie.
 
-Sedno: niech Gemini wykona także pracę rozpisania zadania. Miarą sukcesu jest mniej mojego sterowania do uzyskania użytecznego wyniku, nie sama długość odpowiedzi.
+„Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.
 
 ## Co zmieniło się w próbie
 
@@ -186,20 +225,33 @@ Sedno: niech Gemini wykona także pracę rozpisania zadania. Miarą sukcesu jest
 
 </div>
 
-<details markdown="1">
-<summary>Materiał porównawczy: oryginalne fragmenty obu odpowiedzi Flasha</summary>
+Poniżej **oryginalne fragmenty odpowiedzi** z dwóch sesji. Po prawej jest pierwsza partia, nie wynik całego zadania.
 
-### Zwykłe zapytanie
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-plain-pl" markdown="1">
 
-Fragment odpowiedzi na zwykłą prośbę:
+### Flash: zwykła prośba
+{: #session-plain-pl}
+
+**Polecenie:** `Przejrzyj co się poleca kotom do zabawy. chcę kupić`
+
+**Fragment odpowiedzi — wędki:**
 
 > **Polecane modele:** Wędki typu *Purr Propulsion* / *GoCat Da Bird* (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.
 
 > **Na co zwrócić uwagę:** Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).
 
-### Wygenerowany prompt wykonany w zwykłej sesji
+</section>
+<section class="session-panel" aria-labelledby="session-skill-pl" markdown="1">
 
-Wywołałem `/xh` z tą samą prośbą, potem wpisałem `go` w zwykłej wiadomości do Gemini, bez ponownego wywołania skilla. Fragment otrzymanego opisu Cat Dancer:
+### Flash: po `/xh`
+{: #session-skill-pl}
+
+**Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `go` bez ponownego wywołania skilla.
+
+**Fragment odpowiedzi — Cat Dancer:**
+
+> **Dlaczego warto (Perspektywa behawiorysty):** Wyjątkowo prosta, a zarazem genialna konstrukcja. Sprężysty metalowy drut sprawia, że zwinięte kawałki tektury na końcu poruszają się w sposób całkowicie nieprzewidywalny, udając latające owady. Doskonale sprawdzi się u kotów, które szybko nudzą się klasycznymi pluszakami.
 
 > **Bezpieczeństwo i trwałość:** Bardzo wysoka trwałość metalowego drutu. Tekturowe elementy są bezpieczne dla kocich zębów i dziąseł, ale mocno eksploatowane z czasem ulegają zużyciu.
 >
@@ -207,19 +259,31 @@ Wywołałem `/xh` z tą samą prośbą, potem wpisałem `go` w zwykłej wiadomo�
 >
 > **Gdzie kupić / Link:** [Sprawdź Cat Dancer w Zooplus](https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota)
 
-Po trzech pozycjach Gemini zatrzymał się tak:
+Po trzech pozycjach:
 
 ```plaintext
 Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomendacji.
 ```
 
-</details>
+</section>
+</div>
 
-Szczegóły produktów są użyteczne, ale link Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Te odnośniki nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie. Pierwsza partia nie jest ukończonym porównaniem zakupowym.
+Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami. Te ostatnie nadal zawodzą: Cat Dancer prowadzi do kategorii, a link Allegro prowadził przez Google Search. Nie weryfikują podanych cen ani twierdzeń o bezpieczeństwie.
 
 Ta próba łączy doprecyzowanie zadania z podziałem na partie. Nie oddziela korzyści ze skilla od korzyści z samodzielnego napisania równie dokładnej instrukcji ani nie porównuje taniego modelu z drogim.
 
-## Ten sam skill do scheduled actions
+## Jeden skill, dwa sposoby wykonania
+
+<div class="table-responsive" markdown="1">
+
+| | Rozmowa | Scheduled action |
+|---|---|---|
+| O co proszę `/xh` | Zadanie do przejścia w czacie | Zadanie cykliczne z harmonogramem |
+| Wykonanie | `go` uruchamia; `n` / `NEXT` kontynuuje partie | Każde uruchomienie daje raport bez czekania na mnie |
+| Kontrola | Mogę sprawdzić partię i skorygować kierunek | Zakres, źródła i okno raportu trzeba określić z góry |
+{: .table}
+
+</div>
 
 Spróbowałem też: `/xh chciałbym cyklicznie sprawdzać newsy o kotach, daj mi jakieś`. Gemini zwrócił wariant cykliczny i konwersacyjny. Po `go with option a` utworzył „Raport o kotach — codziennie do 9:00”. To pokazuje utworzenie harmonogramu; nie zamieszczam tu wykonanego raportu z wiadomościami.
 
@@ -227,13 +291,24 @@ Mimo słowa „cyklicznie” skill zwrócił dwa tryby, a „ostatnie 24 godziny
 
 ## Co wnosi abonament
 
-Kupiłem rok Plus za 239,99 PLN, około 20 PLN miesięcznie. To cena mojego zakupu, nie stała oferta. [Plus](https://one.google.com/intl/en/about/google-ai-plans/) dodaje 400 GB dla Gmaila, Dysku i Zdjęć, reklamowany dwukrotnie większy dostęp do Gemini oraz większą pulę na research, notatniki i generowanie multimediów. Funkcje zależą od regionu. Gdy korzysta się już z Gmaila, Gemini pod ręką też się przydaje.
+Kupiłem rok Plus za 239,99 PLN, około 20 PLN miesięcznie. To cena mojego zakupu, nie stała oferta. Gdy korzysta się już z Gmaila, Gemini pod ręką też się przydaje.
 
-Metoda nie wymaga Plus. To, co potocznie nazywam tu „tokenami”, jest pulą użycia aplikacji, a nie zmierzonym budżetem tokenów API.
+<div class="table-responsive" markdown="1">
 
-[Scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en) pozwalają codziennie korzystać z tej puli według instrukcji przygotowanych przez ten sam skill. Google dopuszcza do dziesięciu aktywnych zadań i udostępnia harmonogramy także kontom osobistym bez planu AI. Plan AI przesuwa przygotowanie wyniku na godzinę przed dostarczeniem; konto bez planu może przygotować go kilka godzin wcześniej. Codzienny raport nadal potrzebuje określonego okna czasowego i działających źródeł.
+| Możliwość | Bez planu AI | Z Plus |
+|---|---|---|
+| Ta metoda | Nie wymaga Plus | Ten sam meta skill, większa pula użycia |
+| Dostęp do Gemini | Standardowy | Reklamowany 2× większy; więcej użycia researchu, notatników i generowania multimediów |
+| Miejsce na dane | Konto darmowe: [do 15 GB](https://support.google.com/mail/answer/9312312?hl=pl) | 400 GB dla Gmaila, Dysku i Zdjęć |
+| Scheduled actions | Wdrażane na kontach osobistych; wynik może powstawać kilka godzin wcześniej | Przygotowanie w ciągu godziny przed dostarczeniem |
+{: .table}
+
+</div>
+
+Źródła: [korzyści Plus](https://one.google.com/intl/en/about/google-ai-plans/) i [scheduled actions](https://support.google.com/gemini/answer/16316416?hl=en). Funkcje zależą od regionu; limit to dziesięć aktywnych harmonogramów. Ten sam skill pozwala więc codziennie wykorzystywać dostępną pulę. To limity aplikacji, nie zmierzony budżet tokenów API.
 
 ## Meta skill do skopiowania
+{: #copy-skill-pl}
 
 Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej. To adaptacja skilla z dwoma trybami użytego w próbach, a nie wierny zapis testowanej wersji.
 
@@ -242,6 +317,10 @@ Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną pro�
 
 ```plaintext
 Zamień prośbę użytkownika w kompletny prompt gotowy do uruchomienia w sesji.
+Celem jest skłonienie Gemini do wytężonej pracy zamiast domyślnego przeglądu.
+Wymagaj istotnych szczegółów, aktywnego sprawdzania i wykonania podanego zakresu.
+Nie pomijaj potrzebnej pracy tylko po to, by skrócić odpowiedź lub zaoferować ją później.
+Wykorzystaj dostępne wyjście na dowody i analizę, nie powtórzenia i ozdobniki.
 Nie odpowiadaj na prośbę, nie wyszukuj informacji ani nie wykonuj tego promptu.
 Stosuj ten skill tylko na prośbę o wygenerowanie lub zmianę promptu zadania.
 Nie stosuj go ponownie do go, n/NEXT ani wykonania już wygenerowanego promptu.
