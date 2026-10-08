@@ -10,7 +10,7 @@
 				<title>HOCON - a two-way street between sconfig and lightbend/config</title>
 				
 				
-					<description>&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Since January I have fixed the renderer in &lt;a href=&quot;https://github.com/ekrich/sconfig&quot;&gt;sconfig&lt;/a&gt; (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original &lt;a href=&quot;https://github.com/lightbend/config&quot;&gt;lightbend/config&lt;/a&gt; share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.&lt;/p&gt;
+					<description>&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; As of 8 October 2026 I have fixed the renderer in &lt;a href=&quot;https://github.com/ekrich/sconfig&quot;&gt;sconfig&lt;/a&gt; (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original &lt;a href=&quot;https://github.com/lightbend/config&quot;&gt;lightbend/config&lt;/a&gt; share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.&lt;/p&gt;
 </description>
 				
 				<pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>

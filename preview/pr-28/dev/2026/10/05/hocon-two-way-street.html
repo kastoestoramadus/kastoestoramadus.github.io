@@ -201,7 +201,7 @@
 
           <div style="text-align: left">
 
-          <p><strong>TLDR:</strong> Since January I have fixed the renderer in <a href="https://github.com/ekrich/sconfig">sconfig</a> (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original <a href="https://github.com/lightbend/config">lightbend/config</a> share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.</p>
+          <p><strong>TLDR:</strong> As of 8 October 2026 I have fixed the renderer in <a href="https://github.com/ekrich/sconfig">sconfig</a> (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original <a href="https://github.com/lightbend/config">lightbend/config</a> share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don’t. AI agents did much of the typing; every claim was checked by running code.</p>
 
 <div class="contribution-banner" data-author="kastoestoramadus" style="margin: 1.5em 0; padding: 12px 16px; border: 2px solid #00cdff; border-radius: 4px;">
   <strong>Open-source PRs by <a href="https://github.com/kastoestoramadus">kastoestoramadus</a>, live from GitHub</strong>
@@ -246,7 +246,7 @@
 <p>This follows <a href="/preview/pr-28/dev/2026/01/16/hocon-beats-the-competition.html">HOCON - the config format YAML should have been</a>.</p>
 
 <h2 id="same-bug-in-both">Same bug in both</h2>
-<p>sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.</p>
+<p>The Scala port sconfig exists because Scala.js and Scala Native have no JVM and cannot run the Java library, and because Lightbend keeps lightbend/config in maintenance only: its README calls the library “feature complete”, promises to keep it running on new JVM versions and to “rarely make any other changes”. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.</p>
 
 <p>My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (about 16 of my sconfig PRs, 10 of them literally titled “Port …”). Once the loop closed fully: I reported <a href="https://github.com/lightbend/config/issues/829">#829</a>, the maintainer fixed it in <a href="https://github.com/lightbend/config/pull/841">#841</a>, and I ported it as <a href="https://github.com/ekrich/sconfig/pull/590">sconfig#590</a>.</p>
 
@@ -308,14 +308,14 @@
 </code></pre>
 
 <h2 id="what-gets-merged-upstream">What gets merged upstream</h2>
-<p>Lightbend has put lightbend/config in maintenance only: its README calls the library “feature complete”, promises to keep it running on new JVM versions and to “rarely make any other changes”. My feature PR (<a href="https://github.com/lightbend/config/pull/815">#815</a>, formatting) was closed unmerged, while three bugfixes were merged within days: <a href="https://github.com/lightbend/config/pull/867">#867</a> (in 46 minutes), <a href="https://github.com/lightbend/config/pull/871">#871</a> and <a href="https://github.com/lightbend/config/pull/866">#866</a>.</p>
+<p>My feature PR (<a href="https://github.com/lightbend/config/pull/815">#815</a>, formatting) was closed unmerged, while three bugfixes were merged within days: <a href="https://github.com/lightbend/config/pull/867">#867</a> (in 46 minutes), <a href="https://github.com/lightbend/config/pull/871">#871</a> and <a href="https://github.com/lightbend/config/pull/866">#866</a>.</p>
 
 <p>What the reviews asked for:</p>
 <ul>
-  <li>change behaviour, add no API,</li>
-  <li>tests next to the existing ones, the project’s naming,</li>
-  <li>the full <code>sbt test doc</code> and <code>javac --release 8</code>,</li>
-  <li>the behaviour change in the first line of the description.</li>
+  <li>Change behaviour, add no API,</li>
+  <li>Tests next to the existing ones, the project’s naming,</li>
+  <li>The full <code>sbt test doc</code> and <code>javac --release 8</code>,</li>
+  <li>The behaviour change in the first line of the description.</li>
 </ul>
 
 <h2 id="next">Next</h2>
