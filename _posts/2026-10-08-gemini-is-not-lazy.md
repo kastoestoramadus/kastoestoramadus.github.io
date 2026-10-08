@@ -32,11 +32,12 @@ Compare <items> for <use case>.
 First propose shared criteria and a numbered plan. Wait for approval.
 
 Use current primary sources for specifications, prices and availability.
-Open cited pages; link the source supporting each material claim.
+Open cited pages. Use clickable Markdown links: [product/model or source](URL).
+Link the source supporting each material claim; do not put results in a code block.
 Separate facts from judgement. Mark missing evidence UNVERIFIED.
 If search or page access is unavailable, say so. Do not invent data.
 
-For each item: finding, source, trade-off, missing information.
+For each item: name/model, finding, source link, trade-off, missing information.
 Keep the same criteria and required fields for every item.
 
 Work through at most three plan items per batch, then stop.
@@ -83,11 +84,12 @@ Porównaj <elementy> do <zastosowania>.
 Najpierw zaproponuj wspólne kryteria i numerowany plan. Czekaj na akceptację.
 
 Sprawdzaj specyfikacje, ceny i dostępność w aktualnych źródłach pierwotnych.
-Otwieraj cytowane strony; przy istotnych twierdzeniach linkuj źródło dowodu.
+Otwieraj cytowane strony. Stosuj klikalne linki Markdown: [produkt/model lub źródło](URL).
+Linkuj dowody istotnych twierdzeń; nie umieszczaj wyników w bloku kodu.
 Oddzielaj fakty od oceny. Brak dowodu oznacz NIESPRAWDZONE.
 Jeśli nie masz wyszukiwarki lub dostępu do strony, powiedz to. Nie wymyślaj danych.
 
-Dla każdego elementu: ustalenie, źródło, kompromis, brakujące informacje.
+Dla każdego elementu: nazwa/model, ustalenie, link do źródła, kompromis, brakujące dane.
 Stosuj te same kryteria i wymagane pola do wszystkich elementów.
 
 Pracuj nad najwyżej trzema punktami planu w jednej partii, potem się zatrzymaj.
