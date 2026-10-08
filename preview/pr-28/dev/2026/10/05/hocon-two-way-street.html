@@ -318,13 +318,8 @@
   <li>the behaviour change in the first line of the description.</li>
 </ul>
 
-<h2 id="how-i-keep-ai-honest">How I keep AI honest</h2>
-<ul>
-  <li>Every claim in a PR description is run against the unfixed library first.</li>
-  <li>Tests go in a separate commit and must fail red; the description says how many (“6 of 8 fail without the fix”).</li>
-  <li>One PR, one fix. A mixed one got <code>CHANGES_REQUESTED</code>: “simpler is better”.</li>
-  <li>Two AIs agreeing is not validation, they share blind spots. What counts is the red test, the fixed point (render, parse, render gives the same text), the other library as reference, and a maintainer reading the diff.</li>
-</ul>
+<h2 id="next">Next</h2>
+<p>How the AI agents were kept honest (probes, red tests, a second pair of eyes that is not another model) deserves a post of its own.</p>
 
 <p>The formatter that started all this is coming along in <a href="https://github.com/kastoestoramadus/hocon-fmt">hocon-fmt</a> ;)</p>
 
