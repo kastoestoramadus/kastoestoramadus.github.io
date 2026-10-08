@@ -153,6 +153,18 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   "more cores" posts). Compare the list of generated `.html` files before/after any content refactoring.
 - Every fenced code block has a language (`plaintext` for output/tables). Internal links to posts use `{% post_url %}`
   (not available in `about.html`/`contact.html`, which are rendered via `markdownify` — use plain paths there).
+- **Be terse, in the author's pre-AI manner** (see the 2018 Optane/Slack and 2022 ZIO2 posts: 170-350 words, short
+  `##` sections, one claim per paragraph, opinions stated flat). Rules for writing and editing posts:
+  - Start with a `**TLDR:**` of two or three sentences (result first), before any context.
+  - No filler: no intro that announces the structure, no closing paragraph repeating the body, no "honest caveat" /
+    "the objection is..." asides answering critics nobody raised, no complaining about maintainers, tools or the
+    industry. A limitation gets one sentence, not a section.
+  - One example per point, with verbatim output. Prefer a list or a table to a paragraph; cut figures that repeat
+    the text. A post that needs more than ~600 words is probably two posts.
+  - Keep facts, numbers and links that carry the argument; drop the ones that only show effort (statistics of the
+    process, version trivia, side stories).
+  - AI drafts are verbose by default: after writing, cut it by a third and check that every sentence still says
+    something the reader needs.
 - Site-wide texts (header lines, timeline, author blurb, description) live in `_config.yml`; keep them consistent with
   `about.html` and the owner's GitHub profile (Scala & Big Data engineer, Warsaw, 15+ years, banking/fintech/public sector).
 
