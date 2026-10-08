@@ -19,6 +19,8 @@ I bought a year of Google AI Plus for PLN 239.99, roughly PLN 20 a month. Gemini
 
 My request to the meta-prompt skill, translated from Polish, was: `/xh Review recommended cat toys. I want to buy some.` `/xh` is my shortcut, not a built-in Gemini command. It drafted a prompt with seven fields per item, a three-batch plan and a stop after three products.
 
+The original Polish request and response excerpt are in the [Polish version](#polski); the examples here are translations.
+
 In my tests, Gmail was unavailable while using the skill. [Google documents Workspace support for skills](https://support.google.com/gemini/answer/18560919?hl=en-GB), so I cannot call this a general MCP restriction. I keep generation separate from execution: the skill writes the prompt; I run it in the normal session with the required connections.
 
 One documented restriction matters for workflows that need internet requests: [scripts bundled with skills cannot make them](https://support.google.com/gemini/answer/17094296?hl=en). That does not prohibit Gemini itself from using supported Connected Apps.
