@@ -17,7 +17,7 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 
 Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.
 
-So I ask Gemini to write the instructions that push it beyond that default: examine each candidate, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; a normal Gemini turn executes it.
+So I ask Gemini to write the instructions that push it beyond that default: examine each candidate, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; I type `go` and that's it, the long prompt runs.
 
 “Work harder” means more of the requested work gets done. More words alone would not help.
 
@@ -96,63 +96,21 @@ Create a Gemini skill named `xh`, with the description “Generate a task prompt
 <summary>Full meta-skill instructions — expand to copy</summary>
 
 ```plaintext
-Turn the user's request into a complete, ready-to-run session prompt.
-Its purpose is to make Gemini do thorough work instead of defaulting to an overview.
-Require substantive detail, active investigation and completion of the stated scope.
-Do not drop relevant work merely to shorten the answer or offer to do it later.
-Spend available output on evidence and analysis, not repetition or decorative prose.
-Do not answer the request, research it or execute the resulting prompt.
-Apply this skill only when asked to generate or revise a task prompt.
-Do not reapply it to go, n/NEXT or execution of a prompt already generated.
-Output one plaintext code block containing the task prompt, followed by:
-For interactive tasks: "Run this prompt in a normal Gemini session. Type go to start."
-For scheduled tasks: "Use these instructions in a scheduled action and set its schedule."
-For one-off unattended tasks: "Run these instructions once in a normal Gemini session."
+Skill name: xh
 
-Choose exactly one execution mode. Honour an explicitly requested mode first.
-A scheduled action or recurring delivery means unattended mode; recognise
-recurring/daily/regularly and Polish cyklicznie/regularnie/codziennie in context.
-A one-off background task is also unattended, but does not imply recurrence.
-Otherwise use interactive mode. Do not infer a schedule from the topic alone.
-Do not output both alternatives unless asked.
+Description field:
+Turns short user intentions into complete, uncompromising session prompts that force maximum effort, deep fact verification and work in batches.
 
-The generated prompt must include:
-1. The user's objective and deliverable. Preserve stated constraints.
-   State assumptions; ask only for information that blocks useful work.
-2. Relevant domain criteria, a bounded numbered plan and a completion condition.
-   For comparisons, name the alternatives and shared criteria before the details.
-3. A search protocol when the task needs current or external information:
-   use available search, page access and Connected Apps as needed;
-   open cited pages; use clickable Markdown links [name](URL) beside claims;
-   link directly to products/articles; label category/search pages as leads;
-   a retrieved URL alone is not verification: the page must support the claim;
-   distinguish verified facts, opinions and uncertainty;
-   disclose unavailable tools or unverified data, never invent evidence.
-   Display results as normal Markdown, not inside code blocks.
-4. A fixed per-item template tailored to the task. For buying advice include
-   model/source link, use case, evidence, advantages, risks, suitability,
-   current price/currency and a recommendation. Mark missing fields UNVERIFIED.
-5. For interactive work: at most three items per batch; stop only if work remains.
-   End with DONE / NEXT / UNVERIFIED. Keep the remaining plan visible.
-   n or NEXT = next batch; d = expand the last batch;
-   s = skip the next planned item and record the omission; x = stop.
-6. Deliver the requested conclusion in the final batch without another go/n.
-   For comparisons, include a recommendation and the evidence still missing.
-7. For interactive work: wait for go unless the user already asked to execute.
+Instructions:
+## Structure of the generated prompt
 
-For unattended work, generate self-contained instructions for one run.
-Keep any requested schedule/time zone separate; do not invent or create a schedule.
-Complete the report without go/n pauses or questions awaiting a human reply.
-Use stated assumptions for non-blocking gaps; report blockers and finish useful work.
-Preserve one reporting time window; never broaden it just to find more results.
-For "last 24 hours", anchor it to the actual run time and state the checked interval.
-State a missing window as an assumption. Stay within available tools and usage limits.
-Use an "up to N" report limit where useful, not an obligation to fill N slots.
-Do not promise all information or 100% coverage; report the scope actually checked.
-Distinguish confirmed findings, no matching results, unverified leads and failed checks.
-Compare with earlier runs only if their results are actually available.
+When the user asks for a prompt for a new session, generate a ready block of text containing:
 
-Adapt these rules to the task. Do not add irrelevant fields or filler.
+1. **An extreme role and rigour:** impose an expert role and forbid any saving of tokens, any shortening and any vague generalities.
+2. **An active search mandate (search protocol):** instruct the model explicitly to call Google Search for every point, verify facts, and produce working links in Markdown format `[Name](URL)`.
+3. **Flow control and a continuation mark:** split the work into small batches (for example four items) and require an immediate pause after each batch. Use `n` or the word `NEXT` as the continuation mark.
+4. **A rigid data template:** an exact matrix of fields the model must fill for every item, with no section skippable. Separate every item with a blank line.
+5. **Autonomy and self-reliance:** perform all searching and analysis without asking the user for permission, and use CAPITALS only when a human action is required.
 ```
 
 </details>
@@ -173,7 +131,7 @@ Important: [scripts bundled with skills cannot make internet requests](https://s
 
 Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.
 
-Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdego kandydata, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; zwykła wiadomość do Gemini uruchamia wykonanie.
+Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdego kandydata, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; wpisuję `uruchom` i gotowe, długi prompt się wykonuje.
 
 „Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.
 
@@ -252,63 +210,20 @@ Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną pro�
 <summary>Pełne instrukcje meta skilla — rozwiń i skopiuj</summary>
 
 ```plaintext
-Zamień prośbę użytkownika w kompletny prompt gotowy do uruchomienia w sesji.
-Celem jest skłonienie Gemini do wytężonej pracy zamiast domyślnego przeglądu.
-Wymagaj istotnych szczegółów, aktywnego sprawdzania i wykonania podanego zakresu.
-Nie pomijaj potrzebnej pracy tylko po to, by skrócić odpowiedź lub zaoferować ją później.
-Wykorzystaj dostępne wyjście na dowody i analizę, nie powtórzenia i ozdobniki.
-Nie odpowiadaj na prośbę, nie wyszukuj informacji ani nie wykonuj tego promptu.
-Stosuj ten skill tylko na prośbę o wygenerowanie lub zmianę promptu zadania.
-Nie stosuj go ponownie do go, n/NEXT ani wykonania już wygenerowanego promptu.
-Zwróć jeden blok kodu plaintext z promptem zadania, a pod nim:
-Dla rozmowy: „Uruchom ten prompt w zwykłej sesji Gemini. Wpisz go.”
-Dla zadania cyklicznego: „Użyj tych instrukcji w scheduled action i ustaw harmonogram.”
-Dla jednorazowej pracy bez udziału człowieka: „Wykonaj te instrukcje raz w zwykłej sesji Gemini.”
+Nazwa skilla: xh
 
-Wybierz jeden tryb wykonania. Pierwszeństwo ma tryb wskazany wprost.
-Scheduled action lub cykliczne dostarczanie wyniku oznacza pracę bez udziału człowieka;
-rozpoznawaj cyklicznie/regularnie/codziennie i recurring/daily/regularly w kontekście.
-Jednorazowe zadanie w tle też nie wymaga udziału człowieka, ale nie oznacza cykliczności.
-W innych przypadkach wybierz rozmowę. Nie wnioskuj harmonogramu z samego tematu.
-Nie zwracaj obu wariantów, chyba że użytkownik o to poprosi.
+Pole Opis: Przekształca krótkie intencje użytkownika w kompletne, bezkompromisowe prompty sesyjne, które wymuszają na modelu maksymalny wysiłek, głęboką weryfikację faktów i pracę w partiach.
 
-Wygenerowany prompt musi zawierać:
-1. Cel i oczekiwany wynik. Zachowaj podane ograniczenia.
-   Określ założenia; pytaj tylko o dane, bez których nie da się użytecznie działać.
-2. Kryteria właściwe dla dziedziny, ograniczony numerowany plan i warunek zakończenia.
-   Przy porównaniu pokaż warianty i wspólne kryteria przed szczegółami.
-3. Protokół wyszukiwania, gdy zadanie potrzebuje informacji aktualnych lub zewnętrznych:
-   używaj dostępnej wyszukiwarki, dostępu do stron i połączonych aplikacji;
-   otwieraj cytowane strony; dodawaj klikalne linki Markdown [nazwa](URL) przy tezach;
-   linkuj bezpośrednio produkty/artykuły; kategorie i wyszukiwarki oznacz jako tropy;
-   sam znaleziony URL nie jest weryfikacją: treść strony musi potwierdzać tezę;
-   oddzielaj sprawdzone fakty, opinie i niepewność;
-   ujawniaj niedostępne narzędzia i niesprawdzone dane, nie wymyślaj dowodów.
-   Wyniki prezentuj jako zwykły Markdown, nie w blokach kodu.
-4. Stały szablon pozycji dopasowany do zadania. Przy poradach zakupowych uwzględnij
-   model/link do źródła, zastosowanie, dowody, zalety, ryzyka, dopasowanie,
-   aktualną cenę/walutę i rekomendację. Braki oznacz NIESPRAWDZONE.
-5. Przy rozmowie: najwyżej trzy pozycje w partii; pauza tylko gdy zostało coś do zrobienia.
-   Kończ przez ZROBIONE / NASTĘPNE / NIESPRAWDZONE. Pokazuj pozostały plan.
-   n lub NEXT = następna partia; d = rozwiń ostatnią partię;
-   s = pomiń następną zaplanowaną pozycję i odnotuj pominięcie; x = stop.
-6. W ostatniej partii podaj wnioski bez dodatkowego go/n.
-   Przy porównaniu dodaj rekomendację i brakujące dowody.
-7. Przy rozmowie: czekaj na go, chyba że użytkownik już polecił wykonanie.
+Instrukcje:
+## Konstrukcja Generowanego Prompta
 
-Dla pracy bez udziału człowieka wygeneruj samodzielne instrukcje jednego uruchomienia.
-Podany harmonogram i strefę zachowaj osobno; nie wymyślaj ani nie twórz harmonogramu.
-Kończ raport bez pauz go/n i bez pytań oczekujących na odpowiedź człowieka.
-Przy nieblokujących brakach podaj założenia; zgłoś blokady i wykonaj możliwą część pracy.
-Zachowaj jedno okno raportu; nie rozszerzaj go tylko po to, by znaleźć więcej wyników.
-„Ostatnie 24 godziny” licz od faktycznej chwili wykonania i podaj sprawdzony przedział.
-Brakujące okno określ jako założenie. Działaj w granicach dostępnych narzędzi i limitów.
-W razie potrzeby ogranicz raport przez „do N”, nie obowiązek zapełnienia N pozycji.
-Nie obiecuj wszystkich informacji ani 100% pokrycia; podaj faktycznie sprawdzony zakres.
-Oddzielaj potwierdzone wyniki, brak pasujących wyników, niesprawdzone tropy i błędy sprawdzenia.
-Porównuj z wcześniejszymi uruchomieniami tylko wtedy, gdy masz ich rzeczywiste wyniki.
+Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy blok tekstu, który zawiera:
 
-Dostosuj zasady do zadania. Nie dodawaj zbędnych pól ani wypełniaczy.
+1. **Ekstremalną Rolę i Rygor:** Narzucenie roli eksperta i zakaz jakiegokolwiek oszczędzania tokenów, skracania czy pisania ogólnikami.
+2. **Aktywny Nakaz Wyszukiwania (Search Protocol):** Wprost nakazuje modelowi wywoływanie narzędzia Google Search dla każdego punktu, weryfikowanie faktów i generowanie aktywnych linków w formacie Markdown `[Nazwa](URL)`.
+3. **Sterowanie Przepływem i Znak Kontynuacji:** Dzielenie pracy na małe partie (np. po 4 pozycje) i wymóg natychmiastowej pauzy po każdej partii. Jako znak kontynuacji używa znaku `n` lub słowa `NEXT`.
+4. **Sztywny Szablon Danych:** Dokładna matryca pól, które model musi wypełnić dla każdego punktu (brak możliwości pominięcia sekcji). Każda pozycja oddzielona pustą linią.
+5. **Autonomia i Samodzielność:** Nakaz wykonywania wszystkich akcji wyszukiwania i analizy bez pytania użytkownika o zgodę, a używanie DUŻYCH LITER tylko w sytuacji, gdy wymagana jest akcja ze strony człowieka.
 ```
 
 </details>
