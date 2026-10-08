@@ -72,7 +72,7 @@ Waiting for your signal (n or NEXT) to generate the next batch of recommendation
 
 The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links.
 
-**Example two - a conceptual question.** The question in both cases was `czym jest bóg?` (what is God), asked in Polish.
+**Example two - a conceptual question.** The question in both cases was `what is God?`.
 
 <div class="session-comparison" markdown="1">
 <section class="session-panel" aria-labelledby="session-god-plain-en" markdown="1">
@@ -80,7 +80,7 @@ The baseline was already useful as an overview. The change I wanted was product-
 ### Flash: plain request - what is God
 {: #session-god-plain-en}
 
-**Input:** `czym jest bóg?`
+**Input:** `what is God?`
 
 **Answer excerpt - the opening (translated):**
 
@@ -100,7 +100,7 @@ The baseline was already useful as an overview. The change I wanted was product-
 ### Flash: after `/xh` - what is God
 {: #session-god-skill-en}
 
-**Input:** `/xh czym jest bóg`, then `wykonaj` (run) without invoking the skill again.
+**Input:** `/xh what is God`, then `run` without invoking the skill again.
 
 **Answer excerpt - the first module of batch one (translated):**
 
