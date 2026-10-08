@@ -5,14 +5,14 @@ title: HOCON - a two-way street between sconfig and lightbend/config
 category: dev
 tags: [ 'scala', 'hocon', 'config', 'opensource' ]
 ---
-**TLDR:** Since January I have fixed the renderer in [sconfig](https://github.com/ekrich/sconfig) (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original [lightbend/config](https://github.com/lightbend/config) share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don't. AI agents did much of the typing; every claim was checked by running code.
+**TLDR:** As of 8 October 2026 I have fixed the renderer in [sconfig](https://github.com/ekrich/sconfig) (Scala port of HOCON): 43 PRs, 23 merged. The port and the Java original [lightbend/config](https://github.com/lightbend/config) share their bugs, so I probe both and send the fix to both: 17 PRs upstream, 3 merged. Bugfixes get merged there, features don't. AI agents did much of the typing; every claim was checked by running code.
 
 {% include contribution-banner.html author="kastoestoramadus" %}
 
 This follows [HOCON - the config format YAML should have been]({% post_url 2026-01-16-hocon-beats-the-competition %}).
 
 ## Same bug in both
-sconfig exists because Scala.js and Scala Native have no JVM, so they cannot run the Java library. The Scala code is a line-by-line port, so a bug found in one is almost always in the other.
+The Scala port sconfig exists because Scala.js and Scala Native have no JVM and cannot run the Java library, and because Lightbend keeps lightbend/config in maintenance only: its README calls the library "feature complete", promises to keep it running on new JVM versions and to "rarely make any other changes". The Scala code is a line-by-line port, so a bug found in one is almost always in the other.
 
 My process: write a probe (same config, same render options), run it against both. Identical misbehaviour means the bug is upstream, and I open twin PRs. In the other direction, a fix merged upstream has to be ported back (about 16 of my sconfig PRs, 10 of them literally titled "Port ..."). Once the loop closed fully: I reported [#829](https://github.com/lightbend/config/issues/829), the maintainer fixed it in [#841](https://github.com/lightbend/config/pull/841), and I ported it as [sconfig#590](https://github.com/ekrich/sconfig/pull/590).
 
@@ -43,13 +43,13 @@ ConfigFactory.parseString("a = 1e999").root().render(ConfigRenderOptions.concise
 ```
 
 ## What gets merged upstream
-Lightbend has put lightbend/config in maintenance only: its README calls the library "feature complete", promises to keep it running on new JVM versions and to "rarely make any other changes". My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) was closed unmerged, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
+My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) was closed unmerged, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
 
 What the reviews asked for:
-- change behaviour, add no API,
-- tests next to the existing ones, the project's naming,
-- the full `sbt test doc` and `javac --release 8`,
-- the behaviour change in the first line of the description.
+- Change behaviour, add no API,
+- Tests next to the existing ones, the project's naming,
+- The full `sbt test doc` and `javac --release 8`,
+- The behaviour change in the first line of the description.
 
 ## Next
 How the AI agents were kept honest (probes, red tests, a second pair of eyes that is not another model) deserves a post of its own.
