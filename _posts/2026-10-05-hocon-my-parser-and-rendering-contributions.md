@@ -43,15 +43,29 @@ ConfigFactory.parseString("a = 1e999").root().render(ConfigRenderOptions.concise
 ```
 
 ## What gets merged upstream
-My feature PR ([#815](https://github.com/lightbend/config/pull/815), formatting) was closed unmerged, while three bugfixes were merged within days: [#867](https://github.com/lightbend/config/pull/867) (in 46 minutes), [#871](https://github.com/lightbend/config/pull/871) and [#866](https://github.com/lightbend/config/pull/866).
+Three of my PRs were merged into lightbend/config, all of them ports of sconfig fixes, all bugfixes, each with the full `sbt test doc` run in the description (593 to 603 tests). #867 and #871 add a test that fails without the fix; #866 only reduces allocations, so the existing tests cover it:
 
-What the reviews asked for:
-- Change behaviour, add no API,
-- Tests next to the existing ones, the project's naming,
-- The full `sbt test doc` and `javac --release 8`,
-- The behaviour change in the first line of the description.
+<div class="table-responsive" markdown="1">
+
+| lightbend/config | Fix | Size | Open to merged | Ported from |
+|---|---|---|---|---|
+| [#867](https://github.com/lightbend/config/pull/867) | list comments get an extra space on every render round trip | 2 files | 46 minutes | [sconfig#472](https://github.com/ekrich/sconfig/pull/472) |
+| [#871](https://github.com/lightbend/config/pull/871) | a comment above `a += 2` is rendered twice | 4 files | 3 days | [sconfig#601](https://github.com/ekrich/sconfig/pull/601) |
+| [#866](https://github.com/lightbend/config/pull/866) | `getDuration` and `getMemorySize` compile a regex on every read | 1 file | 3 days | [sconfig#473](https://github.com/ekrich/sconfig/pull/473) |
+{: .table}
+
+</div>
+
+My feature PR [#815](https://github.com/lightbend/config/pull/815) (formatting) took five months to get a reply, which called it less intrusive than expected and asked whether I would take it to a full implementation. Three months later: "we at Akka do not have capacity to take this forward". I closed it myself on 6 October, once [#841](https://github.com/lightbend/config/pull/841) had fixed the problem it worked around.
+
+## What the reviews asked for
+From the two reviews that asked for changes ([#871](https://github.com/lightbend/config/pull/871), [#866](https://github.com/lightbend/config/pull/866)):
+- Put the tests into the existing test classes (`ConcatenationTest`, `ConfParserTest`, `ConfigTest`), not into a new single-purpose one.
+- Cover the edge cases the tests missed: a trailing same-line comment (`a += 2 # c`) and a dotted path (`x.a += 2`).
+- Follow the code's conventions: `UPPER_SNAKE_CASE` for static constants, the helpers the neighbouring tests use.
+- Trim the PR description to the problem and the fix.
 
 ## Next
-How the AI agents were kept honest (probes, red tests, a second pair of eyes that is not another model) deserves a post of its own.
+The rules the agents follow live in the repository: [sconfig#609](https://github.com/ekrich/sconfig/pull/609) adds `AGENTS.md`, a porting guide and a porting skill. It is still under review, the Scala-feature changes were split out into [#613](https://github.com/ekrich/sconfig/pull/613) on the maintainer's request. How they work, and what they changed in practice, deserves a post of its own.
 
 The formatter that started all this is coming along in [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt) ;)
