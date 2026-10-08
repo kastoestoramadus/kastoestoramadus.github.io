@@ -90,7 +90,7 @@ I also tried: `/xh I'd like to check cat news regularly; give me some.` Gemini r
 ## Copy the meta skill
 {: #copy-skill-en}
 
-Create a Gemini skill named `xh`, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below. They adapt the two-mode skill used in the trials; they are not a verbatim record of that tested version.
+Create a Gemini skill named `xh`, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below.
 
 <details markdown="1">
 <summary>Full meta-skill instructions — expand to copy</summary>
@@ -246,7 +246,7 @@ Spróbowałem też: `/xh chciałbym cyklicznie sprawdzać newsy o kotach, daj mi
 ## Meta skill do skopiowania
 {: #copy-skill-pl}
 
-Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej. To adaptacja skilla z dwoma trybami użytego w próbach, a nie wierny zapis testowanej wersji.
+Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej.
 
 <details markdown="1">
 <summary>Pełne instrukcje meta skilla — rozwiń i skopiuj</summary>
