@@ -142,11 +142,15 @@ Instructions:
 
 When the user asks for a prompt for a new session, generate a ready block of text containing:
 
-1. **An extreme role and rigour:** impose an expert role and forbid any saving of tokens, any shortening and any vague generalities.
-2. **An active search mandate (search protocol):** instruct the model explicitly to call Google Search for every point, verify facts, and produce working links in Markdown format `[Name](URL)`.
-3. **Flow control and a continuation mark:** split the work into small batches (for example four items) and require an immediate pause after each batch. Use `n` or the word `NEXT` as the continuation mark.
-4. **A rigid data template:** an exact matrix of fields the model must fill for every item, with no section skippable. Separate every item with a blank line.
-5. **Autonomy and self-reliance:** perform all searching and analysis without asking the user for permission, and use CAPITALS only when a human action is required.
+1. **Role and verification rigour:** impose the role of an expert-analyst. No generalisations, no invention, no guessing. Every item must be verified before it is written down.
+2. **Search and fact-check protocol:** call Google Search for every item to check current dates, times, ticket availability and official sources. Direct, working links in Markdown format `[Name](URL)` are mandatory.
+3. **Batches of 3 with a hard stop clause (zero hallucinations):**
+   - The model produces **exactly 3 items** per post and stops immediately, waiting for the word `NEXT` or `n`.
+   - **ABSOLUTE BAN ON FABRICATING ITEMS:** when 100% confirmed data runs out, the model MUST NOT pad the batch with invented entries. It lists only as many items as it actually found (for example 2, or 0), prints:
+     `[NO FURTHER CONFIRMED ITEMS - VERIFIED SOURCES EXHAUSTED]`
+     and ends the loop for good.
+4. **A rigid data matrix:** a template of fields that forces full detail (date, time, location/getting there, tickets, direct link).
+5. **Autonomy and user action:** full independence in searching, without asking for permission. CAPITALS reserved exclusively for critical human action (for example, buying the last tickets immediately).
 ```
 
 </details>
@@ -291,11 +295,15 @@ Instrukcje:
 
 Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy blok tekstu, który zawiera:
 
-1. **Ekstremalną Rolę i Rygor:** Narzucenie roli eksperta i zakaz jakiegokolwiek oszczędzania tokenów, skracania czy pisania ogólnikami.
-2. **Aktywny Nakaz Wyszukiwania (Search Protocol):** Wprost nakazuje modelowi wywoływanie narzędzia Google Search dla każdego punktu, weryfikowanie faktów i generowanie aktywnych linków w formacie Markdown `[Nazwa](URL)`.
-3. **Sterowanie Przepływem i Znak Kontynuacji:** Dzielenie pracy na małe partie (np. po 4 pozycje) i wymóg natychmiastowej pauzy po każdej partii. Jako znak kontynuacji używa znaku `n` lub słowa `NEXT`.
-4. **Sztywny Szablon Danych:** Dokładna matryca pól, które model musi wypełnić dla każdego punktu (brak możliwości pominięcia sekcji). Każda pozycja oddzielona pustą linią.
-5. **Autonomia i Samodzielność:** Nakaz wykonywania wszystkich akcji wyszukiwania i analizy bez pytania użytkownika o zgodę, a używanie DUŻYCH LITER tylko w sytuacji, gdy wymagana jest akcja ze strony człowieka.
+1. **Rola i Rygor Weryfikacji:** Narzucenie roli ekspert-analityka. Zakaz uogólnień, zmyślania i opierania się na domysłach. Każda pozycja musi zostać zweryfikowana przed wypisaniem.
+2. **Protokół Wyszukiwania (Search & Fact-Check Protocol):** Nakaz wywoływania narzędzia Google Search dla każdego punktu w celu sprawdzenia aktualnych dat, godzin, dostępności biletów i oficjalnych źródeł. Wymóg podawania bezpośrednich, działających linków w formacie Markdown `[Nazwa](URL)`.
+3. **Praca w Partiach po 3 i Twarda Klauzula Stopu (Zero Halucynacji):**
+   - Model generuje **dokładnie 3 pozycje** na wpis i natychmiast zatrzymuje się, czekając na słowo `NEXT` lub `n`.
+   - **BEZWZGLĘDNY ZAKAZ FABRYKOWANIA POZYCJI:** Gdy brakuje w 100% potwierdzonych danych, model NIE MOŻE dopychać partii zmyślonymi wpisami. Wyświetla tylko tyle pozycji, ile faktycznie znalazł (np. 2 lub 0), wypisuje komunikat:
+     `[BRAK KOLEJNYCH POTWIERDZONYCH POZYCJI - Wyczerpano zweryfikowane źródła]`
+     i definitywnie kończy pętlę.
+4. **Sztywna Matryca Danych:** Szablon pól wymuszający podanie pełnych szczegółów (m.in. data, godzina, lokalizacja/dojazd, bilety, bezpośredni link).
+5. **Autonomia i Akcja Użytkownika:** Pełna samodzielność w szukaniu bez pytania o zgodę. Użycie DUŻYCH LITER zarezerwowane wyłącznie dla krytycznych akcji po stronie człowieka (np. natychmiastowy zakup ostatnich biletów).
 ```
 
 </details>
