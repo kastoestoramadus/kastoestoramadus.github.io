@@ -6,7 +6,7 @@ category: dev
 tags: [ 'ai', 'productivity' ]
 ---
 
-**TLDR:** From **5 September to 11 October 2026**, I logged **5.73 billion tokens**, mostly cached context. Subscriptions give me a huge discount against API prices; cheap Chinese workers push prices down further. Claude remains worth a premium as my trusted orchestrator.
+**TLDR:** From **5 September to 11 October 2026**, I logged **5.73 billion tokens**, mostly cached context. Subscriptions give me a huge discount against API prices; cheap Chinese models lower what I will pay for delegated work. Claude remains worth a premium as my trusted orchestrator.
 
 I extracted the usage with:
 
@@ -118,7 +118,7 @@ DeepSeek’s off-peak cache reads cost about **1/67 of Opus 5.5’s**. The table
 
 ![Daily recorded output for Opus 5.5 versus Sonnet 5.5 in 29 September–9 October, and Astra versus Sol 6.1 in 4–11 October. Each pair has its own scale.](/img/ai-usage-2026/daily-pairs.svg)
 
-During **29 September–9 October**, Opus and Sonnet had similar output per active day, but Opus’s API valuation was roughly **2.4 times higher**. Their averages use nine and ten active days respectively; **4–11 October** uses four for Astra and six for Sol. Astra’s daily valuation was slightly higher than Sol’s, despite about a third of the output. An active day has a logged entry, regardless of workload. [Exact paired-window calculations](/data/ai-usage-paired-windows-2026.csv).
+During **29 September–9 October**, Opus and Sonnet had similar output per active day, but Opus’s API valuation was roughly **2.4 times higher**. Their averages use nine and ten active days respectively; **4–11 October** uses four for Astra and six for Sol. Astra’s valuation per active day was slightly higher than Sol’s, despite about a third of the output. An active day has a logged entry, regardless of workload. [Exact paired-window calculations](/data/ai-usage-paired-windows-2026.csv).
 
 ## Trust still has a price
 
@@ -128,7 +128,7 @@ I kept **Opus 5.5 orchestrating for a long time** while learning, running `compa
 
 Most work concerned HOCON: [lightbend/config](https://github.com/lightbend/config), [ekrich/sconfig](https://github.com/ekrich/sconfig) and my [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt). Working mainly through Claude, I developed a **skill for choosing models and reasoning effort**.
 
-My next measure of value should be accepted fixes, regressions and time spent correcting agents.
+Next I want to measure accepted fixes, regressions and time spent correcting agents.
 
 I also have Google AI Plus, but see no larger Antigravity allowance than free accounts. Its [documentation](https://antigravity.google/docs/plans) distinguishes Pro/Ultra without giving exact Plus-versus-Free token counts.
 
