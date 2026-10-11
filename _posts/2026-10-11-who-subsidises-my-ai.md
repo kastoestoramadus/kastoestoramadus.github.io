@@ -6,7 +6,7 @@ category: dev
 tags: [ 'ai', 'productivity' ]
 ---
 
-**TLDR:** My local logs recorded **5.73 billion tokens** from **5 September to 11 October 2026**, mostly cached context. Subscriptions cost me far less than the API list-price equivalent, while cheap Chinese APIs lower what I am willing to pay for delegated work. Claude earned my trust as the orchestrator; the figures do not tell me who, if anyone, loses money serving that work.
+**TLDR:** From **5 September to 11 October 2026**, I logged **5.73 billion tokens**, mostly cached context. Subscriptions give me a huge discount against API prices; cheap Chinese workers push prices down further. Claude remains worth a premium as my trusted orchestrator.
 
 I extracted the usage with:
 
@@ -20,19 +20,19 @@ For aggregation by model:
 npx ccusage -s 2026-09-05 --json --breakdown
 ```
 
-The analysis environment lacked `npx`, so we ran the npm package's binary directly with these arguments. The snapshot combines detected local Claude, Codex, OpenCode, Antigravity and Zcode logs: **37 calendar days, 35 with usage**, with 11 October partial. I have had Claude almost two weeks longer than the others, so the totals cover different periods and workloads.
+We ran the binary directly because `npx` was unavailable. These local Claude, Codex, OpenCode, Antigravity and Zcode logs cover unequal workloads: I have had Claude almost two weeks longer. **11 October is partial**.
 
 ## How the mix changed
 
 ![Weekly shares of output tokens for the main models and all other models combined, with total output shown for each week.](/img/ai-usage-2026/weekly-output.svg)
 
-In **21–27 September**, Opus 5.5 generated **75.3% of recorded output**. By **5–11 October**, its share was **6.9%**, while **DeepSeek Flash and GLM-5.3 Flash together generated 81.5%**. These are output volumes, not quality scores; the logs do not label orchestration or delegated execution.
+Opus 5.5 dominated output in **21–27 September**; DeepSeek Flash and GLM-5.3 Flash dominated **5–11 October**. This measures volume, not quality; logs do not label orchestration or delegated execution.
 
 ![Weekly shares of API costs priced by ccusage. DeepSeek and Gemma are excluded because ccusage has no prices for them.](/img/ai-usage-2026/weekly-value.svg)
 
-Weeks run Monday–Sunday; the first covers only **5–6 September**. The output chart includes every model. The value chart uses the report’s original API estimates and **excludes unpriced DeepSeek and Gemma**. DeepSeek’s balance gives total spend, not daily charges. Exact shares are in the [weekly CSV](/data/ai-usage-weekly-2026.csv).
+Weeks run Monday–Sunday, starting with **5–6 September**. API valuation excludes unpriced DeepSeek and Gemma; DeepSeek’s balance gives no daily breakdown. [Full weekly CSV](/data/ai-usage-weekly-2026.csv).
 
-The report contains **22 models**, after combining GLM names differing only in case. The nine entries below cover roughly 40% of them, selected by report valuation plus actual DeepSeek spend.
+Below are nine of **22 models** (roughly 40%), ranked by report valuation plus DeepSeek spend; GLM names differing only in case are combined.
 
 <details markdown="1">
 <summary>Exact figures, dates and current-price revaluation</summary>
@@ -58,7 +58,7 @@ Dates are first and last recorded use within the snapshot, not subscription date
 
 </details>
 
-The scenario uses prices checked on **11 October 2026**: Claude's five-minute cache writes, OpenAI Standard/short-context rates, GLM's published API rates, and DeepSeek's off-peak/peak bounds. It is a revaluation, not a reconstruction of historical billing, context lengths or speed modes. Sources: [Claude](https://claude.com/pricing), [OpenAI](https://developers.openai.com/api/docs/pricing), [GLM](https://docs.z.ai/guides/overview/pricing), [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing).
+Prices checked **11 October 2026**: [Claude](https://claude.com/pricing) five-minute cache writes, [OpenAI](https://developers.openai.com/api/docs/pricing) Standard/short-context rates, [GLM](https://docs.z.ai/guides/overview/pricing) API rates and [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) off-peak/peak bounds. These revalue usage, not historical bills.
 
 ![Cache reads make up 97.25% of the four-category token subtotal; input, cache creation and output together make up 2.75%.](/img/ai-usage-2026/token-mix.svg)
 
@@ -75,24 +75,20 @@ The scenario uses prices checked on **11 October 2026**: Claude's five-minute ca
 | Sum of the four token categories | 5,725,965,281 |
 | Difference in ccusage’s total counter | 40,074 |
 | **Reported total tokens** | **5,726,005,355** |
-| Costs priced by ccusage | $1,344.886242677 |
+| Costs priced by ccusage | $1,344.89 |
 | DeepSeek actual spend | $17.38 |
-| **Report valuation plus DeepSeek spend** | **$1,362.266242677 ≈ $1,362.27** |
+| **Report valuation plus DeepSeek spend** | **$1,362.27** |
 {: .table}
 
 </div>
 
-The dollar total mixes estimated API value and actual DeepSeek spend; it is not my bill or a complete current-price recalculation. Gemma's **978,819 tokens** are included with unknown cost. The **40,074-token discrepancy** remains unresolved; the model CSV sums to the four-category subtotal. [Download the full model breakdown](/data/ai-usage-2026-09-05-to-2026-10-11.csv).
+This mixes API estimates with DeepSeek spend, not my bill. Gemma’s **978,819 tokens** remain unpriced. The **40,074-token discrepancy** is unresolved; the [full model CSV](/data/ai-usage-2026-09-05-to-2026-10-11.csv) sums to the category subtotal.
 
 ## What I actually pay
 
-[ChatGPT Plus including Codex](https://learn.chatgpt.com/docs/pricing) and [Claude Pro](https://claude.com/pricing) each list **$20/month** with monthly billing. [GLM Lite](https://zcode.z.ai/en) shows **$18**, alongside a $12.60/month offer.
+[ChatGPT Plus/Codex](https://learn.chatgpt.com/docs/pricing) and [Claude Pro](https://claude.com/pricing) list **$20/month**; [GLM Lite](https://zcode.z.ai/en) lists **$18**, with a $12.60 offer. My receipts show **€18/month for Claude**, **80.49 PLN for ChatGPT**, and **$18 plus a separate $3 Z.ai payment**. This 37-day snapshot spans billing cycles.
 
-My receipts show **€18/month for Claude**, **80.49 PLN for ChatGPT Plus**, and **$18 plus a separate $3 payment to Z.ai**. The latter totals $21 paid, not necessarily a recurring $21 subscription. This 37-day snapshot also spans billing cycles.
-
-For DeepSeek I topped up **$20**, with **$2.62 remaining: $17.38 spent**. It generated **12,268,738 output tokens**, about 35% of all output in the snapshot.
-
-Cache reads account for **97.25% of the four-category subtotal** and **98.52% of DeepSeek's total**. Most of those billions are reused context.
+DeepSeek consumed **$17.38 of a $20 top-up**, leaving **$2.62**, for roughly **35% of recorded output**. Cache reads represent **97.25%** of the category subtotal and **98.52%** of DeepSeek’s tokens: those billions mostly mean reused context.
 
 <details markdown="1">
 <summary>Exact API prices per million tokens</summary>
@@ -112,38 +108,34 @@ Cache reads account for **97.25% of the four-category subtotal** and **98.52% of
 
 </details>
 
-These are the official [Claude](https://claude.com/pricing), [OpenAI](https://developers.openai.com/api/docs/pricing), [GLM](https://docs.z.ai/guides/overview/pricing) and [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) rates; separately charged cache writes are omitted from this price table. DeepSeek's off-peak cache reads are about **67 times cheaper than Opus 5.5's**. That compares a price component, not equivalent task results.
+DeepSeek’s off-peak cache reads cost about **1/67 of Opus 5.5’s**. The table omits separately charged cache writes.
 
 ## Opus versus Sonnet, Astra versus Sol
 
 ![Opus 5.5 costs twice Sonnet 5.5’s API rates. Astra costs five times Sol 6.1 for most token categories and ten times for cache reads.](/img/ai-usage-2026/model-premiums.svg)
 
-At [current API prices](https://claude.com/pricing), **Opus 5.5 costs exactly twice Sonnet 5.5** for input, output, cache reads and five-minute cache writes. [Astra costs five times Sol 6.1](https://developers.openai.com/api/docs/pricing) for input, output and cache writes, and **ten times for cache reads**, using Standard/short-context pricing. That is a larger premium for the cache-heavy work in my logs.
-
-These price ratios do not establish which subscription gives me better value: ccusage does not show how each model consumes the shared allowance. A higher API price does not guarantee more usable work.
+**Opus costs twice Sonnet; Astra costs five times Sol, or ten times for cache reads**, at the rates above. Astra’s premium is particularly steep for cached context. These logs do not measure subscription quota consumption.
 
 ![Daily recorded output for Opus 5.5 versus Sonnet 5.5 in 29 September–9 October, and Astra versus Sol 6.1 in 4–11 October. Each pair has its own scale.](/img/ai-usage-2026/daily-pairs.svg)
 
-During **29 September–9 October**, Opus 5.5 averaged **199,191 output tokens and $15.60 in current-rate value per active day** across nine active days. Sonnet 5.5 averaged **201,633 tokens and $6.53** across ten. Similar output volume at roughly 2.4 times the daily valuation does not establish equal task difficulty or quality.
-
-During **4–11 October**, Astra averaged **25,349 output tokens and $7.21 per active day** across four days; Sol 6.1 averaged **84,947 tokens and $6.14** across six. An active day has a model entry in the logs. These averages measure neither speed, quota consumption nor productivity. [Download the paired-window calculations](/data/ai-usage-paired-windows-2026.csv).
+During **29 September–9 October**, Opus and Sonnet had similar output per active day, but Opus’s API valuation was roughly **2.4 times higher**. Their averages use nine and ten active days respectively; **4–11 October** uses four for Astra and six for Sol. Astra’s daily valuation was slightly higher than Sol’s, despite about a third of the output. An active day has a logged entry, regardless of workload. [Exact paired-window calculations](/data/ai-usage-paired-windows-2026.csv).
 
 ## Trust still has a price
 
-I trust Claude the most. Codex made risky decisions without asking me. That is my experience with these tools, not a controlled safety benchmark.
+I trust Claude the most. Codex made risky decisions without asking me. Cheap tokens save less when I must supervise every decision.
 
-I initially kept **Opus 5.5 as orchestrator for a long time** while learning to organise the work, running `compact` roughly eight times. **Sonnet 5.5 is now my main orchestrator**, sometimes replaced by Opus 5.5. I entrust the main project tasks to these more expensive models; they delegate to subagents and collect the results.
+I kept **Opus 5.5 orchestrating for a long time** while learning, running `compact` roughly eight times. **Sonnet 5.5 now leads**, sometimes Opus; these expensive models delegate to subagents and collect results.
 
-Most of this project work was around HOCON: [lightbend/config](https://github.com/lightbend/config), [ekrich/sconfig](https://github.com/ekrich/sconfig) and my formatter, [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt). I mainly worked with the Claude orchestrator, and eventually developed a **skill for choosing models and reasoning effort**.
+Most work concerned HOCON: [lightbend/config](https://github.com/lightbend/config), [ekrich/sconfig](https://github.com/ekrich/sconfig) and my [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt). Working mainly through Claude, I developed a **skill for choosing models and reasoning effort**.
 
-Accepted fixes, regressions and time spent correcting agents would tell me more about value than token counts. I have not measured those here. Claude's trust advantage is worth a premium to me: cheap tokens save less if I must constantly supervise decisions.
+My next measure of value should be accepted fixes, regressions and time spent correcting agents.
 
-I also have Google AI Plus, but see no larger allowance than free accounts in Antigravity. Its [documentation](https://antigravity.google/docs/plans) distinguishes Pro/Ultra from other users with weekly refreshes, without publishing exact Plus-versus-Free token counts there.
+I also have Google AI Plus, but see no larger Antigravity allowance than free accounts. Its [documentation](https://antigravity.google/docs/plans) distinguishes Pro/Ultra without giving exact Plus-versus-Free token counts.
 
 ## China does not need to win every task
 
-The two Opus models alone revalue to **$870.03** at current standard API rates, far above my Claude subscription payments. That gap explains the title's question, but cannot answer it: list price is not serving cost. These logs establish neither a subsidy nor a provider loss.
+The two Opus models revalue to **$870.03** at current API rates. Western subscriptions look subsidised against that retail value; list prices reveal neither serving costs nor provider losses.
 
-Chinese providers do not need to win every task to put pressure on prices. In my workflow, handling delegated work cheaply is enough to reduce what I will pay for it. That is a competitive effect, not evidence of a Chinese state strategy or DeepSeek's profitability.
+Cheap delegated work already lowers what I will pay. If Chinese providers aim to deflate AI's price premium, it is working in my workflow; their intentions and profitability remain unknown.
 
-Providers charging a premium have to justify it through results, reliability or allowances. Meanwhile, [Anthropic is committing to gigawatts of infrastructure](https://www.anthropic.com/news/google-broadcom-partnership-compute), alongside growing revenue. Useful AI could still disappoint investors if customers' willingness to pay falls faster than costs. For me, Claude's reliability remains worth paying for; delegated work faces much stronger price competition.
+[Anthropic is committing to gigawatts of infrastructure](https://www.anthropic.com/news/google-broadcom-partnership-compute). Useful AI could still disappoint investors if willingness to pay falls faster than costs. For me, reliability justifies Claude’s premium; delegated work faces much stronger price competition.
