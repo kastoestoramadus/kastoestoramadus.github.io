@@ -10,7 +10,7 @@
 				<title>Who subsidises my AI? 5.73 billion tokens later</title>
 				
 				
-					<description>&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; My local logs recorded &lt;strong&gt;5.73 billion tokens&lt;/strong&gt; from &lt;strong&gt;5 September to 11 October 2026&lt;/strong&gt;. Western subscriptions give me access far below the API list-price equivalent, while cheap Chinese API access puts further pressure on what I am willing to pay. Claude earned the most trust: Sonnet 5.5 eventually became my main orchestrator, with Opus 5.5 sometimes taking that role and the other models working for them under Claude.&lt;/p&gt;
+					<description>&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; My local logs recorded &lt;strong&gt;5.73 billion tokens&lt;/strong&gt; from &lt;strong&gt;5 September to 11 October 2026&lt;/strong&gt;, mostly cached context. Subscriptions cost me far less than the API list-price equivalent, while cheap Chinese APIs lower what I am willing to pay for delegated work. Claude earned my trust as the orchestrator; the figures do not tell me who, if anyone, loses money serving that work.&lt;/p&gt;
 </description>
 				
 				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
