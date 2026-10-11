@@ -7,6 +7,18 @@
 		<atom:link href="https://kastoestoramadus.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Who subsidises my AI? 5.73 billion tokens later</title>
+				
+				
+					<description>&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; From &lt;strong&gt;5 September to 11 October 2026&lt;/strong&gt;, I logged &lt;strong&gt;5.73 billion tokens&lt;/strong&gt;, mostly cached context. Subscriptions give me a huge discount against API prices; cheap Chinese models lower what I will pay for delegated work. Claude remains worth a premium as my trusted orchestrator.&lt;/p&gt;
+</description>
+				
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<link>https://kastoestoramadus.github.io/dev/2026/10/11/who-subsidises-my-ai.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/10/11/who-subsidises-my-ai.html</guid>
+			</item>
+		
+			<item>
 				<title>Getting useful work out of Gemini Flash</title>
 				
 				
@@ -112,18 +124,6 @@
 				<pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</guid>
-			</item>
-		
-			<item>
-				<title>No dual boot with Intel Optane</title>
-				
-				
-					<description>&lt;p&gt;Intel Optane is a great caching solution for HDDs. It gives you huge disk space that is almost as fast as a SATA SSD, with a much longer lifespan than SSDs have. Some stores sell it in a cheap bundle with a CPU and/or a motherboard.&lt;/p&gt;
-</description>
-				
-				<pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/os/2018/09/10/no-optane-with-dual-os.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2018/09/10/no-optane-with-dual-os.html</guid>
 			</item>
 		
 	</channel>
