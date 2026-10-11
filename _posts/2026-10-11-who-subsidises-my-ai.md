@@ -60,8 +60,6 @@ I kept **Opus 5.5 orchestrating for a long time** while learning, running `compa
 
 Most work concerned HOCON: [lightbend/config](https://github.com/lightbend/config), [ekrich/sconfig](https://github.com/ekrich/sconfig) and my [hocon-fmt](https://github.com/kastoestoramadus/hocon-fmt). Working mainly through Claude, I developed a **skill for choosing models and reasoning effort**.
 
-Next I want to measure accepted fixes, regressions and time spent correcting agents.
-
 ## Detailed usage analysis
 
 For aggregation by model:
