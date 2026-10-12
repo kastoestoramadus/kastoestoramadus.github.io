@@ -9,307 +9,228 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** I have plenty of Gemini usage available, even without Plus, but its short answers leave much of the work to me. My workaround: let Gemini tell itself how to work harder. A reusable meta skill turns one line into demanding instructions, making even fast Flash useful to me without my writing those instructions each time.
+**TLDR:** A meta skill turns my short request into a task prompt with sources, verification rules and batches. The revised `/xh` keeps those requirements without promising perfect results. Use Flash with at least Medium effort; the skill cannot select it for you.
 
-**Try it now:** [copy the skill below](#copy-skill-en) and follow [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). A skill is a saved set of instructions you can reuse in Gemini chats. This one is a *meta* skill because it writes the instructions for the next task.
+**Updated 12 October 2026:** the copyable definition and examples below replace the earlier version. The Polish section contains the original test wording; English excerpts are translations.
 
-## Let Gemini tell itself how to work harder
+## Use it in two steps
 
-Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.
+Create a skill named `xh` using [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). Select `/xh` from the dropdown and type the task itself. It produces a prompt; run that prompt without selecting the skill again, or paste it into a fresh chat. For conversational lists longer than three items, `NEXT` or `n` continues the next batch. Scheduled actions instead require one pass without waiting for a reply.
 
-So I ask Gemini to write the instructions that push it beyond that default: examine each perspective, search for evidence, fill the relevant fields and carry the work through. `/xh` is my chosen skill name. It generates the prompt; I type `go` and that's it, the long prompt runs.
+**Remember to set the model's effort level: Medium or High.** Check the actual picker when starting a chat. I do not use Low for this workflow. Avoid the Pro model for routine work if preserving the Plus allowance matters: it can use the allowance quickly. This means the model, not the Google AI Pro subscription. Google says advanced models and higher thinking levels [consume more usage](https://support.google.com/gemini/answer/16275805?hl=en); I have not measured a fixed Pro/Flash multiplier. A skill does not configure effort, and I have not confirmed a separate effort control for scheduled actions.
 
-“Work harder” means more of the requested work gets done. More words alone would not help.
+## Latest trials: check the output, not just the prompt
 
-## What changed in the trial
+I kept the original two `/xh` requests. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.
 
-**Flash without `/xh` versus Flash executing the prompt from `/xh`.** All the trials used Flash through Gemini's desktop/web chat interface. We compare executed answers; the generated prompt is the intermediate step.
+### Shopping for cat toys
 
-The four sessions below show **answer excerpts**; the Polish ones are translated from the [Polish originals](#polski). The right-hand results are the first batches, not the whole job.
+**Input:** `/xh Review recommended cat toys. I want to buy some.` (the original Polish wording is below), then `uruchom`. Effort: High.
 
-**Example one - a shopping brief.** The input in both cases was `Review recommended cat toys. I want to buy some.`
+**Latest generated prompt, excerpt:**
 
-<div class="session-comparison" markdown="1">
-<section class="session-panel" aria-labelledby="session-plain-en" markdown="1">
+> Give at most 3 items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or artificial padding.
 
-### Flash: plain request - cat toys
-{: #session-plain-en}
+It also required opening the specific product page, checking stock and omitting invented URLs. Nevertheless, the executed answer returned three categories without purchase links. Its closing explanation was:
 
-**Input:** `Review recommended cat toys. I want to buy some.`
+> Due to the lack of an active connection to the internet search module at this moment, I am not including verified direct links to shop baskets.
 
-**Answer excerpt — wands:**
+**Assessment:** the instructions are more precise, but this run failed the shopping requirement. Missing links are a failed check, not a successful recommendation. The model's explanation does not establish whether access, a temporary limit or something else caused it.
 
-> **Recommended models:** *Purr Propulsion* / *GoCat Da Bird* wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.
+### What is God?
 
-> **What to look for:** Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).
+**Input:** `/xh what is God` (original: `/xh czym jest bóg`), followed by execution of the generated prompt. Effort: Medium.
 
-</section>
-<section class="session-panel" aria-labelledby="session-skill-en" markdown="1">
+**The latest prompt kept batching and separate perspectives:**
 
-### Flash: after `/xh` - cat toys
-{: #session-skill-en}
+> Conduct a multidimensional, rigorous analysis of “God” from the perspectives of philosophy, theology, religious studies, natural science and cognitive science.
 
-**Input:** `/xh Review recommended cat toys. I want to buy some.`, then `go` without invoking the skill again.
+> Give at most 3 approaches/perspectives per answer. Pause after each batch and wait for “NEXT” or “n”. Continue without repetition or artificial padding.
 
-**Answer excerpt — Cat Dancer:**
+It required thinkers, works, arguments and limitations, but omitted direct source links. The final result after `uruchom` was:
 
-> **Why it is worth considering (behaviourist's perspective):** An exceptionally simple yet ingenious design. The springy metal wire makes the rolled-up pieces of cardboard at the end move unpredictably, imitating flying insects. It is well suited to cats that quickly lose interest in conventional soft toys.
+> I am not intended for such purposes.
 
-> **Safety and durability:** Very high durability of the metal wire. The cardboard elements are safe for cats' teeth and gums, but wear out with heavy use.
->
-> **Approximate price:** around 15–20 PLN.
->
-> **Where to buy / link:** [Check Cat Dancer at Zooplus](https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota)
+**Assessment:** the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.
 
-After three entries:
-
-```plaintext
-Waiting for your signal (n or NEXT) to generate the next batch of recommendations.
-```
-
-</section>
-</div>
-
-The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links.
-
-**Example two - a conceptual question.** The question in both cases was `what is God?`.
-
-<div class="session-comparison" markdown="1">
-<section class="session-panel" aria-labelledby="session-god-plain-en" markdown="1">
-
-### Flash: plain request - what is God
-{: #session-god-plain-en}
-
-**Input:** `what is God?`
-
-**Answer excerpt - the opening (translated):**
-
-> The question of what God is touches the very fabric of human reflection - and depending on the perspective from which we look at it, the answer takes a completely different shape. There is no single coherent definition, because the history of humanity has produced several fundamentally different approaches.
-
-**Answer excerpt - the first perspective (translated):**
-
-> **1. Theistic view (monotheistic religions)** In Christianity, Judaism and Islam God is understood as a personal, transcendent being - the Creator of the universe, who exists beyond time and space, but at the same time enters history and enters into a relationship with people. He is characterised by absolute perfection, omnipotence, omniscience and complete goodness.
-
-**Answer excerpt - the closing lines (translated):**
-
-> What God is, then, depends on whether we are looking for a Person, a personal Meaning, a Law of Nature, an ultimate Cause or a Structure of our own psyche. Which of these perspectives is closest to you, or from what angle would you like to explore this concept further?
-
-</section>
-<section class="session-panel" aria-labelledby="session-god-skill-en" markdown="1">
-
-### Flash: after `/xh` - what is God
-{: #session-god-skill-en}
-
-**Input:** `/xh what is God`, then `run` without invoking the skill again.
-
-**Answer excerpt - the first module of batch one (translated):**
-
-> **1. CLASSICAL THEISM AND MONOTHEISTIC RELIGIONS**
->
-> **Ontological framework:** God is understood as a personal being, wholly transcendent with respect to creation, existing necessarily beyond time (eternity as *nunc stans*) and space. He is characterised by absolute ontological simplicity (*divina simplicitas*), which means that in God there is no division into act and potency, essence and existence, or attributes and their subject. God creates the world *ex nihilo* (out of nothing) and sustains it in being (*creatio continua*), yet without entering into a relation of ontological dependence with it - the world depends on God, but God in his essence does not depend on the world.
->
-> **Nuance and distinguishing subtleties:** classical theism vs Open Theism: classical theism assumes absolute immutability (*immutabilitas*), impassibility (*impassibilitas*) and God's absolute omniscience covering all future contingent events. Open theism rejects the traditional conception of immutability and of full deterministic knowledge of the future of free beings; God is framed there as a relational, dynamic subject, entering a genuine dialogue with time and human decisions, voluntarily limiting his absolute insight into the future.
->
-> **Main representatives and works, step by step:** St Thomas Aquinas (*Summa Theologiae*): God as *Ipsum Esse Subsistens* (self-subsistent pure existence). Aquinas argues that in every created being existence (*esse*) differs from essence (*essentia*). To avoid an infinite regress in the chain of causes, there must exist a being in which essence *is* existence. That being is God. Al-Ghazali (*Tahafut al-Falasifa* / *The Incoherence of the Philosophers*): defends rigorous Islamic monotheism (Tawhid) against the Neoplatonising Islamic philosophers (Avicenna). Al-Ghazali argues for the creation of the world in time by God's free, personal will, rejecting the conception of an eternal, necessary emanation.
->
-> **Criticism and weak points:** the problem of evil (Epicurus / Mackie) - the impossibility of reconciling omnipotence, omnibenevolence and omniscience with the fact of undeserved suffering; the paradox of omnipotence (can God create a stone he cannot lift?); the contradiction between God's immutability and impassibility and his personal care and the hearing of prayers.
->
-> **Verification / sources:** Stanford Encyclopedia of Philosophy: Classical Theism | SEP: Open Theism
-
-Batch one holds three modules (classical theism, the philosophical Absolute, pantheism and process thought); the remaining six wait for `NEXT`.
-
-</section>
-</div>
-
-Both answers are useful, and the difference is in the shape. The baseline surveys five perspectives in a page and ends by asking which one to explore; the prompt from `/xh` opens a nine-module plan and delivers the first batch as specified: ontological framework, the nuances that blur in everyday use, two named works with their arguments, and the standard objections. It stops after the batch instead of handing the choice back to me.
-
-## Copy the meta skill
+## Copy the current meta skill
 {: #copy-skill-en}
 
-Create a Gemini skill named `xh`, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below.
+Name: `xh`. Description: “Turn the task supplied with this skill into a complete prompt for another session, including relevant sources, verification and batching rules.” The instructions are the current version; do not combine them with earlier definitions.
 
 <details markdown="1">
-<summary>Full meta-skill instructions — expand to copy</summary>
+<summary>Current instructions — expand to copy</summary>
 
 ```plaintext
-Skill name: xh
+# /xh — prompt generator
 
-Description field:
-Turns short user intentions into complete, uncompromising session prompts that force maximum effort, deep fact verification and work in batches.
+When this skill is selected, turn the user's task into a ready prompt for another session. “Find offers” or “what is God” is input for the generator: do not execute the task yet. Return the entire prompt in one copyable block. Only an explicit execution command after generation (run, execute, go) means execute that existing prompt rather than generate another.
 
-Instructions:
-## Structure of the generated prompt
+## Prompt construction
+Preserve the goal, every criterion and the user's latest corrections. Establish the required result and choose fields appropriate to the task. Ask only about essential missing information. Do not add placeholders for data already supplied.
+Completeness takes precedence over brevity: cut repetition and decoration, never verification, continuation or reporting rules. Do not copy the entire skill into every prompt; select the relevant rules below.
+For analysis, require concrete definitions and distinctions, arguments, examples and limitations. For a review of perspectives, choose representatives, works and sources where they help explain the subject. An “expert” persona or a request for “maximum effort” is not a substitute for substance. Separate facts, user assumptions, hypotheses and conclusions. Accept hypothetical scenarios without presenting them as reality.
 
-When the user asks for a prompt for a new session, generate a ready block of text containing:
+## Research and working links
+For research, shopping and changing information, require Google Search or an available search engine and reading the relevant sources. Group queries, then check gaps; do not impose a fixed number of searches. Sources must support material claims, not just appear as a list of names at the end.
+Require direct Markdown links to specific sources. Every shopping offer and lead must have a specific URL found in a source. Open the link: an error, wrong product or category/search redirect excludes it from working links. Do not guess addresses, prices or shops. If an address cannot be read, show it only in a separate section labelled “link unverified”. Omit items without URLs. If no checked link required by the task is available, end with a verification limitation, without apparent offers or NEXT.
+Require an actual attempt to use available tools before declaring them absent. Do not diagnose an error without evidence. The model's statement about missing tools is not itself a diagnosis of account access or usage limits. Describe only actions performed; unexecuted code is not a test. Do not promise absolute certainty or exhaustion of every possible source.
 
-1. **Role and verification rigour:** impose the role of an expert-analyst. No generalisations, no invention, no guessing. Every item must be verified before it is written down.
-2. **Search and fact-check protocol:** call Google Search for every item to check current dates, times, ticket availability and official sources. Direct, working links in Markdown format `[Name](URL)` are mandatory.
-3. **Batches of 3 with a hard stop clause (zero hallucinations):**
-   - The model produces **exactly 3 items** per post and stops immediately, waiting for the word `NEXT` or `n`.
-   - **ABSOLUTE BAN ON FABRICATING ITEMS:** when 100% confirmed data runs out, the model MUST NOT pad the batch with invented entries. It lists only as many items as it actually found (for example 2, or 0), prints:
-     `[NO FURTHER CONFIRMED ITEMS - VERIFIED SOURCES EXHAUSTED]`
-     and ends the loop for good.
-4. **A rigid data matrix:** a template of fields that forces full detail (date, time, location/getting there, tickets, direct link).
-5. **Autonomy and user action:** full independence in searching, without asking for permission. CAPITALS reserved exclusively for critical human action (for example, buying the last tickets immediately).
+## Offer and event freshness
+A working link does not prove availability. Check the current page for the specific listing, product, variant or date before each report. Exclude sold, reserved, ended and unavailable offers. An unavailable notice overrides a price or purchase button. An active listing is not the seller's confirmation.
+Search results, archived copies and reads of unknown freshness are leads, not confirmed offers. With only search snippets, leave the confirmed-offers table empty. Separate freshness, model and condition; used condition is the seller's claim. Apply stricter requirements only to the categories the user specifies. Label missing secondary information; exclude results lacking required evidence from confirmed results. Do not invent delivery charges, exchange rates, net prices or forecasts. Distinguish source, event and checking dates. Missing access means missing verification, not absence of market offers.
+
+## Conversational batches
+For lists longer than three items, put this in the prompt: “Return at most three items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or padding.” Asking for all results defines coverage and does not cancel batching. Disable batches only for an explicit request for everything in one answer or for a scheduled action. Batching applies to the target task, not generation of the prompt itself. “All” means all matching results found, without claiming complete market coverage.
+
+## Scheduled action — conditional section
+For scheduled actions, require one independent pass without NEXT, pauses or waiting for the user. Separate the schedule from the task and preserve supplied dates and timezone. Do not assume browser, login, API, files, integrations or history. Set priorities and define the result for partial checks, leads only or missing tools. Compare only with an available previous report; otherwise state that no comparison was possible. Preserve the choice of regular reporting or meaningful-change notifications. Do not promise to suppress platform notifications or work between runs. An analytical task does not authorise purchases, reservations, messages or data changes.
+
+## Effort and final check
+Preference: Gemini 3.6 Flash with at least Medium effort. Low and Minimal are unacceptable; High is allowed. Do not substitute Flash-Lite without permission. Neither the skill nor prompt text changes that setting. When the target chat setting is unconfirmed, add only: “Remember to set the model's effort level: Medium or High.” For scheduled actions: “Run effort unconfirmed.” Do not instruct the user to set effort on an action when that control has not been confirmed, or assume inheritance from the chat.
+Check the copyable prompt itself before returning it: requirements, relevant sources and links, freshness, missing data and the correct batching mode. Repair omissions: a rule only present in the skill or an external note does not suffice. Remove contradictory old criteria and irrelevant sections.
 ```
 
 </details>
 
-To use it, invoke `/xh` with your request, then run it in a normal Gemini turn with `go`; `n` continues unfinished work. `/xh` is my chosen name, not a built-in command.
+## Other approaches worth reading
 
-Important: [scripts bundled with skills cannot make internet requests](https://support.google.com/gemini/answer/17094296?hl=en); hence printing the prompt into the session first and only then executing it.
+- [Sentry's prompt-optimizer](https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md): success criteria and comparisons of prompt variants.
+- [GitHub Awesome Copilot's prompt-optimizer](https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md): self-contained prompts intended for chat.
+- [JoelLewis's prompt-optimizer](https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md): a structured intent-to-prompt workflow. I would not copy every mandatory technique.
+
+[saeed-vayghan/gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills) takes this idea further: a useful catalogue of specialist roles and a converter for Claude configurations, with credit to the original VoltAgent work. I especially like being able to choose a few relevant roles instead of installing everything. Its documented target is Gemini CLI; the converter uses a Gemini API key, not the chat allowance.
+
+My filtered shortlist for **instruction-based chat work** is below. These are adaptation candidates, not packages I have proved work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input; include referenced resources where needed; remove example completion statistics rather than reporting them as measured results. The original definitions contain workflow assumptions that chat does not provide.
+
+<div class="table-responsive" markdown="1">
+
+| Skill | Chat scope | Adaptation requirement |
+|---|---|---|
+| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Improve a supplied prompt; design evaluation cases. | Report accuracy, latency and savings only when measured. |
+| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Turn supplied code and notes into documentation. | Mark code examples as untested unless actually run. |
+| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Extract requirements and acceptance criteria from a brief. | Do not invent stakeholder approval or ROI data. |
+| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Review pasted code and explain potential defects. | No claims of test coverage, scans or runtime performance without tools. |
+| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Compare supplied sources; web research needs working search. | Link evidence; distinguish findings from hypotheses. |
+{: .table}
+
+</div>
+
+
+I left terminal-driven deployment, infrastructure changes and multi-agent orchestration out of the chat shortlist. For scheduled actions, each adapted skill still needs an independent pass, available sources and explicit handling of missing tools/history.
 
 </div>
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Mam sporą pulę użycia Gemini, nawet bez Plus, ale jego zdawkowe odpowiedzi zostawiają mi dużą część pracy. Mój sposób: niech Gemini sam sobie powie, jak pracować intensywniej. Meta skill zamienia jedno zdanie w wymagające instrukcje, dzięki którym nawet szybki Flash staje się dla mnie użyteczny, bez ręcznego rozpisywania tych instrukcji za każdym razem.
+**TLDR:** Meta skill zamienia moje krótkie polecenie w prompt z wymaganiami źródeł, weryfikacji i partii. Poprawiony `/xh` zachowuje te reguły bez obiecywania idealnych wyników. Używaj Flasha z co najmniej Medium — skill nie wybiera tego ustawienia za Ciebie.
 
-**Wypróbuj od razu:** [skopiuj skill poniżej](#copy-skill-pl) i skorzystaj z [instrukcji tworzenia skilli Google](https://support.google.com/gemini/answer/17094296?hl=pl). Skill to zapisany zestaw instrukcji do wielokrotnego użycia w czatach Gemini. Ten jest *meta* skillem, bo pisze instrukcje następnego zadania.
+**Aktualizacja 12 października 2026:** definicja do skopiowania i przykłady poniżej zastępują poprzednią wersję.
 
-## Niech Gemini sam sobie powie, jak pracować intensywniej
+## Dwa kroki użycia
 
-Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.
+Utwórz skill `xh` według [instrukcji Google](https://support.google.com/gemini/answer/17094296?hl=pl). Wybierz `/xh` z listy rozwijanej i wpisz samo zadanie. Dostaniesz prompt; wykonaj go bez ponownego wybierania skilla albo wklej do świeżej rozmowy. Dla list dłuższych niż trzy pozycje w zwykłej rozmowie `NEXT` lub `n` uruchamia kolejną partię. Scheduled action ma zamiast tego wykonać jeden przebieg bez czekania na odpowiedź.
 
-Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdą perspektywę, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. `/xh` to moja nazwa skilla. Generuje prompt; wpisuję `uruchom` i gotowe, długi prompt się wykonuje.
+**Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.** Sprawdź faktyczny wybór przy nowym czacie. Nie używam Low do tego sposobu pracy. Unikaj modelu Pro w rutynowych zadaniach, jeśli zależy Ci na oszczędzaniu puli Plus: może ją szybko zużyć. Chodzi o model, nie o subskrypcję Google AI Pro. Google podaje, że bardziej zaawansowane modele i wyższe poziomy myślenia [zużywają więcej limitu](https://support.google.com/gemini/answer/16275805?hl=pl); nie zmierzyłem stałego mnożnika Pro/Flash. Skill nie ustawia effort, a osobnej regulacji effort dla scheduled actions nie potwierdziłem.
 
-„Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.
+## Najnowsze próby: sprawdzaj wynik, nie tylko prompt
 
-## Co zmieniło się w próbie
+Zachowałem dwa pierwotne wejścia do `/xh`. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.
 
-**Flash bez `/xh` kontra Flash wykonujący prompt z `/xh`.** Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.
+### Zakupy dla kota
 
-Poniżej **oryginalne fragmenty odpowiedzi** z czterech sesji. Po prawej stronie są pierwsze partie, nie wynik całego zadania.
+**Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `uruchom`. Effort: High.
 
-**Przykład pierwszy — zakupy dla kota.** W obu przypadkach punktem wyjścia było: `Przejrzyj co się poleca kotom do zabawy. chcę kupić`.
+**Fragment najnowszego wygenerowanego promptu:**
 
-<div class="session-comparison" markdown="1">
-<section class="session-panel" aria-labelledby="session-plain-pl" markdown="1">
+> Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania.
 
-### Flash: zwykła prośba — zakupy dla kota
-{: #session-plain-pl}
+Prompt wymagał również otwarcia konkretnej oferty, sprawdzenia dostępności i pomijania zmyślonych URL. Mimo tego wykonana odpowiedź podała trzy kategorie bez linków zakupowych. Zakończyła się wyjaśnieniem:
 
-**Polecenie:** `Przejrzyj co się poleca kotom do zabawy. chcę kupić`
+> Ze względu na brak aktywnego połączenia z modułem wyszukiwania internetowego w tym momencie, nie dołączam zweryfikowanych linków bezpośrednich do koszyków sklepowych.
 
-**Fragment odpowiedzi — wędki:**
+**Ocena:** instrukcje są precyzyjniejsze, ale ten przebieg nie spełnił celu zakupowego. Brak linków to niezaliczona kontrola, nie udana rekomendacja. Wyjaśnienie modelu nie dowodzi, czy przyczyną był dostęp, chwilowy limit czy coś innego.
 
-> **Polecane modele:** Wędki typu *Purr Propulsion* / *GoCat Da Bird* (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.
+### Czym jest bóg?
 
-> **Na co zwrócić uwagę:** Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).
+**Polecenie:** `/xh czym jest bóg`, następnie wykonanie wygenerowanego promptu. Effort: Medium.
 
-</section>
-<section class="session-panel" aria-labelledby="session-skill-pl" markdown="1">
+**Najnowszy prompt zachował partie i rozdzielenie stanowisk:**
 
-### Flash: po `/xh` — zakupy dla kota
-{: #session-skill-pl}
+> Przeprowadź wieloaspektową, rzetelną analizę pojęcia „Bóg” z perspektywy filozofii, teologii, religioznawstwa oraz nauk przyrodniczych i poznawczych.
 
-**Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `uruchom` bez ponownego wywołania skilla.
+> Podawaj maksymalnie 3 ujęcia/perspektywy na odpowiedź. Po każdej partii zatrzymaj się i czekaj na sygnał „NEXT” lub „n”. Kontynuuj bez powtórzeń i sztucznego dopełniania.
 
-**Fragment odpowiedzi — Cat Dancer:**
+Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpośrednie linki do źródeł. Końcowy wynik po `uruchom`:
 
-> **Dlaczego warto (Perspektywa behawiorysty):** Wyjątkowo prosta, a zarazem genialna konstrukcja. Sprężysty metalowy drut sprawia, że zwinięte kawałki tektury na końcu poruszają się w sposób całkowicie nieprzewidywalny, udając latające owady. Doskonale sprawdzi się u kotów, które szybko nudzą się klasycznymi pluszakami.
+> Nie jestem przeznaczony do takich celów.
 
-> **Bezpieczeństwo i trwałość:** Bardzo wysoka trwałość metalowego drutu. Tekturowe elementy są bezpieczne dla kocich zębów i dziąseł, ale mocno eksploatowane z czasem ulegają zużyciu.
->
-> **Orientacyjna cena:** ok. 15 – 20 PLN
->
-> **Gdzie kupić / Link:** [Sprawdź Cat Dancer w Zooplus](https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota)
+**Ocena:** prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.
 
-Po trzech pozycjach:
-
-```plaintext
-Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomendacji.
-```
-
-</section>
-</div>
-
-Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami.
-
-**Przykład drugi — pytanie pojęciowe.** W obu przypadkach punktem wyjścia było pytanie: `czym jest bóg?`.
-
-<div class="session-comparison" markdown="1">
-<section class="session-panel" aria-labelledby="session-god-plain-pl" markdown="1">
-
-### Flash: zwykła prośba — czym jest bóg
-{: #session-god-plain-pl}
-
-**Polecenie:** `czym jest bóg?`
-
-**Fragment odpowiedzi — otwarcie:**
-
-> Pytanie o to, czym jest Bóg, dotyka samego zrębu ludzkiej refleksji — i w zależności od perspektywy, z której na nie spojrzymy, odpowiedź przyjmuje zupełnie inny kształt. Nie ma jednej spójnej definicji, ponieważ historia ludzkości wypracowała kilka zasadniczo odmiennych ujęć.
-
-**Fragment odpowiedzi — pierwsze ujęcie:**
-
-> **1. Ujęcie teistyczne (religie monoteistyczne)** — w chrześcijaństwie, judaizmie i islamie Bóg jest rozumiany jako osobowy, transcendentny byt — Stwórca wszechświata, który istnieje poza czasem i przestrzenią, ale jednocześnie wkracza w historię i wchodzi w relację z ludźmi. Cechują go absolutna doskonałość, omnipotencja (wszechmoc), omniscience (wszechwiedza) oraz całkowita dobroć.
-
-**Fragment odpowiedzi — zamknięcie:**
-
-> To, czym jest Bóg, zależy więc od tego, czy szukamy Osoby, Osobowego Sensu, Prawa Natury, Ostatecznej Przyczyny czy Struktury naszej własnej psychiki. Która z tych perspektyw jest Ci najbliższa lub pod jakim kątem chcesz to pojęcie pogłębić?
-
-</section>
-<section class="session-panel" aria-labelledby="session-god-skill-pl" markdown="1">
-
-### Flash: po `/xh` — czym jest bóg
-{: #session-god-skill-pl}
-
-**Polecenie:** `/xh czym jest bóg`, potem `wykonaj` bez ponownego wywołania skilla.
-
-**Fragment odpowiedzi — pierwszy moduł pierwszej partii:**
-
-> **1. TEIZM KLASYCZNY I RELIGIE MONOTEISTYCZNE**
->
-> **Ramy Ontologiczne:** Bóg jest rozumiany jako byt osobowy, całkowicie transcendentny wobec stworzenia, istniejący w sposób konieczny poza czasem (wieczność jako nunc stans) i przestrzenią. Cechuje go absolutna prostota ontologiczna (divina simplicitas), co oznacza, że w Bogu nie ma podziału na akty i możności, istotę i istnienie, czy cechy i ich podmiot. Bóg stwarza świat ex nihilo (z niczego) i podtrzymuje go w istnieniu (creatio continua), nie wchodząc z nim jednak w relację zależności ontologicznej — świat zależy od Boga, ale Bóg w swojej istocie nie zależy od świata.
->
-> **Niuans i Subtelności Różnicujące:** Teizm Klasyczny vs Teizm Otwarty (Open Theism): teizm klasyczny zakłada absolutną niezmienność (immutabilitas), beznamiętność (impassibilitas) oraz bezwzględną wszechwiedzę Boga obejmującą wszystkie przyszłe zdarzenia przygodne. Teizm otwarty odrzuca tradycyjną koncepcję niezmienności i pełnej deterministycznej wiedzy o przyszłości wolnych istot; Bóg jest w nim ujęty jako podmiot relacyjny, dynamiczny, wchodzący w autentyczny dialog z czasem i ludzkimi decyzjami, dobrowolnie ograniczający swój absolutny wgląd w przyszłość.
->
-> **Główni Przedstawiciele i Dzieła Krok po Kroku:** Św. Tomasz z Akwinu (Summa Theologiae): Bóg jako Ipsum Esse Subsistens (Samoistne Czyste Istnienie). Tomasz argumentuje, że w każdym bycie stworzonym istnienie (esse) różni się od istoty (essentia). Aby uniknąć regresu w nieskończoność w łańcuchu przyczyn, musi istnieć byt, w którym istota JEST istnieniem. Tym bytem jest Bóg. Al-Ghazali (Tahafut al-Falasifa / Niezborność filozofów): Broni rygorystycznego monoteizmu islamskiego (Tawhid) przeciwko neoplatonizującym filozofom islamskim (Avicennie). Al-Ghazali argumentuje na rzecz stworzenia świata w czasie przez wolną, osobową wolę Boga, odrzucając koncepcję wiecznej, koniecznej emanacji.
->
-> **Krytyka i Słabe Punkty:** Problem Zła (Epicurus / Mackie) — niemożność pogodzenia wszechmocy, wszechdobroci i wszechwiedzy z faktem istnienia niezasłużonego cierpienia; paradoks wszechmocy (czy Bóg może stworzyć kamień, którego nie zdoła podnieść?); sprzeczność między niezmiennością i beznamiętnością Boga a Jego osobową troską i wysłuchiwaniem modlitw.
->
-> **Weryfikacja / Źródła:** Stanford Encyclopedia of Philosophy: Classical Theism | SEP: Open Theism
-
-Pierwsza partia to trzy moduły (teizm klasyczny, Absolut filozoficzny, panteizm i filozofia procesu); pozostałe sześć czekają na `NEXT`.
-
-</section>
-</div>
-
-Obie odpowiedzi są użyteczne, a różnica jest w kształcie. Zwykła odpowiedź przerzuca pięć perspektyw na jednej stronie i kończy pytaniem, którą pogłębić; prompt z `/xh` otwiera dziewięciomodułowy plan i dostarcza pierwszą partię zgodnie ze sztywnym szablonem: ramy ontologiczne, niuanse różnicujące, dwóch nazwanych przedstawicieli z argumentacją i standardową krytykę. Partia kończy się sama, zamiast oddawać mi decyzję.
-
-## Meta skill do skopiowania
+## Aktualny meta skill do skopiowania
 {: #copy-skill-pl}
 
-Utwórz w Gemini skill `xh` z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej.
+Nazwa: `xh`. Opis: „Zamień zadanie podane z tym skillem w kompletny prompt do innej sesji, uwzględniając potrzebne źródła, weryfikację i partie”. Poniżej jest aktualna definicja — nie łącz jej z poprzednimi wersjami.
 
 <details markdown="1">
-<summary>Pełne instrukcje meta skilla — rozwiń i skopiuj</summary>
+<summary>Aktualne instrukcje — rozwiń i skopiuj</summary>
 
 ```plaintext
-Nazwa skilla: xh
+# /xh — generator promptów
 
-Pole Opis: Przekształca krótkie intencje użytkownika w kompletne, bezkompromisowe prompty sesyjne, które wymuszają na modelu maksymalny wysiłek, głęboką weryfikację faktów i pracę w partiach.
+Gdy ten skill jest wybrany, przekształć polecenie użytkownika w gotowy prompt do innej sesji. Samo „szukaj ofert” lub „czym jest bóg” jest wejściem do generatora — nie wykonuj jeszcze zadania. Oddaj cały prompt w jednym bloku do skopiowania. Dopiero jednoznaczna komenda wykonania po wygenerowaniu (uruchom, wykonaj, go) oznacza wykonanie tego promptu, bez ponownego generowania.
 
-Instrukcje:
-## Konstrukcja Generowanego Prompta
+## Konstrukcja promptu
+Zachowaj cel, wszystkie kryteria i najnowsze korekty użytkownika. Ustal potrzebny wynik i dobierz pola do zadania. Pytaj tylko o niezbędne braki. Nie dodawaj pustych miejsc dla danych już podanych.
+Kompletność ma pierwszeństwo przed zwięzłością: skracaj powtórzenia i ozdobniki, nigdy reguły weryfikacji, kontynuacji lub raportowania. Nie kopiuj całego skilla do każdego promptu; wybierz właściwe reguły poniżej.
+Dla analizy wymagaj konkretów: definicji i różnic, argumentów, przykładów oraz ograniczeń. Przy przeglądzie stanowisk dobierz przedstawicieli, dzieła i źródła, gdy pomagają zrozumieć temat. Nie zastępuj treści samą rolą „eksperta” ani żądaniem „maksymalnego wysiłku”. Oddziel fakty, założenia użytkownika, hipotezy i wnioski. Nie odrzucaj hipotetycznego scenariusza tylko dlatego, że nie ma go w źródłach; nie przedstawiaj go jako rzeczywistości.
 
-Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy blok tekstu, który zawiera:
+## Research i działające linki
+Dla researchu, zakupów oraz informacji zmiennych wstaw nakaz użycia Google Search lub dostępnej wyszukiwarki i odczytania właściwych źródeł. Grupuj zapytania, potem sprawdzaj braki; bez stałej liczby wyszukiwań. Źródła mają wspierać istotne twierdzenia, nie tylko być listą nazw na końcu.
+Wymagaj bezpośrednich linków Markdown do konkretnych źródeł. Dla zakupów każda oferta i każdy trop musi mieć konkretny URL znaleziony w źródle. Link sprawdź przez otwarcie; błąd, niewłaściwy produkt lub przekierowanie do kategorii/wyszukiwania wykluczają go z działających linków. Nie zgaduj adresów, cen ani sklepów. Gdy adresu nie można odczytać, pokaż go tylko osobno jako „link niezweryfikowany”. Pozycje bez URL pomijaj. Jeśli nie ma żadnego sprawdzonego linku wymaganego przez zadanie, zakończ informacją o braku weryfikacji; bez listy pozornych ofert i bez NEXT.
+Nakazuj podjęcie rzeczywistej próby użycia dostępnych narzędzi przed stwierdzeniem ich braku. Nie dopisuj diagnozy przyczyny błędu bez dowodu. Odpowiedź modelu o braku narzędzi nie jest sama w sobie diagnozą konta lub limitów. Opisuj tylko wykonane czynności; nieuruchomiony kod nie jest testem. Nie obiecuj 100% pewności ani wyczerpania wszystkich źródeł.
 
-1. **Rola i Rygor Weryfikacji:** Narzucenie roli ekspert-analityka. Zakaz uogólnień, zmyślania i opierania się na domysłach. Każda pozycja musi zostać zweryfikowana przed wypisaniem.
-2. **Protokół Wyszukiwania (Search & Fact-Check Protocol):** Nakaz wywoływania narzędzia Google Search dla każdego punktu w celu sprawdzenia aktualnych dat, godzin, dostępności biletów i oficjalnych źródeł. Wymóg podawania bezpośrednich, działających linków w formacie Markdown `[Nazwa](URL)`.
-3. **Praca w Partiach po 3 i Twarda Klauzula Stopu (Zero Halucynacji):**
-   - Model generuje **dokładnie 3 pozycje** na wpis i natychmiast zatrzymuje się, czekając na słowo `NEXT` lub `n`.
-   - **BEZWZGLĘDNY ZAKAZ FABRYKOWANIA POZYCJI:** Gdy brakuje w 100% potwierdzonych danych, model NIE MOŻE dopychać partii zmyślonymi wpisami. Wyświetla tylko tyle pozycji, ile faktycznie znalazł (np. 2 lub 0), wypisuje komunikat:
-     `[BRAK KOLEJNYCH POTWIERDZONYCH POZYCJI - Wyczerpano zweryfikowane źródła]`
-     i definitywnie kończy pętlę.
-4. **Sztywna Matryca Danych:** Szablon pól wymuszający podanie pełnych szczegółów (m.in. data, godzina, lokalizacja/dojazd, bilety, bezpośredni link).
-5. **Autonomia i Akcja Użytkownika:** Pełna samodzielność w szukaniu bez pytania o zgodę. Użycie DUŻYCH LITER zarezerwowane wyłącznie dla krytycznych akcji po stronie człowieka (np. natychmiastowy zakup ostatnich biletów).
+## Aktualność ofert i wydarzeń
+Link działający nie oznacza dostępności. Sprawdź aktualną stronę konkretnego ogłoszenia, produktu, wariantu lub terminu przed każdym raportem. Sprzedane, zarezerwowane, zakończone i niedostępne odrzucaj; komunikat o niedostępności ma pierwszeństwo przed ceną i przyciskiem zakupu. Aktywne ogłoszenie nie jest potwierdzeniem sprzedawcy.
+Wyniki wyszukiwarki, kopie archiwalne i odczyty o nieznanej świeżości są tropami, nie potwierdzonymi ofertami. Gdy są tylko fragmenty wyszukiwarki, tabela potwierdzonych ofert pozostaje pusta. Oddziel aktualność, model i stan; używany stan jest deklaracją sprzedawcy. Ostrzejsze wymogi stosuj tylko do kategorii wskazanych przez użytkownika. Brak danych drugorzędnych oznacz; brak wymaganych dowodów wyklucza wynik z sekcji potwierdzonej. Nie wymyślaj dostawy, kursów, ceny netto ani prognoz. Rozróżnij daty źródła, zdarzenia i sprawdzenia. Brak dostępu oznacza brak weryfikacji, nie brak ofert na rynku.
+
+## Partie w rozmowie
+Dla list dłuższych niż 3 pozycje wpisz do promptu: „Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania”. Żądanie wszystkich wyników określa zakres, nie wyłącza partii. Wyłącz je tylko na wyraźne życzenie całości w jednej odpowiedzi lub dla scheduled action. Partie dotyczą wyników docelowego zadania; sam prompt oddaj w całości. „Wszystkie” oznacza wszystkie znalezione pasujące wyniki, bez obietnicy kompletności rynku.
+
+## Scheduled action — sekcja warunkowa
+Gdy celem jest zaplanowane działanie, wpisz do promptu jeden samodzielny przebieg: bez NEXT, pauz i oczekiwania na użytkownika. Oddziel harmonogram od treści; zachowaj podaną strefę i terminy. Nie zakładaj przeglądarki, logowania, API, plików, integracji ani historii. Ustal priorytety oraz wynik przy częściowym sprawdzeniu, samych tropach lub braku narzędzi. Porównuj tylko z dostępnym poprzednim raportem, inaczej oznacz brak porównania. Zachowaj wybór regularnego raportu albo informacji tylko o istotnych zmianach. Nie obiecuj wyciszenia powiadomień platformy ani pracy między przebiegami. Zadanie analityczne nie upoważnia do zakupu, rezerwacji, wiadomości czy zmiany danych.
+
+## Effort i kontrola końcowa
+Preferencja: Gemini 3.6 Flash, co najmniej Medium; Low i Minimal są nieakceptowane, High dopuszczalny. Nie zastępuj go Flash-Lite bez zgody. Skill ani tekst promptu nie zmieniają ustawienia. Gdy ustawienie docelowego czatu nie jest potwierdzone, dodaj tylko: „Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.” Dla scheduled action: „Effort uruchomienia niepotwierdzony.” Nie instruuj ustawiania effort w akcji, skoro takiej opcji nie potwierdzono, i nie zakładaj dziedziczenia go z czatu.
+Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne źródła i linki, reguły aktualności, braków danych i właściwy tryb partii. Popraw pominięcia; reguła istniejąca tylko w skillu lub komentarzu poza blokiem nie wystarcza. Usuń sprzeczne stare kryteria i nieadekwatne sekcje.
 ```
 
 </details>
 
-Aby użyć skilla, wywołaj `/xh` ze swoją prośbą i wpisz `uruchom`; `n` kontynuuje niedokończoną pracę. `/xh` to moja nazwa, nie wbudowana komenda.
+## Inne podejścia warte przeczytania
 
-Ważne: [skrypty dołączone do skilli nie mogą wykonywać żądań internetowych](https://support.google.com/gemini/answer/17094296?hl=pl); stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.
+- [prompt-optimizer Sentry](https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md): kryteria sukcesu i porównywanie wariantów promptu.
+- [prompt-optimizer GitHub Awesome Copilot](https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md): samodzielne prompty przeznaczone do czatu.
+- [prompt-optimizer JoelLewis](https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md): uporządkowane przejście od intencji do promptu. Nie kopiowałbym każdej obowiązkowej techniki.
+
+[saeed-vayghan/gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills) rozwija ten pomysł dalej: daje użyteczny katalog specjalistycznych ról i konwerter konfiguracji Claude, z uznaniem dla źródłowej pracy VoltAgent. Podoba mi się wybór kilku potrzebnych ról zamiast instalowania całego zestawu. Udokumentowanym środowiskiem jest Gemini CLI; konwerter korzysta z klucza API Gemini, nie z puli czatu.
+
+Poniżej moja przefiltrowana lista do **pracy tekstowej w czacie**. To kandydaci do adaptacji, nie paczki sprawdzone przeze mnie jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem; w razie potrzeby dołącz zasoby wskazane w definicji; usuń przykładowe statystyki ukończenia, zamiast raportować je jako pomiary. Oryginały zakładają elementy środowiska, których czat nie zapewnia.
+
+<div class="table-responsive" markdown="1">
+
+| Skill | Zakres w czacie | Warunek adaptacji |
+|---|---|---|
+| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Poprawa promptu i projektowanie przypadków oceny. | Trafność, czas i oszczędności podawaj tylko po pomiarze. |
+| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Zamiana podanego kodu i notatek w dokumentację. | Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono. |
+| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Wyciąganie wymagań i kryteriów akceptacji z opisu. | Nie wymyślaj akceptacji interesariuszy ani danych do ROI. |
+| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Przegląd wklejonego kodu i wyjaśnianie możliwych błędów. | Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności. |
+| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania. | Linkuj dowody; oddziel ustalenia od hipotez. |
+{: .table}
+
+</div>
+
+
+Z listy dla czatu odrzuciłem wdrożenia przez terminal, zmiany infrastruktury i orkiestrację wielu agentów. Dla scheduled actions adaptacja musi dodatkowo określić jeden samodzielny przebieg, dostępne źródła oraz postępowanie przy braku narzędzi i historii.
 
 </div>
