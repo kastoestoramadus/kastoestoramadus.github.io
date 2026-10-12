@@ -29,8 +29,6 @@ Google says that [Gems go away on personal accounts in November 2026 and transit
 
 </div>
 
-I wrote `/xh` before checking what already exists. I should have looked first; it is now an add-on to the repositories above.
-
 ## Chat-ready roles from gemini-agent-skills
 
 I like [saeed-vayghan's](https://github.com/saeed-vayghan/gemini-agent-skills) approach: pick a few relevant roles instead of installing everything. These five are adaptation candidates, not packages proved to work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input, and drop example statistics instead of reporting them as measured. I left out terminal deployment, infrastructure and multi-agent orchestration.
@@ -157,8 +155,6 @@ Google podaje, że [Gemy znikną z kont osobistych w listopadzie 2026 i przejdą
 {: .table}
 
 </div>
-
-Napisałem `/xh`, zanim sprawdziłem, co już istnieje. Powinienem był najpierw się rozejrzeć; teraz to dodatek do powyższych repozytoriów.
 
 ## Role do czatu z gemini-agent-skills
 
