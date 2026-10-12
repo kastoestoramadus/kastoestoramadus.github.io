@@ -9,15 +9,48 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** A meta skill turns my short request into a task prompt with sources, verification rules and batches. The revised `/xh` keeps those requirements without promising perfect results. Use Flash with at least Medium effort; the skill cannot select it for you.
+**TLDR:** Before writing my own `/xh` meta skill I should have checked what already exists. For the free Google AI plan the best fit is a set of [20 infographic Gems](#repos-en); the research and CLI skill libraries mostly need paid tiers or tools. My `/xh` is now only an add-on, and it did not reliably pass its own tests.
 
-**Updated 12 October 2026:** the copyable definition and examples below replace the earlier version. The Polish section contains the original test wording; English excerpts are translations.
+**Updated 12 October 2026:** the post was rewritten around existing work; the copyable definition and trials replace the earlier version.
 
-## Use it in two steps
+## Check what exists first
+{: #repos-en}
 
-Create a skill named `xh` using [Google's skill-creation guide](https://support.google.com/gemini/answer/17094296?hl=en-GB). Select `/xh` from the dropdown and type the task itself. It produces a prompt; run that prompt without selecting the skill again, or paste it into a fresh chat. For conversational lists longer than three items, `NEXT` or `n` continues the next batch. Scheduled actions instead require one pass without waiting for a reply.
+Google says that [Gems go away on personal accounts in November 2026 and transition to skills](https://support.google.com/gemini/answer/15146780). The free plan has "standard" limits and a 32k-token context; paid plans [multiply the limit and the context](https://support.google.com/gemini/answer/16275805). I read the files below and ran none of them in Gemini, so "fits" means the content needs only a chat.
 
-**Remember to set the model's effort level: Medium or High.** Check the actual picker when starting a chat. I do not use Low for this workflow. Avoid the Pro model for routine work if preserving the Plus allowance matters: it can use the allowance quickly. This means the model, not the Google AI Pro subscription. Google says advanced models and higher thinking levels [consume more usage](https://support.google.com/gemini/answer/16275805?hl=en); I have not measured a fixed Pro/Flash multiplier. A skill does not configure effort, and I have not confirmed a separate effort control for scheduled actions.
+<div class="table-responsive" markdown="1">
+
+| Repository | Free plan | Paid / needs more |
+|---|---|---|
+| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | **Fits.** 20 Gem instructions (1-3 KB each) that turn text into infographics; chat plus image generation only. | `17_Paper_Diagrams` lists temperature and IMAGE-modality settings that I did not check in the Gem editor. |
+| [AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md) | Three single-file text skills: [brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), [creative-thinking-for-research](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md), [presenting-conference-talks](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md). The first two are 19-22 KB, a large share of 32k. | Most of the 98 skills: GPU training, MLOps, agents. `ml-paper-writing` has 51 files. |
+| [gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b) | Five roles adaptable to chat (below). | Packages target Gemini CLI; its converter uses an API key, not the chat allowance. |
+{: .table}
+
+</div>
+
+## Chat-ready roles from gemini-agent-skills
+
+I like [saeed-vayghan's](https://github.com/saeed-vayghan/gemini-agent-skills) approach: pick a few relevant roles instead of installing everything. These five are adaptation candidates, not packages proved to work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input, and drop example statistics instead of reporting them as measured. I left out terminal deployment, infrastructure and multi-agent orchestration.
+
+<div class="table-responsive" markdown="1">
+
+| Skill | Chat scope | Adaptation requirement |
+|---|---|---|
+| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Improve a supplied prompt; design evaluation cases. | Report accuracy, latency and savings only when measured. |
+| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Turn supplied code and notes into documentation. | Mark code examples as untested unless actually run. |
+| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Extract requirements and acceptance criteria from a brief. | Do not invent stakeholder approval or ROI data. |
+| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Review pasted code and explain potential defects. | No claims of test coverage, scans or runtime performance without tools. |
+| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Compare supplied sources; web research needs working search. | Link evidence; distinguish findings from hypotheses. |
+{: .table}
+
+</div>
+
+## My add-on: /xh
+
+A meta skill that turns a short request into a full prompt with sources, verification rules and batches. Create a skill named `xh` using [Google's guide](https://support.google.com/gemini/answer/17094296?hl=en-GB), select `/xh` from the dropdown and type only the task. Run the generated prompt without selecting the skill again. Lists longer than three items continue with `NEXT` or `n`; scheduled actions do one pass.
+
+**Remember to set the model's effort level: Medium or High.** Check the picker in every new chat; I do not use Low. Avoid the Pro model for routine work: Google says higher models and thinking levels [consume more usage](https://support.google.com/gemini/answer/16275805). I have not measured a Pro/Flash multiplier. The skill cannot set effort, and I did not confirm an effort control for scheduled actions.
 
 ## Latest trials: check the output, not just the prompt
 
@@ -52,6 +85,7 @@ It required thinkers, works, arguments and limitations, but omitted direct sourc
 > I am not intended for such purposes.
 
 **Assessment:** the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.
+
 
 ## Copy the current meta skill
 {: #copy-skill-en}
@@ -93,45 +127,57 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
 
 </details>
 
-## Other approaches worth reading
+## Other prompt optimisers
 
 - [Sentry's prompt-optimizer](https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md): success criteria and comparisons of prompt variants.
 - [GitHub Awesome Copilot's prompt-optimizer](https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md): self-contained prompts intended for chat.
 - [JoelLewis's prompt-optimizer](https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md): a structured intent-to-prompt workflow. I would not copy every mandatory technique.
-
-[saeed-vayghan/gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills) takes this idea further: a useful catalogue of specialist roles and a converter for Claude configurations, with credit to the original VoltAgent work. I especially like being able to choose a few relevant roles instead of installing everything. Its documented target is Gemini CLI; the converter uses a Gemini API key, not the chat allowance.
-
-My filtered shortlist for **instruction-based chat work** is below. These are adaptation candidates, not packages I have proved work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input; include referenced resources where needed; remove example completion statistics rather than reporting them as measured results. The original definitions contain workflow assumptions that chat does not provide.
-
-<div class="table-responsive" markdown="1">
-
-| Skill | Chat scope | Adaptation requirement |
-|---|---|---|
-| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Improve a supplied prompt; design evaluation cases. | Report accuracy, latency and savings only when measured. |
-| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Turn supplied code and notes into documentation. | Mark code examples as untested unless actually run. |
-| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Extract requirements and acceptance criteria from a brief. | Do not invent stakeholder approval or ROI data. |
-| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Review pasted code and explain potential defects. | No claims of test coverage, scans or runtime performance without tools. |
-| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Compare supplied sources; web research needs working search. | Link evidence; distinguish findings from hypotheses. |
-{: .table}
-
-</div>
-
-
-I left terminal-driven deployment, infrastructure changes and multi-agent orchestration out of the chat shortlist. For scheduled actions, each adapted skill still needs an independent pass, available sources and explicit handling of missing tools/history.
-
 </div>
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Meta skill zamienia moje krótkie polecenie w prompt z wymaganiami źródeł, weryfikacji i partii. Poprawiony `/xh` zachowuje te reguły bez obiecywania idealnych wyników. Używaj Flasha z co najmniej Medium — skill nie wybiera tego ustawienia za Ciebie.
+**TLDR:** Zanim napisałem własny meta skill `/xh`, powinienem był sprawdzić, co już istnieje. Dla darmowego planu Google AI najlepiej pasuje [20 Gemów do infografik](#repos-pl); biblioteki skilli badawczych i CLI wymagają głównie płatnych planów albo narzędzi. Mój `/xh` jest teraz tylko dodatkiem i nie przechodził rzetelnie własnych testów.
 
-**Aktualizacja 12 października 2026:** definicja do skopiowania i przykłady poniżej zastępują poprzednią wersję.
+**Aktualizacja 12 października 2026:** wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.
 
-## Dwa kroki użycia
+## Najpierw sprawdź, co już jest
+{: #repos-pl}
 
-Utwórz skill `xh` według [instrukcji Google](https://support.google.com/gemini/answer/17094296?hl=pl). Wybierz `/xh` z listy rozwijanej i wpisz samo zadanie. Dostaniesz prompt; wykonaj go bez ponownego wybierania skilla albo wklej do świeżej rozmowy. Dla list dłuższych niż trzy pozycje w zwykłej rozmowie `NEXT` lub `n` uruchamia kolejną partię. Scheduled action ma zamiast tego wykonać jeden przebieg bez czekania na odpowiedź.
+Google podaje, że [Gemy znikną z kont osobistych w listopadzie 2026 i przejdą w skille](https://support.google.com/gemini/answer/15146780). Plan darmowy ma „standardowe" limity i kontekst 32 tys. tokenów; płatne [mnożą limit i kontekst](https://support.google.com/gemini/answer/16275805). Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „pasuje" znaczy, że treść wymaga tylko czatu.
 
-**Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.** Sprawdź faktyczny wybór przy nowym czacie. Nie używam Low do tego sposobu pracy. Unikaj modelu Pro w rutynowych zadaniach, jeśli zależy Ci na oszczędzaniu puli Plus: może ją szybko zużyć. Chodzi o model, nie o subskrypcję Google AI Pro. Google podaje, że bardziej zaawansowane modele i wyższe poziomy myślenia [zużywają więcej limitu](https://support.google.com/gemini/answer/16275805?hl=pl); nie zmierzyłem stałego mnożnika Pro/Flash. Skill nie ustawia effort, a osobnej regulacji effort dla scheduled actions nie potwierdziłem.
+<div class="table-responsive" markdown="1">
+
+| Repozytorium | Plan darmowy | Płatne / wymaga więcej |
+|---|---|---|
+| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | **Pasuje.** 20 instrukcji Gemów (1-3 KB każda) zamieniających tekst w infografiki; wystarczy czat i generowanie obrazów. | `17_Paper_Diagrams` podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów. |
+| [AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md) | Trzy jednoplikowe skille tekstowe: [brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), [creative-thinking-for-research](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md), [presenting-conference-talks](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md). Pierwsze dwa mają 19-22 KB, czyli sporą część z 32 tys. | Większość z 98 skilli: trening na GPU, MLOps, agenci. `ml-paper-writing` ma 51 plików. |
+| [gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b) | Pięć ról do adaptacji na czat (niżej). | Paczki są dla Gemini CLI; konwerter używa klucza API, nie puli czatu. |
+{: .table}
+
+</div>
+
+## Role do czatu z gemini-agent-skills
+
+Podoba mi się podejście [saeed-vayghan](https://github.com/saeed-vayghan/gemini-agent-skills): wybrać kilka potrzebnych ról zamiast instalować wszystko. Te pięć to kandydaci do adaptacji, nie paczki sprawdzone jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem, a przykładowe statystyki usuń zamiast podawać je jako zmierzone. Pominąłem wdrożenia przez terminal, infrastrukturę i orkiestrację agentów.
+
+<div class="table-responsive" markdown="1">
+
+| Skill | Zakres w czacie | Warunek adaptacji |
+|---|---|---|
+| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Poprawa promptu i projektowanie przypadków oceny. | Trafność, czas i oszczędności podawaj tylko po pomiarze. |
+| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Zamiana podanego kodu i notatek w dokumentację. | Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono. |
+| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Wyciąganie wymagań i kryteriów akceptacji z opisu. | Nie wymyślaj akceptacji interesariuszy ani danych do ROI. |
+| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Przegląd wklejonego kodu i wyjaśnianie możliwych błędów. | Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności. |
+| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania. | Linkuj dowody; oddziel ustalenia od hipotez. |
+{: .table}
+
+</div>
+
+## Mój dodatek: /xh
+
+Meta skill zamieniający krótkie polecenie w pełny prompt ze źródłami, regułami weryfikacji i partiami. Utwórz skill `xh` według [instrukcji Google](https://support.google.com/gemini/answer/17094296?hl=pl), wybierz `/xh` z listy i wpisz samo zadanie. Wygenerowany prompt wykonaj bez ponownego wybierania skilla. Listy dłuższe niż trzy pozycje idą dalej po `NEXT` lub `n`; scheduled action robi jeden przebieg.
+
+**Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.** Sprawdzaj wybór przy każdym nowym czacie; nie używam Low. Unikaj modelu Pro w rutynowych zadaniach: Google podaje, że wyższe modele i poziomy myślenia [zużywają więcej limitu](https://support.google.com/gemini/answer/16275805). Mnożnika Pro/Flash nie zmierzyłem. Skill nie ustawia effort, a kontrolki effort dla scheduled actions nie potwierdziłem.
 
 ## Najnowsze próby: sprawdzaj wynik, nie tylko prompt
 
@@ -166,6 +212,7 @@ Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpo
 > Nie jestem przeznaczony do takich celów.
 
 **Ocena:** prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.
+
 
 ## Aktualny meta skill do skopiowania
 {: #copy-skill-pl}
@@ -207,30 +254,9 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
 
 </details>
 
-## Inne podejścia warte przeczytania
+## Inne optymalizatory promptów
 
 - [prompt-optimizer Sentry](https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md): kryteria sukcesu i porównywanie wariantów promptu.
 - [prompt-optimizer GitHub Awesome Copilot](https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md): samodzielne prompty przeznaczone do czatu.
 - [prompt-optimizer JoelLewis](https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md): uporządkowane przejście od intencji do promptu. Nie kopiowałbym każdej obowiązkowej techniki.
-
-[saeed-vayghan/gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills) rozwija ten pomysł dalej: daje użyteczny katalog specjalistycznych ról i konwerter konfiguracji Claude, z uznaniem dla źródłowej pracy VoltAgent. Podoba mi się wybór kilku potrzebnych ról zamiast instalowania całego zestawu. Udokumentowanym środowiskiem jest Gemini CLI; konwerter korzysta z klucza API Gemini, nie z puli czatu.
-
-Poniżej moja przefiltrowana lista do **pracy tekstowej w czacie**. To kandydaci do adaptacji, nie paczki sprawdzone przeze mnie jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem; w razie potrzeby dołącz zasoby wskazane w definicji; usuń przykładowe statystyki ukończenia, zamiast raportować je jako pomiary. Oryginały zakładają elementy środowiska, których czat nie zapewnia.
-
-<div class="table-responsive" markdown="1">
-
-| Skill | Zakres w czacie | Warunek adaptacji |
-|---|---|---|
-| [prompt-engineer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md) | Poprawa promptu i projektowanie przypadków oceny. | Trafność, czas i oszczędności podawaj tylko po pomiarze. |
-| [technical-writer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md) | Zamiana podanego kodu i notatek w dokumentację. | Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono. |
-| [business-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md) | Wyciąganie wymagań i kryteriów akceptacji z opisu. | Nie wymyślaj akceptacji interesariuszy ani danych do ROI. |
-| [code-reviewer](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md) | Przegląd wklejonego kodu i wyjaśnianie możliwych błędów. | Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności. |
-| [research-analyst](https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md) | Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania. | Linkuj dowody; oddziel ustalenia od hipotez. |
-{: .table}
-
-</div>
-
-
-Z listy dla czatu odrzuciłem wdrożenia przez terminal, zmiany infrastruktury i orkiestrację wielu agentów. Dla scheduled actions adaptacja musi dodatkowo określić jeden samodzielny przebieg, dostępne źródła oraz postępowanie przy braku narzędzi i historii.
-
 </div>
