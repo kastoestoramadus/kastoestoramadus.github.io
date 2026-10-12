@@ -9,22 +9,22 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** A map of ready-made Gems and skills that fit Google's free AI plan, plus my `/xh` meta skill: it turns a one-line request into a prompt with sources, working links and batches. I tested it on cat toys and on "What is God?" and report both failures.
+**TLDR:** A map of ready-made skills and prompts, split into what you can use without paying Google and what needs a paid plan, plus my `/xh` meta skill: it turns a one-line request into a prompt with sources, working links and batches. I tested it on cat toys and on "What is God?" and report both failures.
 
 **Updated 12 October 2026:** the post was rewritten around existing work; the copyable definition and trials replace the earlier version.
 
 ## Check what exists first
 {: #repos-en}
 
-Google says that [Gems go away on personal accounts in November 2026 and transition to skills](https://support.google.com/gemini/answer/15146780). The free plan has "standard" limits and a 32k-token context; paid plans [multiply the limit and the context](https://support.google.com/gemini/answer/16275805). I read the files below and ran none of them in Gemini, so "fits" means the content needs only a chat.
+The free plan has "standard" limits and a 32k-token context; paid plans [multiply the limit and the context](https://support.google.com/gemini/answer/16275805). I read the files below and ran none of them in Gemini, so "free" means the content needs only a chat. Gems are not available on a free account, and Google says they [go away on personal accounts in November 2026 and transition to skills](https://support.google.com/gemini/answer/15146780).
 
 <div class="table-responsive" markdown="1">
 
 | Repository | Free plan | Paid / needs more |
 |---|---|---|
-| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | **Fits.** 20 Gem instructions (1-3 KB each) that turn text into infographics; chat plus image generation only. | `17_Paper_Diagrams` lists temperature and IMAGE-modality settings that I did not check in the Gem editor. |
 | [AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md) | Three single-file text skills: [brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), [creative-thinking-for-research](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md), [presenting-conference-talks](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md). The first two are 19-22 KB, a large share of 32k. | Most of the 98 skills: GPU training, MLOps, agents. `ml-paper-writing` has 51 files. |
 | [gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b) | Five roles adaptable to chat (below). | Packages target Gemini CLI; its converter uses an API key, not the chat allowance. |
+| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | None: these are Gem instructions. | **Paid (Gems).** 20 instructions (1-3 KB each) that turn text into infographics, using image generation. `17_Paper_Diagrams` lists temperature and IMAGE-modality settings that I did not check in the Gem editor. |
 {: .table}
 
 </div>
@@ -138,22 +138,22 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Mapa gotowych Gemów i skilli, które pasują do darmowego planu Google AI, oraz mój meta skill `/xh`: zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami. Sprawdziłem go na zabawkach dla kota i na „Czym jest bóg?” i opisuję obie porażki.
+**TLDR:** Mapa gotowych skilli i promptów, z podziałem na to, co działa bez płacenia Google, i to, co wymaga płatnego planu, oraz mój meta skill `/xh`: zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami. Sprawdziłem go na zabawkach dla kota i na „Czym jest bóg?” i opisuję obie porażki.
 
 **Aktualizacja 12 października 2026:** wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.
 
 ## Najpierw sprawdź, co już jest
 {: #repos-pl}
 
-Google podaje, że [Gemy znikną z kont osobistych w listopadzie 2026 i przejdą w skille](https://support.google.com/gemini/answer/15146780). Plan darmowy ma „standardowe" limity i kontekst 32 tys. tokenów; płatne [mnożą limit i kontekst](https://support.google.com/gemini/answer/16275805). Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „pasuje" znaczy, że treść wymaga tylko czatu.
+Plan darmowy ma „standardowe" limity i kontekst 32 tys. tokenów; płatne [mnożą limit i kontekst](https://support.google.com/gemini/answer/16275805). Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „darmowe" znaczy, że treść wymaga tylko czatu. Gemy nie są dostępne na darmowym koncie, a Google podaje, że [znikną z kont osobistych w listopadzie 2026 i przejdą w skille](https://support.google.com/gemini/answer/15146780).
 
 <div class="table-responsive" markdown="1">
 
 | Repozytorium | Plan darmowy | Płatne / wymaga więcej |
 |---|---|---|
-| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | **Pasuje.** 20 instrukcji Gemów (1-3 KB każda) zamieniających tekst w infografiki; wystarczy czat i generowanie obrazów. | `17_Paper_Diagrams` podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów. |
 | [AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md) | Trzy jednoplikowe skille tekstowe: [brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), [creative-thinking-for-research](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md), [presenting-conference-talks](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md). Pierwsze dwa mają 19-22 KB, czyli sporą część z 32 tys. | Większość z 98 skilli: trening na GPU, MLOps, agenci. `ml-paper-writing` ma 51 plików. |
 | [gemini-agent-skills](https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b) | Pięć ról do adaptacji na czat (niżej). | Paczki są dla Gemini CLI; konwerter używa klucza API, nie puli czatu. |
+| [awesome-gemini-visual-gems](https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts) | Brak: to instrukcje do Gemów. | **Płatne (Gemy).** 20 instrukcji (1-3 KB każda) zamieniających tekst w infografiki, z generowaniem obrazów. `17_Paper_Diagrams` podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów. |
 {: .table}
 
 </div>
