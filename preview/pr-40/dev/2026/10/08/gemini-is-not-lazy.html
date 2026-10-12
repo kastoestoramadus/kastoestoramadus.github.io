@@ -18,7 +18,7 @@
   <meta name="author" content="Waldemar Wosiński">
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+  <link rel="canonical" href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
   <title>{ IT blog - Waldemar Wosiński } | Getting useful work out of Gemini Flash</title>
 
   <!-- Bootstrap Core CSS -->
@@ -26,7 +26,7 @@
         integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom CSS -->
-  <link href="/preview/pr-40/css/grayscale.css?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1" rel="stylesheet">
+  <link href="/preview/pr-40/css/grayscale.css?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" rel="stylesheet">
   
 
   <!-- Custom Fonts -->
@@ -34,9 +34,9 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/preview/pr-40/css/rrssb.css?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1" />
+  <link rel="stylesheet" href="/preview/pr-40/css/rrssb.css?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" />
   
-    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-40/img/favicon.ico?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-40/img/favicon.ico?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
   
 
   
@@ -47,16 +47,16 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-40/img/web-app/icon-36p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
-  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-40/img/web-app/icon-48p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
-  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-40/img/web-app/icon-72p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
-  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-40/img/web-app/icon-96p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
-  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-40/img/web-app/icon-144p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
-  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-40/img/web-app/icon-192p.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-40/img/web-app/icon-36p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-40/img/web-app/icon-48p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-40/img/web-app/icon-72p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-40/img/web-app/icon-96p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-40/img/web-app/icon-144p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-40/img/web-app/icon-192p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
 
   <!-- Android Web App mode -->
 
-  <link rel="manifest" href="/preview/pr-40/manifest.json?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+  <link rel="manifest" href="/preview/pr-40/manifest.json?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
 
 
 
@@ -82,14 +82,14 @@
 
 
 
-<meta name="preview-build" content="bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+<meta name="preview-build" content="5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
 <style>
 body { padding-bottom: 90px; }
 #preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 #preview-status a, #preview-status button { color: #00cdff; }
 #preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
 </style>
-<script defer src="/preview/pr-40/preview-status.js?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1"></script>
+<script defer src="/preview/pr-40/preview-status.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
 </head>
 
 <!-- HEAD End -->
@@ -107,11 +107,11 @@ body { padding-bottom: 90px; }
         <i class="fa fa-bars"></i>
       </button>
       
-        <a class="navbar-brand" href="/preview/pr-40/?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+        <a class="navbar-brand" href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
       
           <div>
             
-              <img src="/preview/pr-40/img/black-lab-glass.ico?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1" alt="">
+              <img src="/preview/pr-40/img/black-lab-glass.ico?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" alt="">
             
             { IT blog - Waldemar Wosiński }
           </div>
@@ -125,27 +125,27 @@ body { padding-bottom: 90px; }
           
             <li>
             
-                <a href="/preview/pr-40/?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1#about"> About </a>
+                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#about"> About </a>
             
             </li>
           
             <li>
             
               
-                <a href="/preview/pr-40/blog/?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1"> Blog </a>
+                <a href="/preview/pr-40/blog/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"> Blog </a>
               
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-40/?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1#timeline"> Timeline </a>
+                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#timeline"> Timeline </a>
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-40/?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1#contact"> Contact </a>
+                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#contact"> Contact </a>
             
             </li>
           
@@ -190,17 +190,17 @@ body { padding-bottom: 90px; }
             <strong>08 Oct 2026</strong>
             <small>
               . category:
-              <a class="category" href="/preview/pr-40/categories/dev.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">
+              <a class="category" href="/preview/pr-40/categories/dev.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
                 dev
               </a>.
-              <a href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1#disqus_thread">Comments</a>
+              <a href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#disqus_thread">Comments</a>
               <br />
               
-                <a class="tag" href="/preview/pr-40/tags/ai.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">#ai</a>
+                <a class="tag" href="/preview/pr-40/tags/ai.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#ai</a>
               
-                <a class="tag" href="/preview/pr-40/tags/gemini.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">#gemini</a>
+                <a class="tag" href="/preview/pr-40/tags/gemini.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#gemini</a>
               
-                <a class="tag" href="/preview/pr-40/tags/prompt-engineering.html?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1">#prompt-engineering</a>
+                <a class="tag" href="/preview/pr-40/tags/prompt-engineering.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#prompt-engineering</a>
               
             </small>
           </h4>
@@ -217,93 +217,11 @@ body { padding-bottom: 90px; }
 
           <div id="english" class="post-language" lang="en">
 
-  <p><strong>TLDR:</strong> A map of ready-made skills and prompts, split into what you can use without paying Google and what needs a paid plan, plus my <code>/xh</code> meta skill: it turns a one-line request into a prompt with sources, working links and batches. I tested it on cat toys and on “What is God?” and report both failures.</p>
+  <p><strong>TLDR:</strong> My <code>/xh</code> meta skill turns a one-line request into a prompt with sources, working links and batches; I tested it on cat toys and on “What is God?” and report both failures. Below it, the competing ready-made skills and prompts: what works without paying Google and what needs a paid plan.</p>
 
   <p><strong>Updated 12 October 2026:</strong> the post was rewritten around existing work; the copyable definition and trials replace the earlier version.</p>
 
-  <h2 id="repos-en">Check what exists first</h2>
-
-  <p>The free plan has “standard” limits and a 32k-token context; paid plans <a href="https://support.google.com/gemini/answer/16275805">multiply the limit and the context</a>. I read the files below and ran none of them in Gemini, so “free” means the content needs only a chat. Gems are not available on a free account, and Google says they <a href="https://support.google.com/gemini/answer/15146780">go away on personal accounts in November 2026 and transition to skills</a>.</p>
-
-  <div class="table-responsive">
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Repository</th>
-          <th>Free plan</th>
-          <th>Paid / needs more</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md">AI-Research-SKILLs</a></td>
-          <td>Three single-file text skills: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. The first two are 19-22 KB, a large share of 32k.</td>
-          <td>Most of the 98 skills: GPU training, MLOps, agents. <code>ml-paper-writing</code> has 51 files.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b">gemini-agent-skills</a></td>
-          <td>Five roles adaptable to chat (below).</td>
-          <td>Packages target Gemini CLI; its converter uses an API key, not the chat allowance.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts">awesome-gemini-visual-gems</a></td>
-          <td>None: these are Gem instructions.</td>
-          <td><strong>Paid (Gems).</strong> 20 instructions (1-3 KB each) that turn text into infographics, using image generation. <code>17_Paper_Diagrams</code> lists temperature and IMAGE-modality settings that I did not check in the Gem editor.</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-  <p>I wrote <code>/xh</code> before checking what already exists. I should have looked first; it is now an add-on to the repositories above.</p>
-
-  <h2 id="chat-ready-roles-from-gemini-agent-skills">Chat-ready roles from gemini-agent-skills</h2>
-
-  <p>I like <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan’s</a> approach: pick a few relevant roles instead of installing everything. These five are adaptation candidates, not packages proved to work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input, and drop example statistics instead of reporting them as measured. I left out terminal deployment, infrastructure and multi-agent orchestration.</p>
-
-  <div class="table-responsive">
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Skill</th>
-          <th>Chat scope</th>
-          <th>Adaptation requirement</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
-          <td>Improve a supplied prompt; design evaluation cases.</td>
-          <td>Report accuracy, latency and savings only when measured.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
-          <td>Turn supplied code and notes into documentation.</td>
-          <td>Mark code examples as untested unless actually run.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
-          <td>Extract requirements and acceptance criteria from a brief.</td>
-          <td>Do not invent stakeholder approval or ROI data.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
-          <td>Review pasted code and explain potential defects.</td>
-          <td>No claims of test coverage, scans or runtime performance without tools.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
-          <td>Compare supplied sources; web research needs working search.</td>
-          <td>Link evidence; distinguish findings from hypotheses.</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-  <h2 id="my-add-on-xh">My add-on: /xh</h2>
+  <h2 id="my-meta-skill-xh">My meta skill: /xh</h2>
 
   <p>A meta skill that turns a short request into a full prompt with sources, verification rules and batches. Create a skill named <code>xh</code> using <a href="https://support.google.com/gemini/answer/17094296?hl=en-GB">Google’s guide</a>, select <code>/xh</code> from the dropdown and type only the task. Run the generated prompt without selecting the skill again. Lists longer than three items continue with <code>NEXT</code> or <code>n</code>; scheduled actions do one pass.</p>
 
@@ -391,61 +309,46 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
 
   </details>
 
-  <h2 id="other-prompt-optimisers">Other prompt optimisers</h2>
+  <h2 id="repos-en">Competing options</h2>
 
-  <ul>
-    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">Sentry’s prompt-optimizer</a>: success criteria and comparisons of prompt variants.</li>
-    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">GitHub Awesome Copilot’s prompt-optimizer</a>: self-contained prompts intended for chat.</li>
-    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">JoelLewis’s prompt-optimizer</a>: a structured intent-to-prompt workflow. I would not copy every mandatory technique.</li>
-  </ul>
-</div>
-
-<div id="polski" class="post-language" lang="pl">
-
-  <p><strong>TLDR:</strong> Mapa gotowych skilli i promptów, z podziałem na to, co działa bez płacenia Google, i to, co wymaga płatnego planu, oraz mój meta skill <code>/xh</code>: zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami. Sprawdziłem go na zabawkach dla kota i na „Czym jest bóg?” i opisuję obie porażki.</p>
-
-  <p><strong>Aktualizacja 12 października 2026:</strong> wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.</p>
-
-  <h2 id="repos-pl">Najpierw sprawdź, co już jest</h2>
-
-  <p>Plan darmowy ma „standardowe” limity i kontekst 32 tys. tokenów; płatne <a href="https://support.google.com/gemini/answer/16275805">mnożą limit i kontekst</a>. Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „darmowe” znaczy, że treść wymaga tylko czatu. Gemy nie są dostępne na darmowym koncie, a Google podaje, że <a href="https://support.google.com/gemini/answer/15146780">znikną z kont osobistych w listopadzie 2026 i przejdą w skille</a>.</p>
+  <p>The free plan has “standard” limits and a 32k-token context; paid plans <a href="https://support.google.com/gemini/answer/16275805">multiply the limit and the context</a>. I read the files below and ran none of them in Gemini, so “free” means the content needs only a chat. Gems are not available on a free account, and Google says they <a href="https://support.google.com/gemini/answer/15146780">go away on personal accounts in November 2026 and transition to skills</a>.</p>
 
   <div class="table-responsive">
 
     <table class="table">
       <thead>
         <tr>
-          <th>Repozytorium</th>
-          <th>Plan darmowy</th>
-          <th>Płatne / wymaga więcej</th>
+          <th>Repository</th>
+          <th>Free plan</th>
+          <th>Paid / needs more</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md">AI-Research-SKILLs</a></td>
-          <td>Trzy jednoplikowe skille tekstowe: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. Pierwsze dwa mają 19-22 KB, czyli sporą część z 32 tys.</td>
-          <td>Większość z 98 skilli: trening na GPU, MLOps, agenci. <code>ml-paper-writing</code> ma 51 plików.</td>
+          <td>Three single-file text skills: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. The first two are 19-22 KB, a large share of 32k.</td>
+          <td>Most of the 98 skills: GPU training, MLOps, agents. <code>ml-paper-writing</code> has 51 files.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b">gemini-agent-skills</a></td>
-          <td>Pięć ról do adaptacji na czat (niżej).</td>
-          <td>Paczki są dla Gemini CLI; konwerter używa klucza API, nie puli czatu.</td>
+          <td>Five roles adaptable to chat (below).</td>
+          <td>Packages target Gemini CLI; its converter uses an API key, not the chat allowance.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts">awesome-gemini-visual-gems</a></td>
-          <td>Brak: to instrukcje do Gemów.</td>
-          <td><strong>Płatne (Gemy).</strong> 20 instrukcji (1-3 KB każda) zamieniających tekst w infografiki, z generowaniem obrazów. <code>17_Paper_Diagrams</code> podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów.</td>
+          <td>None: these are Gem instructions.</td>
+          <td><strong>Paid (Gems).</strong> 20 instructions (1-3 KB each) that turn text into infographics, using image generation. <code>17_Paper_Diagrams</code> lists temperature and IMAGE-modality settings that I did not check in the Gem editor.</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 
-  <p>Napisałem <code>/xh</code>, zanim sprawdziłem, co już istnieje. Powinienem był najpierw się rozejrzeć; teraz to dodatek do powyższych repozytoriów.</p>
+  <p>I wrote <code>/xh</code> before checking what already exists. I should have looked first; it is one option among the competing ones here.</p>
 
-  <h2 id="role-do-czatu-z-gemini-agent-skills">Role do czatu z gemini-agent-skills</h2>
+  <h2 id="chat-ready-roles-from-gemini-agent-skills">Chat-ready roles from gemini-agent-skills</h2>
 
-  <p>Podoba mi się podejście <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan</a>: wybrać kilka potrzebnych ról zamiast instalować wszystko. Te pięć to kandydaci do adaptacji, nie paczki sprawdzone jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem, a przykładowe statystyki usuń zamiast podawać je jako zmierzone. Pominąłem wdrożenia przez terminal, infrastrukturę i orkiestrację agentów.</p>
+  <p>I like <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan’s</a> approach: pick a few relevant roles instead of installing everything. These five are adaptation candidates, not packages proved to work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input, and drop example statistics instead of reporting them as measured. I left out terminal deployment, infrastructure and multi-agent orchestration.</p>
 
   <div class="table-responsive">
 
@@ -453,42 +356,58 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
       <thead>
         <tr>
           <th>Skill</th>
-          <th>Zakres w czacie</th>
-          <th>Warunek adaptacji</th>
+          <th>Chat scope</th>
+          <th>Adaptation requirement</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
-          <td>Poprawa promptu i projektowanie przypadków oceny.</td>
-          <td>Trafność, czas i oszczędności podawaj tylko po pomiarze.</td>
+          <td>Improve a supplied prompt; design evaluation cases.</td>
+          <td>Report accuracy, latency and savings only when measured.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
-          <td>Zamiana podanego kodu i notatek w dokumentację.</td>
-          <td>Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono.</td>
+          <td>Turn supplied code and notes into documentation.</td>
+          <td>Mark code examples as untested unless actually run.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
-          <td>Wyciąganie wymagań i kryteriów akceptacji z opisu.</td>
-          <td>Nie wymyślaj akceptacji interesariuszy ani danych do ROI.</td>
+          <td>Extract requirements and acceptance criteria from a brief.</td>
+          <td>Do not invent stakeholder approval or ROI data.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
-          <td>Przegląd wklejonego kodu i wyjaśnianie możliwych błędów.</td>
-          <td>Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności.</td>
+          <td>Review pasted code and explain potential defects.</td>
+          <td>No claims of test coverage, scans or runtime performance without tools.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
-          <td>Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania.</td>
-          <td>Linkuj dowody; oddziel ustalenia od hipotez.</td>
+          <td>Compare supplied sources; web research needs working search.</td>
+          <td>Link evidence; distinguish findings from hypotheses.</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 
-  <h2 id="mj-dodatek-xh">Mój dodatek: /xh</h2>
+  <h2 id="other-prompt-optimisers">Other prompt optimisers</h2>
+
+  <ul>
+    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">Sentry’s prompt-optimizer</a>: success criteria and comparisons of prompt variants.</li>
+    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">GitHub Awesome Copilot’s prompt-optimizer</a>: self-contained prompts intended for chat.</li>
+    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">JoelLewis’s prompt-optimizer</a>: a structured intent-to-prompt workflow. I would not copy every mandatory technique.</li>
+  </ul>
+
+</div>
+
+<div id="polski" class="post-language" lang="pl">
+
+  <p><strong>TLDR:</strong> Mój meta skill <code>/xh</code> zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami; sprawdziłem go na zabawkach dla kota i na „Czym jest bóg?” i opisuję obie porażki. Niżej konkurencyjne gotowe skille i prompty: co działa bez płacenia Google, a co wymaga płatnego planu.</p>
+
+  <p><strong>Aktualizacja 12 października 2026:</strong> wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.</p>
+
+  <h2 id="mj-meta-skill-xh">Mój meta skill: /xh</h2>
 
   <p>Meta skill zamieniający krótkie polecenie w pełny prompt ze źródłami, regułami weryfikacji i partiami. Utwórz skill <code>xh</code> według <a href="https://support.google.com/gemini/answer/17094296?hl=pl">instrukcji Google</a>, wybierz <code>/xh</code> z listy i wpisz samo zadanie. Wygenerowany prompt wykonaj bez ponownego wybierania skilla. Listy dłuższe niż trzy pozycje idą dalej po <code>NEXT</code> lub <code>n</code>; scheduled action robi jeden przebieg.</p>
 
@@ -576,6 +495,88 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
 
   </details>
 
+  <h2 id="repos-pl">Konkurencyjne opcje</h2>
+
+  <p>Plan darmowy ma „standardowe” limity i kontekst 32 tys. tokenów; płatne <a href="https://support.google.com/gemini/answer/16275805">mnożą limit i kontekst</a>. Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „darmowe” znaczy, że treść wymaga tylko czatu. Gemy nie są dostępne na darmowym koncie, a Google podaje, że <a href="https://support.google.com/gemini/answer/15146780">znikną z kont osobistych w listopadzie 2026 i przejdą w skille</a>.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Repozytorium</th>
+          <th>Plan darmowy</th>
+          <th>Płatne / wymaga więcej</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md">AI-Research-SKILLs</a></td>
+          <td>Trzy jednoplikowe skille tekstowe: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. Pierwsze dwa mają 19-22 KB, czyli sporą część z 32 tys.</td>
+          <td>Większość z 98 skilli: trening na GPU, MLOps, agenci. <code>ml-paper-writing</code> ma 51 plików.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b">gemini-agent-skills</a></td>
+          <td>Pięć ról do adaptacji na czat (niżej).</td>
+          <td>Paczki są dla Gemini CLI; konwerter używa klucza API, nie puli czatu.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts">awesome-gemini-visual-gems</a></td>
+          <td>Brak: to instrukcje do Gemów.</td>
+          <td><strong>Płatne (Gemy).</strong> 20 instrukcji (1-3 KB każda) zamieniających tekst w infografiki, z generowaniem obrazów. <code>17_Paper_Diagrams</code> podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <p>Napisałem <code>/xh</code>, zanim sprawdziłem, co już istnieje. Powinienem był najpierw się rozejrzeć; teraz to jedna z opcji obok konkurencyjnych.</p>
+
+  <h2 id="role-do-czatu-z-gemini-agent-skills">Role do czatu z gemini-agent-skills</h2>
+
+  <p>Podoba mi się podejście <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan</a>: wybrać kilka potrzebnych ról zamiast instalować wszystko. Te pięć to kandydaci do adaptacji, nie paczki sprawdzone jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem, a przykładowe statystyki usuń zamiast podawać je jako zmierzone. Pominąłem wdrożenia przez terminal, infrastrukturę i orkiestrację agentów.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Zakres w czacie</th>
+          <th>Warunek adaptacji</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
+          <td>Poprawa promptu i projektowanie przypadków oceny.</td>
+          <td>Trafność, czas i oszczędności podawaj tylko po pomiarze.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
+          <td>Zamiana podanego kodu i notatek w dokumentację.</td>
+          <td>Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
+          <td>Wyciąganie wymagań i kryteriów akceptacji z opisu.</td>
+          <td>Nie wymyślaj akceptacji interesariuszy ani danych do ROI.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
+          <td>Przegląd wklejonego kodu i wyjaśnianie możliwych błędów.</td>
+          <td>Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
+          <td>Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania.</td>
+          <td>Linkuj dowody; oddziel ustalenia od hipotez.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
   <h2 id="inne-optymalizatory-promptw">Inne optymalizatory promptów</h2>
 
   <ul>
@@ -583,6 +584,7 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
     <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">prompt-optimizer GitHub Awesome Copilot</a>: samodzielne prompty przeznaczone do czatu.</li>
     <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">prompt-optimizer JoelLewis</a>: uporządkowane przejście od intencji do promptu. Nie kopiowałbym każdej obowiązkowej techniki.</li>
   </ul>
+
 </div>
 
 
@@ -716,7 +718,7 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
 
           
           <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-40/img/author.png?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1" alt="Me" />
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-40/img/author.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" alt="Me" />
             <p class="col-xs-8 col-sm-9 col-md-10">
               Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
             </p>
@@ -738,7 +740,7 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
     
     <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
     
-    <li><a href="/preview/pr-40/feed.xml?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    <li><a href="/preview/pr-40/feed.xml?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
     
     
 </ul>
@@ -796,7 +798,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
-  <script src="/preview/pr-40/js/highlight-hocon.js?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1"></script>
+  <script src="/preview/pr-40/js/highlight-hocon.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
   <script>
     hljs.highlightAll();
   </script>
@@ -811,7 +813,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 
   <!-- Share buttons Start -->
 
-  <script src="/preview/pr-40/js/rrssb.min.js?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1"></script>
+  <script src="/preview/pr-40/js/rrssb.min.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
 
   <!-- Share buttons End -->
 
@@ -834,11 +836,11 @@ function addTohistory() {
 
 
     
-      <script src="/preview/pr-40/js/post-language-switch.js?preview=bd5d01b6f3d36ab7b993bf24bab5442b69b13723-38234749510-1"></script>
+      <script src="/preview/pr-40/js/post-language-switch.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
     
 
-  <aside id="preview-status" aria-label="Pull request preview" data-revision="bd5d01b6f3d36ab7b993bf24bab5442b69b13723" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="40">
-  <span>Preview PR #40 · revision bd5d01b</span>
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="5d315719ca54eb8f3663b4039fbc1894df917d47" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="40">
+  <span>Preview PR #40 · revision 5d31571</span>
   <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
   <button type="button" id="preview-refresh" hidden>Refresh preview</button>
 </aside>
