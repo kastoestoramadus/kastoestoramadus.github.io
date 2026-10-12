@@ -219,30 +219,24 @@
 
           <div id="english" class="post-language" lang="en">
 
-  <p><strong>TLDR:</strong> I have plenty of Gemini usage available, even without Plus, but its short answers leave much of the work to me. My workaround: let Gemini tell itself how to work harder. A reusable meta skill turns one line into demanding instructions, making even fast Flash useful to me without my writing those instructions each time.</p>
+  <p><strong>TLDR:</strong> My <code>/xh</code> meta skill turns a one-line request into a prompt with sources, working links and batches. I refined my first version and re-ran both original examples, cat toys and “What is God?”: the refined skill gives the same batches of three that stop at <code>NEXT</code>, and the sources for God all open. It still does not give direct links to shop offers, only to shop home pages. Below it, the competing ready-made skills and prompts: what works without paying Google and what needs a paid plan.</p>
 
-  <p><strong>Try it now:</strong> <a href="#copy-skill-en">copy the skill below</a> and follow <a href="https://support.google.com/gemini/answer/17094296?hl=en-GB">Google’s skill-creation guide</a>. A skill is a saved set of instructions you can reuse in Gemini chats. This one is a <em>meta</em> skill because it writes the instructions for the next task.</p>
+  <p><strong>Updated 12 October 2026:</strong> the post was rewritten around existing work; the copyable definition and trials replace the earlier version.</p>
 
-  <h2 id="let-gemini-tell-itself-how-to-work-harder">Let Gemini tell itself how to work harder</h2>
+  <h2 id="my-meta-skill-xh">My meta skill: /xh</h2>
 
-  <p>Other AI assistants I use do this work without such a meta skill. With Gemini, I kept getting an overview and an offer to continue. I could spell out every requirement myself, but that defeats the convenience of a chat assistant. It feels like enforced “token saving”, though I cannot see the mechanism behind it.</p>
+  <p>A meta skill that turns a short request into a full prompt with sources, verification rules and batches. Create a skill named <code>xh</code> using <a href="https://support.google.com/gemini/answer/17094296?hl=en-GB">Google’s guide</a>, select <code>/xh</code> from the dropdown and type only the task. Run the generated prompt in a normal turn by typing <code>run</code>, without selecting the skill again. Lists longer than three items continue with <code>NEXT</code> or <code>n</code>.</p>
 
-  <p>So I ask Gemini to write the instructions that push it beyond that default: examine each perspective, search for evidence, fill the relevant fields and carry the work through. <code>/xh</code> is my chosen skill name. It generates the prompt; I type <code>go</code> and that’s it, the long prompt runs.</p>
+  <p><strong>Remember to set the model’s effort level: Medium or High.</strong> Check the picker in every new chat; I do not use Low. Avoid the Pro model for routine work: Google says higher models and thinking levels <a href="https://support.google.com/gemini/answer/16275805">consume more usage</a>. I have not measured a Pro/Flash multiplier. The skill cannot set effort.</p>
 
-  <p>“Work harder” means more of the requested work gets done. More words alone would not help.</p>
+  <h2 id="latest-trials-check-the-output-not-just-the-prompt">Latest trials: check the output, not just the prompt</h2>
 
-  <h2 id="what-changed-in-the-trial">What changed in the trial</h2>
-
-  <p><strong>Flash without <code>/xh</code> versus Flash executing the prompt from <code>/xh</code>.</strong> All the trials used Flash through Gemini’s desktop/web chat interface. We compare executed answers; the generated prompt is the intermediate step.</p>
-
-  <p>The four sessions below show <strong>answer excerpts</strong>; the Polish ones are translated from the <a href="#polski">Polish originals</a>. The right-hand results are the first batches, not the whole job.</p>
-
-  <p><strong>Example one - a shopping brief.</strong> The input in both cases was <code>Review recommended cat toys. I want to buy some.</code></p>
+  <p>I kept the original two <code>/xh</code> requests. On the left is the plain request from the earlier trial (baseline, unchanged); on the right the latest <code>/xh</code> run, an excerpt of the answer after <code>run</code>. These are individual trials on Gemini 3.6 Flash in the Gemini app, not a controlled benchmark. I did not record the effort of the older runs or of the latest cat-toys run. A working product link and evidence of availability are separate checks. I opened the God links myself; I did not verify that the cat-toy products exist.</p>
 
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-plain-en">
 
-      <h3 id="session-plain-en">Flash: plain request - cat toys</h3>
+      <h3 id="session-plain-en">Plain request - cat toys</h3>
 
       <p><strong>Input:</strong> <code>Review recommended cat toys. I want to buy some.</code></p>
 
@@ -259,40 +253,40 @@
     </section>
     <section class="session-panel" aria-labelledby="session-skill-en">
 
-      <h3 id="session-skill-en">Flash: after <code>/xh</code> - cat toys</h3>
+      <h3 id="session-skill-en">After <code>/xh</code> - cat toys</h3>
 
-      <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code>, then <code>go</code> without invoking the skill again.</p>
+      <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code> (the original Polish wording is in the Polish version), then <code>run</code> without invoking the skill again.</p>
 
-      <p><strong>Answer excerpt — Cat Dancer:</strong></p>
-
-      <blockquote>
-        <p><strong>Why it is worth considering (behaviourist’s perspective):</strong> An exceptionally simple yet ingenious design. The springy metal wire makes the rolled-up pieces of cardboard at the end move unpredictably, imitating flying insects. It is well suited to cats that quickly lose interest in conventional soft toys.</p>
-      </blockquote>
+      <p><strong>Answer excerpt - the first of three items (translated):</strong></p>
 
       <blockquote>
-        <p><strong>Safety and durability:</strong> Very high durability of the metal wire. The cardboard elements are safe for cats’ teeth and gums, but wear out with heavy use.</p>
+        <p><strong>Toy and brand:</strong> Purrs Catch The Fly wand (Purrs Cat Toys)</p>
 
-        <p><strong>Approximate price:</strong> around 15–20 PLN.</p>
+        <p><strong>Type and category:</strong> interactive wand with interchangeable lures</p>
 
-        <p><strong>Where to buy / link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Check Cat Dancer at Zooplus</a></p>
+        <p><strong>Behavioural need:</strong> the full hunting cycle (stalking, chasing, grabbing, killing)</p>
+
+        <p><strong>Price range &amp; availability:</strong> about 45–65 PLN; widely available in specialist pet shops</p>
+
+        <p><strong>Advantages and safety:</strong> made of natural materials (feathers, fur) on a flexible string, it imitates the erratic movement of an insect or a small bird. WARNING: ONLY FOR PLAY TOGETHER WITH THE OWNER. DO NOT LEAVE UNATTENDED BECAUSE OF THE RISK OF SWALLOWING THE STRING OR FEATHERS.</p>
+
+        <p><strong>Where to buy (link):</strong> <a href="https://kocimietka.pl/">Kocimiętka</a> / <a href="https://www.zooplus.pl/">Zooplus</a></p>
       </blockquote>
 
-      <p>After three entries:</p>
+      <p>After three items (the wand, a KONG Kickeroo, a Nina Ottosson puzzle) it stopped:</p>
 
-      <pre><code class="language-plaintext">Waiting for your signal (n or NEXT) to generate the next batch of recommendations.
+      <pre><code class="language-plaintext">Type NEXT or n to see the next 3 suggestions.
 </code></pre>
+
+      <p><strong>Assessment:</strong> the format, the batch of three and the stop work. The links do not: they lead to shop home pages (Kocimiętka, Zooplus, Allegro, Ceneo), not to the offers, so the direct-link check failed. I did not verify that the three products exist. It is the same limitation as in my first version.</p>
 
     </section>
   </div>
 
-  <p>The baseline was already useful as an overview. The change I wanted was product-by-product work with prices and links.</p>
-
-  <p><strong>Example two - a conceptual question.</strong> The question in both cases was <code>what is God?</code>.</p>
-
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-god-plain-en">
 
-      <h3 id="session-god-plain-en">Flash: plain request - what is God</h3>
+      <h3 id="session-god-plain-en">Plain request - what is God</h3>
 
       <p><strong>Input:</strong> <code>what is God?</code></p>
 
@@ -317,102 +311,185 @@
     </section>
     <section class="session-panel" aria-labelledby="session-god-skill-en">
 
-      <h3 id="session-god-skill-en">Flash: after <code>/xh</code> - what is God</h3>
+      <h3 id="session-god-skill-en">After <code>/xh</code> - what is God</h3>
 
-      <p><strong>Input:</strong> <code>/xh what is God</code>, then <code>run</code> without invoking the skill again.</p>
+      <p><strong>Input:</strong> <code>/xh what is God</code> (the original Polish wording is in the Polish version), then <code>run</code> without invoking the skill again. Gemini 3.6 Flash, Medium.</p>
 
-      <p><strong>Answer excerpt - the first module of batch one (translated):</strong></p>
+      <p><strong>Answer excerpt - the first of three approaches in batch one (translated):</strong></p>
 
       <blockquote>
-        <p><strong>1. CLASSICAL THEISM AND MONOTHEISTIC RELIGIONS</strong></p>
+        <p><strong>1. Classical theism (Aristotelian-Thomist school)</strong></p>
 
-        <p><strong>Ontological framework:</strong> God is understood as a personal being, wholly transcendent with respect to creation, existing necessarily beyond time (eternity as <em>nunc stans</em>) and space. He is characterised by absolute ontological simplicity (<em>divina simplicitas</em>), which means that in God there is no division into act and potency, essence and existence, or attributes and their subject. God creates the world <em>ex nihilo</em> (out of nothing) and sustains it in being (<em>creatio continua</em>), yet without entering into a relation of ontological dependence with it - the world depends on God, but God in his essence does not depend on the world.</p>
+        <p><strong>Definition of the Deity / Absolute:</strong> God as <em>Actus Purus</em> (pure act) and <em>Ipsum Esse Subsistens</em> (subsistent being itself). God is not one of many beings in the universe (even the highest), but the pure act of existence itself, the ultimate efficient and final cause of all created being.</p>
 
-        <p><strong>Nuance and distinguishing subtleties:</strong> classical theism vs Open Theism: classical theism assumes absolute immutability (<em>immutabilitas</em>), impassibility (<em>impassibilitas</em>) and God’s absolute omniscience covering all future contingent events. Open theism rejects the traditional conception of immutability and of full deterministic knowledge of the future of free beings; God is framed there as a relational, dynamic subject, entering a genuine dialogue with time and human decisions, voluntarily limiting his absolute insight into the future.</p>
+        <p><strong>Key distinctions and nuances:</strong> complete transcendence combined with absolute divine simplicity. In God there is no division into essence and existence, matter and form, or potentiality and act. This sets it apart from modern “personalist theism” (where God is sometimes conceived as a powerful subject within temporal and spatial relations) and from pantheism.</p>
 
-        <p><strong>Main representatives and works, step by step:</strong> St Thomas Aquinas (<em>Summa Theologiae</em>): God as <em>Ipsum Esse Subsistens</em> (self-subsistent pure existence). Aquinas argues that in every created being existence (<em>esse</em>) differs from essence (<em>essentia</em>). To avoid an infinite regress in the chain of causes, there must exist a being in which essence <em>is</em> existence. That being is God. Al-Ghazali (<em>Tahafut al-Falasifa</em> / <em>The Incoherence of the Philosophers</em>): defends rigorous Islamic monotheism (Tawhid) against the Neoplatonising Islamic philosophers (Avicenna). Al-Ghazali argues for the creation of the world in time by God’s free, personal will, rejecting the conception of an eternal, necessary emanation.</p>
+        <p><strong>Main representatives and writings:</strong> Aristotle (<em>Metaphysics</em>, the Prime Mover), St Thomas Aquinas (<em>Summa Theologiae</em>, <em>Summa contra Gentiles</em>), Pseudo-Dionysius the Areopagite.</p>
 
-        <p><strong>Criticism and weak points:</strong> the problem of evil (Epicurus / Mackie) - the impossibility of reconciling omnipotence, omnibenevolence and omniscience with the fact of undeserved suffering; the paradox of omnipotence (can God create a stone he cannot lift?); the contradiction between God’s immutability and impassibility and his personal care and the hearing of prayers.</p>
-
-        <table>
-          <tbody>
-            <tr>
-              <td><strong>Verification / sources:</strong> Stanford Encyclopedia of Philosophy: Classical Theism</td>
-              <td>SEP: Open Theism</td>
-            </tr>
-          </tbody>
-        </table>
+        <p><strong>Academic sources:</strong> <a href="https://plato.stanford.edu/entries/divine-simplicity/">Stanford Encyclopedia of Philosophy: Divine Simplicity</a>, <a href="https://plato.stanford.edu/entries/aquinas/">Stanford Encyclopedia of Philosophy: Saint Thomas Aquinas</a></p>
       </blockquote>
 
-      <p>Batch one holds three modules (classical theism, the philosophical Absolute, pantheism and process thought); the remaining six wait for <code>NEXT</code>.</p>
+      <p>Batch one holds three approaches (classical theism, Spinoza’s pantheism, Advaita Vedanta) and stops with a note to type <code>NEXT</code> or <code>n</code> for the next three.</p>
+
+      <p><strong>Assessment:</strong> it delivers the specified structure for each approach, with named works and sources. All six source links in the batch open (HTTP 200: five from the Stanford Encyclopedia and one from the Internet Encyclopedia of Philosophy). The only point where it hands a decision back to the user is the closing offer to pick a school to go deeper.</p>
 
     </section>
   </div>
 
-  <p>Both answers are useful, and the difference is in the shape. The baseline surveys five perspectives in a page and ends by asking which one to explore; the prompt from <code>/xh</code> opens a nine-module plan and delivers the first batch as specified: ontological framework, the nuances that blur in everyday use, two named works with their arguments, and the standard objections. It stops after the batch instead of handing the choice back to me.</p>
+  <h2 id="copy-skill-en">Copy the current meta skill</h2>
 
-  <h2 id="copy-skill-en">Copy the meta skill</h2>
-
-  <p>Create a Gemini skill named <code>xh</code>, with the description “Generate a task prompt when explicitly asked; do not apply when executing it.” Paste the proposed instructions below.</p>
+  <p>Create a Gemini skill named <code>xh</code> with the description and instructions below. It is my first version refined in three ways (described under the block); do not combine it with earlier definitions.</p>
 
   <details>
-    <summary>Full meta-skill instructions — expand to copy</summary>
+    <summary style="cursor: pointer; font-weight: bold; padding: 8px 12px; border: 1px solid #999; border-radius: 4px;">&#9654; Click to expand: the full xh instructions to copy</summary>
 
     <pre><code class="language-plaintext">Skill name: xh
 
 Description field:
-Turns short user intentions into complete, uncompromising session prompts that force maximum effort, deep fact verification and work in batches.
+Turns short user intentions into complete session prompts: precise structure, fact verification in a search engine, explicit reporting of missing data and work in batches.
 
 Instructions:
 ## Structure of the generated prompt
 
 When the user asks for a prompt for a new session, generate a ready block of text containing:
 
-1. **Role and verification rigour:** impose the role of an expert-analyst. No generalisations, no invention, no guessing. Every item must be verified before it is written down.
+1. **Role and verification rigour:** impose the role of an expert-analyst. No generalisations, no invention, no guessing. Every item must be verified before it is written down. Names and assumptions supplied by the user (including working or hypothetical ones) are accepted as the convention of the task: keep them separate from facts and do not report an error because an official source has no entry for them.
 2. **Search and fact-check protocol:** call Google Search for every item to check current dates, times, ticket availability and official sources. Direct, working links in Markdown format `[Name](URL)` are mandatory.
-3. **Batches of 3 with a hard stop clause (zero hallucinations):**
+3. **Batches of 3 and a stop clause:**
    - The model produces **exactly 3 items** per post and stops immediately, waiting for the word `NEXT` or `n`.
-   - **ABSOLUTE BAN ON FABRICATING ITEMS:** when 100% confirmed data runs out, the model MUST NOT pad the batch with invented entries. It lists only as many items as it actually found (for example 2, or 0), prints:
+   - **No fabricated items:** when confirmed data runs out, the model does not pad the batch with invented entries. It lists only as many items as it actually found (for example 2, or 0), prints:
      `[NO FURTHER CONFIRMED ITEMS - VERIFIED SOURCES EXHAUSTED]`
-     and ends the loop for good.
+     and ends the loop.
 4. **A rigid data matrix:** a template of fields that forces full detail (date, time, location/getting there, tickets, direct link).
 5. **Autonomy and user action:** full independence in searching, without asking for permission. CAPITALS reserved exclusively for critical human action (for example, buying the last tickets immediately).
 </code></pre>
 
   </details>
 
-  <p>To use it, invoke <code>/xh</code> with your request, then run it in a normal Gemini turn with <code>go</code>; <code>n</code> continues unfinished work. <code>/xh</code> is my chosen name, not a built-in command.</p>
+  <h2 id="changes-en">What I changed in the first version</h2>
 
-  <p>Important: <a href="https://support.google.com/gemini/answer/17094296?hl=en">scripts bundled with skills cannot make internet requests</a>; hence printing the prompt into the session first and only then executing it.</p>
+  <p>I kept the first definition as the base and made three changes, following a Gemini self-review of that prompt:</p>
+
+  <ul>
+    <li><strong>User hypotheses.</strong> Names and assumptions the user supplies, even working or hypothetical ones, are treated as the convention of the task and kept apart from facts, instead of causing an error because an official source has no entry.</li>
+    <li><strong>Plain wording.</strong> The description and the stop clause lost the emotional phrasing (“uncompromising”, “ABSOLUTE BAN”, “zero hallucinations”, “100% confirmed”); the instructions say what to do and what to report.</li>
+    <li><strong>Not adopted: one search round per batch.</strong> The review also suggested searching once per batch instead of once per item. I left it out: a variant that combined all three changes had two God links returning 404 (2 of 6) and was refused in other runs, but I did not isolate this change, so I cannot say it was the cause.</li>
+  </ul>
+
+  <p>The refined version matches the first one on both examples (same batches of three, same stop, working God sources, shop home pages only), so I describe it as at least as good, not better. Runs in desktop Chrome earlier the same day were refused with every definition, the original included, so I discarded them; the results above come from the Gemini app.</p>
+
+  <h2 id="repos-en">Competing options</h2>
+
+  <p>The free plan has “standard” limits and a 32k-token context; paid plans <a href="https://support.google.com/gemini/answer/16275805">multiply the limit and the context</a>. I read the files below and ran none of them in Gemini, so “free” means the content needs only a chat. Gems are not available on a free account, and Google says they <a href="https://support.google.com/gemini/answer/15146780">go away on personal accounts in November 2026 and transition to skills</a>.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Free plan</th>
+          <th>Paid / needs more</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md">AI-Research-SKILLs</a></td>
+          <td>Three single-file text skills: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. The first two are 19-22 KB, a large share of 32k.</td>
+          <td>Most of the 98 skills: GPU training, MLOps, agents. <code>ml-paper-writing</code> has 51 files.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b">gemini-agent-skills</a></td>
+          <td>Five roles adaptable to chat (below).</td>
+          <td>Packages target Gemini CLI; its converter uses an API key, not the chat allowance.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts">awesome-gemini-visual-gems</a></td>
+          <td>None: these are Gem instructions.</td>
+          <td><strong>Paid (Gems).</strong> 20 instructions (1-3 KB each) that turn text into infographics, using image generation. <code>17_Paper_Diagrams</code> lists temperature and IMAGE-modality settings that I did not check in the Gem editor.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <p>I wrote <code>/xh</code> before checking what already exists. I should have looked first; it is one option among the competing ones here.</p>
+
+  <h2 id="chat-ready-roles-from-gemini-agent-skills">Chat-ready roles from gemini-agent-skills</h2>
+
+  <p>I like <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan’s</a> approach: pick a few relevant roles instead of installing everything. These five are adaptation candidates, not packages proved to work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input, and drop example statistics instead of reporting them as measured. I left out terminal deployment, infrastructure and multi-agent orchestration.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Chat scope</th>
+          <th>Adaptation requirement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
+          <td>Improve a supplied prompt; design evaluation cases.</td>
+          <td>Report accuracy, latency and savings only when measured.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
+          <td>Turn supplied code and notes into documentation.</td>
+          <td>Mark code examples as untested unless actually run.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
+          <td>Extract requirements and acceptance criteria from a brief.</td>
+          <td>Do not invent stakeholder approval or ROI data.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
+          <td>Review pasted code and explain potential defects.</td>
+          <td>No claims of test coverage, scans or runtime performance without tools.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
+          <td>Compare supplied sources; web research needs working search.</td>
+          <td>Link evidence; distinguish findings from hypotheses.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <h2 id="other-prompt-optimisers">Other prompt optimisers</h2>
+
+  <ul>
+    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">Sentry’s prompt-optimizer</a>: success criteria and comparisons of prompt variants.</li>
+    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">GitHub Awesome Copilot’s prompt-optimizer</a>: self-contained prompts intended for chat.</li>
+    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">JoelLewis’s prompt-optimizer</a>: a structured intent-to-prompt workflow. I would not copy every mandatory technique.</li>
+  </ul>
 
 </div>
 
 <div id="polski" class="post-language" lang="pl">
 
-  <p><strong>TLDR:</strong> Mam sporą pulę użycia Gemini, nawet bez Plus, ale jego zdawkowe odpowiedzi zostawiają mi dużą część pracy. Mój sposób: niech Gemini sam sobie powie, jak pracować intensywniej. Meta skill zamienia jedno zdanie w wymagające instrukcje, dzięki którym nawet szybki Flash staje się dla mnie użyteczny, bez ręcznego rozpisywania tych instrukcji za każdym razem.</p>
+  <p><strong>TLDR:</strong> Mój meta skill <code>/xh</code> zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami. Poprawiłem pierwszą wersję i powtórzyłem oba pierwotne przykłady, zabawki dla kota i „Czym jest bóg?”: poprawiona wersja daje te same partie po trzy, które kończą się na <code>NEXT</code>, a źródła do Boga wszystkie się otwierają. Nadal nie daje bezpośrednich linków do ofert w sklepach, tylko do stron głównych sklepów. Niżej konkurencyjne gotowe skille i prompty: co działa bez płacenia Google, a co wymaga płatnego planu.</p>
 
-  <p><strong>Wypróbuj od razu:</strong> <a href="#copy-skill-pl">skopiuj skill poniżej</a> i skorzystaj z <a href="https://support.google.com/gemini/answer/17094296?hl=pl">instrukcji tworzenia skilli Google</a>. Skill to zapisany zestaw instrukcji do wielokrotnego użycia w czatach Gemini. Ten jest <em>meta</em> skillem, bo pisze instrukcje następnego zadania.</p>
+  <p><strong>Aktualizacja 12 października 2026:</strong> wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.</p>
 
-  <h2 id="niech-gemini-sam-sobie-powie-jak-pracowa-intensywniej">Niech Gemini sam sobie powie, jak pracować intensywniej</h2>
+  <h2 id="mj-meta-skill-xh">Mój meta skill: /xh</h2>
 
-  <p>Inne AI, z których korzystam, wykonują tę pracę bez takiego meta skilla. W Gemini ciągle dostawałem przegląd i propozycję kontynuacji. Mógłbym sam rozpisać wszystkie wymagania, ale wtedy tracę wygodę asystenta. Wygląda to jak narzucone „oszczędzanie tokenów”, choć nie widzę mechanizmu, który za tym stoi.</p>
+  <p>Meta skill zamieniający krótkie polecenie w pełny prompt ze źródłami, regułami weryfikacji i partiami. Utwórz skill <code>xh</code> według <a href="https://support.google.com/gemini/answer/17094296?hl=pl">instrukcji Google</a>, wybierz <code>/xh</code> z listy i wpisz samo zadanie. Wygenerowany prompt wykonaj w zwykłej turze, wpisując <code>uruchom</code>, bez ponownego wybierania skilla. Listy dłuższe niż trzy pozycje idą dalej po <code>NEXT</code> lub <code>n</code>.</p>
 
-  <p>Proszę więc Gemini, żeby sam napisał instrukcje skłaniające go do wyjścia poza ten domyślny wynik: przeanalizuj każdą perspektywę, poszukaj dowodów, wypełnij istotne pola i wykonaj pracę do końca. <code>/xh</code> to moja nazwa skilla. Generuje prompt; wpisuję <code>uruchom</code> i gotowe, długi prompt się wykonuje.</p>
+  <p><strong>Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.</strong> Sprawdzaj wybór przy każdym nowym czacie; nie używam Low. Unikaj modelu Pro w rutynowych zadaniach: Google podaje, że wyższe modele i poziomy myślenia <a href="https://support.google.com/gemini/answer/16275805">zużywają więcej limitu</a>. Mnożnika Pro/Flash nie zmierzyłem. Skill nie ustawia effort.</p>
 
-  <p>„Pracować intensywniej” oznacza wykonać więcej zleconej pracy. Sama większa liczba słów niczego nie załatwia.</p>
+  <h2 id="najnowsze-prby-sprawdzaj-wynik-nie-tylko-prompt">Najnowsze próby: sprawdzaj wynik, nie tylko prompt</h2>
 
-  <h2 id="co-zmienio-si-w-prbie">Co zmieniło się w próbie</h2>
-
-  <p><strong>Flash bez <code>/xh</code> kontra Flash wykonujący prompt z <code>/xh</code>.</strong> Wszystkie próby były na Flashu we wspólnym interfejsie czatu aplikacji desktopowej i webowej Gemini. Porównujemy wykonane odpowiedzi; wygenerowany prompt jest krokiem pośrednim.</p>
-
-  <p>Poniżej <strong>oryginalne fragmenty odpowiedzi</strong> z czterech sesji. Po prawej stronie są pierwsze partie, nie wynik całego zadania.</p>
-
-  <p><strong>Przykład pierwszy — zakupy dla kota.</strong> W obu przypadkach punktem wyjścia było: <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>.</p>
+  <p>Zachowałem dwa pierwotne wejścia do <code>/xh</code>. Po lewej zwykła prośba z wcześniejszej próby (punkt odniesienia, bez zmian), po prawej najnowszy przebieg <code>/xh</code>, czyli fragment odpowiedzi po <code>uruchom</code>. To pojedyncze próby na Gemini 3.6 Flash w aplikacji Gemini, nie kontrolowany benchmark. Poziomu wysiłku wcześniejszych przebiegów ani najnowszego przebiegu z kotami nie zapisałem. Działający link produktu i potwierdzenie dostępności to osobne kontrole. Linki do Boga otworzyłem sam; nie sprawdzałem, czy produkty dla kotów istnieją.</p>
 
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-plain-pl">
 
-      <h3 id="session-plain-pl">Flash: zwykła prośba — zakupy dla kota</h3>
+      <h3 id="session-plain-pl">Zwykła prośba — zakupy dla kota</h3>
 
       <p><strong>Polecenie:</strong> <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code></p>
 
@@ -429,40 +506,40 @@ When the user asks for a prompt for a new session, generate a ready block of tex
     </section>
     <section class="session-panel" aria-labelledby="session-skill-pl">
 
-      <h3 id="session-skill-pl">Flash: po <code>/xh</code> — zakupy dla kota</h3>
+      <h3 id="session-skill-pl">Po <code>/xh</code> — zakupy dla kota</h3>
 
-      <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>uruchom</code> bez ponownego wywołania skilla.</p>
+      <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>uruchom</code> bez ponownego wywoływania skilla.</p>
 
-      <p><strong>Fragment odpowiedzi — Cat Dancer:</strong></p>
-
-      <blockquote>
-        <p><strong>Dlaczego warto (Perspektywa behawiorysty):</strong> Wyjątkowo prosta, a zarazem genialna konstrukcja. Sprężysty metalowy drut sprawia, że zwinięte kawałki tektury na końcu poruszają się w sposób całkowicie nieprzewidywalny, udając latające owady. Doskonale sprawdzi się u kotów, które szybko nudzą się klasycznymi pluszakami.</p>
-      </blockquote>
+      <p><strong>Fragment odpowiedzi — pierwsza z trzech pozycji:</strong></p>
 
       <blockquote>
-        <p><strong>Bezpieczeństwo i trwałość:</strong> Bardzo wysoka trwałość metalowego drutu. Tekturowe elementy są bezpieczne dla kocich zębów i dziąseł, ale mocno eksploatowane z czasem ulegają zużyciu.</p>
+        <p><strong>Nazwa zabawki i marka:</strong> Wędka Purrs Catch The Fly (Purrs Cat Toys)</p>
 
-        <p><strong>Orientacyjna cena:</strong> ok. 15 – 20 PLN</p>
+        <p><strong>Typ i kategoria:</strong> Wędka interaktywna z wymiennymi przynętami</p>
 
-        <p><strong>Gdzie kupić / Link:</strong> <a href="https://www.zooplus.pl/shop/koty/zabawki_tunele_kota/wedki_dla_kota">Sprawdź Cat Dancer w Zooplus</a></p>
+        <p><strong>Potrzeba behawioralna:</strong> Realizacja pełnego cyklu łowieckiego (namierzanie, pościg, chwytanie, patroszenie)</p>
+
+        <p><strong>Przedział cenowy &amp; Dostępność:</strong> ok. 45–65 PLN; szeroka dostępność w specjalistycznych sklepach zoologicznych</p>
+
+        <p><strong>Zalety i Bezpieczeństwo:</strong> Wykonana z naturalnych materiałów (pióra, sierść) na elastycznym sznurku, imituje nieregularny ruch owada lub małego ptaka. OSTRZEŻENIE: PRZEZNACZONA WYŁĄCZNIE DO WSPÓLNEJ ZABAWY Z OPIEKUNEM. NIE ZOSTAWIAĆ BEZ NADZORU ZE WZGLĘDU NA RYZYKO POŁKNIĘCIA SZNURKA LUB PIÓR.</p>
+
+        <p><strong>Gdzie kupić (Link):</strong> <a href="https://kocimietka.pl/">Kocimiętka</a> / <a href="https://www.zooplus.pl/">Zooplus</a></p>
       </blockquote>
 
-      <p>Po trzech pozycjach:</p>
+      <p>Po trzech pozycjach (wędka, KONG Kickeroo, łamigłówka Nina Ottosson) odpowiedź się zatrzymała:</p>
 
-      <pre><code class="language-plaintext">Czekam na Twój sygnał (n lub NEXT), aby wygenerować kolejną partię rekomendacji.
+      <pre><code class="language-plaintext">Wpisz `NEXT` lub `n`, aby wyświetlić kolejne 3 propozycje.
 </code></pre>
+
+      <p><strong>Ocena:</strong> format, partia po trzy i zatrzymanie działają. Linki nie: prowadzą na strony główne sklepów (Kocimiętka, Zooplus, Allegro, Ceneo), nie do ofert, więc kontrola bezpośredniego linku znów się nie powiodła. Nie sprawdzałem, czy te trzy produkty istnieją. To to samo ograniczenie co w mojej pierwszej wersji.</p>
 
     </section>
   </div>
 
-  <p>Zwykła odpowiedź już była użyteczna jako przegląd. Zależało mi jednak na pracy produkt po produkcie, z cenami i linkami.</p>
-
-  <p><strong>Przykład drugi — pytanie pojęciowe.</strong> W obu przypadkach punktem wyjścia było pytanie: <code>czym jest bóg?</code>.</p>
-
   <div class="session-comparison">
     <section class="session-panel" aria-labelledby="session-god-plain-pl">
 
-      <h3 id="session-god-plain-pl">Flash: zwykła prośba — czym jest bóg</h3>
+      <h3 id="session-god-plain-pl">Zwykła prośba — czym jest bóg</h3>
 
       <p><strong>Polecenie:</strong> <code>czym jest bóg?</code></p>
 
@@ -487,72 +564,161 @@ When the user asks for a prompt for a new session, generate a ready block of tex
     </section>
     <section class="session-panel" aria-labelledby="session-god-skill-pl">
 
-      <h3 id="session-god-skill-pl">Flash: po <code>/xh</code> — czym jest bóg</h3>
+      <h3 id="session-god-skill-pl">Po <code>/xh</code> — czym jest bóg</h3>
 
-      <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, potem <code>wykonaj</code> bez ponownego wywołania skilla.</p>
+      <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, potem <code>uruchom</code> bez ponownego wywoływania skilla. Gemini 3.6 Flash, Medium.</p>
 
-      <p><strong>Fragment odpowiedzi — pierwszy moduł pierwszej partii:</strong></p>
+      <p><strong>Fragment odpowiedzi — pierwsze z trzech ujęć w partii pierwszej:</strong></p>
 
       <blockquote>
-        <p><strong>1. TEIZM KLASYCZNY I RELIGIE MONOTEISTYCZNE</strong></p>
+        <p><strong>1. Teizm Klasyczny (Nurt Arystotelesowsko-Tomistyczny)</strong></p>
 
-        <p><strong>Ramy Ontologiczne:</strong> Bóg jest rozumiany jako byt osobowy, całkowicie transcendentny wobec stworzenia, istniejący w sposób konieczny poza czasem (wieczność jako nunc stans) i przestrzenią. Cechuje go absolutna prostota ontologiczna (divina simplicitas), co oznacza, że w Bogu nie ma podziału na akty i możności, istotę i istnienie, czy cechy i ich podmiot. Bóg stwarza świat ex nihilo (z niczego) i podtrzymuje go w istnieniu (creatio continua), nie wchodząc z nim jednak w relację zależności ontologicznej — świat zależy od Boga, ale Bóg w swojej istocie nie zależy od świata.</p>
+        <p><strong>Definicja Bóstwa / Absolutu:</strong> Bóg jako Actus Purus (Czysty Akt) oraz Ipsum Esse Subsistens (Samoistne Istnienie). Bóg nie jest jednym z wielu bytów we wszechświecie (nawet najwyższym), lecz samym czystym aktem istnienia, stanowiącym ostateczną przyczynę sprawczą i celową wszelkiego bytu stworzonego.</p>
 
-        <p><strong>Niuans i Subtelności Różnicujące:</strong> Teizm Klasyczny vs Teizm Otwarty (Open Theism): teizm klasyczny zakłada absolutną niezmienność (immutabilitas), beznamiętność (impassibilitas) oraz bezwzględną wszechwiedzę Boga obejmującą wszystkie przyszłe zdarzenia przygodne. Teizm otwarty odrzuca tradycyjną koncepcję niezmienności i pełnej deterministycznej wiedzy o przyszłości wolnych istot; Bóg jest w nim ujęty jako podmiot relacyjny, dynamiczny, wchodzący w autentyczny dialog z czasem i ludzkimi decyzjami, dobrowolnie ograniczający swój absolutny wgląd w przyszłość.</p>
+        <p><strong>Kluczowe Dystynkcje i Niuanse:</strong> Całkowita transcendencja połączona z absolutną prostotą bożą (divine simplicity). W Bogu nie występuje żaden podział na istotę (essentia) i istnienie (existentia), materię i formę czy potencjalność i akt. Odróżnia się to od nowożytnego „teizmu personalistycznego” (gdzie Bóg bywa pojmowany jako potężny podmiot wewnątrz relacji czasowo-przestrzennych) oraz od panteizmu.</p>
 
-        <p><strong>Główni Przedstawiciele i Dzieła Krok po Kroku:</strong> Św. Tomasz z Akwinu (Summa Theologiae): Bóg jako Ipsum Esse Subsistens (Samoistne Czyste Istnienie). Tomasz argumentuje, że w każdym bycie stworzonym istnienie (esse) różni się od istoty (essentia). Aby uniknąć regresu w nieskończoność w łańcuchu przyczyn, musi istnieć byt, w którym istota JEST istnieniem. Tym bytem jest Bóg. Al-Ghazali (Tahafut al-Falasifa / Niezborność filozofów): Broni rygorystycznego monoteizmu islamskiego (Tawhid) przeciwko neoplatonizującym filozofom islamskim (Avicennie). Al-Ghazali argumentuje na rzecz stworzenia świata w czasie przez wolną, osobową wolę Boga, odrzucając koncepcję wiecznej, koniecznej emanacji.</p>
+        <p><strong>Główni Przedstawiciele i Pisma:</strong> Arystoteles (Metafizyka – pojęcie Pierwszego Poruszyciela), św. Tomasz z Akwinu (Summa Theologiae, Summa contra Gentiles), Pseudo-Dionizy Areopagita.</p>
 
-        <p><strong>Krytyka i Słabe Punkty:</strong> Problem Zła (Epicurus / Mackie) — niemożność pogodzenia wszechmocy, wszechdobroci i wszechwiedzy z faktem istnienia niezasłużonego cierpienia; paradoks wszechmocy (czy Bóg może stworzyć kamień, którego nie zdoła podnieść?); sprzeczność między niezmiennością i beznamiętnością Boga a Jego osobową troską i wysłuchiwaniem modlitw.</p>
-
-        <table>
-          <tbody>
-            <tr>
-              <td><strong>Weryfikacja / Źródła:</strong> Stanford Encyclopedia of Philosophy: Classical Theism</td>
-              <td>SEP: Open Theism</td>
-            </tr>
-          </tbody>
-        </table>
+        <p><strong>Źródła Akademickie:</strong> <a href="https://plato.stanford.edu/entries/divine-simplicity/">Stanford Encyclopedia of Philosophy: Divine Simplicity</a>, <a href="https://plato.stanford.edu/entries/aquinas/">Stanford Encyclopedia of Philosophy: Saint Thomas Aquinas</a></p>
       </blockquote>
 
-      <p>Pierwsza partia to trzy moduły (teizm klasyczny, Absolut filozoficzny, panteizm i filozofia procesu); pozostałe sześć czekają na <code>NEXT</code>.</p>
+      <p>Partia pierwsza ma trzy ujęcia (teizm klasyczny, panteizm Spinozy, Advaita Vedānta) i kończy się prośbą o wpisanie <code>NEXT</code> lub <code>n</code> po kolejne trzy.</p>
+
+      <p><strong>Ocena:</strong> dla każdego ujęcia jest wymagana struktura, z nazwanymi dziełami i źródłami. Wszystkie sześć linków do źródeł w partii się otwiera (HTTP 200: pięć z Stanford Encyclopedia i jeden z Internet Encyclopedia of Philosophy). Jedyne miejsce, gdzie odpowiedź oddaje decyzję użytkownikowi, to prośba o wybór nurtu do pogłębienia.</p>
 
     </section>
   </div>
 
-  <p>Obie odpowiedzi są użyteczne, a różnica jest w kształcie. Zwykła odpowiedź przerzuca pięć perspektyw na jednej stronie i kończy pytaniem, którą pogłębić; prompt z <code>/xh</code> otwiera dziewięciomodułowy plan i dostarcza pierwszą partię zgodnie ze sztywnym szablonem: ramy ontologiczne, niuanse różnicujące, dwóch nazwanych przedstawicieli z argumentacją i standardową krytykę. Partia kończy się sama, zamiast oddawać mi decyzję.</p>
+  <h2 id="copy-skill-pl">Aktualny meta skill do skopiowania</h2>
 
-  <h2 id="copy-skill-pl">Meta skill do skopiowania</h2>
-
-  <p>Utwórz w Gemini skill <code>xh</code> z opisem „Generuj prompt zadania na wyraźną prośbę; nie stosuj podczas jego wykonywania”. Wklej proponowane instrukcje poniżej.</p>
+  <p>Utwórz w Gemini skill <code>xh</code> z poniższym opisem i instrukcjami. To moja pierwsza wersja poprawiona na trzy sposoby (opis pod blokiem); nie łącz jej z wcześniejszymi definicjami.</p>
 
   <details>
-    <summary>Pełne instrukcje meta skilla — rozwiń i skopiuj</summary>
+    <summary style="cursor: pointer; font-weight: bold; padding: 8px 12px; border: 1px solid #999; border-radius: 4px;">&#9654; Kliknij, aby rozwinąć: pełne instrukcje xh do skopiowania</summary>
 
     <pre><code class="language-plaintext">Nazwa skilla: xh
 
-Pole Opis: Przekształca krótkie intencje użytkownika w kompletne, bezkompromisowe prompty sesyjne, które wymuszają na modelu maksymalny wysiłek, głęboką weryfikację faktów i pracę w partiach.
+Pole Opis: Przekształca krótkie intencje użytkownika w kompletne prompty sesyjne: precyzyjna struktura, weryfikacja faktów w wyszukiwarce, jawne komunikowanie braku danych i praca w partiach.
 
 Instrukcje:
 ## Konstrukcja Generowanego Prompta
 
 Gdy użytkownik prosi o przygotowanie prompta do nowej sesji, wygeneruj gotowy blok tekstu, który zawiera:
 
-1. **Rola i Rygor Weryfikacji:** Narzucenie roli ekspert-analityka. Zakaz uogólnień, zmyślania i opierania się na domysłach. Każda pozycja musi zostać zweryfikowana przed wypisaniem.
+1. **Rola i Rygor Weryfikacji:** Narzucenie roli ekspert-analityka. Zakaz uogólnień, zmyślania i opierania się na domysłach. Każda pozycja musi zostać zweryfikowana przed wypisaniem. Nazwy i założenia podane przez użytkownika (także robocze lub hipotetyczne) przyjmij jako konwencję zadania: oddziel je od faktów i nie zgłaszaj błędu z powodu braku wpisu w oficjalnych źródłach.
 2. **Protokół Wyszukiwania (Search &amp; Fact-Check Protocol):** Nakaz wywoływania narzędzia Google Search dla każdego punktu w celu sprawdzenia aktualnych dat, godzin, dostępności biletów i oficjalnych źródeł. Wymóg podawania bezpośrednich, działających linków w formacie Markdown `[Nazwa](URL)`.
-3. **Praca w Partiach po 3 i Twarda Klauzula Stopu (Zero Halucynacji):**
+3. **Praca w Partiach po 3 i Klauzula Stopu:**
    - Model generuje **dokładnie 3 pozycje** na wpis i natychmiast zatrzymuje się, czekając na słowo `NEXT` lub `n`.
-   - **BEZWZGLĘDNY ZAKAZ FABRYKOWANIA POZYCJI:** Gdy brakuje w 100% potwierdzonych danych, model NIE MOŻE dopychać partii zmyślonymi wpisami. Wyświetla tylko tyle pozycji, ile faktycznie znalazł (np. 2 lub 0), wypisuje komunikat:
+   - **Zakaz fabrykowania pozycji:** Gdy brakuje potwierdzonych danych, model nie dopycha partii zmyślonymi wpisami. Wyświetla tylko tyle pozycji, ile faktycznie znalazł (np. 2 lub 0), wypisuje komunikat:
      `[BRAK KOLEJNYCH POTWIERDZONYCH POZYCJI - Wyczerpano zweryfikowane źródła]`
-     i definitywnie kończy pętlę.
+     i kończy pętlę.
 4. **Sztywna Matryca Danych:** Szablon pól wymuszający podanie pełnych szczegółów (m.in. data, godzina, lokalizacja/dojazd, bilety, bezpośredni link).
 5. **Autonomia i Akcja Użytkownika:** Pełna samodzielność w szukaniu bez pytania o zgodę. Użycie DUŻYCH LITER zarezerwowane wyłącznie dla krytycznych akcji po stronie człowieka (np. natychmiastowy zakup ostatnich biletów).
 </code></pre>
 
   </details>
 
-  <p>Aby użyć skilla, wywołaj <code>/xh</code> ze swoją prośbą i wpisz <code>uruchom</code>; <code>n</code> kontynuuje niedokończoną pracę. <code>/xh</code> to moja nazwa, nie wbudowana komenda.</p>
+  <h2 id="changes-pl">Co zmieniłem w pierwszej wersji</h2>
 
-  <p>Ważne: <a href="https://support.google.com/gemini/answer/17094296?hl=pl">skrypty dołączone do skilli nie mogą wykonywać żądań internetowych</a>; stąd wydrukowanie najpierw prompta nam do sesji i dopiero po nim jego wykonanie.</p>
+  <p>Pierwszą definicję zostawiłem jako bazę i wprowadziłem trzy zmiany, idąc za autorecenzją Gemini tego promptu:</p>
+
+  <ul>
+    <li><strong>Hipotezy użytkownika.</strong> Nazwy i założenia podane przez użytkownika, także robocze lub hipotetyczne, są traktowane jako konwencja zadania i oddzielane od faktów, zamiast powodować błąd z powodu braku wpisu w oficjalnym źródle.</li>
+    <li><strong>Neutralne słownictwo.</strong> Opis i klauzula stopu straciły emocjonalne sformułowania („bezkompromisowe”, „BEZWZGLĘDNY ZAKAZ”, „Zero Halucynacji”, „w 100% potwierdzonych”); instrukcje mówią, co zrobić i co zgłosić.</li>
+    <li><strong>Nie przyjęte: jedna runda wyszukiwania na partię.</strong> Recenzja sugerowała też wyszukiwanie raz na partię zamiast raz na pozycję. Pominąłem to: wariant łączący wszystkie trzy zmiany miał dwa linki do Boga zwracające 404 (2 z 6) i w innych próbach spotkał się z odmową, ale nie wydzieliłem tej zmiany, więc nie twierdzę, że była przyczyną.</li>
+  </ul>
+
+  <p>Poprawiona wersja dorównuje pierwszej na obu przykładach (te same partie po trzy, ten sam stop, działające źródła do Boga, w sklepach tylko strony główne), więc nazywam ją co najmniej tak dobrą, nie lepszą. Próby w Chrome na komputerze tego samego dnia kończyły się odmową przy każdej definicji, także oryginalnej, więc je odrzuciłem; wyniki powyżej pochodzą z aplikacji Gemini.</p>
+
+  <h2 id="repos-pl">Konkurencyjne opcje</h2>
+
+  <p>Plan darmowy ma „standardowe” limity i kontekst 32 tys. tokenów; płatne <a href="https://support.google.com/gemini/answer/16275805">mnożą limit i kontekst</a>. Pliki poniżej przeczytałem, ale żadnego nie uruchomiłem w Gemini, więc „darmowe” znaczy, że treść wymaga tylko czatu. Gemy nie są dostępne na darmowym koncie, a Google podaje, że <a href="https://support.google.com/gemini/answer/15146780">znikną z kont osobistych w listopadzie 2026 i przejdą w skille</a>.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Repozytorium</th>
+          <th>Plan darmowy</th>
+          <th>Płatne / wymaga więcej</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/README.md">AI-Research-SKILLs</a></td>
+          <td>Trzy jednoplikowe skille tekstowe: <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md">brainstorming-research-ideas</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/creative-thinking-for-research/SKILL.md">creative-thinking-for-research</a>, <a href="https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/20-ml-paper-writing/presenting-conference-talks/SKILL.md">presenting-conference-talks</a>. Pierwsze dwa mają 19-22 KB, czyli sporą część z 32 tys.</td>
+          <td>Większość z 98 skilli: trening na GPU, MLOps, agenci. <code>ml-paper-writing</code> ma 51 plików.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/tree/34ca3ca1db04b092c5f86eba155c23e105fc933b">gemini-agent-skills</a></td>
+          <td>Pięć ról do adaptacji na czat (niżej).</td>
+          <td>Paczki są dla Gemini CLI; konwerter używa klucza API, nie puli czatu.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/AIwork4me/awesome-gemini-visual-gems/tree/dde992eea191863233210b55b345295db9bd9752/prompts">awesome-gemini-visual-gems</a></td>
+          <td>Brak: to instrukcje do Gemów.</td>
+          <td><strong>Płatne (Gemy).</strong> 20 instrukcji (1-3 KB każda) zamieniających tekst w infografiki, z generowaniem obrazów. <code>17_Paper_Diagrams</code> podaje ustawienia temperatury i modalności IMAGE, których nie sprawdzałem w edytorze Gemów.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <p>Napisałem <code>/xh</code>, zanim sprawdziłem, co już istnieje. Powinienem był najpierw się rozejrzeć; teraz to jedna z opcji obok konkurencyjnych.</p>
+
+  <h2 id="role-do-czatu-z-gemini-agent-skills">Role do czatu z gemini-agent-skills</h2>
+
+  <p>Podoba mi się podejście <a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan</a>: wybrać kilka potrzebnych ról zamiast instalować wszystko. Te pięć to kandydaci do adaptacji, nie paczki sprawdzone jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem, a przykładowe statystyki usuń zamiast podawać je jako zmierzone. Pominąłem wdrożenia przez terminal, infrastrukturę i orkiestrację agentów.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Zakres w czacie</th>
+          <th>Warunek adaptacji</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
+          <td>Poprawa promptu i projektowanie przypadków oceny.</td>
+          <td>Trafność, czas i oszczędności podawaj tylko po pomiarze.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
+          <td>Zamiana podanego kodu i notatek w dokumentację.</td>
+          <td>Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
+          <td>Wyciąganie wymagań i kryteriów akceptacji z opisu.</td>
+          <td>Nie wymyślaj akceptacji interesariuszy ani danych do ROI.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
+          <td>Przegląd wklejonego kodu i wyjaśnianie możliwych błędów.</td>
+          <td>Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
+          <td>Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania.</td>
+          <td>Linkuj dowody; oddziel ustalenia od hipotez.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <h2 id="inne-optymalizatory-promptw">Inne optymalizatory promptów</h2>
+
+  <ul>
+    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">prompt-optimizer Sentry</a>: kryteria sukcesu i porównywanie wariantów promptu.</li>
+    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">prompt-optimizer GitHub Awesome Copilot</a>: samodzielne prompty przeznaczone do czatu.</li>
+    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">prompt-optimizer JoelLewis</a>: uporządkowane przejście od intencji do promptu. Nie kopiowałbym każdej obowiązkowej techniki.</li>
+  </ul>
 
 </div>
 
