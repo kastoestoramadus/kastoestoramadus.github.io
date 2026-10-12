@@ -21,9 +21,27 @@ A meta skill that turns a short request into a full prompt with sources, verific
 
 ## Latest trials: check the output, not just the prompt
 
-I kept the original two `/xh` requests. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.
+I kept the original two `/xh` requests. On the left is the plain request from the earlier trial (baseline, unchanged); on the right the latest `/xh` run. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.
 
-### Shopping for cat toys
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-plain-en" markdown="1">
+
+### Flash: plain request - cat toys
+{: #session-plain-en}
+
+**Input:** `Review recommended cat toys. I want to buy some.`
+
+**Answer excerpt — wands:**
+
+> **Recommended models:** *Purr Propulsion* / *GoCat Da Bird* wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.
+
+> **What to look for:** Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).
+
+</section>
+<section class="session-panel" aria-labelledby="session-skill-en" markdown="1">
+
+### Flash: after `/xh` - cat toys
+{: #session-skill-en}
 
 **Input:** `/xh Review recommended cat toys. I want to buy some.` (the original Polish wording is below), then `uruchom`. Effort: High.
 
@@ -37,7 +55,34 @@ It also required opening the specific product page, checking stock and omitting 
 
 **Assessment:** the instructions are more precise, but this run failed the shopping requirement. Missing links are a failed check, not a successful recommendation. The model's explanation does not establish whether access, a temporary limit or something else caused it.
 
-### What is God?
+</section>
+</div>
+
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-god-plain-en" markdown="1">
+
+### Flash: plain request - what is God
+{: #session-god-plain-en}
+
+**Input:** `what is God?`
+
+**Answer excerpt - the opening (translated):**
+
+> The question of what God is touches the very fabric of human reflection - and depending on the perspective from which we look at it, the answer takes a completely different shape. There is no single coherent definition, because the history of humanity has produced several fundamentally different approaches.
+
+**Answer excerpt - the first perspective (translated):**
+
+> **1. Theistic view (monotheistic religions)** In Christianity, Judaism and Islam God is understood as a personal, transcendent being - the Creator of the universe, who exists beyond time and space, but at the same time enters history and enters into a relationship with people. He is characterised by absolute perfection, omnipotence, omniscience and complete goodness.
+
+**Answer excerpt - the closing lines (translated):**
+
+> What God is, then, depends on whether we are looking for a Person, a personal Meaning, a Law of Nature, an ultimate Cause or a Structure of our own psyche. Which of these perspectives is closest to you, or from what angle would you like to explore this concept further?
+
+</section>
+<section class="session-panel" aria-labelledby="session-god-skill-en" markdown="1">
+
+### Flash: after `/xh` - what is God
+{: #session-god-skill-en}
 
 **Input:** `/xh what is God` (original: `/xh czym jest bóg`), followed by execution of the generated prompt. Effort: Medium.
 
@@ -52,6 +97,9 @@ It required thinkers, works, arguments and limitations, but omitted direct sourc
 > I am not intended for such purposes.
 
 **Assessment:** the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.
+
+</section>
+</div>
 
 ## Copy the current meta skill
 {: #copy-skill-en}
@@ -150,9 +198,27 @@ Meta skill zamieniający krótkie polecenie w pełny prompt ze źródłami, regu
 
 ## Najnowsze próby: sprawdzaj wynik, nie tylko prompt
 
-Zachowałem dwa pierwotne wejścia do `/xh`. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.
+Zachowałem dwa pierwotne wejścia do `/xh`. Po lewej zwykła prośba z wcześniejszej próby (punkt odniesienia, bez zmian), po prawej najnowszy przebieg `/xh`. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.
 
-### Zakupy dla kota
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-plain-pl" markdown="1">
+
+### Flash: zwykła prośba — zakupy dla kota
+{: #session-plain-pl}
+
+**Polecenie:** `Przejrzyj co się poleca kotom do zabawy. chcę kupić`
+
+**Fragment odpowiedzi — wędki:**
+
+> **Polecane modele:** Wędki typu *Purr Propulsion* / *GoCat Da Bird* (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.
+
+> **Na co zwrócić uwagę:** Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).
+
+</section>
+<section class="session-panel" aria-labelledby="session-skill-pl" markdown="1">
+
+### Flash: po `/xh` — zakupy dla kota
+{: #session-skill-pl}
 
 **Polecenie:** `/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić`, potem `uruchom`. Effort: High.
 
@@ -166,7 +232,34 @@ Prompt wymagał również otwarcia konkretnej oferty, sprawdzenia dostępności 
 
 **Ocena:** instrukcje są precyzyjniejsze, ale ten przebieg nie spełnił celu zakupowego. Brak linków to niezaliczona kontrola, nie udana rekomendacja. Wyjaśnienie modelu nie dowodzi, czy przyczyną był dostęp, chwilowy limit czy coś innego.
 
-### Czym jest bóg?
+</section>
+</div>
+
+<div class="session-comparison" markdown="1">
+<section class="session-panel" aria-labelledby="session-god-plain-pl" markdown="1">
+
+### Flash: zwykła prośba — czym jest bóg
+{: #session-god-plain-pl}
+
+**Polecenie:** `czym jest bóg?`
+
+**Fragment odpowiedzi — otwarcie:**
+
+> Pytanie o to, czym jest Bóg, dotyka samego zrębu ludzkiej refleksji — i w zależności od perspektywy, z której na nie spojrzymy, odpowiedź przyjmuje zupełnie inny kształt. Nie ma jednej spójnej definicji, ponieważ historia ludzkości wypracowała kilka zasadniczo odmiennych ujęć.
+
+**Fragment odpowiedzi — pierwsze ujęcie:**
+
+> **1. Ujęcie teistyczne (religie monoteistyczne)** — w chrześcijaństwie, judaizmie i islamie Bóg jest rozumiany jako osobowy, transcendentny byt — Stwórca wszechświata, który istnieje poza czasem i przestrzenią, ale jednocześnie wkracza w historię i wchodzi w relację z ludźmi. Cechują go absolutna doskonałość, omnipotencja (wszechmoc), omniscience (wszechwiedza) oraz całkowita dobroć.
+
+**Fragment odpowiedzi — zamknięcie:**
+
+> To, czym jest Bóg, zależy więc od tego, czy szukamy Osoby, Osobowego Sensu, Prawa Natury, Ostatecznej Przyczyny czy Struktury naszej własnej psychiki. Która z tych perspektyw jest Ci najbliższa lub pod jakim kątem chcesz to pojęcie pogłębić?
+
+</section>
+<section class="session-panel" aria-labelledby="session-god-skill-pl" markdown="1">
+
+### Flash: po `/xh` — czym jest bóg
+{: #session-god-skill-pl}
 
 **Polecenie:** `/xh czym jest bóg`, następnie wykonanie wygenerowanego promptu. Effort: Medium.
 
@@ -181,6 +274,9 @@ Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpo
 > Nie jestem przeznaczony do takich celów.
 
 **Ocena:** prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.
+
+</section>
+</div>
 
 ## Aktualny meta skill do skopiowania
 {: #copy-skill-pl}
