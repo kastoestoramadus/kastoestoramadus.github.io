@@ -18,7 +18,22 @@
           <small> <a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a></small>
         </h4>
 
-        {{ post.content | strip_html | markdownify | truncatewords: site.post-preview-words }}
+        {% comment %}
+          Teaser = front matter `teaser`, else the first paragraph with real text (skips image-only paragraphs).
+          Tables, code blocks and headings are never part of it: stripping their tags flattened them into one run of words.
+        {% endcomment %}
+        {% assign teaser = post.teaser %}
+        {% unless teaser %}
+          {% assign paragraphs = post.content | split: '</p>' %}
+          {% for chunk in paragraphs %}
+            {% assign candidate = chunk | strip_html | strip | normalize_whitespace %}
+            {% if candidate.size > 40 %}
+              {% assign teaser = candidate %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endunless %}
+        {% if teaser %}<p>{{ teaser | truncatewords: site.post-preview-words }}</p>{% endif %}
 
         <h4><a href="{{site.baseurl}}/blog/">More posts</a></h4>
 
