@@ -178,6 +178,10 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 
 ## Gotchas
 
+- Home page "Latest Blog Post" teaser (`_includes/latest-post.html`) is the front matter `teaser`, else the first
+  paragraph with more than 40 characters of text, cut to `post-preview-words`. Never feed it the whole post body: the old
+  `content | strip_html | markdownify` flattened a leading table/code block into one run of words in a grey box.
+
 - `site.url` is `https://kastoestoramadus.github.io` (redirects to blog.ww86.eu). Changing it changes RSS item GUIDs
   and would re-announce every post in feed readers.
 - Liquid can't read config keys starting with a digit via dot syntax: use `site['404-img']`.
