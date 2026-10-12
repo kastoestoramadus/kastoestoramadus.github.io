@@ -9,7 +9,7 @@ title-pl: Jak skłonić Gemini Flash do konkretnej pracy
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 
-**TLDR:** Before writing my own `/xh` meta skill I should have checked what already exists. For the free Google AI plan the best fit is a set of [20 infographic Gems](#repos-en); the research and CLI skill libraries mostly need paid tiers or tools. My `/xh` is now only an add-on, and it did not reliably pass its own tests.
+**TLDR:** A map of ready-made Gems and skills that fit Google's free AI plan, plus my `/xh` meta skill: it turns a one-line request into a prompt with sources, working links and batches. I tested it on cat toys and on "What is God?" and report both failures.
 
 **Updated 12 October 2026:** the post was rewritten around existing work; the copyable definition and trials replace the earlier version.
 
@@ -28,6 +28,8 @@ Google says that [Gems go away on personal accounts in November 2026 and transit
 {: .table}
 
 </div>
+
+I wrote `/xh` before checking what already exists. I should have looked first; it is now an add-on to the repositories above.
 
 ## Chat-ready roles from gemini-agent-skills
 
@@ -136,7 +138,7 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:** Zanim napisałem własny meta skill `/xh`, powinienem był sprawdzić, co już istnieje. Dla darmowego planu Google AI najlepiej pasuje [20 Gemów do infografik](#repos-pl); biblioteki skilli badawczych i CLI wymagają głównie płatnych planów albo narzędzi. Mój `/xh` jest teraz tylko dodatkiem i nie przechodził rzetelnie własnych testów.
+**TLDR:** Mapa gotowych Gemów i skilli, które pasują do darmowego planu Google AI, oraz mój meta skill `/xh`: zamienia jednozdaniowe polecenie w prompt ze źródłami, działającymi linkami i partiami. Sprawdziłem go na zabawkach dla kota i na „Czym jest bóg?” i opisuję obie porażki.
 
 **Aktualizacja 12 października 2026:** wpis przepisałem wokół istniejących rozwiązań; definicja do skopiowania i próby zastępują poprzednią wersję.
 
@@ -155,6 +157,8 @@ Google podaje, że [Gemy znikną z kont osobistych w listopadzie 2026 i przejdą
 {: .table}
 
 </div>
+
+Napisałem `/xh`, zanim sprawdziłem, co już istnieje. Powinienem był najpierw się rozejrzeć; teraz to dodatek do powyższych repozytoriów.
 
 ## Role do czatu z gemini-agent-skills
 
