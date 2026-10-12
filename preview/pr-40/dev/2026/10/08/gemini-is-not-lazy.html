@@ -1,0 +1,780 @@
+
+<!-- Post Layout Start -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- HEAD Start -->
+
+<head>
+  
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blog of Waldemar Wosiński, a Scala & Big Data engineer from Warsaw: software development, hardware, operating systems and work life.">
+  <meta name="author" content="Waldemar Wosiński">
+  <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <title>{ IT blog - Waldemar Wosiński } | Getting useful work out of Gemini Flash</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Custom CSS -->
+  <link href="/preview/pr-40/css/grayscale.css?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1" rel="stylesheet">
+  
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/preview/pr-40/css/rrssb.css?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1" />
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-40/img/favicon.ico?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  
+
+  
+
+  
+
+
+  <!-- iOS Web App mode -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-40/img/web-app/icon-36p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-40/img/web-app/icon-48p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-40/img/web-app/icon-72p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-40/img/web-app/icon-96p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-40/img/web-app/icon-144p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-40/img/web-app/icon-192p.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+
+  <!-- Android Web App mode -->
+
+  <link rel="manifest" href="/preview/pr-40/manifest.json?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+
+
+
+
+  
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  
+
+
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/styles/monokai-sublime.min.css"
+        integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+
+
+<meta name="preview-build" content="00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+<style>
+body { padding-bottom: 90px; }
+#preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+#preview-status a, #preview-status button { color: #00cdff; }
+#preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
+</style>
+<script defer src="/preview/pr-40/preview-status.js?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1"></script>
+</head>
+
+<!-- HEAD End -->
+
+
+  <body>
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      
+        <a class="navbar-brand" href="/preview/pr-40/?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+      
+          <div>
+            
+              <img src="/preview/pr-40/img/black-lab-glass.ico?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1" alt="">
+            
+            { IT blog - Waldemar Wosiński }
+          </div>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        
+          <!-- Blog, Post, Tag and Error pages -->
+          
+            <li>
+            
+                <a href="/preview/pr-40/?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1#about"> About </a>
+            
+            </li>
+          
+            <li>
+            
+              
+                <a href="/preview/pr-40/blog/?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1"> Blog </a>
+              
+            
+            </li>
+          
+            <li>
+            
+                <a href="/preview/pr-40/?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1#timeline"> Timeline </a>
+            
+            </li>
+          
+            <li>
+            
+                <a href="/preview/pr-40/?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1#contact"> Contact </a>
+            
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    <section id="post" class="container content-section text-center">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          
+<!-- Swipe Instructions Start -->
+
+<div id="swipe-instruction">
+  <div>
+    <p><br><br><br></p>
+    <i id="hand-swipe" class="fa fa-hand-o-up"></i>
+    <p><strong>
+    
+      Did you know that you can navigate the posts by swiping left and right?
+    
+    </strong></p>
+    <button type="button" class="btn btn-default ok-btn close-swipe-instruction">
+      
+        Awesome!
+      
+    </button>
+  </div>
+</div>
+
+<!-- Swipe Instructions End -->
+
+
+          <h1><strong>Getting useful work out of Gemini Flash</strong></h1>
+          <h4>
+            <strong>08 Oct 2026</strong>
+            <small>
+              . category:
+              <a class="category" href="/preview/pr-40/categories/dev.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">
+                dev
+              </a>.
+              <a href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1#disqus_thread">Comments</a>
+              <br />
+              
+                <a class="tag" href="/preview/pr-40/tags/ai.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">#ai</a>
+              
+                <a class="tag" href="/preview/pr-40/tags/gemini.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">#gemini</a>
+              
+                <a class="tag" href="/preview/pr-40/tags/prompt-engineering.html?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1">#prompt-engineering</a>
+              
+            </small>
+          </h4>
+
+          <div style="text-align: left">
+
+          
+            <nav class="post-language-switch" aria-label="Language / Język">
+  <a href="#english" lang="en" hreflang="en" data-post-title="Getting useful work out of Gemini Flash">English</a>
+  <a href="#polski" lang="pl" hreflang="pl" data-post-title="Jak skłonić Gemini Flash do konkretnej pracy">Polski</a>
+</nav>
+
+          
+
+          <div id="english" class="post-language" lang="en">
+
+  <p><strong>TLDR:</strong> A meta skill turns my short request into a task prompt with sources, verification rules and batches. The revised <code>/xh</code> keeps those requirements without promising perfect results. Use Flash with at least Medium effort; the skill cannot select it for you.</p>
+
+  <p><strong>Updated 12 October 2026:</strong> the copyable definition and examples below replace the earlier version. The Polish section contains the original test wording; English excerpts are translations.</p>
+
+  <h2 id="use-it-in-two-steps">Use it in two steps</h2>
+
+  <p>Create a skill named <code>xh</code> using <a href="https://support.google.com/gemini/answer/17094296?hl=en-GB">Google’s skill-creation guide</a>. Select <code>/xh</code> from the dropdown and type the task itself. It produces a prompt; run that prompt without selecting the skill again, or paste it into a fresh chat. For conversational lists longer than three items, <code>NEXT</code> or <code>n</code> continues the next batch. Scheduled actions instead require one pass without waiting for a reply.</p>
+
+  <p><strong>Remember to set the model’s effort level: Medium or High.</strong> Check the actual picker when starting a chat. I do not use Low for this workflow. Avoid the Pro model for routine work if preserving the Plus allowance matters: it can use the allowance quickly. This means the model, not the Google AI Pro subscription. Google says advanced models and higher thinking levels <a href="https://support.google.com/gemini/answer/16275805?hl=en">consume more usage</a>; I have not measured a fixed Pro/Flash multiplier. A skill does not configure effort, and I have not confirmed a separate effort control for scheduled actions.</p>
+
+  <h2 id="latest-trials-check-the-output-not-just-the-prompt">Latest trials: check the output, not just the prompt</h2>
+
+  <p>I kept the original two <code>/xh</code> requests. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.</p>
+
+  <h3 id="shopping-for-cat-toys">Shopping for cat toys</h3>
+
+  <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code> (the original Polish wording is below), then <code>uruchom</code>. Effort: High.</p>
+
+  <p><strong>Latest generated prompt, excerpt:</strong></p>
+
+  <blockquote>
+    <p>Give at most 3 items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or artificial padding.</p>
+  </blockquote>
+
+  <p>It also required opening the specific product page, checking stock and omitting invented URLs. Nevertheless, the executed answer returned three categories without purchase links. Its closing explanation was:</p>
+
+  <blockquote>
+    <p>Due to the lack of an active connection to the internet search module at this moment, I am not including verified direct links to shop baskets.</p>
+  </blockquote>
+
+  <p><strong>Assessment:</strong> the instructions are more precise, but this run failed the shopping requirement. Missing links are a failed check, not a successful recommendation. The model’s explanation does not establish whether access, a temporary limit or something else caused it.</p>
+
+  <h3 id="what-is-god">What is God?</h3>
+
+  <p><strong>Input:</strong> <code>/xh what is God</code> (original: <code>/xh czym jest bóg</code>), followed by execution of the generated prompt. Effort: Medium.</p>
+
+  <p><strong>The latest prompt kept batching and separate perspectives:</strong></p>
+
+  <blockquote>
+    <p>Conduct a multidimensional, rigorous analysis of “God” from the perspectives of philosophy, theology, religious studies, natural science and cognitive science.</p>
+  </blockquote>
+
+  <blockquote>
+    <p>Give at most 3 approaches/perspectives per answer. Pause after each batch and wait for “NEXT” or “n”. Continue without repetition or artificial padding.</p>
+  </blockquote>
+
+  <p>It required thinkers, works, arguments and limitations, but omitted direct source links. The final result after <code>uruchom</code> was:</p>
+
+  <blockquote>
+    <p>I am not intended for such purposes.</p>
+  </blockquote>
+
+  <p><strong>Assessment:</strong> the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.</p>
+
+  <h2 id="copy-skill-en">Copy the current meta skill</h2>
+
+  <p>Name: <code>xh</code>. Description: “Turn the task supplied with this skill into a complete prompt for another session, including relevant sources, verification and batching rules.” The instructions are the current version; do not combine them with earlier definitions.</p>
+
+  <details>
+    <summary>Current instructions — expand to copy</summary>
+
+    <pre><code class="language-plaintext"># /xh — prompt generator
+
+When this skill is selected, turn the user's task into a ready prompt for another session. “Find offers” or “what is God” is input for the generator: do not execute the task yet. Return the entire prompt in one copyable block. Only an explicit execution command after generation (run, execute, go) means execute that existing prompt rather than generate another.
+
+## Prompt construction
+Preserve the goal, every criterion and the user's latest corrections. Establish the required result and choose fields appropriate to the task. Ask only about essential missing information. Do not add placeholders for data already supplied.
+Completeness takes precedence over brevity: cut repetition and decoration, never verification, continuation or reporting rules. Do not copy the entire skill into every prompt; select the relevant rules below.
+For analysis, require concrete definitions and distinctions, arguments, examples and limitations. For a review of perspectives, choose representatives, works and sources where they help explain the subject. An “expert” persona or a request for “maximum effort” is not a substitute for substance. Separate facts, user assumptions, hypotheses and conclusions. Accept hypothetical scenarios without presenting them as reality.
+
+## Research and working links
+For research, shopping and changing information, require Google Search or an available search engine and reading the relevant sources. Group queries, then check gaps; do not impose a fixed number of searches. Sources must support material claims, not just appear as a list of names at the end.
+Require direct Markdown links to specific sources. Every shopping offer and lead must have a specific URL found in a source. Open the link: an error, wrong product or category/search redirect excludes it from working links. Do not guess addresses, prices or shops. If an address cannot be read, show it only in a separate section labelled “link unverified”. Omit items without URLs. If no checked link required by the task is available, end with a verification limitation, without apparent offers or NEXT.
+Require an actual attempt to use available tools before declaring them absent. Do not diagnose an error without evidence. The model's statement about missing tools is not itself a diagnosis of account access or usage limits. Describe only actions performed; unexecuted code is not a test. Do not promise absolute certainty or exhaustion of every possible source.
+
+## Offer and event freshness
+A working link does not prove availability. Check the current page for the specific listing, product, variant or date before each report. Exclude sold, reserved, ended and unavailable offers. An unavailable notice overrides a price or purchase button. An active listing is not the seller's confirmation.
+Search results, archived copies and reads of unknown freshness are leads, not confirmed offers. With only search snippets, leave the confirmed-offers table empty. Separate freshness, model and condition; used condition is the seller's claim. Apply stricter requirements only to the categories the user specifies. Label missing secondary information; exclude results lacking required evidence from confirmed results. Do not invent delivery charges, exchange rates, net prices or forecasts. Distinguish source, event and checking dates. Missing access means missing verification, not absence of market offers.
+
+## Conversational batches
+For lists longer than three items, put this in the prompt: “Return at most three items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or padding.” Asking for all results defines coverage and does not cancel batching. Disable batches only for an explicit request for everything in one answer or for a scheduled action. Batching applies to the target task, not generation of the prompt itself. “All” means all matching results found, without claiming complete market coverage.
+
+## Scheduled action — conditional section
+For scheduled actions, require one independent pass without NEXT, pauses or waiting for the user. Separate the schedule from the task and preserve supplied dates and timezone. Do not assume browser, login, API, files, integrations or history. Set priorities and define the result for partial checks, leads only or missing tools. Compare only with an available previous report; otherwise state that no comparison was possible. Preserve the choice of regular reporting or meaningful-change notifications. Do not promise to suppress platform notifications or work between runs. An analytical task does not authorise purchases, reservations, messages or data changes.
+
+## Effort and final check
+Preference: Gemini 3.6 Flash with at least Medium effort. Low and Minimal are unacceptable; High is allowed. Do not substitute Flash-Lite without permission. Neither the skill nor prompt text changes that setting. When the target chat setting is unconfirmed, add only: “Remember to set the model's effort level: Medium or High.” For scheduled actions: “Run effort unconfirmed.” Do not instruct the user to set effort on an action when that control has not been confirmed, or assume inheritance from the chat.
+Check the copyable prompt itself before returning it: requirements, relevant sources and links, freshness, missing data and the correct batching mode. Repair omissions: a rule only present in the skill or an external note does not suffice. Remove contradictory old criteria and irrelevant sections.
+</code></pre>
+
+  </details>
+
+  <h2 id="other-approaches-worth-reading">Other approaches worth reading</h2>
+
+  <ul>
+    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">Sentry’s prompt-optimizer</a>: success criteria and comparisons of prompt variants.</li>
+    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">GitHub Awesome Copilot’s prompt-optimizer</a>: self-contained prompts intended for chat.</li>
+    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">JoelLewis’s prompt-optimizer</a>: a structured intent-to-prompt workflow. I would not copy every mandatory technique.</li>
+  </ul>
+
+  <p><a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan/gemini-agent-skills</a> takes this idea further: a useful catalogue of specialist roles and a converter for Claude configurations, with credit to the original VoltAgent work. I especially like being able to choose a few relevant roles instead of installing everything. Its documented target is Gemini CLI; the converter uses a Gemini API key, not the chat allowance.</p>
+
+  <p>My filtered shortlist for <strong>instruction-based chat work</strong> is below. These are adaptation candidates, not packages I have proved work unchanged in Gemini Apps. Replace context-manager and cross-agent calls with supplied input; include referenced resources where needed; remove example completion statistics rather than reporting them as measured results. The original definitions contain workflow assumptions that chat does not provide.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Chat scope</th>
+          <th>Adaptation requirement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
+          <td>Improve a supplied prompt; design evaluation cases.</td>
+          <td>Report accuracy, latency and savings only when measured.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
+          <td>Turn supplied code and notes into documentation.</td>
+          <td>Mark code examples as untested unless actually run.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
+          <td>Extract requirements and acceptance criteria from a brief.</td>
+          <td>Do not invent stakeholder approval or ROI data.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
+          <td>Review pasted code and explain potential defects.</td>
+          <td>No claims of test coverage, scans or runtime performance without tools.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
+          <td>Compare supplied sources; web research needs working search.</td>
+          <td>Link evidence; distinguish findings from hypotheses.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <p>I left terminal-driven deployment, infrastructure changes and multi-agent orchestration out of the chat shortlist. For scheduled actions, each adapted skill still needs an independent pass, available sources and explicit handling of missing tools/history.</p>
+
+</div>
+
+<div id="polski" class="post-language" lang="pl">
+
+  <p><strong>TLDR:</strong> Meta skill zamienia moje krótkie polecenie w prompt z wymaganiami źródeł, weryfikacji i partii. Poprawiony <code>/xh</code> zachowuje te reguły bez obiecywania idealnych wyników. Używaj Flasha z co najmniej Medium — skill nie wybiera tego ustawienia za Ciebie.</p>
+
+  <p><strong>Aktualizacja 12 października 2026:</strong> definicja do skopiowania i przykłady poniżej zastępują poprzednią wersję.</p>
+
+  <h2 id="dwa-kroki-uycia">Dwa kroki użycia</h2>
+
+  <p>Utwórz skill <code>xh</code> według <a href="https://support.google.com/gemini/answer/17094296?hl=pl">instrukcji Google</a>. Wybierz <code>/xh</code> z listy rozwijanej i wpisz samo zadanie. Dostaniesz prompt; wykonaj go bez ponownego wybierania skilla albo wklej do świeżej rozmowy. Dla list dłuższych niż trzy pozycje w zwykłej rozmowie <code>NEXT</code> lub <code>n</code> uruchamia kolejną partię. Scheduled action ma zamiast tego wykonać jeden przebieg bez czekania na odpowiedź.</p>
+
+  <p><strong>Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.</strong> Sprawdź faktyczny wybór przy nowym czacie. Nie używam Low do tego sposobu pracy. Unikaj modelu Pro w rutynowych zadaniach, jeśli zależy Ci na oszczędzaniu puli Plus: może ją szybko zużyć. Chodzi o model, nie o subskrypcję Google AI Pro. Google podaje, że bardziej zaawansowane modele i wyższe poziomy myślenia <a href="https://support.google.com/gemini/answer/16275805?hl=pl">zużywają więcej limitu</a>; nie zmierzyłem stałego mnożnika Pro/Flash. Skill nie ustawia effort, a osobnej regulacji effort dla scheduled actions nie potwierdziłem.</p>
+
+  <h2 id="najnowsze-prby-sprawdzaj-wynik-nie-tylko-prompt">Najnowsze próby: sprawdzaj wynik, nie tylko prompt</h2>
+
+  <p>Zachowałem dwa pierwotne wejścia do <code>/xh</code>. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.</p>
+
+  <h3 id="zakupy-dla-kota">Zakupy dla kota</h3>
+
+  <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>uruchom</code>. Effort: High.</p>
+
+  <p><strong>Fragment najnowszego wygenerowanego promptu:</strong></p>
+
+  <blockquote>
+    <p>Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
+  </blockquote>
+
+  <p>Prompt wymagał również otwarcia konkretnej oferty, sprawdzenia dostępności i pomijania zmyślonych URL. Mimo tego wykonana odpowiedź podała trzy kategorie bez linków zakupowych. Zakończyła się wyjaśnieniem:</p>
+
+  <blockquote>
+    <p>Ze względu na brak aktywnego połączenia z modułem wyszukiwania internetowego w tym momencie, nie dołączam zweryfikowanych linków bezpośrednich do koszyków sklepowych.</p>
+  </blockquote>
+
+  <p><strong>Ocena:</strong> instrukcje są precyzyjniejsze, ale ten przebieg nie spełnił celu zakupowego. Brak linków to niezaliczona kontrola, nie udana rekomendacja. Wyjaśnienie modelu nie dowodzi, czy przyczyną był dostęp, chwilowy limit czy coś innego.</p>
+
+  <h3 id="czym-jest-bg">Czym jest bóg?</h3>
+
+  <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, następnie wykonanie wygenerowanego promptu. Effort: Medium.</p>
+
+  <p><strong>Najnowszy prompt zachował partie i rozdzielenie stanowisk:</strong></p>
+
+  <blockquote>
+    <p>Przeprowadź wieloaspektową, rzetelną analizę pojęcia „Bóg” z perspektywy filozofii, teologii, religioznawstwa oraz nauk przyrodniczych i poznawczych.</p>
+  </blockquote>
+
+  <blockquote>
+    <p>Podawaj maksymalnie 3 ujęcia/perspektywy na odpowiedź. Po każdej partii zatrzymaj się i czekaj na sygnał „NEXT” lub „n”. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
+  </blockquote>
+
+  <p>Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpośrednie linki do źródeł. Końcowy wynik po <code>uruchom</code>:</p>
+
+  <blockquote>
+    <p>Nie jestem przeznaczony do takich celów.</p>
+  </blockquote>
+
+  <p><strong>Ocena:</strong> prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.</p>
+
+  <h2 id="copy-skill-pl">Aktualny meta skill do skopiowania</h2>
+
+  <p>Nazwa: <code>xh</code>. Opis: „Zamień zadanie podane z tym skillem w kompletny prompt do innej sesji, uwzględniając potrzebne źródła, weryfikację i partie”. Poniżej jest aktualna definicja — nie łącz jej z poprzednimi wersjami.</p>
+
+  <details>
+    <summary>Aktualne instrukcje — rozwiń i skopiuj</summary>
+
+    <pre><code class="language-plaintext"># /xh — generator promptów
+
+Gdy ten skill jest wybrany, przekształć polecenie użytkownika w gotowy prompt do innej sesji. Samo „szukaj ofert” lub „czym jest bóg” jest wejściem do generatora — nie wykonuj jeszcze zadania. Oddaj cały prompt w jednym bloku do skopiowania. Dopiero jednoznaczna komenda wykonania po wygenerowaniu (uruchom, wykonaj, go) oznacza wykonanie tego promptu, bez ponownego generowania.
+
+## Konstrukcja promptu
+Zachowaj cel, wszystkie kryteria i najnowsze korekty użytkownika. Ustal potrzebny wynik i dobierz pola do zadania. Pytaj tylko o niezbędne braki. Nie dodawaj pustych miejsc dla danych już podanych.
+Kompletność ma pierwszeństwo przed zwięzłością: skracaj powtórzenia i ozdobniki, nigdy reguły weryfikacji, kontynuacji lub raportowania. Nie kopiuj całego skilla do każdego promptu; wybierz właściwe reguły poniżej.
+Dla analizy wymagaj konkretów: definicji i różnic, argumentów, przykładów oraz ograniczeń. Przy przeglądzie stanowisk dobierz przedstawicieli, dzieła i źródła, gdy pomagają zrozumieć temat. Nie zastępuj treści samą rolą „eksperta” ani żądaniem „maksymalnego wysiłku”. Oddziel fakty, założenia użytkownika, hipotezy i wnioski. Nie odrzucaj hipotetycznego scenariusza tylko dlatego, że nie ma go w źródłach; nie przedstawiaj go jako rzeczywistości.
+
+## Research i działające linki
+Dla researchu, zakupów oraz informacji zmiennych wstaw nakaz użycia Google Search lub dostępnej wyszukiwarki i odczytania właściwych źródeł. Grupuj zapytania, potem sprawdzaj braki; bez stałej liczby wyszukiwań. Źródła mają wspierać istotne twierdzenia, nie tylko być listą nazw na końcu.
+Wymagaj bezpośrednich linków Markdown do konkretnych źródeł. Dla zakupów każda oferta i każdy trop musi mieć konkretny URL znaleziony w źródle. Link sprawdź przez otwarcie; błąd, niewłaściwy produkt lub przekierowanie do kategorii/wyszukiwania wykluczają go z działających linków. Nie zgaduj adresów, cen ani sklepów. Gdy adresu nie można odczytać, pokaż go tylko osobno jako „link niezweryfikowany”. Pozycje bez URL pomijaj. Jeśli nie ma żadnego sprawdzonego linku wymaganego przez zadanie, zakończ informacją o braku weryfikacji; bez listy pozornych ofert i bez NEXT.
+Nakazuj podjęcie rzeczywistej próby użycia dostępnych narzędzi przed stwierdzeniem ich braku. Nie dopisuj diagnozy przyczyny błędu bez dowodu. Odpowiedź modelu o braku narzędzi nie jest sama w sobie diagnozą konta lub limitów. Opisuj tylko wykonane czynności; nieuruchomiony kod nie jest testem. Nie obiecuj 100% pewności ani wyczerpania wszystkich źródeł.
+
+## Aktualność ofert i wydarzeń
+Link działający nie oznacza dostępności. Sprawdź aktualną stronę konkretnego ogłoszenia, produktu, wariantu lub terminu przed każdym raportem. Sprzedane, zarezerwowane, zakończone i niedostępne odrzucaj; komunikat o niedostępności ma pierwszeństwo przed ceną i przyciskiem zakupu. Aktywne ogłoszenie nie jest potwierdzeniem sprzedawcy.
+Wyniki wyszukiwarki, kopie archiwalne i odczyty o nieznanej świeżości są tropami, nie potwierdzonymi ofertami. Gdy są tylko fragmenty wyszukiwarki, tabela potwierdzonych ofert pozostaje pusta. Oddziel aktualność, model i stan; używany stan jest deklaracją sprzedawcy. Ostrzejsze wymogi stosuj tylko do kategorii wskazanych przez użytkownika. Brak danych drugorzędnych oznacz; brak wymaganych dowodów wyklucza wynik z sekcji potwierdzonej. Nie wymyślaj dostawy, kursów, ceny netto ani prognoz. Rozróżnij daty źródła, zdarzenia i sprawdzenia. Brak dostępu oznacza brak weryfikacji, nie brak ofert na rynku.
+
+## Partie w rozmowie
+Dla list dłuższych niż 3 pozycje wpisz do promptu: „Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania”. Żądanie wszystkich wyników określa zakres, nie wyłącza partii. Wyłącz je tylko na wyraźne życzenie całości w jednej odpowiedzi lub dla scheduled action. Partie dotyczą wyników docelowego zadania; sam prompt oddaj w całości. „Wszystkie” oznacza wszystkie znalezione pasujące wyniki, bez obietnicy kompletności rynku.
+
+## Scheduled action — sekcja warunkowa
+Gdy celem jest zaplanowane działanie, wpisz do promptu jeden samodzielny przebieg: bez NEXT, pauz i oczekiwania na użytkownika. Oddziel harmonogram od treści; zachowaj podaną strefę i terminy. Nie zakładaj przeglądarki, logowania, API, plików, integracji ani historii. Ustal priorytety oraz wynik przy częściowym sprawdzeniu, samych tropach lub braku narzędzi. Porównuj tylko z dostępnym poprzednim raportem, inaczej oznacz brak porównania. Zachowaj wybór regularnego raportu albo informacji tylko o istotnych zmianach. Nie obiecuj wyciszenia powiadomień platformy ani pracy między przebiegami. Zadanie analityczne nie upoważnia do zakupu, rezerwacji, wiadomości czy zmiany danych.
+
+## Effort i kontrola końcowa
+Preferencja: Gemini 3.6 Flash, co najmniej Medium; Low i Minimal są nieakceptowane, High dopuszczalny. Nie zastępuj go Flash-Lite bez zgody. Skill ani tekst promptu nie zmieniają ustawienia. Gdy ustawienie docelowego czatu nie jest potwierdzone, dodaj tylko: „Pamiętaj ustawić poziom wysiłku modelu! Średni lub wysoki.” Dla scheduled action: „Effort uruchomienia niepotwierdzony.” Nie instruuj ustawiania effort w akcji, skoro takiej opcji nie potwierdzono, i nie zakładaj dziedziczenia go z czatu.
+Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne źródła i linki, reguły aktualności, braków danych i właściwy tryb partii. Popraw pominięcia; reguła istniejąca tylko w skillu lub komentarzu poza blokiem nie wystarcza. Usuń sprzeczne stare kryteria i nieadekwatne sekcje.
+</code></pre>
+
+  </details>
+
+  <h2 id="inne-podejcia-warte-przeczytania">Inne podejścia warte przeczytania</h2>
+
+  <ul>
+    <li><a href="https://github.com/getsentry/skills/blob/main/skills/prompt-optimizer/SKILL.md">prompt-optimizer Sentry</a>: kryteria sukcesu i porównywanie wariantów promptu.</li>
+    <li><a href="https://github.com/github/awesome-copilot/blob/main/skills/prompt-optimizer/SKILL.md">prompt-optimizer GitHub Awesome Copilot</a>: samodzielne prompty przeznaczone do czatu.</li>
+    <li><a href="https://github.com/JoelLewis/skill-library/blob/main/plugins/meta/skills/prompt-optimizer/SKILL.md">prompt-optimizer JoelLewis</a>: uporządkowane przejście od intencji do promptu. Nie kopiowałbym każdej obowiązkowej techniki.</li>
+  </ul>
+
+  <p><a href="https://github.com/saeed-vayghan/gemini-agent-skills">saeed-vayghan/gemini-agent-skills</a> rozwija ten pomysł dalej: daje użyteczny katalog specjalistycznych ról i konwerter konfiguracji Claude, z uznaniem dla źródłowej pracy VoltAgent. Podoba mi się wybór kilku potrzebnych ról zamiast instalowania całego zestawu. Udokumentowanym środowiskiem jest Gemini CLI; konwerter korzysta z klucza API Gemini, nie z puli czatu.</p>
+
+  <p>Poniżej moja przefiltrowana lista do <strong>pracy tekstowej w czacie</strong>. To kandydaci do adaptacji, nie paczki sprawdzone przeze mnie jako działające bez zmian w Gemini Apps. Wywołania context managera i innych agentów zastąp podanym materiałem; w razie potrzeby dołącz zasoby wskazane w definicji; usuń przykładowe statystyki ukończenia, zamiast raportować je jako pomiary. Oryginały zakładają elementy środowiska, których czat nie zapewnia.</p>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Zakres w czacie</th>
+          <th>Warunek adaptacji</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/prompt-engineer/SKILL.md">prompt-engineer</a></td>
+          <td>Poprawa promptu i projektowanie przypadków oceny.</td>
+          <td>Trafność, czas i oszczędności podawaj tylko po pomiarze.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/technical-writer/SKILL.md">technical-writer</a></td>
+          <td>Zamiana podanego kodu i notatek w dokumentację.</td>
+          <td>Oznacz przykłady jako nieprzetestowane, jeśli ich nie uruchomiono.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/business-analyst/SKILL.md">business-analyst</a></td>
+          <td>Wyciąganie wymagań i kryteriów akceptacji z opisu.</td>
+          <td>Nie wymyślaj akceptacji interesariuszy ani danych do ROI.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/code-reviewer/SKILL.md">code-reviewer</a></td>
+          <td>Przegląd wklejonego kodu i wyjaśnianie możliwych błędów.</td>
+          <td>Bez narzędzi nie potwierdzaj pokrycia testami, skanów ani wydajności.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/saeed-vayghan/gemini-agent-skills/blob/34ca3ca1db04b092c5f86eba155c23e105fc933b/.gemini/skills/research-analyst/SKILL.md">research-analyst</a></td>
+          <td>Porównanie podanych źródeł; research WWW wymaga działającego wyszukiwania.</td>
+          <td>Linkuj dowody; oddziel ustalenia od hipotez.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <p>Z listy dla czatu odrzuciłem wdrożenia przez terminal, zmiany infrastruktury i orkiestrację wielu agentów. Dla scheduled actions adaptacja musi dodatkowo określić jeden samodzielny przebieg, dostępne źródła oraz postępowanie przy braku narzędzi i historii.</p>
+
+</div>
+
+
+          </div>
+
+          
+<!-- Share Buttons Start -->
+<div>
+  <ul class="rrssb-buttons clearfix">
+    
+      <li class="rrssb-email">
+        <a href="mailto:?subject=Getting useful work out of Gemini Flash&body=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html" data-proofer-ignore>
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">email</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting useful work out of Gemini Flash" class="popup">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+              class="cls-2" fill-rule="evenodd"/></svg>
+          </span>
+          <span class="rrssb-text">facebook</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-twitter">
+        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html&text=Getting useful work out of Gemini Flash"
+        class="popup">
+          <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"/></svg></span>
+          <span class="rrssb-text">twitter</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html" class="popup">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+            <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"
+            />
+          </svg>
+        </span>
+        <span class="rrssb-text">linkedin</span>
+      </a>
+      </li>
+    
+    
+      <li class="rrssb-reddit">
+        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html&title=Getting useful work out of Gemini Flash" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
+              />
+              <path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237-.792 0-1.517.287-2.08.76-2.04-1.294-4.647-2.068-7.44-2.218l1.484-4.69 4.062.955c.07 1.4 1.3 2.6 2.7 2.555 1.488 0 2.695-1.208 2.695-2.695C25.88 3.2 24.7 2 23.2 2c-1.06 0-1.98.616-2.42 1.508l-4.633-1.09c-.344-.082-.693.117-.803.454l-1.793 5.7C10.55 8.6 7.7 9.4 5.6 10.75c-.594-.45-1.3-.75-2.1-.72-1.785 0-3.237 1.45-3.237 3.2 0 1.1.6 2.1 1.4 2.69-.04.27-.06.55-.06.83 0 2.3 1.3 4.4 3.7 5.9 2.298 1.5 5.3 2.3 8.6 2.325 3.227 0 6.27-.825 8.57-2.325 2.387-1.56 3.7-3.66 3.7-5.917 0-.26-.016-.514-.05-.768.965-.465 1.577-1.565 1.577-2.698zm-4.52-9.912c.74 0 1.3.6 1.3 1.3 0 .738-.6 1.34-1.34 1.34s-1.343-.602-1.343-1.34c.04-.655.596-1.255 1.396-1.3zM1.646 13.3c0-1.038.845-1.882 1.883-1.882.31 0 .6.1.9.21-1.05.867-1.813 1.86-2.26 2.9-.338-.328-.57-.728-.57-1.26zm20.126 8.27c-2.082 1.357-4.863 2.105-7.83 2.105-2.968 0-5.748-.748-7.83-2.105-1.99-1.3-3.087-3-3.087-4.782 0-1.784 1.097-3.484 3.088-4.784 2.08-1.358 4.86-2.106 7.828-2.106 2.967 0 5.7.7 7.8 2.106 1.99 1.3 3.1 3 3.1 4.784C24.86 18.6 23.8 20.3 21.8 21.57zm4.014-6.97c-.432-1.084-1.19-2.095-2.244-2.977.273-.156.59-.245.928-.245 1.036 0 1.9.8 1.9 1.9-.016.522-.27 1.022-.57 1.327z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">reddit</span>
+        </a>
+      </li>
+    
+    
+    
+      <li class="rrssb-tumblr">
+        <a href="https://tumblr.com/share/link?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M18.02 21.842c-2.03.052-2.422-1.396-2.44-2.446v-7.294h4.73V7.874H15.6V1.592h-3.714s-.167.053-.182.186c-.218 1.935-1.144 5.33-4.988 6.688v3.637h2.927v7.677c0 2.8 1.7 6.7 7.3 6.6 1.863-.03 3.934-.795 4.392-1.453l-1.22-3.54c-.52.213-1.415.413-2.115.455z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">tumblr</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-pinterest">
+        <a href="https://pinterest.com/pin/create/button/?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M14.02 1.57c-7.06 0-12.784 5.723-12.784 12.785S6.96 27.14 14.02 27.14c7.062 0 12.786-5.725 12.786-12.785 0-7.06-5.724-12.785-12.785-12.785zm1.24 17.085c-1.16-.09-1.648-.666-2.558-1.22-.5 2.627-1.113 5.146-2.925 6.46-.56-3.972.822-6.952 1.462-10.117-1.094-1.84.13-5.545 2.437-4.632 2.837 1.123-2.458 6.842 1.1 7.557 3.71.744 5.226-6.44 2.924-8.775-3.324-3.374-9.677-.077-8.896 4.754.19 1.178 1.408 1.538.49 3.168-2.13-.472-2.764-2.15-2.683-4.388.132-3.662 3.292-6.227 6.46-6.582 4.008-.448 7.772 1.474 8.29 5.24.58 4.254-1.815 8.864-6.1 8.532v.003z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">pinterest</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-pocket">
+        <a href="https://getpocket.com/save?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html">
+          <span class="rrssb-icon">
+            <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">pocket</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-vk">
+        <a href="https://vk.com/share.php?url=https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html" class="popup">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="70 70 378.7 378.7"><path d="M254.998 363.106h21.217s6.408-.706 9.684-4.23c3.01-3.24 2.914-9.32 2.914-9.32s-.415-28.47 12.796-32.663c13.03-4.133 29.755 27.515 47.482 39.685 13.407 9.206 23.594 7.19 23.594 7.19l47.407-.662s24.797-1.53 13.038-21.027c-.96-1.594-6.85-14.424-35.247-40.784-29.728-27.59-25.743-23.126 10.063-70.85 21.807-29.063 30.523-46.806 27.8-54.405-2.596-7.24-18.636-5.326-18.636-5.326l-53.375.33s-3.96-.54-6.892 1.216c-2.87 1.716-4.71 5.726-4.71 5.726s-8.452 22.49-19.714 41.618c-23.77 40.357-33.274 42.494-37.16 39.984-9.037-5.842-6.78-23.462-6.78-35.983 0-39.112 5.934-55.42-11.55-59.64-5.802-1.4-10.076-2.327-24.915-2.48-19.046-.192-35.162.06-44.29 4.53-6.072 2.975-10.757 9.6-7.902 9.98 3.528.47 11.516 2.158 15.75 7.92 5.472 7.444 5.28 24.154 5.28 24.154s3.145 46.04-7.34 51.758c-7.193 3.922-17.063-4.085-38.253-40.7-10.855-18.755-19.054-39.49-19.054-39.49s-1.578-3.873-4.398-5.947c-3.42-2.51-8.2-3.307-8.2-3.307l-50.722.33s-7.612.213-10.41 3.525c-2.488 2.947-.198 9.036-.198 9.036s39.707 92.902 84.672 139.72c41.234 42.93 88.048 40.112 88.048 40.112"/></svg>
+          </span>
+          <span class="rrssb-text">vk.com</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<!-- Share Buttons End -->
+
+
+          
+
+
+          <hr />
+
+          
+          <div class="author row">
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-40/img/author.png?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1" alt="Me" />
+            <p class="col-xs-8 col-sm-9 col-md-10">
+              Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Start -->
+
+<footer>
+
+    <!-- Social Buttons Start -->
+
+<ul class="list-inline social-buttons">
+    
+    <li><a href="https://www.linkedin.com/in/waldemar-wosi%C5%84ski-a9936144?trk=hp-identity-name" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+    
+    <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+    
+    <li><a href="/preview/pr-40/feed.xml?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    
+    
+</ul>
+
+<!-- Social Buttons End -->
+
+
+    <p><br><br></p>
+
+    <div class="container text-center">
+        <p>Copyright &copy; Waldemar Wosiński 2026</p>
+        
+    </div>
+</footer>
+
+<p><br><br><br><br><br><br></p>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Custom Theme JavaScript -->
+<!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+<script>
+function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
+$(document).ready(toggleNavCollapse);
+$(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+</script>
+
+
+
+
+
+  <!-- Syntax highlight in post pages-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/highlight.min.js"
+          integrity="sha512-VSPLUv/n1Bmn+4zoxBNwpuFAO3//79I0Aax/qHDx24R47vylPcc9PrHDCqlePwHnh3joiM7/YTQhcXyQAAxvPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Scala is not part of the common highlight.js bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
+          integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
+  <script src="/preview/pr-40/js/highlight-hocon.js?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+
+
+
+
+
+
+
+
+
+  <!-- Share buttons Start -->
+
+  <script src="/preview/pr-40/js/rrssb.min.js?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1"></script>
+
+  <!-- Share buttons End -->
+
+
+
+
+
+<script>
+function addTohistory() {
+  if (!window.location.host.startsWith("127.0.0.1")) {
+    history.pushState({}, 'Getting useful work out of Gemini Flash', 'https://kastoestoramadus.github.io/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html');
+  }
+}
+</script>
+
+<!-- Gesture Navigation / Swipe Instruction Start -->
+
+
+<!-- Javascript End -->
+
+
+    
+      <script src="/preview/pr-40/js/post-language-switch.js?preview=00898ba965b5952803c10beb9b96dcadfeae48c0-38225499534-1"></script>
+    
+
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="00898ba965b5952803c10beb9b96dcadfeae48c0" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="40">
+  <span>Preview PR #40 · revision 00898ba</span>
+  <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
+  <button type="button" id="preview-refresh" hidden>Refresh preview</button>
+</aside>
+</body>
+</html>
+
+<!-- Post Layout End -->
