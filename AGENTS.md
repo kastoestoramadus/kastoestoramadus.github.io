@@ -176,6 +176,14 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Site-wide texts (header lines, timeline, author blurb, description) live in `_config.yml`; keep them consistent with
   `about.html` and the owner's GitHub profile (Scala & Big Data engineer, Warsaw, 15+ years, banking/fintech/public sector).
 
+## Commit and PR attribution
+
+- A commit carries no `Co-Authored-By:` trailer for an AI. Its message body ends with one line per helper,
+  `Helped by: <model-id>/<effort> through <tool>`, e.g. `Helped by: haiku-5.5/m through Claude Code`.
+- A PR body ends with `Generated with <model-id>/<effort> through [<tool>](<url>)`, then one `Revised by` or
+  `Reviewed by` line per later pass in the same form.
+- Effort is `l`, `m`, `h`, `xh` or `max`, as given to the agent. Older commits keep their wording.
+
 ## Gotchas
 
 - Home page "Latest Blog Post" teaser (`_includes/latest-post.html`) is the front matter `teaser`, else the first
