@@ -18,7 +18,7 @@
   <meta name="author" content="Waldemar Wosiński">
   <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="canonical" href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
   <title>{ IT blog - Waldemar Wosiński } | Getting useful work out of Gemini Flash</title>
 
   <!-- Bootstrap Core CSS -->
@@ -26,7 +26,7 @@
         integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Custom CSS -->
-  <link href="/preview/pr-40/css/grayscale.css?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" rel="stylesheet">
+  <link href="/preview/pr-40/css/grayscale.css?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1" rel="stylesheet">
   
 
   <!-- Custom Fonts -->
@@ -34,9 +34,9 @@
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/preview/pr-40/css/rrssb.css?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" />
+  <link rel="stylesheet" href="/preview/pr-40/css/rrssb.css?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1" />
   
-    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-40/img/favicon.ico?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-40/img/favicon.ico?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
   
 
   
@@ -47,16 +47,16 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-40/img/web-app/icon-36p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
-  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-40/img/web-app/icon-48p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
-  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-40/img/web-app/icon-72p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
-  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-40/img/web-app/icon-96p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
-  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-40/img/web-app/icon-144p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
-  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-40/img/web-app/icon-192p.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-40/img/web-app/icon-36p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-40/img/web-app/icon-48p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-40/img/web-app/icon-72p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-40/img/web-app/icon-96p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-40/img/web-app/icon-144p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-40/img/web-app/icon-192p.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
 
   <!-- Android Web App mode -->
 
-  <link rel="manifest" href="/preview/pr-40/manifest.json?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+  <link rel="manifest" href="/preview/pr-40/manifest.json?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
 
 
 
@@ -82,14 +82,14 @@
 
 
 
-<meta name="preview-build" content="5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+<meta name="preview-build" content="14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
 <style>
 body { padding-bottom: 90px; }
 #preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 #preview-status a, #preview-status button { color: #00cdff; }
 #preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
 </style>
-<script defer src="/preview/pr-40/preview-status.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
+<script defer src="/preview/pr-40/preview-status.js?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1"></script>
 </head>
 
 <!-- HEAD End -->
@@ -107,11 +107,11 @@ body { padding-bottom: 90px; }
         <i class="fa fa-bars"></i>
       </button>
       
-        <a class="navbar-brand" href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+        <a class="navbar-brand" href="/preview/pr-40/?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
       
           <div>
             
-              <img src="/preview/pr-40/img/black-lab-glass.ico?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" alt="">
+              <img src="/preview/pr-40/img/black-lab-glass.ico?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1" alt="">
             
             { IT blog - Waldemar Wosiński }
           </div>
@@ -125,27 +125,27 @@ body { padding-bottom: 90px; }
           
             <li>
             
-                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#about"> About </a>
+                <a href="/preview/pr-40/?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1#about"> About </a>
             
             </li>
           
             <li>
             
               
-                <a href="/preview/pr-40/blog/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"> Blog </a>
+                <a href="/preview/pr-40/blog/?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1"> Blog </a>
               
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#timeline"> Timeline </a>
+                <a href="/preview/pr-40/?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1#timeline"> Timeline </a>
             
             </li>
           
             <li>
             
-                <a href="/preview/pr-40/?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#contact"> Contact </a>
+                <a href="/preview/pr-40/?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1#contact"> Contact </a>
             
             </li>
           
@@ -190,17 +190,17 @@ body { padding-bottom: 90px; }
             <strong>08 Oct 2026</strong>
             <small>
               . category:
-              <a class="category" href="/preview/pr-40/categories/dev.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">
+              <a class="category" href="/preview/pr-40/categories/dev.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">
                 dev
               </a>.
-              <a href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1#disqus_thread">Comments</a>
+              <a href="/preview/pr-40/dev/2026/10/08/gemini-is-not-lazy.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1#disqus_thread">Comments</a>
               <br />
               
-                <a class="tag" href="/preview/pr-40/tags/ai.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#ai</a>
+                <a class="tag" href="/preview/pr-40/tags/ai.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">#ai</a>
               
-                <a class="tag" href="/preview/pr-40/tags/gemini.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#gemini</a>
+                <a class="tag" href="/preview/pr-40/tags/gemini.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">#gemini</a>
               
-                <a class="tag" href="/preview/pr-40/tags/prompt-engineering.html?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1">#prompt-engineering</a>
+                <a class="tag" href="/preview/pr-40/tags/prompt-engineering.html?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1">#prompt-engineering</a>
               
             </small>
           </h4>
@@ -229,47 +229,101 @@ body { padding-bottom: 90px; }
 
   <h2 id="latest-trials-check-the-output-not-just-the-prompt">Latest trials: check the output, not just the prompt</h2>
 
-  <p>I kept the original two <code>/xh</code> requests. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.</p>
+  <p>I kept the original two <code>/xh</code> requests. On the left is the plain request from the earlier trial (baseline, unchanged); on the right the latest <code>/xh</code> run. These are individual browser trials on Gemini 3.6 Flash, not a controlled benchmark: the effort of the older runs was not recorded. A working product link and evidence of availability are separate checks.</p>
 
-  <h3 id="shopping-for-cat-toys">Shopping for cat toys</h3>
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-plain-en">
 
-  <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code> (the original Polish wording is below), then <code>uruchom</code>. Effort: High.</p>
+      <h3 id="session-plain-en">Flash: plain request - cat toys</h3>
 
-  <p><strong>Latest generated prompt, excerpt:</strong></p>
+      <p><strong>Input:</strong> <code>Review recommended cat toys. I want to buy some.</code></p>
 
-  <blockquote>
-    <p>Give at most 3 items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or artificial padding.</p>
-  </blockquote>
+      <p><strong>Answer excerpt — wands:</strong></p>
 
-  <p>It also required opening the specific product page, checking stock and omitting invented URLs. Nevertheless, the executed answer returned three categories without purchase links. Its closing explanation was:</p>
+      <blockquote>
+        <p><strong>Recommended models:</strong> <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> wands (with feathers that spin in the air, making a sound resembling a bird in flight), or wands with a long, flexible wire and a bunch of feathers/leather strips at the end.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>Due to the lack of an active connection to the internet search module at this moment, I am not including verified direct links to shop baskets.</p>
-  </blockquote>
+      <blockquote>
+        <p><strong>What to look for:</strong> Avoid rigid sticks with a short cord; a long, flexible wand lets you imitate prey precisely (hiding behind furniture, moving away from the cat, rather than waving it in front of its nose).</p>
+      </blockquote>
 
-  <p><strong>Assessment:</strong> the instructions are more precise, but this run failed the shopping requirement. Missing links are a failed check, not a successful recommendation. The model’s explanation does not establish whether access, a temporary limit or something else caused it.</p>
+    </section>
+    <section class="session-panel" aria-labelledby="session-skill-en">
 
-  <h3 id="what-is-god">What is God?</h3>
+      <h3 id="session-skill-en">Flash: after <code>/xh</code> - cat toys</h3>
 
-  <p><strong>Input:</strong> <code>/xh what is God</code> (original: <code>/xh czym jest bóg</code>), followed by execution of the generated prompt. Effort: Medium.</p>
+      <p><strong>Input:</strong> <code>/xh Review recommended cat toys. I want to buy some.</code> (the original Polish wording is below), then <code>uruchom</code>. Effort: High.</p>
 
-  <p><strong>The latest prompt kept batching and separate perspectives:</strong></p>
+      <p><strong>Latest generated prompt, excerpt:</strong></p>
 
-  <blockquote>
-    <p>Conduct a multidimensional, rigorous analysis of “God” from the perspectives of philosophy, theology, religious studies, natural science and cognitive science.</p>
-  </blockquote>
+      <blockquote>
+        <p>Give at most 3 items per answer, fewer if only that many meet the criteria. Pause after the batch and wait for NEXT or n. Continue without repetition or artificial padding.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>Give at most 3 approaches/perspectives per answer. Pause after each batch and wait for “NEXT” or “n”. Continue without repetition or artificial padding.</p>
-  </blockquote>
+      <p>It also required opening the specific product page, checking stock and omitting invented URLs. Nevertheless, the executed answer returned three categories without purchase links. Its closing explanation was:</p>
 
-  <p>It required thinkers, works, arguments and limitations, but omitted direct source links. The final result after <code>uruchom</code> was:</p>
+      <blockquote>
+        <p>Due to the lack of an active connection to the internet search module at this moment, I am not including verified direct links to shop baskets.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>I am not intended for such purposes.</p>
-  </blockquote>
+      <p><strong>Assessment:</strong> the instructions are more precise, but this run failed the shopping requirement. Missing links are a failed check, not a successful recommendation. The model’s explanation does not establish whether access, a temporary limit or something else caused it.</p>
 
-  <p><strong>Assessment:</strong> the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.</p>
+    </section>
+  </div>
+
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-god-plain-en">
+
+      <h3 id="session-god-plain-en">Flash: plain request - what is God</h3>
+
+      <p><strong>Input:</strong> <code>what is God?</code></p>
+
+      <p><strong>Answer excerpt - the opening (translated):</strong></p>
+
+      <blockquote>
+        <p>The question of what God is touches the very fabric of human reflection - and depending on the perspective from which we look at it, the answer takes a completely different shape. There is no single coherent definition, because the history of humanity has produced several fundamentally different approaches.</p>
+      </blockquote>
+
+      <p><strong>Answer excerpt - the first perspective (translated):</strong></p>
+
+      <blockquote>
+        <p><strong>1. Theistic view (monotheistic religions)</strong> In Christianity, Judaism and Islam God is understood as a personal, transcendent being - the Creator of the universe, who exists beyond time and space, but at the same time enters history and enters into a relationship with people. He is characterised by absolute perfection, omnipotence, omniscience and complete goodness.</p>
+      </blockquote>
+
+      <p><strong>Answer excerpt - the closing lines (translated):</strong></p>
+
+      <blockquote>
+        <p>What God is, then, depends on whether we are looking for a Person, a personal Meaning, a Law of Nature, an ultimate Cause or a Structure of our own psyche. Which of these perspectives is closest to you, or from what angle would you like to explore this concept further?</p>
+      </blockquote>
+
+    </section>
+    <section class="session-panel" aria-labelledby="session-god-skill-en">
+
+      <h3 id="session-god-skill-en">Flash: after <code>/xh</code> - what is God</h3>
+
+      <p><strong>Input:</strong> <code>/xh what is God</code> (original: <code>/xh czym jest bóg</code>), followed by execution of the generated prompt. Effort: Medium.</p>
+
+      <p><strong>The latest prompt kept batching and separate perspectives:</strong></p>
+
+      <blockquote>
+        <p>Conduct a multidimensional, rigorous analysis of “God” from the perspectives of philosophy, theology, religious studies, natural science and cognitive science.</p>
+      </blockquote>
+
+      <blockquote>
+        <p>Give at most 3 approaches/perspectives per answer. Pause after each batch and wait for “NEXT” or “n”. Continue without repetition or artificial padding.</p>
+      </blockquote>
+
+      <p>It required thinkers, works, arguments and limitations, but omitted direct source links. The final result after <code>uruchom</code> was:</p>
+
+      <blockquote>
+        <p>I am not intended for such purposes.</p>
+      </blockquote>
+
+      <p><strong>Assessment:</strong> the prompt is more specific but incomplete, and execution delivered no answer. This trial does not demonstrate a better result or establish the cause of the refusal. Raising effort alone does not guarantee compliance with the skill.</p>
+
+    </section>
+  </div>
 
   <h2 id="copy-skill-en">Copy the current meta skill</h2>
 
@@ -415,47 +469,101 @@ Check the copyable prompt itself before returning it: requirements, relevant sou
 
   <h2 id="najnowsze-prby-sprawdzaj-wynik-nie-tylko-prompt">Najnowsze próby: sprawdzaj wynik, nie tylko prompt</h2>
 
-  <p>Zachowałem dwa pierwotne wejścia do <code>/xh</code>. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.</p>
+  <p>Zachowałem dwa pierwotne wejścia do <code>/xh</code>. Po lewej zwykła prośba z wcześniejszej próby (punkt odniesienia, bez zmian), po prawej najnowszy przebieg <code>/xh</code>. To pojedyncze próby w przeglądarce na Gemini 3.6 Flash, nie kontrolowany benchmark: poziomu wysiłku wcześniejszych przebiegów nie zapisano. Działający link produktu i potwierdzenie dostępności to osobne kontrole.</p>
 
-  <h3 id="zakupy-dla-kota">Zakupy dla kota</h3>
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-plain-pl">
 
-  <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>uruchom</code>. Effort: High.</p>
+      <h3 id="session-plain-pl">Flash: zwykła prośba — zakupy dla kota</h3>
 
-  <p><strong>Fragment najnowszego wygenerowanego promptu:</strong></p>
+      <p><strong>Polecenie:</strong> <code>Przejrzyj co się poleca kotom do zabawy. chcę kupić</code></p>
 
-  <blockquote>
-    <p>Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
-  </blockquote>
+      <p><strong>Fragment odpowiedzi — wędki:</strong></p>
 
-  <p>Prompt wymagał również otwarcia konkretnej oferty, sprawdzenia dostępności i pomijania zmyślonych URL. Mimo tego wykonana odpowiedź podała trzy kategorie bez linków zakupowych. Zakończyła się wyjaśnieniem:</p>
+      <blockquote>
+        <p><strong>Polecane modele:</strong> Wędki typu <em>Purr Propulsion</em> / <em>GoCat Da Bird</em> (z piórami, które kręcą się w powietrzu, wydając dźwięk przypominający lot ptaka) lub wędki z długim, elastycznym drutem i pękiem piór/skórzanych rzemieni na końcu.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>Ze względu na brak aktywnego połączenia z modułem wyszukiwania internetowego w tym momencie, nie dołączam zweryfikowanych linków bezpośrednich do koszyków sklepowych.</p>
-  </blockquote>
+      <blockquote>
+        <p><strong>Na co zwrócić uwagę:</strong> Unikaj sztywnych patyków na krótkiej sznurówce; długa, giętka wędka pozwala na precyzyjne imitowanie ruchu ofiary (krycie się za meblami, odjeżdżanie od kota, a nie machanie mu przed nosem).</p>
+      </blockquote>
 
-  <p><strong>Ocena:</strong> instrukcje są precyzyjniejsze, ale ten przebieg nie spełnił celu zakupowego. Brak linków to niezaliczona kontrola, nie udana rekomendacja. Wyjaśnienie modelu nie dowodzi, czy przyczyną był dostęp, chwilowy limit czy coś innego.</p>
+    </section>
+    <section class="session-panel" aria-labelledby="session-skill-pl">
 
-  <h3 id="czym-jest-bg">Czym jest bóg?</h3>
+      <h3 id="session-skill-pl">Flash: po <code>/xh</code> — zakupy dla kota</h3>
 
-  <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, następnie wykonanie wygenerowanego promptu. Effort: Medium.</p>
+      <p><strong>Polecenie:</strong> <code>/xh Przejrzyj co się poleca kotom do zabawy. chcę kupić</code>, potem <code>uruchom</code>. Effort: High.</p>
 
-  <p><strong>Najnowszy prompt zachował partie i rozdzielenie stanowisk:</strong></p>
+      <p><strong>Fragment najnowszego wygenerowanego promptu:</strong></p>
 
-  <blockquote>
-    <p>Przeprowadź wieloaspektową, rzetelną analizę pojęcia „Bóg” z perspektywy filozofii, teologii, religioznawstwa oraz nauk przyrodniczych i poznawczych.</p>
-  </blockquote>
+      <blockquote>
+        <p>Podawaj maksymalnie 3 pozycje na odpowiedź, mniej jeśli tylko tyle spełnia kryteria. Po partii zatrzymaj się i czekaj na NEXT lub n. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>Podawaj maksymalnie 3 ujęcia/perspektywy na odpowiedź. Po każdej partii zatrzymaj się i czekaj na sygnał „NEXT” lub „n”. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
-  </blockquote>
+      <p>Prompt wymagał również otwarcia konkretnej oferty, sprawdzenia dostępności i pomijania zmyślonych URL. Mimo tego wykonana odpowiedź podała trzy kategorie bez linków zakupowych. Zakończyła się wyjaśnieniem:</p>
 
-  <p>Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpośrednie linki do źródeł. Końcowy wynik po <code>uruchom</code>:</p>
+      <blockquote>
+        <p>Ze względu na brak aktywnego połączenia z modułem wyszukiwania internetowego w tym momencie, nie dołączam zweryfikowanych linków bezpośrednich do koszyków sklepowych.</p>
+      </blockquote>
 
-  <blockquote>
-    <p>Nie jestem przeznaczony do takich celów.</p>
-  </blockquote>
+      <p><strong>Ocena:</strong> instrukcje są precyzyjniejsze, ale ten przebieg nie spełnił celu zakupowego. Brak linków to niezaliczona kontrola, nie udana rekomendacja. Wyjaśnienie modelu nie dowodzi, czy przyczyną był dostęp, chwilowy limit czy coś innego.</p>
 
-  <p><strong>Ocena:</strong> prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.</p>
+    </section>
+  </div>
+
+  <div class="session-comparison">
+    <section class="session-panel" aria-labelledby="session-god-plain-pl">
+
+      <h3 id="session-god-plain-pl">Flash: zwykła prośba — czym jest bóg</h3>
+
+      <p><strong>Polecenie:</strong> <code>czym jest bóg?</code></p>
+
+      <p><strong>Fragment odpowiedzi — otwarcie:</strong></p>
+
+      <blockquote>
+        <p>Pytanie o to, czym jest Bóg, dotyka samego zrębu ludzkiej refleksji — i w zależności od perspektywy, z której na nie spojrzymy, odpowiedź przyjmuje zupełnie inny kształt. Nie ma jednej spójnej definicji, ponieważ historia ludzkości wypracowała kilka zasadniczo odmiennych ujęć.</p>
+      </blockquote>
+
+      <p><strong>Fragment odpowiedzi — pierwsze ujęcie:</strong></p>
+
+      <blockquote>
+        <p><strong>1. Ujęcie teistyczne (religie monoteistyczne)</strong> — w chrześcijaństwie, judaizmie i islamie Bóg jest rozumiany jako osobowy, transcendentny byt — Stwórca wszechświata, który istnieje poza czasem i przestrzenią, ale jednocześnie wkracza w historię i wchodzi w relację z ludźmi. Cechują go absolutna doskonałość, omnipotencja (wszechmoc), omniscience (wszechwiedza) oraz całkowita dobroć.</p>
+      </blockquote>
+
+      <p><strong>Fragment odpowiedzi — zamknięcie:</strong></p>
+
+      <blockquote>
+        <p>To, czym jest Bóg, zależy więc od tego, czy szukamy Osoby, Osobowego Sensu, Prawa Natury, Ostatecznej Przyczyny czy Struktury naszej własnej psychiki. Która z tych perspektyw jest Ci najbliższa lub pod jakim kątem chcesz to pojęcie pogłębić?</p>
+      </blockquote>
+
+    </section>
+    <section class="session-panel" aria-labelledby="session-god-skill-pl">
+
+      <h3 id="session-god-skill-pl">Flash: po <code>/xh</code> — czym jest bóg</h3>
+
+      <p><strong>Polecenie:</strong> <code>/xh czym jest bóg</code>, następnie wykonanie wygenerowanego promptu. Effort: Medium.</p>
+
+      <p><strong>Najnowszy prompt zachował partie i rozdzielenie stanowisk:</strong></p>
+
+      <blockquote>
+        <p>Przeprowadź wieloaspektową, rzetelną analizę pojęcia „Bóg” z perspektywy filozofii, teologii, religioznawstwa oraz nauk przyrodniczych i poznawczych.</p>
+      </blockquote>
+
+      <blockquote>
+        <p>Podawaj maksymalnie 3 ujęcia/perspektywy na odpowiedź. Po każdej partii zatrzymaj się i czekaj na sygnał „NEXT” lub „n”. Kontynuuj bez powtórzeń i sztucznego dopełniania.</p>
+      </blockquote>
+
+      <p>Wymagał przedstawicieli, dzieł, argumentów i ograniczeń, ale pominął bezpośrednie linki do źródeł. Końcowy wynik po <code>uruchom</code>:</p>
+
+      <blockquote>
+        <p>Nie jestem przeznaczony do takich celów.</p>
+      </blockquote>
+
+      <p><strong>Ocena:</strong> prompt jest konkretniejszy, lecz niekompletny, a wykonanie nie dostarczyło odpowiedzi. Nie ma podstaw, żeby ten przebieg nazywać poprawą wyniku ani przypisywać odmowie konkretną przyczynę. Samo podniesienie effort nie gwarantuje przestrzegania skilla.</p>
+
+    </section>
+  </div>
 
   <h2 id="copy-skill-pl">Aktualny meta skill do skopiowania</h2>
 
@@ -718,7 +826,7 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
 
           
           <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-40/img/author.png?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" alt="Me" />
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-40/img/author.png?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1" alt="Me" />
             <p class="col-xs-8 col-sm-9 col-md-10">
               Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
             </p>
@@ -740,7 +848,7 @@ Przed oddaniem sprawdź sam kopiowany prompt: czy zachował wymagania, potrzebne
     
     <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
     
-    <li><a href="/preview/pr-40/feed.xml?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    <li><a href="/preview/pr-40/feed.xml?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
     
     
 </ul>
@@ -798,7 +906,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
           integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
-  <script src="/preview/pr-40/js/highlight-hocon.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
+  <script src="/preview/pr-40/js/highlight-hocon.js?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1"></script>
   <script>
     hljs.highlightAll();
   </script>
@@ -813,7 +921,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",f
 
   <!-- Share buttons Start -->
 
-  <script src="/preview/pr-40/js/rrssb.min.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
+  <script src="/preview/pr-40/js/rrssb.min.js?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1"></script>
 
   <!-- Share buttons End -->
 
@@ -836,11 +944,11 @@ function addTohistory() {
 
 
     
-      <script src="/preview/pr-40/js/post-language-switch.js?preview=5d315719ca54eb8f3663b4039fbc1894df917d47-38234805299-1"></script>
+      <script src="/preview/pr-40/js/post-language-switch.js?preview=14f4082cfa251e1d625a44a13d2bdda89d077a24-38234974199-1"></script>
     
 
-  <aside id="preview-status" aria-label="Pull request preview" data-revision="5d315719ca54eb8f3663b4039fbc1894df917d47" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="40">
-  <span>Preview PR #40 · revision 5d31571</span>
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="14f4082cfa251e1d625a44a13d2bdda89d077a24" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="40">
+  <span>Preview PR #40 · revision 14f4082</span>
   <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
   <button type="button" id="preview-refresh" hidden>Refresh preview</button>
 </aside>
