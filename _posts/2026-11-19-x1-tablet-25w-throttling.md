@@ -316,8 +316,8 @@ A cut looks like one sensor reaching its trip, followed at once by `0x59a0` fall
 | Route | What happened, or why not |
 |---|---|
 | XTU limits alone | MSR only, DTT still cuts |
-| ThrottleStop | Failed without an error for me: Defender blocks `WinRing0x64.sys` as a vulnerable driver (CVE-2020-14979). Its own driver has an undocumented protocol |
-| Universal x86 Tuning Utility | The same driver, the same silent failure |
+| ThrottleStop | No effect and no error for me, cause unknown. Its own driver loaded, but its protocol is undocumented |
+| Universal x86 Tuning Utility | Failed without an error: Defender quarantined its `WinRing0x64.sys`, a vulnerable driver (CVE-2020-14979) |
 | Writing MMIO through WinRing0 | A known privilege-escalation hole, and the build I tried cannot reach this address |
 | Stopping esifsvc and LITSSVC | 9-12 W: the policy lives in the driver |
 | Disabling CPUP in Device Manager | Not supported, the DTT nodes cannot be disabled. They can be removed |
@@ -339,7 +339,7 @@ Plan B, untested on this tablet: Linux can write both limits without a third-par
 
 ![Mean power for seven setups: from 5.8 W with power saving to 16.6 W without the sensor. The others stayed at 9-12 W.](/img/x1-tablet-2026/attempts-en.svg)
 
-The AI needed one sentence from me:
+The AI needed a measurable goal. In short (a summary, not my exact words):
 
 > Under sustained load, reach the maximum power the cooling allows, but no more than 25 W.
 
@@ -457,7 +457,7 @@ Never remove a sensor the trace has not proved. A readback is not proof, only lo
 
 ## A safeguard stopped Claude, so GLM finished what it had started
 
-I began with GLM. Later I moved to Claude, and it traced the cut to the sensor. Then Anthropic's safeguard decided that repairing my own processor was dangerous: in 40 minutes it stopped six answers and twice switched me to an older model. It even stopped a request to write down what we already knew.
+I began with GLM. Later I moved to Claude, and it traced the cut to the sensor. It refused one route: getting a driver with kernel access (ring 0) past Microsoft Defender. Anthropic's safeguard then began to interrupt it: six answers stopped in 40 minutes, and the session moved to an older model twice.
 
 So I opened GLM as administrator and gave it Claude's notes. 24 minutes later it removed the sensor. That was the fix.
 
@@ -1454,8 +1454,8 @@ Cięcie to jeden czujnik dochodzący do progu i zaraz po nim spadek `0x59a0`. Tu
 | Droga | Co wyszło albo czemu nie |
 |---|---|
 | Same limity XTU | Tylko MSR, DTT dalej tnie |
-| ThrottleStop | U mnie nie działał i nie zgłaszał błędu: Defender blokuje `WinRing0x64.sys` jako podatny sterownik (CVE-2020-14979). Jego własny sterownik ma nieudokumentowany protokół |
-| Universal x86 Tuning Utility | Ten sam sterownik, ta sama cicha porażka |
+| ThrottleStop | U mnie bez efektu i bez błędu, przyczyna nieznana. Jego własny sterownik się ładował, ale protokół jest nieudokumentowany |
+| Universal x86 Tuning Utility | Nie działał i nie zgłaszał błędu: Defender objął kwarantanną jego `WinRing0x64.sys`, podatny sterownik (CVE-2020-14979) |
 | Zapis MMIO przez WinRing0 | Znana dziura eskalacji uprawnień, a sprawdzona kompilacja nie sięga tego adresu |
 | Zatrzymanie esifsvc i LITSSVC | 9-12 W: polityka siedzi w sterowniku |
 | Wyłączenie CPUP w Menedżerze urządzeń | Nieobsługiwane, węzłów DTT nie da się wyłączyć. Da się je usunąć |
@@ -1477,7 +1477,7 @@ Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego ster
 
 ![Średnia moc w siedmiu ustawieniach: od 5,8 W z oszczędzaniem do 16,6 W bez czujnika. Pozostałe dały 9-12 W.](/img/x1-tablet-2026/attempts-pl.svg)
 
-AI potrzebowało ode mnie jednego zdania:
+AI potrzebowało mierzalnego celu. W skrócie (to streszczenie, nie cytat):
 
 > Osiągnij pod stałym obciążeniem maksymalną moc, na jaką pozwala chłodzenie, ale nie więcej niż 25 W.
 
@@ -1595,7 +1595,7 @@ Nigdy nie usuwaj czujnika bez dowodu ze śladu. Odczyt nie jest dowodem, tylko o
 
 ## Safeguard zatrzymał Claude'a, więc GLM skończył to, co zaczął
 
-Zacząłem z GLM. Potem przeszedłem do Claude'a i to on namierzył, że tnie czujnik. Wtedy safeguard Anthropic umyślił sobie, że naprawianie mojego własnego procesora jest niebezpieczne: w 40 minut zatrzymał sześć odpowiedzi i dwa razy przełączył mnie na starszy model. Zatrzymał nawet prośbę o spisanie tego, co już wiedzieliśmy.
+Zacząłem z GLM. Potem przeszedłem do Claude'a i to on namierzył, że tnie czujnik. Odmówił jednej drogi: obejścia Microsoft Defendera dla sterownika z dostępem do jądra systemu (ring 0). Potem zaczął mu przerywać safeguard Anthropic: sześć zatrzymanych odpowiedzi w 40 minut i dwa przełączenia sesji na starszy model.
 
 Odpaliłem więc GLM jako administrator i dałem mu notatki Claude'a. Po 24 minutach usunął czujnik. To była naprawa.
 
