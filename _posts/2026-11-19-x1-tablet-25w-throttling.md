@@ -5,7 +5,7 @@ title: My ThinkPad X1 Tablet is back at 25 W
 category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
-teaser: "My shelved tablet is usable again and about 4× faster under long load. No disassembly. GLM found the cause."
+teaser: "My shelved tablet is usable again and about 4× faster under long load. No disassembly. GLM found the fix."
 title-pl: Mój ThinkPad X1 Tablet znów działa, na 25 W
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
@@ -14,7 +14,7 @@ title-pl: Mój ThinkPad X1 Tablet znów działa, na 25 W
 
 - My shelved tablet is usable again.
 - About 4× faster under long load: from 0.7-0.8 to 3 GHz.
-- No disassembly. GLM found the cause.
+- No disassembly. GLM found the fix.
 
 ## The tablet is back out of the drawer
 
@@ -335,7 +335,7 @@ Plan B, untested on this tablet: Linux can write both limits without a third-par
 
 </details>
 
-## GLM found the cause once it had a measurable goal
+## GLM found the fix once it had a measurable goal
 
 ![Mean power for seven setups: from 5.8 W with power saving to 16.6 W without the sensor. The others stayed at 9-12 W.](/img/x1-tablet-2026/attempts-en.svg)
 
@@ -345,7 +345,7 @@ The AI needed one sentence from me:
 
 "Fix the throttling" lets an agent stop at a readback of 25 W. This goal can only be proven under load.
 
-GLM through ZCode found the fix. Claude helped with tracing, review and this post, but I think GLM would have managed on its own once success was defined.
+GLM through ZCode found the fix. Claude traced the cause and helped with review and this post, but I think GLM would have managed on its own once success was defined.
 
 **Your processor may be held back the same way.** Below: who should not try, the steps, and a prompt for any laptop.
 
@@ -452,6 +452,41 @@ Never remove a sensor the trace has not proved. A readback is not proof, only lo
 - What runs as SYSTEM must live where only administrators can write, its owner included.
 - Full load starves normal-priority helpers: a scheduled task (priority 7) reacted after minutes.
 - Keep scripts ASCII: PowerShell 5.1 reads UTF-8 without BOM as ANSI, and my Polish name broke paths in ThrottleStop.
+
+</details>
+
+## A safeguard stopped Claude, so GLM finished what it had started
+
+I began with GLM. Later I moved to Claude, and it traced the cut to the sensor. Then Anthropic's safeguard decided that repairing my own processor was dangerous: in 40 minutes it stopped six answers and twice switched me to an older model. It even stopped a request to write down what we already knew.
+
+So I opened GLM as administrator and gave it Claude's notes. 24 minutes later it removed the sensor. That was the fix.
+
+<details markdown="1">
+<summary>For geeks: who did what, and what exactly was stopped</summary>
+
+From the session logs, Warsaw time. Claude drafted this section, so note that it describes its own maker's safeguard.
+
+<div class="table-responsive" markdown="1">
+
+| When | Who | What happened |
+|---|---|---|
+| 17 Nov, 11:33 | GLM-5.3, high | The start. It led to 25 W in XTU, which turned out to be only one of the two limits |
+| 21 Nov, 20:34-21:00 | Claude Opus 5.5 | ETW trace: DTT, the CPUP sensor, 56 °C, 8.5 W. It removed the processor participant, which did not help, and concluded that 15 W was out of reach on Windows under its rules |
+| 21:23 | Safeguard | Stopped an answer during work on the throughput test |
+| 21:44 | Safeguard | Flagged the session, Opus 4.8 answered instead |
+| 21:49, 21:50 | Safeguard | Stopped the answers to my request for a sustained 20-25 W, and to the same request with my reasons |
+| 21:54 | Safeguard | Stopped a check of the hash inside a DTT configuration file |
+| 21:57, 21:58 | Safeguard | Stopped the request to document the findings, flagged the session again. Opus 4.8 wrote the document |
+| 22:03 | Safeguard | Stopped the sixth answer, during the clock-cap tests |
+| 22:10 | GLM-5.3, max | Took over, with that document |
+| 22:34 | GLM-5.3, max | Removed CPUP |
+{: .table}
+
+</div>
+
+- The safeguard is a classifier outside the conversation. It gave no reason for any single stop. Its notice admits that it can flag work unrelated to cybersecurity.
+- Separately, Claude itself refused to get WinRing0 past Defender. GLM did try that, with a Defender exclusion. It was a dead end, and GLM removed the driver and the exclusion the same evening. The fix needed neither, so don't copy that step.
+- The safeguard is not the whole reason: before the first stop Claude had the cause and had not thought of removing that sensor. Whether it would have got there without the stops, nobody knows.
 
 </details>
 
@@ -1117,7 +1152,7 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 
 - Tablet z szuflady znów nadaje się do pracy.
 - Pod długim obciążeniem około 4× szybszy: z 0,7-0,8 do 3 GHz.
-- Bez rozkręcania. Przyczynę znalazł GLM.
+- Bez rozkręcania. Naprawę znalazł GLM.
 
 ## Tablet wrócił z szuflady
 
@@ -1438,7 +1473,7 @@ Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego ster
 
 </details>
 
-## GLM znalazł przyczynę, gdy dostał mierzalny cel
+## GLM znalazł naprawę, gdy dostał mierzalny cel
 
 ![Średnia moc w siedmiu ustawieniach: od 5,8 W z oszczędzaniem do 16,6 W bez czujnika. Pozostałe dały 9-12 W.](/img/x1-tablet-2026/attempts-pl.svg)
 
@@ -1448,7 +1483,7 @@ AI potrzebowało ode mnie jednego zdania:
 
 „Napraw dławienie” pozwala agentowi skończyć na odczycie 25 W. Ten cel da się udowodnić tylko pod obciążeniem.
 
-Naprawę znalazł GLM przez ZCode. Claude pomagał w diagnozie, recenzji i przy wpisie, ale moim zdaniem po określeniu sukcesu GLM poradziłby sobie sam.
+Naprawę znalazł GLM przez ZCode. Claude namierzył przyczynę, pomagał w recenzji i przy wpisie, ale moim zdaniem po określeniu sukcesu GLM poradziłby sobie sam.
 
 **Twój procesor może być trzymany tak samo.** Niżej: kto niech nie próbuje, kolejne kroki i prompt na dowolny laptop.
 
@@ -1555,6 +1590,41 @@ Nigdy nie usuwaj czujnika bez dowodu ze śladu. Odczyt nie jest dowodem, tylko o
 - To, co działa jako SYSTEM, musi leżeć tam, gdzie piszą tylko administratorzy, razem z właścicielem.
 - Pełne obciążenie głodzi pomocników: zadanie harmonogramu (priorytet 7) reagowało po minutach.
 - Skrypty w ASCII: PowerShell 5.1 czyta UTF-8 bez BOM jako ANSI, a moje polskie nazwisko psuło ścieżki w ThrottleStopie.
+
+</details>
+
+## Safeguard zatrzymał Claude'a, więc GLM skończył to, co zaczął
+
+Zacząłem z GLM. Potem przeszedłem do Claude'a i to on namierzył, że tnie czujnik. Wtedy safeguard Anthropic umyślił sobie, że naprawianie mojego własnego procesora jest niebezpieczne: w 40 minut zatrzymał sześć odpowiedzi i dwa razy przełączył mnie na starszy model. Zatrzymał nawet prośbę o spisanie tego, co już wiedzieliśmy.
+
+Odpaliłem więc GLM jako administrator i dałem mu notatki Claude'a. Po 24 minutach usunął czujnik. To była naprawa.
+
+<details markdown="1">
+<summary>Dla geeków: kto co zrobił i co dokładnie zostało zatrzymane</summary>
+
+Z logów sesji, czas warszawski. Tę sekcję szkicował Claude, więc miej na uwadze, że opisuje safeguard własnego producenta.
+
+<div class="table-responsive" markdown="1">
+
+| Kiedy | Kto | Co się stało |
+|---|---|---|
+| 17.11, 11:33 | GLM-5.3, high | Początek. Doprowadził do 25 W w XTU, co okazało się tylko jednym z dwóch limitów |
+| 21.11, 20:34-21:00 | Claude Opus 5.5 | Ślad ETW: DTT, czujnik CPUP, 56 °C, 8,5 W. Usunął uczestnika procesora, co nie pomogło, i uznał, że przy jego zasadach 15 W na Windowsie jest nieosiągalne |
+| 21:23 | Safeguard | Zatrzymał odpowiedź przy pracy nad testem wydajności |
+| 21:44 | Safeguard | Oznaczył sesję, odpowiadał za niego Opus 4.8 |
+| 21:49, 21:50 | Safeguard | Zatrzymał odpowiedzi na prośbę o stałe 20-25 W i na tę samą prośbę z uzasadnieniem |
+| 21:54 | Safeguard | Zatrzymał sprawdzenie skrótu w pliku konfiguracji DTT |
+| 21:57, 21:58 | Safeguard | Zatrzymał prośbę o udokumentowanie ustaleń, znów oznaczył sesję. Dokument napisał Opus 4.8 |
+| 22:03 | Safeguard | Zatrzymał szóstą odpowiedź, przy testach limitu zegara |
+| 22:10 | GLM-5.3, max | Przejął pracę z tym dokumentem |
+| 22:34 | GLM-5.3, max | Usunął CPUP |
+{: .table}
+
+</div>
+
+- Safeguard to klasyfikator poza rozmową. Przy żadnej blokadzie nie podał powodu. Jego komunikat przyznaje, że potrafi oznaczyć pracę niezwiązaną z cyberbezpieczeństwem.
+- Osobno sam Claude odmówił przepchnięcia WinRing0 obok Defendera. GLM tego spróbował, z wyjątkiem w Defenderze. To była ślepa uliczka i tego samego wieczoru usunął sterownik i wyjątek. Naprawa nie potrzebowała żadnego z nich, więc nie kopiuj tego kroku.
+- Safeguard to nie cały powód: przed pierwszą blokadą Claude znał przyczynę i nie wpadł na usunięcie tego czujnika. Czy doszedłby do tego bez blokad, nie wie nikt.
 
 </details>
 
