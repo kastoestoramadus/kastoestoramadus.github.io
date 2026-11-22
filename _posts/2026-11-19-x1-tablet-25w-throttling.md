@@ -259,7 +259,7 @@ XTU monitor IDs for telling the limits apart: 1000 package power, 2701131777 pac
 <details markdown="1">
 <summary>Fix it and undo it</summary>
 
-**Warning: this removes the manufacturer's protection of the case, so do it on mains only and bring the sensor back before using the battery.**
+**Warning: this removes the manufacturer's protection of the case, so do it on mains only and bring the sensor back before using the battery.** To undo it, use “Back to factory” below.
 
 **Restore the 25 W mode**
 
@@ -616,7 +616,7 @@ Monitory XTU do rozróżniania limitów: 1000 moc pakietu, 2701131777 temperatur
 <details markdown="1">
 <summary>Napraw i cofnij</summary>
 
-**Uwaga: to usuwa ochronę obudowy od producenta, więc rób to tylko na zasilaczu i przywróć czujnik przed pracą na baterii.**
+**Uwaga: to usuwa ochronę obudowy od producenta, więc rób to tylko na zasilaczu i przywróć czujnik przed pracą na baterii.** Cofnięcie: „Powrót do ustawień fabrycznych” niżej.
 
 **Przywróć tryb 25 W**
 
