@@ -1,0 +1,1486 @@
+
+<!-- Post Layout Start -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- HEAD Start -->
+
+<head>
+  
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blog of Waldemar Wosiński, a Scala & Big Data engineer from Warsaw: software development, hardware, operating systems and work life.">
+  <meta name="author" content="Waldemar Wosiński">
+  <meta name="keywords" content="scala, hocon, big data, software development, hardware, operating systems, waldemar wosinski">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <title>{ IT blog - Waldemar Wosiński } | My ThinkPad X1 Tablet is back at 25 W</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Custom CSS -->
+  <link href="/preview/pr-43/css/grayscale.css?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" rel="stylesheet">
+  
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/preview/pr-43/css/rrssb.css?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" />
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/preview/pr-43/img/favicon.ico?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  
+
+  
+
+  
+
+
+  <!-- iOS Web App mode -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="36x36" href="/preview/pr-43/img/web-app/icon-36p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <link rel="apple-touch-icon" sizes="48x48" href="/preview/pr-43/img/web-app/icon-48p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <link rel="apple-touch-icon" sizes="72x72" href="/preview/pr-43/img/web-app/icon-72p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <link rel="apple-touch-icon" sizes="96x96" href="/preview/pr-43/img/web-app/icon-96p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <link rel="apple-touch-icon" sizes="144x144" href="/preview/pr-43/img/web-app/icon-144p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+  <link rel="apple-touch-icon" sizes="192x192" href="/preview/pr-43/img/web-app/icon-192p.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+
+  <!-- Android Web App mode -->
+
+  <link rel="manifest" href="/preview/pr-43/manifest.json?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+
+
+
+
+  
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  
+
+
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/styles/monokai-sublime.min.css"
+        integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+
+
+<meta name="preview-build" content="5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+<style>
+body { padding-bottom: 90px; }
+#preview-status { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10000; padding: 10px 16px; background: #222; color: #fff; border-top: 1px solid #00cdff; font: 14px/1.5 Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+#preview-status a, #preview-status button { color: #00cdff; }
+#preview-status button { background: transparent; border: 1px solid #00cdff; padding: 4px 10px; }
+</style>
+<script defer src="/preview/pr-43/preview-status.js?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1"></script>
+</head>
+
+<!-- HEAD End -->
+
+
+  <body>
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      
+        <a class="navbar-brand" href="/preview/pr-43/?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+      
+          <div>
+            
+              <img src="/preview/pr-43/img/black-lab-glass.ico?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" alt="">
+            
+            { IT blog - Waldemar Wosiński }
+          </div>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        
+          <!-- Blog, Post, Tag and Error pages -->
+          
+            <li>
+            
+                <a href="/preview/pr-43/?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1#about"> About </a>
+            
+            </li>
+          
+            <li>
+            
+              
+                <a href="/preview/pr-43/blog/?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1"> Blog </a>
+              
+            
+            </li>
+          
+            <li>
+            
+                <a href="/preview/pr-43/?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1#timeline"> Timeline </a>
+            
+            </li>
+          
+            <li>
+            
+                <a href="/preview/pr-43/?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1#contact"> Contact </a>
+            
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    <section id="post" class="container content-section text-center">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          
+<!-- Swipe Instructions Start -->
+
+<div id="swipe-instruction">
+  <div>
+    <p><br><br><br></p>
+    <i id="hand-swipe" class="fa fa-hand-o-up"></i>
+    <p><strong>
+    
+      Did you know that you can navigate the posts by swiping left and right?
+    
+    </strong></p>
+    <button type="button" class="btn btn-default ok-btn close-swipe-instruction">
+      
+        Awesome!
+      
+    </button>
+  </div>
+</div>
+
+<!-- Swipe Instructions End -->
+
+
+          <h1><strong>My ThinkPad X1 Tablet is back at 25 W</strong></h1>
+          <h4>
+            <strong>19 Nov 2026</strong>
+            <small>
+              . category:
+              <a class="category" href="/preview/pr-43/categories/hardware.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">
+                hardware
+              </a>.
+              <a href="/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1#disqus_thread">Comments</a>
+              <br />
+              
+                <a class="tag" href="/preview/pr-43/tags/hardware.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">#hardware</a>
+              
+                <a class="tag" href="/preview/pr-43/tags/intel.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">#intel</a>
+              
+                <a class="tag" href="/preview/pr-43/tags/cpu.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">#cpu</a>
+              
+                <a class="tag" href="/preview/pr-43/tags/windows.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">#windows</a>
+              
+                <a class="tag" href="/preview/pr-43/tags/ai.html?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1">#ai</a>
+              
+            </small>
+          </h4>
+
+          <div style="text-align: left">
+
+          
+            <nav class="post-language-switch" aria-label="Language / Język">
+  <a href="#english" lang="en" hreflang="en" data-post-title="My ThinkPad X1 Tablet is back at 25 W">English</a>
+  <a href="#polski" lang="pl" hreflang="pl" data-post-title="Mój ThinkPad X1 Tablet znów działa, na 25 W">Polski</a>
+</nav>
+
+          
+
+          <div id="english" class="post-language" lang="en">
+
+  <p><strong>TLDR:</strong></p>
+
+  <ul>
+    <li>My shelved tablet is usable again.</li>
+    <li>It gets about 45% more done under long load.</li>
+    <li>No disassembly. GLM found the cause.</li>
+  </ul>
+
+  <h2 id="the-tablet-is-back-out-of-the-drawer">The tablet is back out of the drawer</h2>
+
+  <p>My ThinkPad X1 Tablet Gen 3 came from US distribution and was being sold off to the rest of the world. The screen coating was so bad that it scratched if you looked at it, so I put 3MK protective glass on it.</p>
+
+  <p>Then the throttling: a moment of turbo, then minutes of crawling, at worst 0.7 GHz. Disabling turbo was my best workaround. The tablet went into a drawer. Now I can work on it again.</p>
+
+  <h2 id="one-sensor-removed-about-45-more-work-done">One sensor removed, about 45% more work done</h2>
+
+  <p><img src="/preview/pr-43/img/x1-tablet-2026/work-en.svg?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" alt="Work per second under sustained load: 5410 with the sensor, 7059 with the sensor and a 2.6 GHz cap, 7864 without the sensor." /></p>
+
+  <p>The same test of eight threads on mains, one run per setup, measured over seconds 60-120. Work went up by 45%, power from 8.4 to 16.6 W.</p>
+
+  <h2 id="xtu-showed-25-w-the-processor-fell-to-8-w">XTU showed 25 W, the processor fell to 8 W</h2>
+
+  <p>There are two sets of power limits and the lower one wins. Intel XTU sets one, Intel’s thermal driver the other. When a sensor on the board reached 56 °C, the driver cut the power to about 8 W, although the processor itself can take about 100 °C.</p>
+
+  <p>Intel specifies 15 W for this chip, configurable up to 25 W. I set 25 W as the ceiling. Without the sensor, cooling stops it at about 17 W.</p>
+
+  <h2 id="glm-found-the-cause-once-it-had-a-measurable-goal">GLM found the cause once it had a measurable goal</h2>
+
+  <p>The AI needed one sentence from me:</p>
+
+  <blockquote>
+    <p>Under sustained load, reach the maximum power the cooling allows, but no more than 25 W.</p>
+  </blockquote>
+
+  <p>“Fix the throttling” lets an agent stop at a readback of 25 W. This goal can only be proven under load.</p>
+
+  <p>GLM through ZCode found the fix. Claude helped with tracing, review and this post, but I think GLM would have managed on its own once success was defined.</p>
+
+  <h2 id="working-hardware-need-not-be-scrapped">Working hardware need not be scrapped</h2>
+
+  <p>A four-core i7, 16 GB of RAM and an NVMe were one step from landfill because of firmware policy. That is an extreme waste of silicon and of everything it took to make it.</p>
+
+  <p>Lenovo washed its hands of it. Yet no new hardware was needed, not even a repaste: the potential was behind one threshold. I call that laziness, and the planet pays for it. The greenest computer is the one you don’t throw away.</p>
+
+  <h2 id="limits-cooling-less-protection-for-the-case-effects-not-yet-measured">Limits: cooling, less protection for the case, effects not yet measured</h2>
+
+  <ul>
+    <li><strong>Cooling:</strong> about 17 W today, not 25 W.</li>
+    <li><strong>Protection:</strong> the sensor guarded the case, and there is a battery inside. Remove it on mains only and bring it back on battery.</li>
+    <li><strong>Not measured:</strong> the effect on the case and the battery. My automatic switching has not yet passed an unplug test under load.</li>
+    <li><strong>Gentler option:</strong> keep the sensor and cap turbo at 2.6 GHz. One test gave 90% of the work, at 72 °C instead of 96 °C.</li>
+  </ul>
+
+  <p><strong>Rebuild it with an AI.</strong> Everything needed is in the four sections below. Give your agent this:</p>
+
+  <pre><code class="language-plaintext">Success: under sustained load, the maximum power the cooling allows,
+but no more than 25 W.
+My ThinkPad X1 Tablet Gen 3 throttles again. Read the whole post, including
+the collapsed sections:
+https://blog.ww86.eu/hardware/2026/11/19/x1-tablet-25w-throttling.html
+Start read-only: run the check, look for what changed, tell me what you found.
+Ask before the load test and before every change, and give me a rollback.
+No third-party ring0 drivers, no Defender exclusions, nothing above 25 W.
+</code></pre>
+
+  <details>
+    <summary>How it works, and how we know</summary>
+
+    <p>XTU writes the MSR limit. Intel Dynamic Tuning (DTT) writes the MMIO limit. When the board sensor <code>CPUP</code> reaches 56 °C, DTT drops its limit to 8.5 W. An ETW trace showed who writes it. Seconds 60-120 of each test:</p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Setup</th>
+            <th>Power</th>
+            <th>Clock</th>
+            <th>Temperature, max</th>
+            <th>Work/s</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25 W, sensor active</td>
+            <td>8.4 W</td>
+            <td>2.1 GHz</td>
+            <td>72 °C</td>
+            <td>5410</td>
+          </tr>
+          <tr>
+            <td>Turbo capped at 2.6 GHz</td>
+            <td>11.4 W</td>
+            <td>2.6 GHz</td>
+            <td>72 °C</td>
+            <td>7059</td>
+          </tr>
+          <tr>
+            <td>25 W, sensor removed</td>
+            <td>16.6 W</td>
+            <td>3.0 GHz</td>
+            <td>96 °C</td>
+            <td>7864</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>A later six-minute run, after a reboot: 16.7 W on average, about 3 GHz, no cut. These measurements predate <code>TdpModeService</code>.</p>
+
+    <ul>
+      <li>PL1/PL2 are power limits. Setting them to 25 W does not switch the cTDP level and its base clock.</li>
+      <li>An XTU readback proves nothing about the MMIO limit. Believe only a load test.</li>
+    </ul>
+
+    <p><strong>Find out who writes the limit</strong></p>
+
+    <pre><code class="language-powershell"># Admin. Start the trace, run the load test in another window, then press on.
+$dir = Join-Path $env:TEMP 'x1-trace'; New-Item -ItemType Directory -Force $dir | Out-Null
+'DptfCpuEtwProvider', 'DptfAcpiEtwProvider', 'EsifLfEtwProvider', 'EsifUmdf2EtwProvider', 'DPTF', 'Lenovo-Thermal-Service' |
+  Set-Content "$dir\providers.txt" -Encoding ASCII
+logman start x1dtt -pf "$dir\providers.txt" -o "$dir\dtt.etl" -ets
+Start-Sleep -Seconds 130
+logman stop x1dtt -ets
+tracerpt "$dir\dtt.etl" -o "$dir\dtt.csv" -of CSV -y
+</code></pre>
+
+    <pre><code class="language-powershell"># Decode the trace: 0x59a0 = PL1, 0x59a4 = PL2, raw value / 8 = watts.
+$csv = Join-Path $env:TEMP 'x1-trace\dtt.csv'
+$prev = ''
+Get-Content $csv | ForEach-Object {
+  $line = $null
+  if ($_ -match 'offset (0x59a[04])\[14:0\] = (0x[0-9a-fA-F]+)') {
+    $line = '{0} = {1} W' -f $Matches[1], ([Convert]::ToInt32($Matches[2], 16) / 8)
+  } elseif ($_ -match 'CPUP D0: TEMPERATURE = (\d+)') {
+    $line = 'CPUP = {0:N1} C' -f ($Matches[1] / 10 - 273.15)
+  }
+  if ($line -and $line -ne $prev) { $line; $prev = $line }
+}
+</code></pre>
+
+    <p>A cut looks like <code>CPUP</code> reaching about 56 °C, followed by <code>0x59a0</code> falling towards 8.5 W. Writes without that trigger mean a different policy or program: search the CSV for <code>SET_RAPL_POWER_LIMIT</code> and <code>Policy</code>.</p>
+
+    <p><strong>Dead ends, and Linux as plan B</strong></p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tried</th>
+            <th>Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XTU limits alone</td>
+            <td>MSR only, DTT still cuts</td>
+          </tr>
+          <tr>
+            <td>Stopping esifsvc and LITSSVC</td>
+            <td>8-12 W: the policy runs in the UMDF driver</td>
+          </tr>
+          <tr>
+            <td>Disabling CPUP in Device Manager</td>
+            <td>Not supported</td>
+          </tr>
+          <tr>
+            <td>Removing the processor participant</td>
+            <td>BIOS limit applies: 8.5-9 W</td>
+          </tr>
+          <tr>
+            <td>ThrottleStop, WinRing0</td>
+            <td>Vulnerable driver blocked by Defender (CVE-2020-14979). The build I tried cannot write this MMIO address anyway</td>
+          </tr>
+          <tr>
+            <td>Undervolting</td>
+            <td>Voltage controls are read-only on BIOS 1.51</td>
+          </tr>
+          <tr>
+            <td>cTDP or thermal settings in BIOS WMI</td>
+            <td>None exposed</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>Untested plan B for a home server: on Linux both limits are in <code>/sys/class/powercap</code> (<code>intel-rapl:0</code> is MSR, <code>intel-rapl-mmio:0</code> is MMIO). Don’t run <code>thermald --adaptive</code>, it applies the same thermal table. Check bit 63 of MSR 0x610: if set, the MSR is locked until reset.</p>
+
+  </details>
+
+  <details>
+    <summary>Check whether this is your case</summary>
+
+    <ul>
+      <li>Order: check, what changed, load test, symptom table, trace if still unclear. Change things last.</li>
+      <li>Run one load test at a time and never while another agent is tuning.</li>
+      <li>Ask the owner before a change, a reboot or stopping a service.</li>
+    </ul>
+
+    <p><strong>Check the state (read-only)</strong></p>
+
+    <pre><code class="language-powershell"># Read-only, no admin needed.
+Add-Type -Namespace X1 -Name Power -MemberDefinition @'
+[DllImport("powrprof.dll")] public static extern uint PowerGetEffectiveOverlayScheme(out Guid g);
+'@
+$g = [Guid]::Empty; [void][X1.Power]::PowerGetEffectiveOverlayScheme([ref]$g)
+"CPU:          " + (Get-CimInstance Win32_Processor).Name
+"BIOS:         " + (Get-CimInstance Win32_BIOS).SMBIOSBIOSVersion
+"last boot:    " + (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+"battery:      " + (Get-CimInstance Win32_Battery).BatteryStatus + " (1 = discharging, 2 = mains)"
+"power mode:   $g (for a load test expect ded574b5-45a0-4f42-8737-46345c09c238 = Best performance)"
+"CPUP present: " + [bool](Get-PnpDevice -InstanceId 'ACPI\INT3403\CPUP' -ErrorAction SilentlyContinue | Where-Object Present)
+Get-Service TdpModeService, XTU3SERVICE, esifsvc, LITSSVC -ErrorAction SilentlyContinue | Format-Table Name, Status
+Get-Process mode-watch, ThrottleStop -ErrorAction SilentlyContinue | Format-Table Name, Id
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Format-Table TaskName, State
+Get-CimInstance Win32_PnPSignedDriver | Where-Object DeviceName -match 'Dynamic Tuning' |
+  Sort-Object DeviceName -Unique | Format-Table DeviceName, DriverVersion
+</code></pre>
+
+    <p>Without admin some tasks are invisible. An empty list is no proof that there are none.</p>
+
+    <p><strong>Load test</strong></p>
+
+    <pre><code class="language-powershell"># No admin needed. 120 s of full load: the case gets hot. Mains power only.
+Add-Type -TypeDefinition @'
+using System; using System.Threading;
+public static class X1Burn {
+  static volatile bool stop; public static long Work;
+  public static void Start(int n) {
+    stop = false; Work = 0;
+    for (int i = 0; i &lt; n; i++) {
+      var t = new Thread(() =&gt; { double x = 1.0001; while (!stop) {
+        for (int k = 0; k &lt; 100000; k++) { x = Math.Sqrt(x * 1.000001 + 0.5); }
+        Interlocked.Increment(ref Work); } });
+      t.IsBackground = true; t.Start();
+    }
+  }
+  public static void Stop() { stop = true; }
+}
+'@
+"PASS: in every 10 s window after s30 the CPU is at the thermal limit (94 C+) or at 25 W. Never above 25 W on average."
+$names = '\Energy Meter(RAPL_Package0_PKG)\Power',
+         '\Processor Information(_Total)\% Processor Performance',
+         '\Thermal Zone Information(*)\Temperature'
+$rows = @(); $sw = [Diagnostics.Stopwatch]::StartNew()
+[X1Burn]::Start(8)
+try {
+  while ($sw.Elapsed.TotalSeconds -lt 120) {
+    $v = (Get-Counter $names -SampleInterval 2 -MaxSamples 1).CounterSamples.CookedValue
+    $r = [pscustomobject]@{ t = [math]::Round($sw.Elapsed.TotalSeconds); W = [math]::Round($v[0] / 1000, 1)
+      GHz = [math]::Round($v[1] * 2.112 / 100, 2); C = [math]::Round($v[2] - 273.15) }
+    $rows += $r; "{0,4} s {1,6} W {2,6} GHz {3,4} C" -f $r.t, $r.W, $r.GHz, $r.C
+    if ($r.C -ge 101 -or (Get-CimInstance Win32_Battery).BatteryStatus -eq 1) { 'ABORTED'; break }
+  }
+} finally { [X1Burn]::Stop() }
+# verdict
+$mean = ($rows | Where-Object t -ge 60 | Measure-Object W -Average).Average
+$short = @($rows | Where-Object t -ge 40 | Where-Object {
+  $t = $_.t; $win = $rows | Where-Object { $_.t -gt $t - 10 -and $_.t -le $t }
+  ($win | Measure-Object W -Average).Average -lt 24 -and ($win | Measure-Object C -Maximum).Maximum -lt 94
+})
+$ok = $rows[-1].t -ge 118 -and $mean -le 25.5 -and $short.Count -eq 0
+"mean={0:N1} W  windows short of both limits={1}  pass={2}" -f $mean, $short.Count, $ok
+</code></pre>
+
+    <p>The counter names are localised on some Windows installations. The clock is the performance counter times 2.112 GHz. A fixed number of watts is the wrong criterion, because cooling changes. Short dips at the thermal limit are fine.</p>
+
+    <p><strong>It throttles again: symptom, cause, action</strong></p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Symptom</th>
+            <th>Likely cause</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Turbo, then 8 W at 65-78 °C, CPUP present</td>
+            <td>The sensor is back: reboot, driver or Windows update, device rescan, resume</td>
+            <td>Find out what restored it, then, with consent, “Fix it and undo it”</td>
+          </tr>
+          <tr>
+            <td>8 W from the first second, CPUP absent</td>
+            <td>A low MMIO limit was left behind when the sensor was removed</td>
+            <td>Let it cool, then, with consent, “Fix it and undo it”</td>
+          </tr>
+          <tr>
+            <td>A slide to 4-6 W at 53-57 °C</td>
+            <td>Energy saver or Best power efficiency, which override the chosen mode</td>
+            <td>Energy saver off, Best performance</td>
+          </tr>
+          <tr>
+            <td>Flat 15 W, below 95 °C</td>
+            <td>A limit left over from battery use, or XTU limits lost</td>
+            <td>Check the power source, set 25 W again</td>
+          </tr>
+          <tr>
+            <td>Flat 8.5-9 W, the DTT processor participant is missing</td>
+            <td>Without DTT the BIOS MMIO value applies</td>
+            <td>pnputil /scan-devices</td>
+          </tr>
+          <tr>
+            <td>Below 15 W at 96 °C, thermal flag set</td>
+            <td>Dust, dried paste, blocked vents, hot room</td>
+            <td>Cooling, not software</td>
+          </tr>
+          <tr>
+            <td>Limits differ from what was set</td>
+            <td>Another program writes them: XTU profiles, ThrottleStop, UXTU, Vantage, a new DTT</td>
+            <td>List recent changes, then trace</td>
+          </tr>
+          <tr>
+            <td>Low power and low CPU usage</td>
+            <td>No throttling, just no load</td>
+            <td>Run the load test</td>
+          </tr>
+          <tr>
+            <td>Switching takes minutes under load</td>
+            <td>Scheduled tasks default to priority 7, below normal</td>
+            <td>Task priority 4 or higher (a lower number)</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>Suspect new software? List the recent changes:</p>
+
+    <pre><code class="language-powershell"># Read-only. What was installed or updated in the last 14 days?
+$since = (Get-Date).AddDays(-14)
+@(
+  Get-WinEvent -FilterHashtable @{ LogName = 'System'; StartTime = $since; ProviderName = 'Microsoft-Windows-WindowsUpdateClient'; Id = 19 } -ErrorAction SilentlyContinue
+  Get-WinEvent -FilterHashtable @{ LogName = 'System'; StartTime = $since; Id = 7045 } -ErrorAction SilentlyContinue
+) | Sort-Object TimeCreated -Descending |
+  ForEach-Object { '{0:s} {1}' -f $_.TimeCreated, ($_.Message -replace '\s+', ' ') }
+Get-WinEvent -FilterHashtable @{ LogName = 'Application'; StartTime = $since; ProviderName = 'MsiInstaller'; Id = 1033 } -ErrorAction SilentlyContinue |
+  ForEach-Object { '{0:s} {1}' -f $_.TimeCreated, ($_.Message -replace '\s+', ' ') }
+</code></pre>
+
+    <p>XTU monitor IDs for telling the limits apart: 1000 package power, 2701131777 package temperature, 3 thermal throttling, 22 power limit, 23 EDP, 26 VR.</p>
+
+  </details>
+
+  <details>
+    <summary>Fix it and undo it</summary>
+
+    <p><strong>Warning: this removes the manufacturer’s protection of the case, so do it on mains only and bring the sensor back before using the battery.</strong> To undo it, use “Back to factory” below.</p>
+
+    <p><strong>Restore the 25 W mode</strong></p>
+
+    <pre><code class="language-powershell"># Admin, on mains, while the tablet is cool and idle. Energy saver must be off.
+if ((Get-CimInstance Win32_Battery).BatteryStatus -eq 1) { throw 'On battery: keep the sensor.' }
+Add-Type -Namespace X1 -Name Overlay -MemberDefinition @'
+[DllImport("powrprof.dll")] public static extern uint PowerSetActiveOverlayScheme(Guid g);
+'@
+[void][X1.Overlay]::PowerSetActiveOverlayScheme([Guid]'ded574b5-45a0-4f42-8737-46345c09c238')
+
+Start-Service XTU3SERVICE
+$dll = 'C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\IntelOverclockingSDK.dll'
+$asm = [Reflection.Assembly]::LoadFrom($dll)
+$lib = [Activator]::CreateInstance($asm.GetType('Intel.Overclocking.SDK.IntelOverclockingLibrary'))
+$lib.Initialize()
+$t = $lib.TuningLib
+$t.Tune([uint32]48, [decimal]25, $false)   # PL1, W
+$t.Tune([uint32]47, [decimal]25, $false)   # PL2, W
+$t.Tune([uint32]66, [decimal]28, $false)   # tau, s
+$t.ApplyChanges($false)
+48, 47, 66 | ForEach-Object { $t.GetControl([uint32]$_).ActiveValue }   # 25, 25, 28
+
+pnputil /scan-devices                               # sensor back, DTT writes its cool-state 29 W
+Start-Sleep -Seconds 20
+pnputil /remove-device 'ACPI\INT3403\CPUP'          # sensor out, confirm the limit with a load test
+</code></pre>
+
+    <p>Run the load test afterwards. If XTU fails to initialise, wait: its service can need 35 s after boot. The safer alternative gave 90% of the work in a two-minute test:</p>
+
+    <pre><code class="language-powershell"># Admin. Safer alternative: cap turbo and keep the sensor. Use 0 to undo.
+powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 2600
+powercfg /setactive SCHEME_CURRENT
+</code></pre>
+
+    <p><strong>Back to factory</strong></p>
+
+    <pre><code class="language-powershell"># Admin. Stop the automation first, or it removes the sensor again.
+if (Get-Service TdpModeService -ErrorAction SilentlyContinue) {
+  Set-Service TdpModeService -StartupType Disabled
+  Stop-Service TdpModeService -Force
+}
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Disable-ScheduledTask
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Stop-ScheduledTask
+Get-Process mode-watch -ErrorAction SilentlyContinue | Stop-Process
+pnputil /scan-devices
+Start-Sleep -Seconds 3
+[bool](Get-PnpDevice -InstanceId 'ACPI\INT3403\CPUP' -ErrorAction SilentlyContinue | Where-Object Present)   # True
+powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 0
+powercfg /setdcvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 0
+powercfg /setactive SCHEME_CURRENT
+Get-Service TdpModeService -ErrorAction SilentlyContinue | Format-Table Name, Status, StartType   # Stopped, Disabled
+# Choose "Balanced" in Settings, then reboot: the power limits return to the boot values.
+</code></pre>
+
+    <p><strong>If you automate it</strong></p>
+
+    <p>My tablet runs the service <code>TdpModeService</code> from <code>C:\Program Files\TDP</code>. It removes the sensor on mains and restores it on battery. Look for it, and for older <code>TDP-*</code> tasks, before blaming anything else. It has not been accepted yet. An automation must:</p>
+
+    <ul>
+      <li>keep every file that SYSTEM runs, its folder, owner, backups and task writable by administrators only,</li>
+      <li>restore the sensor first on battery, before touching XTU, and treat an unknown power source as battery,</li>
+      <li>use one lock and check the power source again after every wait and after removing the sensor,</li>
+      <li>run at normal or higher priority, otherwise full load delays it for minutes,</li>
+      <li>handle unplug, plug-in, resume, Fast Startup and a killed process, ignore battery percentage changes,</li>
+      <li>not re-seat the sensor periodically: act only when the state is wrong,</li>
+      <li>log the final state and return an error when a step fails,</li>
+      <li>watch the power source during every start-up wait, and not leave the sensor out when it stops,</li>
+      <li>pass a real test: unplug under full load, plug in, sleep, reboot.</li>
+    </ul>
+
+  </details>
+
+  <details>
+    <summary>Values, versions, identifiers</summary>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Known good state, November 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Machine</td>
+            <td>ThinkPad X1 Tablet Gen 3 (20KK), i7-8650U, BIOS 1.51 (N1ZET95W), Windows 11 build 26300</td>
+          </tr>
+          <tr>
+            <td>Software</td>
+            <td>Intel XTU 7.4.1.3, Intel DTT 8.7.10200.12510</td>
+          </tr>
+          <tr>
+            <td>Spec</td>
+            <td>15 W at 1.9 GHz, cTDP-up 25 W at 2.1 GHz, cTDP-down 10 W at 0.8 GHz</td>
+          </tr>
+          <tr>
+            <td>MSR limit (0x610), set with XTU</td>
+            <td>PL1 = PL2 = 25 W, tau = 28 s</td>
+          </tr>
+          <tr>
+            <td>MMIO limit (MCHBAR+0x59A0/0x59A4), set by DTT</td>
+            <td>29 W when cool, 8.5 W after the cut</td>
+          </tr>
+          <tr>
+            <td>Limiter</td>
+            <td>DTT Passive Policy 2, sensor ACPI\INT3403\CPUP, trip 56 °C from the BIOS</td>
+          </tr>
+          <tr>
+            <td>On mains</td>
+            <td>CPUP absent, Best performance (set by hand), Energy saver off</td>
+          </tr>
+          <tr>
+            <td>On battery</td>
+            <td>CPUP present, clock capped at 2.4 GHz by Windows, XTU stays at 25 W</td>
+          </tr>
+          <tr>
+            <td>Automation</td>
+            <td>Service <code>TdpModeService</code> in <code>C:\Program Files\TDP</code>, not yet accepted</td>
+          </tr>
+          <tr>
+            <td>Healthy full load</td>
+            <td>15-18 W, 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W</td>
+          </tr>
+          <tr>
+            <td>The cut</td>
+            <td>20 W for 15-50 s, then about 8 W, 2 GHz or less, 65-78 °C</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p><strong>Reported upstream</strong></p>
+
+    <ul>
+      <li>Universal x86 Tuning Utility: <a href="https://github.com/JamesCJ60/Universal-x86-Tuning-Utility/issues/408">tuning fails silently without its driver</a>.</li>
+      <li>ThrottleStop: <a href="https://www.techpowerup.com/forums/threads/ts-9-7-i7-8650u-win11-24h2-ini-mojibake-non-ascii-username-tpl-window-not-uia-accessible-driver-ioctls-winring0.354938/">broken Polish letters in paths and other bugs</a>.</li>
+      <li>Pengwin, found on the way: <a href="https://github.com/WhitewaterFoundry/Pengwin/issues/818">a login script swallows stdin</a>.</li>
+    </ul>
+
+  </details>
+
+</div>
+
+<div id="polski" class="post-language" lang="pl">
+
+  <p><strong>TLDR:</strong></p>
+
+  <ul>
+    <li>Tablet z szuflady znów nadaje się do pracy.</li>
+    <li>Pod długim obciążeniem robi około 45% więcej.</li>
+    <li>Bez rozkręcania. Przyczynę znalazł GLM.</li>
+  </ul>
+
+  <h2 id="tablet-wrci-z-szuflady">Tablet wrócił z szuflady</h2>
+
+  <p>Mój ThinkPad X1 Tablet Gen 3 pochodził z dystrybucji z USA i był wyprzedawany na resztę świata. Powłoka ekranu była tak zła, że rysował się od patrzenia, więc założyłem szkło ochronne 3MK.</p>
+
+  <p>Do tego dławienie: chwila turbo, potem minuty wleczenia się, w najgorszych momentach 0,7 GHz. Najlepszym obejściem było wyłączenie turbo. Tablet wylądował w szufladzie. Teraz znów da się na nim pracować.</p>
+
+  <h2 id="jeden-usunity-czujnik-okoo-45-wicej-pracy">Jeden usunięty czujnik, około 45% więcej pracy</h2>
+
+  <p><img src="/preview/pr-43/img/x1-tablet-2026/work-pl.svg?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" alt="Praca na sekundę pod stałym obciążeniem: 5410 z czujnikiem, 7059 z czujnikiem i zegarem do 2,6 GHz, 7864 bez czujnika." /></p>
+
+  <p>Ten sam test ośmiu wątków na zasilaczu, po jednym przebiegu na ustawienie, mierzony w sekundach 60-120. Pracy przybyło 45%, moc wzrosła z 8,4 do 16,6 W.</p>
+
+  <h2 id="xtu-pokazywao-25-w-procesor-spada-do-8-w">XTU pokazywało 25 W, procesor spadał do 8 W</h2>
+
+  <p>Są dwa komplety limitów mocy i wygrywa niższy. Jeden ustawia Intel XTU, drugi sterownik termiczny Intela. Gdy czujnik na płycie dochodził do 56 °C, sterownik ścinał moc do około 8 W, choć sam procesor wytrzymuje około 100 °C.</p>
+
+  <p>Intel podaje dla tego układu 15 W z możliwością ustawienia 25 W. Ustawiłem 25 W jako sufit. Bez czujnika chłodzenie zatrzymuje go na około 17 W.</p>
+
+  <h2 id="glm-znalaz-przyczyn-gdy-dosta-mierzalny-cel">GLM znalazł przyczynę, gdy dostał mierzalny cel</h2>
+
+  <p>AI potrzebowało ode mnie jednego zdania:</p>
+
+  <blockquote>
+    <p>Osiągnij pod stałym obciążeniem maksymalną moc, na jaką pozwala chłodzenie, ale nie więcej niż 25 W.</p>
+  </blockquote>
+
+  <p>„Napraw dławienie” pozwala agentowi skończyć na odczycie 25 W. Ten cel da się udowodnić tylko pod obciążeniem.</p>
+
+  <p>Naprawę znalazł GLM przez ZCode. Claude pomagał w diagnozie, recenzji i przy wpisie, ale moim zdaniem po określeniu sukcesu GLM poradziłby sobie sam.</p>
+
+  <h2 id="sprawnego-sprztu-nie-trzeba-wyrzuca">Sprawnego sprzętu nie trzeba wyrzucać</h2>
+
+  <p>Czterordzeniowe i7, 16 GB RAM i NVMe były o krok od wysypiska przez politykę firmware’u. To skrajne marnowanie krzemu i wszystkiego, co zużyto na jego produkcję.</p>
+
+  <p>Lenovo się wypięło. A nie trzeba było nowego sprzętu ani nawet wymiany pasty: potencjał był za jednym progiem. Dla mnie to lenistwo, a płaci za nie środowisko. Najbardziej ekologiczny komputer to ten, którego nie wyrzucasz.</p>
+
+  <h2 id="ograniczenia-chodzenie-sabsza-ochrona-obudowy-skutki-niezmierzone">Ograniczenia: chłodzenie, słabsza ochrona obudowy, skutki niezmierzone</h2>
+
+  <ul>
+    <li><strong>Chłodzenie:</strong> dziś około 17 W, nie 25 W.</li>
+    <li><strong>Ochrona:</strong> czujnik pilnował obudowy, a w środku jest bateria. Usuwaj go tylko na zasilaczu i przywracaj na baterii.</li>
+    <li><strong>Niezmierzone:</strong> wpływ na obudowę i baterię. Moje automatyczne przełączanie nie przeszło jeszcze testu odpięcia pod obciążeniem.</li>
+    <li><strong>Łagodniejsza droga:</strong> zostaw czujnik i ogranicz turbo do 2,6 GHz. W jednym teście dało to 90% pracy przy 72 °C zamiast 96 °C.</li>
+  </ul>
+
+  <p><strong>Odtwórz to z AI.</strong> Wszystko, co potrzebne, jest w czterech sekcjach niżej. Daj agentowi to:</p>
+
+  <pre><code class="language-plaintext">Sukces: pod stałym obciążeniem maksymalna moc, na jaką pozwala chłodzenie,
+ale nie więcej niż 25 W.
+Mój ThinkPad X1 Tablet Gen 3 znów się dławi. Przeczytaj cały wpis, razem
+ze zwiniętymi sekcjami:
+https://blog.ww86.eu/hardware/2026/11/19/x1-tablet-25w-throttling.html
+Zacznij od odczytu: uruchom sprawdzenie, poszukaj, co się zmieniło, zdaj raport.
+Pytaj przed testem obciążeniowym i przed każdą zmianą, podawaj sposób cofnięcia.
+Bez obcych sterowników ring0, bez wyjątków w Defenderze, nic powyżej 25 W.
+</code></pre>
+
+  <details>
+    <summary>Jak to działa i skąd to wiadomo</summary>
+
+    <p>XTU zapisuje limit w MSR, a Intel Dynamic Tuning (DTT) w MMIO. Gdy czujnik płyty <code>CPUP</code> dochodzi do 56 °C, DTT obniża swój limit do 8,5 W. Kto go zapisuje, pokazał ślad ETW. Sekundy 60-120 każdego testu:</p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ustawienie</th>
+            <th>Moc</th>
+            <th>Zegar</th>
+            <th>Temperatura, maks.</th>
+            <th>Praca/s</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25 W, czujnik działa</td>
+            <td>8,4 W</td>
+            <td>2,1 GHz</td>
+            <td>72 °C</td>
+            <td>5410</td>
+          </tr>
+          <tr>
+            <td>Turbo przycięte do 2,6 GHz</td>
+            <td>11,4 W</td>
+            <td>2,6 GHz</td>
+            <td>72 °C</td>
+            <td>7059</td>
+          </tr>
+          <tr>
+            <td>25 W, czujnik usunięty</td>
+            <td>16,6 W</td>
+            <td>3,0 GHz</td>
+            <td>96 °C</td>
+            <td>7864</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>Późniejszy test sześciominutowy, po restarcie: średnio 16,7 W, około 3 GHz, bez cięcia. Te pomiary są starsze niż <code>TdpModeService</code>.</p>
+
+    <ul>
+      <li>PL1/PL2 to limity mocy. Ustawienie 25 W nie przełącza poziomu cTDP i jego zegara bazowego.</li>
+      <li>Odczyt z XTU niczego nie mówi o limicie MMIO. Wierz tylko testowi pod obciążeniem.</li>
+    </ul>
+
+    <p><strong>Ustal, kto zapisuje limit</strong></p>
+
+    <pre><code class="language-powershell"># Admin. Start the trace, run the load test in another window, then press on.
+$dir = Join-Path $env:TEMP 'x1-trace'; New-Item -ItemType Directory -Force $dir | Out-Null
+'DptfCpuEtwProvider', 'DptfAcpiEtwProvider', 'EsifLfEtwProvider', 'EsifUmdf2EtwProvider', 'DPTF', 'Lenovo-Thermal-Service' |
+  Set-Content "$dir\providers.txt" -Encoding ASCII
+logman start x1dtt -pf "$dir\providers.txt" -o "$dir\dtt.etl" -ets
+Start-Sleep -Seconds 130
+logman stop x1dtt -ets
+tracerpt "$dir\dtt.etl" -o "$dir\dtt.csv" -of CSV -y
+</code></pre>
+
+    <pre><code class="language-powershell"># Decode the trace: 0x59a0 = PL1, 0x59a4 = PL2, raw value / 8 = watts.
+$csv = Join-Path $env:TEMP 'x1-trace\dtt.csv'
+$prev = ''
+Get-Content $csv | ForEach-Object {
+  $line = $null
+  if ($_ -match 'offset (0x59a[04])\[14:0\] = (0x[0-9a-fA-F]+)') {
+    $line = '{0} = {1} W' -f $Matches[1], ([Convert]::ToInt32($Matches[2], 16) / 8)
+  } elseif ($_ -match 'CPUP D0: TEMPERATURE = (\d+)') {
+    $line = 'CPUP = {0:N1} C' -f ($Matches[1] / 10 - 273.15)
+  }
+  if ($line -and $line -ne $prev) { $line; $prev = $line }
+}
+</code></pre>
+
+    <p>Cięcie to <code>CPUP</code> dochodzący do około 56 °C, po którym <code>0x59a0</code> spada w stronę 8,5 W. Zapisy bez tego wyzwalacza oznaczają inną politykę lub program: szukaj w CSV <code>SET_RAPL_POWER_LIMIT</code> i <code>Policy</code>.</p>
+
+    <p><strong>Ślepe uliczki i Linux jako plan B</strong></p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Próba</th>
+            <th>Wynik</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Same limity XTU</td>
+            <td>Tylko MSR, DTT dalej ścina</td>
+          </tr>
+          <tr>
+            <td>Zatrzymanie esifsvc i LITSSVC</td>
+            <td>8-12 W: polityka działa w sterowniku UMDF</td>
+          </tr>
+          <tr>
+            <td>Wyłączenie CPUP w Menedżerze urządzeń</td>
+            <td>Nieobsługiwane</td>
+          </tr>
+          <tr>
+            <td>Usunięcie uczestnika procesora</td>
+            <td>Obowiązuje limit BIOS-u: 8,5-9 W</td>
+          </tr>
+          <tr>
+            <td>ThrottleStop, WinRing0</td>
+            <td>Podatny sterownik blokowany przez Defendera (CVE-2020-14979). Sprawdzona kompilacja i tak nie zapisze tego adresu MMIO</td>
+          </tr>
+          <tr>
+            <td>Undervolting</td>
+            <td>Kontrolki napięć tylko do odczytu w BIOS-ie 1.51</td>
+          </tr>
+          <tr>
+            <td>Ustawienia cTDP lub termiczne w WMI BIOS-u</td>
+            <td>Brak</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>Niesprawdzony plan B dla serwera domowego: w Linuksie oba limity są w <code>/sys/class/powercap</code> (<code>intel-rapl:0</code> to MSR, <code>intel-rapl-mmio:0</code> to MMIO). Nie uruchamiaj <code>thermald --adaptive</code>, stosuje tę samą tabelę termiczną. Sprawdź bit 63 MSR 0x610: jeśli ustawiony, MSR jest zablokowany do resetu.</p>
+
+  </details>
+
+  <details>
+    <summary>Sprawdź, czy to Twój przypadek</summary>
+
+    <ul>
+      <li>Kolejność: sprawdzenie, co się zmieniło, test, tabela objawów, ślad, jeśli dalej nie wiadomo. Zmiany na końcu.</li>
+      <li>Jeden test naraz i nigdy, gdy inny agent zmienia ustawienia.</li>
+      <li>Pytaj właściciela przed zmianą, restartem i zatrzymaniem usługi.</li>
+    </ul>
+
+    <p><strong>Stan (tylko odczyt)</strong></p>
+
+    <pre><code class="language-powershell"># Read-only, no admin needed.
+Add-Type -Namespace X1 -Name Power -MemberDefinition @'
+[DllImport("powrprof.dll")] public static extern uint PowerGetEffectiveOverlayScheme(out Guid g);
+'@
+$g = [Guid]::Empty; [void][X1.Power]::PowerGetEffectiveOverlayScheme([ref]$g)
+"CPU:          " + (Get-CimInstance Win32_Processor).Name
+"BIOS:         " + (Get-CimInstance Win32_BIOS).SMBIOSBIOSVersion
+"last boot:    " + (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+"battery:      " + (Get-CimInstance Win32_Battery).BatteryStatus + " (1 = discharging, 2 = mains)"
+"power mode:   $g (for a load test expect ded574b5-45a0-4f42-8737-46345c09c238 = Best performance)"
+"CPUP present: " + [bool](Get-PnpDevice -InstanceId 'ACPI\INT3403\CPUP' -ErrorAction SilentlyContinue | Where-Object Present)
+Get-Service TdpModeService, XTU3SERVICE, esifsvc, LITSSVC -ErrorAction SilentlyContinue | Format-Table Name, Status
+Get-Process mode-watch, ThrottleStop -ErrorAction SilentlyContinue | Format-Table Name, Id
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Format-Table TaskName, State
+Get-CimInstance Win32_PnPSignedDriver | Where-Object DeviceName -match 'Dynamic Tuning' |
+  Sort-Object DeviceName -Unique | Format-Table DeviceName, DriverVersion
+</code></pre>
+
+    <p>Bez uprawnień administratora część zadań jest niewidoczna. Pusta lista nie dowodzi, że ich nie ma.</p>
+
+    <p><strong>Test obciążeniowy</strong></p>
+
+    <pre><code class="language-powershell"># No admin needed. 120 s of full load: the case gets hot. Mains power only.
+Add-Type -TypeDefinition @'
+using System; using System.Threading;
+public static class X1Burn {
+  static volatile bool stop; public static long Work;
+  public static void Start(int n) {
+    stop = false; Work = 0;
+    for (int i = 0; i &lt; n; i++) {
+      var t = new Thread(() =&gt; { double x = 1.0001; while (!stop) {
+        for (int k = 0; k &lt; 100000; k++) { x = Math.Sqrt(x * 1.000001 + 0.5); }
+        Interlocked.Increment(ref Work); } });
+      t.IsBackground = true; t.Start();
+    }
+  }
+  public static void Stop() { stop = true; }
+}
+'@
+"PASS: in every 10 s window after s30 the CPU is at the thermal limit (94 C+) or at 25 W. Never above 25 W on average."
+$names = '\Energy Meter(RAPL_Package0_PKG)\Power',
+         '\Processor Information(_Total)\% Processor Performance',
+         '\Thermal Zone Information(*)\Temperature'
+$rows = @(); $sw = [Diagnostics.Stopwatch]::StartNew()
+[X1Burn]::Start(8)
+try {
+  while ($sw.Elapsed.TotalSeconds -lt 120) {
+    $v = (Get-Counter $names -SampleInterval 2 -MaxSamples 1).CounterSamples.CookedValue
+    $r = [pscustomobject]@{ t = [math]::Round($sw.Elapsed.TotalSeconds); W = [math]::Round($v[0] / 1000, 1)
+      GHz = [math]::Round($v[1] * 2.112 / 100, 2); C = [math]::Round($v[2] - 273.15) }
+    $rows += $r; "{0,4} s {1,6} W {2,6} GHz {3,4} C" -f $r.t, $r.W, $r.GHz, $r.C
+    if ($r.C -ge 101 -or (Get-CimInstance Win32_Battery).BatteryStatus -eq 1) { 'ABORTED'; break }
+  }
+} finally { [X1Burn]::Stop() }
+# verdict
+$mean = ($rows | Where-Object t -ge 60 | Measure-Object W -Average).Average
+$short = @($rows | Where-Object t -ge 40 | Where-Object {
+  $t = $_.t; $win = $rows | Where-Object { $_.t -gt $t - 10 -and $_.t -le $t }
+  ($win | Measure-Object W -Average).Average -lt 24 -and ($win | Measure-Object C -Maximum).Maximum -lt 94
+})
+$ok = $rows[-1].t -ge 118 -and $mean -le 25.5 -and $short.Count -eq 0
+"mean={0:N1} W  windows short of both limits={1}  pass={2}" -f $mean, $short.Count, $ok
+</code></pre>
+
+    <p>W niektórych instalacjach Windows nazwy liczników są przetłumaczone. Zegar to licznik wydajności razy 2,112 GHz. Stała liczba watów to złe kryterium, bo chłodzenie się zmienia. Krótkie dołki przy limicie termicznym są w porządku.</p>
+
+    <p><strong>Znów dławi: objaw, przyczyna, działanie</strong></p>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Objaw</th>
+            <th>Prawdopodobna przyczyna</th>
+            <th>Działanie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Turbo, potem 8 W przy 65-78 °C, CPUP obecny</td>
+            <td>Czujnik wrócił: restart, aktualizacja sterownika lub Windows, skan urządzeń, wybudzenie</td>
+            <td>Ustal, co go przywróciło, potem za zgodą „Napraw i cofnij”</td>
+          </tr>
+          <tr>
+            <td>8 W od pierwszej sekundy, brak CPUP</td>
+            <td>Po usunięciu czujnika został niski limit MMIO</td>
+            <td>Ostudź, potem za zgodą „Napraw i cofnij”</td>
+          </tr>
+          <tr>
+            <td>Zjazd do 4-6 W przy 53-57 °C</td>
+            <td>Oszczędzanie energii albo Najlepsza efektywność, które przykrywają wybrany tryb</td>
+            <td>Wyłącz oszczędzanie, Najlepsza wydajność</td>
+          </tr>
+          <tr>
+            <td>Równe 15 W, poniżej 95 °C</td>
+            <td>Został limit z pracy na baterii albo przepadły limity XTU</td>
+            <td>Sprawdź źródło zasilania, ustaw znów 25 W</td>
+          </tr>
+          <tr>
+            <td>Równe 8,5-9 W, brak uczestnika procesora DTT</td>
+            <td>Bez DTT obowiązuje wartość MMIO z BIOS-u</td>
+            <td>pnputil /scan-devices</td>
+          </tr>
+          <tr>
+            <td>Poniżej 15 W przy 96 °C, flaga termiczna</td>
+            <td>Kurz, wyschnięta pasta, zasłonięte wloty, upał</td>
+            <td>Chłodzenie, nie oprogramowanie</td>
+          </tr>
+          <tr>
+            <td>Limity inne niż ustawione</td>
+            <td>Zapisuje je inny program: profile XTU, ThrottleStop, UXTU, Vantage, nowy DTT</td>
+            <td>Lista zmian, potem ślad</td>
+          </tr>
+          <tr>
+            <td>Niska moc i niskie użycie procesora</td>
+            <td>To nie dławienie, tylko brak obciążenia</td>
+            <td>Uruchom test</td>
+          </tr>
+          <tr>
+            <td>Przełączanie trwa minuty pod obciążeniem</td>
+            <td>Zadania harmonogramu mają domyślnie priorytet 7, poniżej normalnego</td>
+            <td>Priorytet zadania 4 lub wyższy (niższa liczba)</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p>Podejrzewasz nowe oprogramowanie? Lista ostatnich zmian:</p>
+
+    <pre><code class="language-powershell"># Read-only. What was installed or updated in the last 14 days?
+$since = (Get-Date).AddDays(-14)
+@(
+  Get-WinEvent -FilterHashtable @{ LogName = 'System'; StartTime = $since; ProviderName = 'Microsoft-Windows-WindowsUpdateClient'; Id = 19 } -ErrorAction SilentlyContinue
+  Get-WinEvent -FilterHashtable @{ LogName = 'System'; StartTime = $since; Id = 7045 } -ErrorAction SilentlyContinue
+) | Sort-Object TimeCreated -Descending |
+  ForEach-Object { '{0:s} {1}' -f $_.TimeCreated, ($_.Message -replace '\s+', ' ') }
+Get-WinEvent -FilterHashtable @{ LogName = 'Application'; StartTime = $since; ProviderName = 'MsiInstaller'; Id = 1033 } -ErrorAction SilentlyContinue |
+  ForEach-Object { '{0:s} {1}' -f $_.TimeCreated, ($_.Message -replace '\s+', ' ') }
+</code></pre>
+
+    <p>Monitory XTU do rozróżniania limitów: 1000 moc pakietu, 2701131777 temperatura pakietu, 3 dławienie termiczne, 22 limit mocy, 23 EDP, 26 VR.</p>
+
+  </details>
+
+  <details>
+    <summary>Napraw i cofnij</summary>
+
+    <p><strong>Uwaga: to usuwa ochronę obudowy od producenta, więc rób to tylko na zasilaczu i przywróć czujnik przed pracą na baterii.</strong> Cofnięcie: „Powrót do ustawień fabrycznych” niżej.</p>
+
+    <p><strong>Przywróć tryb 25 W</strong></p>
+
+    <pre><code class="language-powershell"># Admin, on mains, while the tablet is cool and idle. Energy saver must be off.
+if ((Get-CimInstance Win32_Battery).BatteryStatus -eq 1) { throw 'On battery: keep the sensor.' }
+Add-Type -Namespace X1 -Name Overlay -MemberDefinition @'
+[DllImport("powrprof.dll")] public static extern uint PowerSetActiveOverlayScheme(Guid g);
+'@
+[void][X1.Overlay]::PowerSetActiveOverlayScheme([Guid]'ded574b5-45a0-4f42-8737-46345c09c238')
+
+Start-Service XTU3SERVICE
+$dll = 'C:\Program Files\Intel\Intel(R) Extreme Tuning Utility\Client\IntelOverclockingSDK.dll'
+$asm = [Reflection.Assembly]::LoadFrom($dll)
+$lib = [Activator]::CreateInstance($asm.GetType('Intel.Overclocking.SDK.IntelOverclockingLibrary'))
+$lib.Initialize()
+$t = $lib.TuningLib
+$t.Tune([uint32]48, [decimal]25, $false)   # PL1, W
+$t.Tune([uint32]47, [decimal]25, $false)   # PL2, W
+$t.Tune([uint32]66, [decimal]28, $false)   # tau, s
+$t.ApplyChanges($false)
+48, 47, 66 | ForEach-Object { $t.GetControl([uint32]$_).ActiveValue }   # 25, 25, 28
+
+pnputil /scan-devices                               # sensor back, DTT writes its cool-state 29 W
+Start-Sleep -Seconds 20
+pnputil /remove-device 'ACPI\INT3403\CPUP'          # sensor out, confirm the limit with a load test
+</code></pre>
+
+    <p>Potem uruchom test. Jeśli XTU się nie inicjalizuje, poczekaj: usługa potrafi potrzebować 35 s po starcie. Bezpieczniejsza alternatywa dała 90% pracy w teście dwuminutowym:</p>
+
+    <pre><code class="language-powershell"># Admin. Safer alternative: cap turbo and keep the sensor. Use 0 to undo.
+powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 2600
+powercfg /setactive SCHEME_CURRENT
+</code></pre>
+
+    <p><strong>Powrót do ustawień fabrycznych</strong></p>
+
+    <pre><code class="language-powershell"># Admin. Stop the automation first, or it removes the sensor again.
+if (Get-Service TdpModeService -ErrorAction SilentlyContinue) {
+  Set-Service TdpModeService -StartupType Disabled
+  Stop-Service TdpModeService -Force
+}
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Disable-ScheduledTask
+Get-ScheduledTask -TaskName 'TDP*' -ErrorAction SilentlyContinue | Stop-ScheduledTask
+Get-Process mode-watch -ErrorAction SilentlyContinue | Stop-Process
+pnputil /scan-devices
+Start-Sleep -Seconds 3
+[bool](Get-PnpDevice -InstanceId 'ACPI\INT3403\CPUP' -ErrorAction SilentlyContinue | Where-Object Present)   # True
+powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 0
+powercfg /setdcvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCFREQMAX 0
+powercfg /setactive SCHEME_CURRENT
+Get-Service TdpModeService -ErrorAction SilentlyContinue | Format-Table Name, Status, StartType   # Stopped, Disabled
+# Choose "Balanced" in Settings, then reboot: the power limits return to the boot values.
+</code></pre>
+
+    <p><strong>Jeśli to automatyzujesz</strong></p>
+
+    <p>Na moim tablecie działa usługa <code>TdpModeService</code> z <code>C:\Program Files\TDP</code>. Na zasilaczu usuwa czujnik, a na baterii go przywraca. Poszukaj jej i starszych zadań <code>TDP-*</code>, zanim obwinisz coś innego. Nie przeszła jeszcze odbioru. Automatyka musi:</p>
+
+    <ul>
+      <li>trzymać każdy plik uruchamiany jako SYSTEM, jego folder, właściciela, kopie i zadanie z zapisem tylko dla administratorów,</li>
+      <li>na baterii najpierw przywrócić czujnik, przed ruszaniem XTU, a nieznane źródło zasilania traktować jak baterię,</li>
+      <li>mieć jedną blokadę i sprawdzać źródło zasilania po każdym czekaniu i po usunięciu czujnika,</li>
+      <li>działać z priorytetem co najmniej normalnym, inaczej pełne obciążenie opóźnia je o minuty,</li>
+      <li>obsłużyć odpięcie, wpięcie, wybudzenie, szybki start i ubity proces, ignorować zmiany procentu baterii,</li>
+      <li>nie wykonywać reseatu cyklicznie: działać tylko, gdy stan jest zły,</li>
+      <li>logować stan końcowy i zwracać błąd, gdy krok się nie uda,</li>
+      <li>pilnować źródła zasilania przy każdym czekaniu na starcie i nie zostawiać czujnika usuniętego po zatrzymaniu,</li>
+      <li>przejść prawdziwy test: odpięcie pod pełnym obciążeniem, wpięcie, uśpienie, restart.</li>
+    </ul>
+
+  </details>
+
+  <details>
+    <summary>Wartości, wersje, identyfikatory</summary>
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Stan poprawny, listopad 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maszyna</td>
+            <td>ThinkPad X1 Tablet Gen 3 (20KK), i7-8650U, BIOS 1.51 (N1ZET95W), Windows 11 build 26300</td>
+          </tr>
+          <tr>
+            <td>Oprogramowanie</td>
+            <td>Intel XTU 7.4.1.3, Intel DTT 8.7.10200.12510</td>
+          </tr>
+          <tr>
+            <td>Specyfikacja</td>
+            <td>15 W przy 1,9 GHz, cTDP-up 25 W przy 2,1 GHz, cTDP-down 10 W przy 0,8 GHz</td>
+          </tr>
+          <tr>
+            <td>Limit MSR (0x610), ustawiany przez XTU</td>
+            <td>PL1 = PL2 = 25 W, tau = 28 s</td>
+          </tr>
+          <tr>
+            <td>Limit MMIO (MCHBAR+0x59A0/0x59A4), ustawiany przez DTT</td>
+            <td>29 W na chłodno, 8,5 W po cięciu</td>
+          </tr>
+          <tr>
+            <td>Kto ogranicza</td>
+            <td>DTT Passive Policy 2, czujnik ACPI\INT3403\CPUP, próg 56 °C z BIOS-u</td>
+          </tr>
+          <tr>
+            <td>Na zasilaczu</td>
+            <td>brak CPUP, Najlepsza wydajność (ustawiana ręcznie), oszczędzanie energii wyłączone</td>
+          </tr>
+          <tr>
+            <td>Na baterii</td>
+            <td>CPUP obecny, zegar ograniczony przez Windows do 2,4 GHz, XTU zostaje na 25 W</td>
+          </tr>
+          <tr>
+            <td>Automatyka</td>
+            <td>Usługa <code>TdpModeService</code> w <code>C:\Program Files\TDP</code>, jeszcze bez odbioru</td>
+          </tr>
+          <tr>
+            <td>Zdrowe pełne obciążenie</td>
+            <td>15-18 W, 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W</td>
+          </tr>
+          <tr>
+            <td>Cięcie</td>
+            <td>20 W przez 15-50 s, potem około 8 W, najwyżej 2 GHz, 65-78 °C</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p><strong>Zgłoszone autorom</strong></p>
+
+    <ul>
+      <li>Universal x86 Tuning Utility: <a href="https://github.com/JamesCJ60/Universal-x86-Tuning-Utility/issues/408">tuning po cichu nie działa bez sterownika</a>.</li>
+      <li>ThrottleStop: <a href="https://www.techpowerup.com/forums/threads/ts-9-7-i7-8650u-win11-24h2-ini-mojibake-non-ascii-username-tpl-window-not-uia-accessible-driver-ioctls-winring0.354938/">zepsute polskie litery w ścieżkach i inne błędy</a>.</li>
+      <li>Pengwin, znalezione po drodze: <a href="https://github.com/WhitewaterFoundry/Pengwin/issues/818">skrypt logowania połyka stdin</a>.</li>
+    </ul>
+
+  </details>
+
+</div>
+
+
+          </div>
+
+          
+<!-- Share Buttons Start -->
+<div>
+  <ul class="rrssb-buttons clearfix">
+    
+      <li class="rrssb-email">
+        <a href="mailto:?subject=My ThinkPad X1 Tablet is back at 25 W&body=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html" data-proofer-ignore>
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">email</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html&title=My ThinkPad X1 Tablet is back at 25 W" class="popup">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+              class="cls-2" fill-rule="evenodd"/></svg>
+          </span>
+          <span class="rrssb-text">facebook</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-twitter">
+        <a href="https://twitter.com/share?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html&text=My ThinkPad X1 Tablet is back at 25 W"
+        class="popup">
+          <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"/></svg></span>
+          <span class="rrssb-text">twitter</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html" class="popup">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+            <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"
+            />
+          </svg>
+        </span>
+        <span class="rrssb-text">linkedin</span>
+      </a>
+      </li>
+    
+    
+      <li class="rrssb-reddit">
+        <a href="https://www.reddit.com/submit?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html&title=My ThinkPad X1 Tablet is back at 25 W" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
+              />
+              <path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237-.792 0-1.517.287-2.08.76-2.04-1.294-4.647-2.068-7.44-2.218l1.484-4.69 4.062.955c.07 1.4 1.3 2.6 2.7 2.555 1.488 0 2.695-1.208 2.695-2.695C25.88 3.2 24.7 2 23.2 2c-1.06 0-1.98.616-2.42 1.508l-4.633-1.09c-.344-.082-.693.117-.803.454l-1.793 5.7C10.55 8.6 7.7 9.4 5.6 10.75c-.594-.45-1.3-.75-2.1-.72-1.785 0-3.237 1.45-3.237 3.2 0 1.1.6 2.1 1.4 2.69-.04.27-.06.55-.06.83 0 2.3 1.3 4.4 3.7 5.9 2.298 1.5 5.3 2.3 8.6 2.325 3.227 0 6.27-.825 8.57-2.325 2.387-1.56 3.7-3.66 3.7-5.917 0-.26-.016-.514-.05-.768.965-.465 1.577-1.565 1.577-2.698zm-4.52-9.912c.74 0 1.3.6 1.3 1.3 0 .738-.6 1.34-1.34 1.34s-1.343-.602-1.343-1.34c.04-.655.596-1.255 1.396-1.3zM1.646 13.3c0-1.038.845-1.882 1.883-1.882.31 0 .6.1.9.21-1.05.867-1.813 1.86-2.26 2.9-.338-.328-.57-.728-.57-1.26zm20.126 8.27c-2.082 1.357-4.863 2.105-7.83 2.105-2.968 0-5.748-.748-7.83-2.105-1.99-1.3-3.087-3-3.087-4.782 0-1.784 1.097-3.484 3.088-4.784 2.08-1.358 4.86-2.106 7.828-2.106 2.967 0 5.7.7 7.8 2.106 1.99 1.3 3.1 3 3.1 4.784C24.86 18.6 23.8 20.3 21.8 21.57zm4.014-6.97c-.432-1.084-1.19-2.095-2.244-2.977.273-.156.59-.245.928-.245 1.036 0 1.9.8 1.9 1.9-.016.522-.27 1.022-.57 1.327z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">reddit</span>
+        </a>
+      </li>
+    
+    
+    
+      <li class="rrssb-tumblr">
+        <a href="https://tumblr.com/share/link?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M18.02 21.842c-2.03.052-2.422-1.396-2.44-2.446v-7.294h4.73V7.874H15.6V1.592h-3.714s-.167.053-.182.186c-.218 1.935-1.144 5.33-4.988 6.688v3.637h2.927v7.677c0 2.8 1.7 6.7 7.3 6.6 1.863-.03 3.934-.795 4.392-1.453l-1.22-3.54c-.52.213-1.415.413-2.115.455z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">tumblr</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-pinterest">
+        <a href="https://pinterest.com/pin/create/button/?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html" target="_blank">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+              <path d="M14.02 1.57c-7.06 0-12.784 5.723-12.784 12.785S6.96 27.14 14.02 27.14c7.062 0 12.786-5.725 12.786-12.785 0-7.06-5.724-12.785-12.785-12.785zm1.24 17.085c-1.16-.09-1.648-.666-2.558-1.22-.5 2.627-1.113 5.146-2.925 6.46-.56-3.972.822-6.952 1.462-10.117-1.094-1.84.13-5.545 2.437-4.632 2.837 1.123-2.458 6.842 1.1 7.557 3.71.744 5.226-6.44 2.924-8.775-3.324-3.374-9.677-.077-8.896 4.754.19 1.178 1.408 1.538.49 3.168-2.13-.472-2.764-2.15-2.683-4.388.132-3.662 3.292-6.227 6.46-6.582 4.008-.448 7.772 1.474 8.29 5.24.58 4.254-1.815 8.864-6.1 8.532v.003z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">pinterest</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-pocket">
+        <a href="https://getpocket.com/save?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html">
+          <span class="rrssb-icon">
+            <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"
+              />
+            </svg>
+          </span>
+          <span class="rrssb-text">pocket</span>
+        </a>
+      </li>
+    
+    
+      <li class="rrssb-vk">
+        <a href="https://vk.com/share.php?url=https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html" class="popup">
+          <span class="rrssb-icon">
+            <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="70 70 378.7 378.7"><path d="M254.998 363.106h21.217s6.408-.706 9.684-4.23c3.01-3.24 2.914-9.32 2.914-9.32s-.415-28.47 12.796-32.663c13.03-4.133 29.755 27.515 47.482 39.685 13.407 9.206 23.594 7.19 23.594 7.19l47.407-.662s24.797-1.53 13.038-21.027c-.96-1.594-6.85-14.424-35.247-40.784-29.728-27.59-25.743-23.126 10.063-70.85 21.807-29.063 30.523-46.806 27.8-54.405-2.596-7.24-18.636-5.326-18.636-5.326l-53.375.33s-3.96-.54-6.892 1.216c-2.87 1.716-4.71 5.726-4.71 5.726s-8.452 22.49-19.714 41.618c-23.77 40.357-33.274 42.494-37.16 39.984-9.037-5.842-6.78-23.462-6.78-35.983 0-39.112 5.934-55.42-11.55-59.64-5.802-1.4-10.076-2.327-24.915-2.48-19.046-.192-35.162.06-44.29 4.53-6.072 2.975-10.757 9.6-7.902 9.98 3.528.47 11.516 2.158 15.75 7.92 5.472 7.444 5.28 24.154 5.28 24.154s3.145 46.04-7.34 51.758c-7.193 3.922-17.063-4.085-38.253-40.7-10.855-18.755-19.054-39.49-19.054-39.49s-1.578-3.873-4.398-5.947c-3.42-2.51-8.2-3.307-8.2-3.307l-50.722.33s-7.612.213-10.41 3.525c-2.488 2.947-.198 9.036-.198 9.036s39.707 92.902 84.672 139.72c41.234 42.93 88.048 40.112 88.048 40.112"/></svg>
+          </span>
+          <span class="rrssb-text">vk.com</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<!-- Share Buttons End -->
+
+
+          
+
+
+          <hr />
+
+          
+          <div class="author row">
+            <img class="col-xs-4 col-sm-3 col-md-2" src="/preview/pr-43/img/author.png?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" alt="Me" />
+            <p class="col-xs-8 col-sm-9 col-md-10">
+              Waldemar Wosiński - Scala & Big Data engineer, father and motorcyclist ;)
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Start -->
+
+<footer>
+
+    <!-- Social Buttons Start -->
+
+<ul class="list-inline social-buttons">
+    
+    <li><a href="https://www.linkedin.com/in/waldemar-wosi%C5%84ski-a9936144?trk=hp-identity-name" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+    
+    <li><a href="https://github.com/kastoestoramadus" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+    
+    <li><a href="/preview/pr-43/feed.xml?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    
+    
+</ul>
+
+<!-- Social Buttons End -->
+
+
+    <p><br><br></p>
+
+    <div class="container text-center">
+        <p>Copyright &copy; Waldemar Wosiński 2016–2026</p>
+        
+    </div>
+</footer>
+
+<p><br><br><br><br><br><br></p>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Custom Theme JavaScript -->
+<!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+<script>
+function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
+$(document).ready(toggleNavCollapse);
+$(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").on("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+</script>
+
+
+
+
+
+  <!-- Syntax highlight in post pages-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/highlight.min.js"
+          integrity="sha512-VSPLUv/n1Bmn+4zoxBNwpuFAO3//79I0Aax/qHDx24R47vylPcc9PrHDCqlePwHnh3joiM7/YTQhcXyQAAxvPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Scala is not part of the common highlight.js bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.2/languages/scala.min.js"
+          integrity="sha512-QDjsxmhxTkR3eTrb+6avQGa8cm1A7MjYAt8kslf2yXKJpdpNtMcEF6l5SrCoeVzsJbUyR1j1y4ofU+QSLi0QXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- highlight.js has no HOCON grammar, this one registers `hocon` and `conf` -->
+  <script src="/preview/pr-43/js/highlight-hocon.js?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+
+
+
+
+
+
+
+
+
+  <!-- Share buttons Start -->
+
+  <script src="/preview/pr-43/js/rrssb.min.js?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1"></script>
+
+  <!-- Share buttons End -->
+
+
+
+
+
+<script>
+function addTohistory() {
+  if (!window.location.host.startsWith("127.0.0.1")) {
+    history.pushState({}, 'My ThinkPad X1 Tablet is back at 25 W', 'https://kastoestoramadus.github.io/preview/pr-43/hardware/2026/11/19/x1-tablet-25w-throttling.html');
+  }
+}
+</script>
+
+<!-- Gesture Navigation / Swipe Instruction Start -->
+
+
+<!-- Javascript End -->
+
+
+    
+      <script src="/preview/pr-43/js/post-language-switch.js?preview=5627d32a2d3bdad95d51611197879803e4377727-44999588061-1"></script>
+    
+
+  <aside id="preview-status" aria-label="Pull request preview" data-revision="5627d32a2d3bdad95d51611197879803e4377727" data-repository="kastoestoramadus/kastoestoramadus.github.io" data-pr="43">
+  <span>Preview PR #43 · revision 5627d32</span>
+  <span id="preview-freshness" role="status">Freshness not checked (JavaScript required).</span>
+  <button type="button" id="preview-refresh" hidden>Refresh preview</button>
+</aside>
+</body>
+</html>
+
+<!-- Post Layout End -->

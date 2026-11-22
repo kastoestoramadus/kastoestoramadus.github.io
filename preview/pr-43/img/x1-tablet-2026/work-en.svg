@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 230" width="620" height="230" role="img" aria-labelledby="t" font-family="sans-serif">
+<title id="t">45% more work without the sensor</title>
+<rect width="620" height="230" rx="6" fill="#ffffff"/>
+<text x="20" y="34" font-size="20" font-weight="bold" fill="#222222">45% more work without the sensor</text>
+<text x="20" y="56" font-size="14" fill="#555555">Work per second, seconds 60-120, one run per setup</text>
+<text x="205" y="102" font-size="16" text-anchor="end" fill="#222222">With the sensor</text>
+<rect x="215" y="80" width="220" height="32" fill="#8a8f98"/>
+<text x="443" y="102" font-size="16" fill="#222222">5410</text>
+<text x="205" y="150" font-size="16" text-anchor="end" fill="#222222">Sensor + 2.6 GHz cap</text>
+<rect x="215" y="128" width="287" height="32" fill="#5b8fb9"/>
+<text x="510" y="150" font-size="16" fill="#222222">7059</text>
+<text x="205" y="198" font-size="16" text-anchor="end" fill="#222222">Without the sensor</text>
+<rect x="215" y="176" width="320" height="32" fill="#1f6f43"/>
+<text x="543" y="198" font-size="16" fill="#222222">7864</text>
+</svg>
