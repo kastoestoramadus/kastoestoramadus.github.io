@@ -171,6 +171,10 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
     the text. A post that needs more than ~600 words is probably two posts.
   - Keep facts, numbers and links that carry the argument; drop the ones that only show effort (statistics of the
     process, version trivia, side stories).
+  - Brevity is about the visible text. Collapsed `<details>` sit under the section they explain and may be long:
+    they hold the technical depth for geeks, enough to reproduce the result from the post alone (full scripts,
+    versions, identifiers, dead ends, undo). Never shorten or merge them away when editing: compare line by line
+    with the previous version and account for whatever disappeared.
   - AI drafts are verbose by default: after writing, cut it by a third and check that every sentence still says
     something the reader needs.
 - Site-wide texts (header lines, timeline, author blurb, description) live in `_config.yml`; keep them consistent with
