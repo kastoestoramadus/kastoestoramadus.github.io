@@ -1148,7 +1148,7 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**W skrócie:** Odłożony tablet znów nadaje się do pracy. W testach pod długim obciążeniem przyspieszył około czterokrotnie, bez rozkręcania.
+**W skrócie:** Odłożony tablet znów nadaje się do pracy. W testach pod długim obciążeniem przyspieszył około czterokrotnie, bez otwierania obudowy.
 
 ## Dobry sprzęt, na którym nie dało się pracować
 
@@ -1286,13 +1286,13 @@ Cięcie to jeden czujnik dochodzący do progu i zaraz po nim spadek `0x59a0`. Tu
 
 ## Naprawa działa kosztem ochrony
 
-Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows i usunięcie czujnika z systemu. Czujnik zostaje na płycie i można go przywrócić. Teraz szybkość ogranicza chłodzenie. Procesor dochodzi do 96 °C przy około 17 W, więc 25 W jest tylko górną granicą.
+Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows, które też obniżało moc, i usunięcie czujnika z systemu. Czujnik zostaje na płycie i można go przywrócić. Teraz szybkość ogranicza chłodzenie. Procesor dochodzi do 96 °C przy około 17 W, więc 25 W jest tylko górną granicą.
 
 ![Zegar pod stałym obciążeniem: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
 
-**Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może być gorętszy, a ciepło szkodzi też baterii w środku. Nie zmierzyłem, jak bardzo. Bez czujnika używaj tabletu tylko na zasilaczu i nie trzymaj go w rękach pod obciążeniem. Przed pracą na baterii przywróć czujnik. Automatycznego przywracania nie sprawdziłem jeszcze przy odpięciu zasilacza pod obciążeniem.
+**Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może się przegrzewać, a ciepło skraca też życie baterii. Skali tego ryzyka nie zmierzyłem. Bez czujnika używaj tabletu tylko na zasilaczu i nie trzymaj go w rękach pod obciążeniem. Przed pracą na baterii przywróć czujnik. Program, który ma go przywracać sam, nie przeszedł jeszcze próby odłączenia zasilacza pod obciążeniem.
 
-Bezpieczniej jest zostawić czujnik i ograniczyć zegar do 2,6 GHz. W teście dało to 90% wydajności uzyskanej bez czujnika, przy 72 °C zamiast 96 °C.
+Bezpieczniej jest zostawić czujnik i ograniczyć zegar do 2,6 GHz. W teście tablet był tylko o 10% wolniejszy niż bez czujnika, a procesor miał 72 °C zamiast 96 °C.
 
 ![Z czujnikiem: 69% pracy przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
 
@@ -1429,7 +1429,7 @@ Moim zdaniem po określeniu sukcesu GLM poradziłby sobie bez Claude'a.
 
 ## Sprawdź swój laptop, zanim go wyrzucisz
 
-Podobny problem może mieć inny laptop z procesorem Intela. Zacznij od skryptu z rozwinięcia „zmierz swoją maszynę”: przez dwie minuty obciąża procesor i pokazuje jego moc oraz temperaturę. Gorący procesor potrzebuje lepszego chłodzenia. Jeśli jest chłodny, a pod pełnym obciążeniem dostaje mało mocy, coś go ogranicza.
+Podobny problem może mieć inny laptop z procesorem Intela. Na zasilaczu obciąż w pełni procesor przez dwie minuty i obserwuj jego moc i temperaturę (skrypt jest w rozwinięciu „zmierz swoją maszynę”). Jeśli dochodzi do około 95 °C, potrzebuje lepszego chłodzenia. Jeśli jest wyraźnie chłodniejszy, a moc spada daleko poniżej limitu, coś go ogranicza.
 
 Nie próbuj naprawy przy spuchniętej baterii, zepsutym wentylatorze, na cudzym sprzęcie ani gdy zależy Ci na gwarancji.
 
