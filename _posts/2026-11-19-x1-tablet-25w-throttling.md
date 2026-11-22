@@ -1148,24 +1148,22 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**TLDR:**
+**W skrócie:** Odłożony tablet znów nadaje się do pracy. W testach pod długim obciążeniem przyspieszył około czterokrotnie, bez rozkręcania.
 
-- Tablet z szuflady znów nadaje się do pracy.
-- Pod długim obciążeniem około 4× szybszy: z 0,7-0,8 do 3 GHz.
-- Bez rozkręcania. Naprawę znalazł GLM.
+## Dobry sprzęt, na którym nie dało się pracować
 
-## Tablet wrócił z szuflady
+Mój ThinkPad X1 Tablet trzeciej generacji ma czterordzeniowy procesor, 16 GB pamięci i szybki dysk. Powinien wystarczyć do pracy na lata. Pochodził z wyprzedaży amerykańskiej dystrybucji i miał ekran podatny na zarysowania, ale na to wystarczyło szkło ochronne 3MK. Z procesorem było gorzej.
 
-Mój ThinkPad X1 Tablet Gen 3 pochodził z dystrybucji z USA i był wyprzedawany na resztę świata. Powłoka ekranu była tak zła, że rysował się od patrzenia, więc założyłem szkło ochronne 3MK.
+Przy większym obciążeniu tablet działał szybko tylko przez chwilę. Potem zwalniał, w najgorszych momentach do 0,7 GHz. Kilka razy próbowałem to naprawić i straciłem na tym wiele dni. ThrottleStop, popularny program do takich problemów, nic nie zmieniał i nie zgłaszał żadnego błędu. Na pomoc Lenovo nie mogłem liczyć. W końcu odłożyłem sprawny komputer.
 
-Do tego dławienie: chwila turbo, potem minuty wleczenia się, w najgorszych momentach 0,7 GHz. Najlepszym obejściem było wyłączenie turbo. Tablet wylądował w szufladzie. Teraz znów da się na nim pracować.
+Po kilku latach wróciłem do niego z pomocą AI. Okazało się, że procesor wcale nie musiał tak zwalniać. Oprogramowanie Intela pilnowało czujnika na płycie głównej. Gdy ten dochodził do 56 °C, obcinało procesorowi moc do około 8 W, choć ustawiony limit wynosił 25 W. Po usunięciu tego czujnika z systemu procesor utrzymywał w testach około 3 GHz.
+
+<details markdown="1">
+<summary>Dla geeków: czemu procesory U 8. generacji się wloką</summary>
 
 ![Układ Intel i7-8650U na niebieskiej płycie: dwa odsłonięte kawałki krzemu i oznaczenie SR3L8.](/img/x1-tablet-2026/i7-8650u-sr3l8.jpg)
 
 *Ten sam model procesora, nie mój egzemplarz: [Intel Core i7-8650U, SR3L8](https://commons.wikimedia.org/wiki/File:Intel_core_i7-8650u_sr3l8.jpg), autor Rjluna2, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), bez zmian.*
-
-<details markdown="1">
-<summary>Dla geeków: czemu procesory U 8. generacji się wloką</summary>
 
 Intel wcisnął cztery rdzenie tam, gdzie były dwa, i zostawił 15 W ([i7-7600U](https://www.intel.com/content/www/us/en/products/sku/97466/intel-core-i77600u-processor-4m-cache-up-to-3-90-ghz/specifications.html), [i7-8650U](https://www.intel.com/content/www/us/en/products/sku/124968/intel-core-i78650u-processor-8m-cache-up-to-4-20-ghz/specifications.html)):
 
@@ -1191,14 +1189,117 @@ Intel wcisnął cztery rdzenie tam, gdzie były dwa, i zostawił 15 W ([i7-7600U
 
 </details>
 
-## Dwa hamulce mniej, około 4× szybciej
+## Ustawione 25 W nie wystarczało
+
+Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik, u mnie 25 W w programie Intel XTU. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
+
+Próg 56 °C wybrało Lenovo. Jest tak niski, bo dotyczy temperatury płyty i ma chronić obudowę. Sam procesor wytrzymuje około 100 °C, więc zwalniał z dużym zapasem.
+
+![Czujnik dochodzi do 56 °C, Intel DTT obniża swój limit do 8,5 W i wygrywa on z 25 W pokazywanymi przez XTU.](/img/x1-tablet-2026/chain-pl.svg)
+
+<details markdown="1">
+<summary>Dla geeków: warstwy limitów, aż do bitów</summary>
+
+<div class="table-responsive" markdown="1">
+
+| Warstwa | Gdzie | Kto zapisuje | Da się zmienić? |
+|---|---|---|---|
+| MSR | `MSR_PKG_POWER_LIMIT`, 0x610 | BIOS przy starcie, XTU, DTT zapasowo | Tak, przez SDK XTU |
+| MMIO | MCHBAR+0x59A0 (PL1), +0x59A4 (PL2) | BIOS przy starcie, potem Intel DTT | Nie podpisanymi narzędziami. Zmień więc to, na co reaguje DTT |
+| Kontroler wbudowany (EC) | firmware laptopa | niektórzy producenci | Łatwo się nie da. Tu nie występuje |
+| Windows | tryb zasilania, oszczędzanie, boost mode, limit zegara | Ty | Tak, w Ustawieniach i przez powercfg |
+{: .table}
+
+</div>
+
+**Działa najniższy z nich.** XTU odczytuje tylko MSR, więc jego 25 W niczego nie dowodzi.
+
+Łańcuch na tym tablecie:
+
+1. BIOS startuje z PL1 = 8,5 W i PL2 = 29 W. Jego tabela termiczna (PSVT) daje termistorowi płyty `ACPI\INT3403\CPUP` próg 56 °C.
+2. Intel DTT 8.7 wykonuje Passive Policy 2 w sterowniku UMDF (`esif_umdf2.dll` w WUDFHost), nie w `esifsvc`. Dlatego zatrzymywanie usług nic nie dawało.
+3. Gdy CPUP ma mniej niż 56 °C, polityka wpisuje 29 W (surowo 0xE8, jednostka 1/8 W) do PL1 w MMIO.
+4. Przy 56 °C wpisuje 8,5 W, potem co 5 sekund próbuje krokami 0,5 W, między 8,5 a około 14,5 W.
+5. Bez CPUP polityka nie ma wejścia po gorącej stronie i nie zadziała. Zostaje ostatnia wpisana wartość, więc czujnik trzeba usunąć, gdy jest ona wysoka.
+6. Sufitem zostaje min(MSR 25 W, MMIO 29 W) = 25 W, a poniżej zatrzymuje układ chłodzenie, przy Tjmax około 100 °C.
+7. Bez uczestnika procesora DTT obowiązuje 8,5 W z BIOS-u. **Usuwaj czujnik, nigdy samo DTT.**
+
+MSR 0x610, do odczytu w Linuksie albo debuggerze (jednostka mocy jest w 0x606, bity 3:0, W = 1/2^jednostka):
+
+<div class="table-responsive" markdown="1">
+
+| Bity | Znaczenie |
+|---|---|
+| 14:0 | PL1 |
+| 15 | PL1 włączony |
+| 16 | PL1 clamp |
+| 23:17 | tau, okno PL1 |
+| 46:32 | PL2 |
+| 47 | PL2 włączony |
+| 63 | blokada do resetu |
+{: .table}
+
+</div>
+
+PL1 i PL2 to limity mocy. Ustawienie 25 W nie przełącza poziomu cTDP ani jego zegara bazowego.
+
+</details>
+
+<details markdown="1">
+<summary>Dla geeków: znajdź czujnik, który tnie Twój procesor</summary>
+
+Działa bez obcego sterownika: DTT samo raportuje swoje decyzje przez ETW.
+
+```powershell
+# Admin. Start the trace, run the load test in another window, then press on.
+$dir = Join-Path $env:TEMP 'x1-trace'; New-Item -ItemType Directory -Force $dir | Out-Null
+'DptfCpuEtwProvider', 'DptfAcpiEtwProvider', 'EsifLfEtwProvider', 'EsifUmdf2EtwProvider', 'DPTF', 'Lenovo-Thermal-Service' |
+  Set-Content "$dir\providers.txt" -Encoding ASCII
+logman start x1dtt -pf "$dir\providers.txt" -o "$dir\dtt.etl" -ets
+Start-Sleep -Seconds 130
+logman stop x1dtt -ets
+tracerpt "$dir\dtt.etl" -o "$dir\dtt.csv" -of CSV -y
+```
+
+```powershell
+# Decode the trace: 0x59a0 = PL1, 0x59a4 = PL2, raw value / 8 = watts.
+$csv = Join-Path $env:TEMP 'x1-trace\dtt.csv'
+$prev = ''
+Get-Content $csv | ForEach-Object {
+  $line = $null
+  if ($_ -match 'offset (0x59a[04])\[14:0\] = (0x[0-9a-fA-F]+)') {
+    $line = '{0} = {1} W' -f $Matches[1], ([Convert]::ToInt32($Matches[2], 16) / 8)
+  } elseif ($_ -match '(\w+) D0: TEMPERATURE = (\d+)') {   # every sensor, not only CPUP
+    $line = '{0} = {1:N1} C' -f $Matches[1], ($Matches[2] / 10 - 273.15)
+  }
+  if ($line -and $line -ne $prev) { $line; $prev = $line }
+}
+```
+
+Cięcie to jeden czujnik dochodzący do progu i zaraz po nim spadek `0x59a0`. Tu był to `CPUP`, około 56 °C, i spadek w stronę 8,5 W. Identyfikator tego czujnika wypisuje `discover.ps1` i przyjmuje `install.ps1 -Sensor`.
+
+- Zapisy limitu bez takiego wyzwalacza: inna polityka albo program. Szukaj w CSV `SET_RAPL_POWER_LIMIT` i `Policy`.
+- Brak zapisów, oba limity wysokie, zapalona flaga limitu mocy: podejrzewaj kontroler wbudowany. Ta metoda nie pomoże.
+- Nowsze platformy nazywają DTT „IPF” i mogą mieć innych dostawców i offsety. Swoich wypisze `logman query providers`.
+
+</details>
+
+## Naprawa działa kosztem ochrony
+
+Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows i usunięcie czujnika z systemu. Czujnik zostaje na płycie i można go przywrócić. Teraz szybkość ogranicza chłodzenie. Procesor dochodzi do 96 °C przy około 17 W, więc 25 W jest tylko górną granicą.
 
 ![Zegar pod stałym obciążeniem: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
 
-Pierwszym hamulcem było oszczędzanie energii Windows: bez niego, w trybie najlepszej wydajności, było 2,1 GHz. Drugim czujnik: bez niego 3 GHz. Wszystko na ośmiu wątkach i zasilaczu, po jednym przebiegu na krok. Praca w tym teście idzie za zegarem.
+**Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może być gorętszy, a ciepło szkodzi też baterii w środku. Nie zmierzyłem, jak bardzo. Bez czujnika używaj tabletu tylko na zasilaczu i nie trzymaj go w rękach pod obciążeniem. Przed pracą na baterii przywróć czujnik. Automatycznego przywracania nie sprawdziłem jeszcze przy odpięciu zasilacza pod obciążeniem.
+
+Bezpieczniej jest zostawić czujnik i ograniczyć zegar do 2,6 GHz. W teście dało to 90% wydajności uzyskanej bez czujnika, przy 72 °C zamiast 96 °C.
+
+![Z czujnikiem: 69% pracy przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
 
 <details markdown="1">
 <summary>Dla geeków: wszystkie pomiary, także nieudane</summary>
+
+![Średnia moc w siedmiu ustawieniach: od 5,8 W z oszczędzaniem do 16,6 W bez czujnika. Pozostałe dały 9-12 W.](/img/x1-tablet-2026/attempts-pl.svg)
 
 Osiem wątków, zasilacz, średnia moc pakietu z sekund 60-120, po jednym przebiegu, w kolejności prób:
 
@@ -1240,6 +1341,99 @@ Trzy ustawienia porównane pod względem pracy:
 - Następny zysk to chłodzenie, nie program: wymiana pasty (np. pad PTM7950) powinna przybliżyć stałą moc do sufitu 25 W. Potem porównaj 20 W z 25 W: jeśli stały zegar jest ten sam, zostaw 20 W.
 
 </details>
+
+<details markdown="1">
+<summary>Dla geeków: ślepe uliczki, żebyś mógł je ominąć</summary>
+
+<div class="table-responsive" markdown="1">
+
+| Droga | Co wyszło albo czemu nie |
+|---|---|
+| Same limity XTU | Tylko MSR, DTT dalej tnie |
+| ThrottleStop | U mnie bez efektu i bez błędu, przyczyna nieznana. Jego własny sterownik się ładował, ale protokół jest nieudokumentowany |
+| Universal x86 Tuning Utility | Nie działał i nie zgłaszał błędu: Defender objął kwarantanną jego `WinRing0x64.sys`, podatny sterownik (CVE-2020-14979) |
+| Zapis MMIO przez WinRing0 | Znana dziura eskalacji uprawnień, a sprawdzona kompilacja nie sięga tego adresu |
+| Zatrzymanie esifsvc i LITSSVC | 9-12 W: polityka siedzi w sterowniku |
+| Wyłączenie CPUP w Menedżerze urządzeń | Nieobsługiwane, węzłów DTT nie da się wyłączyć. Da się je usunąć |
+| Usunięcie uczestnika procesora | Obowiązuje limit BIOS-u: 8,5-9 W |
+| Ustawienia cTDP lub termiczne w WMI BIOS-u | Brak |
+| Undervolting | Kontrolki XTU 34, 79 i 83 tylko do odczytu: łatka na Plundervolt (CVE-2019-11157) |
+| `setup_var` / RU.efi, starszy BIOS | Zbadane, nie robione. Inne modele potrzebowały starego BIOS-u, a cofnięcie bywa zablokowane |
+| Modyfikowany BIOS | Nie robione: podpisane kapsuły, a cegła wymaga programatora |
+| Nadpisanie progu 56 °C w data vault DTT | Nie robione. Byłoby czystsze, ale plik jest haszowany |
+{: .table}
+
+</div>
+
+Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego sterownika przez `/sys/class/powercap` (`intel-rapl:0` to MSR, `intel-rapl-mmio:0` to MMIO). [throttled](https://github.com/erpalma/throttled) robi to cyklicznie. Nie uruchamiaj `thermald --adaptive`, stosuje tę samą tabelę termiczną. Najpierw sprawdź bit 63 w 0x610.
+
+</details>
+
+## Jedno AI znalazło przyczynę, drugie naprawę
+
+Zacząłem z modelem GLM, ale przyczynę znalazł Claude. Nie chciał jednak podnieść limitu sterownikiem z dostępem do jądra systemu (ring 0), bo wymagało to obejścia Microsoft Defendera. Defender blokuje ten sterownik z powodu znanej luki. Potem safeguard, czyli filtr bezpieczeństwa firmy Anthropic, zaczął przerywać jego kolejne odpowiedzi.
+
+Wróciłem więc do GLM. Spróbował tego sterownika, ale bez skutku, i cofnął zmianę w Defenderze. Potem znalazł prostsze wyjście: usunąć czujnik. Osłabianie Defendera okazało się niepotrzebne.
+
+<details markdown="1">
+<summary>Dla geeków: kto co zrobił i co dokładnie zostało zatrzymane</summary>
+
+Z logów sesji, czas warszawski. Tę sekcję szkicował Claude, więc miej na uwadze, że opisuje safeguard własnego producenta.
+
+<div class="table-responsive" markdown="1">
+
+| Kiedy | Kto | Co się stało |
+|---|---|---|
+| 17.11, 11:33 | GLM-5.3, high | Początek. Doprowadził do 25 W w XTU, co okazało się tylko jednym z dwóch limitów |
+| 21.11, 20:34-21:00 | Claude Opus 5.5 | Ślad ETW: DTT, czujnik CPUP, 56 °C, 8,5 W. Usunął uczestnika procesora, co nie pomogło, i uznał, że przy jego zasadach 15 W na Windowsie jest nieosiągalne |
+| 21:23 | Safeguard | Zatrzymał odpowiedź przy pracy nad testem wydajności |
+| 21:44 | Safeguard | Oznaczył sesję, odpowiadał za niego Opus 4.8 |
+| 21:49, 21:50 | Safeguard | Zatrzymał odpowiedzi na prośbę o stałe 20-25 W i na tę samą prośbę z uzasadnieniem |
+| 21:54 | Safeguard | Zatrzymał sprawdzenie skrótu w pliku konfiguracji DTT |
+| 21:57, 21:58 | Safeguard | Zatrzymał prośbę o udokumentowanie ustaleń, znów oznaczył sesję. Dokument napisał Opus 4.8 |
+| 22:03 | Safeguard | Zatrzymał szóstą odpowiedź, przy testach limitu zegara |
+| 22:10 | GLM-5.3, max | Przejął pracę z tym dokumentem |
+| 22:34 | GLM-5.3, max | Usunął CPUP |
+{: .table}
+
+</div>
+
+- Safeguard to klasyfikator poza rozmową. Przy żadnej blokadzie nie podał powodu. Jego komunikat przyznaje, że potrafi oznaczyć pracę niezwiązaną z cyberbezpieczeństwem.
+- Osobno sam Claude odmówił przepchnięcia WinRing0 obok Defendera. GLM tego spróbował, z wyjątkiem w Defenderze. To była ślepa uliczka i tego samego wieczoru usunął sterownik i wyjątek. Naprawa nie potrzebowała żadnego z nich, więc nie kopiuj tego kroku.
+- Safeguard to nie cały powód: przed pierwszą blokadą Claude znał przyczynę i nie wpadł na usunięcie tego czujnika. Czy doszedłby do tego bez blokad, nie wie nikt.
+
+</details>
+
+<details markdown="1">
+<summary>Dla geeków: czego się nauczyłem jako programista</summary>
+
+AI potrzebowało mierzalnego celu. W skrócie (to streszczenie, nie cytat):
+
+> Osiągnij pod stałym obciążeniem maksymalną moc, na jaką pozwala chłodzenie, ale nie więcej niż 25 W.
+
+„Napraw dławienie” pozwala agentowi skończyć na odczycie 25 W. Ten cel da się udowodnić tylko pod obciążeniem.
+
+Moim zdaniem po określeniu sukcesu GLM poradziłby sobie bez Claude'a.
+
+- Sukces określ jako pomiar pod obciążeniem i dopisz, czego nie wolno pogorszyć.
+- Odczyt dowodzi zapisu, nie skutku. Gdy jedną wartość piszą dwaj, wygrywa niższy albo późniejszy.
+- Objaw to nie przyczyna: poniżej 1 GHz miało tu trzy przyczyny (plan zasilania, limit mocy, wspólny budżet z GPU).
+- Program ochronny to niewidzialna domena awarii: zablokowany sterownik pada bez błędu.
+- Podpisana usługa producenta z API jest lepsza niż sterownik po reverse engineeringu.
+- Otoczka jest funkcją: ponawianie dla późno wstającej usługi, log, odczyt, cofnięcie.
+- To, co działa jako SYSTEM, musi leżeć tam, gdzie piszą tylko administratorzy, razem z właścicielem.
+- Pełne obciążenie głodzi pomocników: zadanie harmonogramu (priorytet 7) reagowało po minutach.
+- Skrypty w ASCII: PowerShell 5.1 czyta UTF-8 bez BOM jako ANSI, a moje polskie nazwisko psuło ścieżki w ThrottleStopie.
+
+</details>
+
+## Sprawdź swój laptop, zanim go wyrzucisz
+
+Podobny problem może mieć inny laptop z procesorem Intela. Zacznij od skryptu z rozwinięcia „zmierz swoją maszynę”: przez dwie minuty obciąża procesor i pokazuje jego moc oraz temperaturę. Gorący procesor potrzebuje lepszego chłodzenia. Jeśli jest chłodny, a pod pełnym obciążeniem dostaje mało mocy, coś go ogranicza.
+
+Nie próbuj naprawy przy spuchniętej baterii, zepsutym wentylatorze, na cudzym sprzęcie ani gdy zależy Ci na gwarancji.
+
+Mam żal do Lenovo, że z lenistwa zostawiło ten problem użytkownikom. Za wyrzucanie sprawnych komputerów płaci także środowisko.
 
 <details markdown="1">
 <summary>Dla geeków: zmierz swoją maszynę</summary>
@@ -1351,142 +1545,6 @@ Jak to czytać:
 
 </details>
 
-## XTU pokazywało 25 W, procesor spadał do 8 W
-
-![Czujnik dochodzi do 56 °C, Intel DTT obniża swój limit do 8,5 W i wygrywa on z 25 W pokazywanymi przez XTU.](/img/x1-tablet-2026/chain-pl.svg)
-
-Są dwa komplety limitów mocy i wygrywa niższy. Jeden ustawia Intel XTU, drugi sterownik termiczny Intela. Gdy czujnik na płycie dochodził do 56 °C, sterownik ścinał moc do około 8 W, choć sam procesor wytrzymuje około 100 °C.
-
-Intel podaje dla tego układu 15 W z możliwością ustawienia 25 W. Ustawiłem 25 W jako sufit. Bez czujnika chłodzenie zatrzymuje go na około 17 W.
-
-<details markdown="1">
-<summary>Dla geeków: warstwy limitów, aż do bitów</summary>
-
-<div class="table-responsive" markdown="1">
-
-| Warstwa | Gdzie | Kto zapisuje | Da się zmienić? |
-|---|---|---|---|
-| MSR | `MSR_PKG_POWER_LIMIT`, 0x610 | BIOS przy starcie, XTU, DTT zapasowo | Tak, przez SDK XTU |
-| MMIO | MCHBAR+0x59A0 (PL1), +0x59A4 (PL2) | BIOS przy starcie, potem Intel DTT | Nie podpisanymi narzędziami. Zmień więc to, na co reaguje DTT |
-| Kontroler wbudowany (EC) | firmware laptopa | niektórzy producenci | Łatwo się nie da. Tu nie występuje |
-| Windows | tryb zasilania, oszczędzanie, boost mode, limit zegara | Ty | Tak, w Ustawieniach i przez powercfg |
-{: .table}
-
-</div>
-
-**Działa najniższy z nich.** XTU odczytuje tylko MSR, więc jego 25 W niczego nie dowodzi.
-
-Łańcuch na tym tablecie:
-
-1. BIOS startuje z PL1 = 8,5 W i PL2 = 29 W. Jego tabela termiczna (PSVT) daje termistorowi płyty `ACPI\INT3403\CPUP` próg 56 °C.
-2. Intel DTT 8.7 wykonuje Passive Policy 2 w sterowniku UMDF (`esif_umdf2.dll` w WUDFHost), nie w `esifsvc`. Dlatego zatrzymywanie usług nic nie dawało.
-3. Gdy CPUP ma mniej niż 56 °C, polityka wpisuje 29 W (surowo 0xE8, jednostka 1/8 W) do PL1 w MMIO.
-4. Przy 56 °C wpisuje 8,5 W, potem co 5 sekund próbuje krokami 0,5 W, między 8,5 a około 14,5 W.
-5. Bez CPUP polityka nie ma wejścia po gorącej stronie i nie zadziała. Zostaje ostatnia wpisana wartość, więc czujnik trzeba usunąć, gdy jest ona wysoka.
-6. Sufitem zostaje min(MSR 25 W, MMIO 29 W) = 25 W, a poniżej zatrzymuje układ chłodzenie, przy Tjmax około 100 °C.
-7. Bez uczestnika procesora DTT obowiązuje 8,5 W z BIOS-u. **Usuwaj czujnik, nigdy samo DTT.**
-
-MSR 0x610, do odczytu w Linuksie albo debuggerze (jednostka mocy jest w 0x606, bity 3:0, W = 1/2^jednostka):
-
-<div class="table-responsive" markdown="1">
-
-| Bity | Znaczenie |
-|---|---|
-| 14:0 | PL1 |
-| 15 | PL1 włączony |
-| 16 | PL1 clamp |
-| 23:17 | tau, okno PL1 |
-| 46:32 | PL2 |
-| 47 | PL2 włączony |
-| 63 | blokada do resetu |
-{: .table}
-
-</div>
-
-PL1 i PL2 to limity mocy. Ustawienie 25 W nie przełącza poziomu cTDP ani jego zegara bazowego.
-
-</details>
-
-<details markdown="1">
-<summary>Dla geeków: znajdź czujnik, który tnie Twój procesor</summary>
-
-Działa bez obcego sterownika: DTT samo raportuje swoje decyzje przez ETW.
-
-```powershell
-# Admin. Start the trace, run the load test in another window, then press on.
-$dir = Join-Path $env:TEMP 'x1-trace'; New-Item -ItemType Directory -Force $dir | Out-Null
-'DptfCpuEtwProvider', 'DptfAcpiEtwProvider', 'EsifLfEtwProvider', 'EsifUmdf2EtwProvider', 'DPTF', 'Lenovo-Thermal-Service' |
-  Set-Content "$dir\providers.txt" -Encoding ASCII
-logman start x1dtt -pf "$dir\providers.txt" -o "$dir\dtt.etl" -ets
-Start-Sleep -Seconds 130
-logman stop x1dtt -ets
-tracerpt "$dir\dtt.etl" -o "$dir\dtt.csv" -of CSV -y
-```
-
-```powershell
-# Decode the trace: 0x59a0 = PL1, 0x59a4 = PL2, raw value / 8 = watts.
-$csv = Join-Path $env:TEMP 'x1-trace\dtt.csv'
-$prev = ''
-Get-Content $csv | ForEach-Object {
-  $line = $null
-  if ($_ -match 'offset (0x59a[04])\[14:0\] = (0x[0-9a-fA-F]+)') {
-    $line = '{0} = {1} W' -f $Matches[1], ([Convert]::ToInt32($Matches[2], 16) / 8)
-  } elseif ($_ -match '(\w+) D0: TEMPERATURE = (\d+)') {   # every sensor, not only CPUP
-    $line = '{0} = {1:N1} C' -f $Matches[1], ($Matches[2] / 10 - 273.15)
-  }
-  if ($line -and $line -ne $prev) { $line; $prev = $line }
-}
-```
-
-Cięcie to jeden czujnik dochodzący do progu i zaraz po nim spadek `0x59a0`. Tu był to `CPUP`, około 56 °C, i spadek w stronę 8,5 W. Identyfikator tego czujnika wypisuje `discover.ps1` i przyjmuje `install.ps1 -Sensor`.
-
-- Zapisy limitu bez takiego wyzwalacza: inna polityka albo program. Szukaj w CSV `SET_RAPL_POWER_LIMIT` i `Policy`.
-- Brak zapisów, oba limity wysokie, zapalona flaga limitu mocy: podejrzewaj kontroler wbudowany. Ta metoda nie pomoże.
-- Nowsze platformy nazywają DTT „IPF” i mogą mieć innych dostawców i offsety. Swoich wypisze `logman query providers`.
-
-</details>
-
-<details markdown="1">
-<summary>Dla geeków: ślepe uliczki, żebyś mógł je ominąć</summary>
-
-<div class="table-responsive" markdown="1">
-
-| Droga | Co wyszło albo czemu nie |
-|---|---|
-| Same limity XTU | Tylko MSR, DTT dalej tnie |
-| ThrottleStop | U mnie bez efektu i bez błędu, przyczyna nieznana. Jego własny sterownik się ładował, ale protokół jest nieudokumentowany |
-| Universal x86 Tuning Utility | Nie działał i nie zgłaszał błędu: Defender objął kwarantanną jego `WinRing0x64.sys`, podatny sterownik (CVE-2020-14979) |
-| Zapis MMIO przez WinRing0 | Znana dziura eskalacji uprawnień, a sprawdzona kompilacja nie sięga tego adresu |
-| Zatrzymanie esifsvc i LITSSVC | 9-12 W: polityka siedzi w sterowniku |
-| Wyłączenie CPUP w Menedżerze urządzeń | Nieobsługiwane, węzłów DTT nie da się wyłączyć. Da się je usunąć |
-| Usunięcie uczestnika procesora | Obowiązuje limit BIOS-u: 8,5-9 W |
-| Ustawienia cTDP lub termiczne w WMI BIOS-u | Brak |
-| Undervolting | Kontrolki XTU 34, 79 i 83 tylko do odczytu: łatka na Plundervolt (CVE-2019-11157) |
-| `setup_var` / RU.efi, starszy BIOS | Zbadane, nie robione. Inne modele potrzebowały starego BIOS-u, a cofnięcie bywa zablokowane |
-| Modyfikowany BIOS | Nie robione: podpisane kapsuły, a cegła wymaga programatora |
-| Nadpisanie progu 56 °C w data vault DTT | Nie robione. Byłoby czystsze, ale plik jest haszowany |
-{: .table}
-
-</div>
-
-Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego sterownika przez `/sys/class/powercap` (`intel-rapl:0` to MSR, `intel-rapl-mmio:0` to MMIO). [throttled](https://github.com/erpalma/throttled) robi to cyklicznie. Nie uruchamiaj `thermald --adaptive`, stosuje tę samą tabelę termiczną. Najpierw sprawdź bit 63 w 0x610.
-
-</details>
-
-## GLM znalazł naprawę, gdy dostał mierzalny cel
-
-![Średnia moc w siedmiu ustawieniach: od 5,8 W z oszczędzaniem do 16,6 W bez czujnika. Pozostałe dały 9-12 W.](/img/x1-tablet-2026/attempts-pl.svg)
-
-AI potrzebowało mierzalnego celu. W skrócie (to streszczenie, nie cytat):
-
-> Osiągnij pod stałym obciążeniem maksymalną moc, na jaką pozwala chłodzenie, ale nie więcej niż 25 W.
-
-„Napraw dławienie” pozwala agentowi skończyć na odczycie 25 W. Ten cel da się udowodnić tylko pod obciążeniem.
-
-Naprawę znalazł GLM przez ZCode. Claude namierzył przyczynę, pomagał w recenzji i przy wpisie, ale moim zdaniem po określeniu sukcesu GLM poradziłby sobie sam.
-
-**Twój procesor może być trzymany tak samo.** Niżej: kto niech nie próbuje, kolejne kroki i prompt na dowolny laptop.
-
 <details markdown="1">
 <summary>Dla geeków: odblokuj własny procesor</summary>
 
@@ -1579,62 +1637,6 @@ Nigdy nie usuwaj czujnika bez dowodu ze śladu. Odczyt nie jest dowodem, tylko o
 </details>
 
 <details markdown="1">
-<summary>Dla geeków: czego się nauczyłem jako programista</summary>
-
-- Sukces określ jako pomiar pod obciążeniem i dopisz, czego nie wolno pogorszyć.
-- Odczyt dowodzi zapisu, nie skutku. Gdy jedną wartość piszą dwaj, wygrywa niższy albo późniejszy.
-- Objaw to nie przyczyna: poniżej 1 GHz miało tu trzy przyczyny (plan zasilania, limit mocy, wspólny budżet z GPU).
-- Program ochronny to niewidzialna domena awarii: zablokowany sterownik pada bez błędu.
-- Podpisana usługa producenta z API jest lepsza niż sterownik po reverse engineeringu.
-- Otoczka jest funkcją: ponawianie dla późno wstającej usługi, log, odczyt, cofnięcie.
-- To, co działa jako SYSTEM, musi leżeć tam, gdzie piszą tylko administratorzy, razem z właścicielem.
-- Pełne obciążenie głodzi pomocników: zadanie harmonogramu (priorytet 7) reagowało po minutach.
-- Skrypty w ASCII: PowerShell 5.1 czyta UTF-8 bez BOM jako ANSI, a moje polskie nazwisko psuło ścieżki w ThrottleStopie.
-
-</details>
-
-## Safeguard zatrzymał Claude'a, więc GLM skończył to, co zaczął
-
-Zacząłem z GLM. Potem przeszedłem do Claude'a i to on namierzył, że tnie czujnik. Odmówił jednej drogi: obejścia Microsoft Defendera dla sterownika z dostępem do jądra systemu (ring 0). Potem zaczął mu przerywać safeguard Anthropic: sześć zatrzymanych odpowiedzi w 40 minut i dwa przełączenia sesji na starszy model.
-
-Odpaliłem więc GLM jako administrator i dałem mu notatki Claude'a. Po 24 minutach usunął czujnik. To była naprawa.
-
-<details markdown="1">
-<summary>Dla geeków: kto co zrobił i co dokładnie zostało zatrzymane</summary>
-
-Z logów sesji, czas warszawski. Tę sekcję szkicował Claude, więc miej na uwadze, że opisuje safeguard własnego producenta.
-
-<div class="table-responsive" markdown="1">
-
-| Kiedy | Kto | Co się stało |
-|---|---|---|
-| 17.11, 11:33 | GLM-5.3, high | Początek. Doprowadził do 25 W w XTU, co okazało się tylko jednym z dwóch limitów |
-| 21.11, 20:34-21:00 | Claude Opus 5.5 | Ślad ETW: DTT, czujnik CPUP, 56 °C, 8,5 W. Usunął uczestnika procesora, co nie pomogło, i uznał, że przy jego zasadach 15 W na Windowsie jest nieosiągalne |
-| 21:23 | Safeguard | Zatrzymał odpowiedź przy pracy nad testem wydajności |
-| 21:44 | Safeguard | Oznaczył sesję, odpowiadał za niego Opus 4.8 |
-| 21:49, 21:50 | Safeguard | Zatrzymał odpowiedzi na prośbę o stałe 20-25 W i na tę samą prośbę z uzasadnieniem |
-| 21:54 | Safeguard | Zatrzymał sprawdzenie skrótu w pliku konfiguracji DTT |
-| 21:57, 21:58 | Safeguard | Zatrzymał prośbę o udokumentowanie ustaleń, znów oznaczył sesję. Dokument napisał Opus 4.8 |
-| 22:03 | Safeguard | Zatrzymał szóstą odpowiedź, przy testach limitu zegara |
-| 22:10 | GLM-5.3, max | Przejął pracę z tym dokumentem |
-| 22:34 | GLM-5.3, max | Usunął CPUP |
-{: .table}
-
-</div>
-
-- Safeguard to klasyfikator poza rozmową. Przy żadnej blokadzie nie podał powodu. Jego komunikat przyznaje, że potrafi oznaczyć pracę niezwiązaną z cyberbezpieczeństwem.
-- Osobno sam Claude odmówił przepchnięcia WinRing0 obok Defendera. GLM tego spróbował, z wyjątkiem w Defenderze. To była ślepa uliczka i tego samego wieczoru usunął sterownik i wyjątek. Naprawa nie potrzebowała żadnego z nich, więc nie kopiuj tego kroku.
-- Safeguard to nie cały powód: przed pierwszą blokadą Claude znał przyczynę i nie wpadł na usunięcie tego czujnika. Czy doszedłby do tego bez blokad, nie wie nikt.
-
-</details>
-
-## Sprawnego sprzętu nie trzeba wyrzucać
-
-Czterordzeniowe i7, 16 GB RAM i NVMe były o krok od wysypiska przez politykę firmware'u. To skrajne marnowanie krzemu i wszystkiego, co zużyto na jego produkcję.
-
-Lenovo się wypięło. A nie trzeba było nowego sprzętu ani nawet wymiany pasty: potencjał był za jednym progiem. Dla mnie to lenistwo, a płaci za nie środowisko. Najbardziej ekologiczny komputer to ten, którego nie wyrzucasz.
-
-<details markdown="1">
 <summary>Dla geeków: zgłoszone autorom i inni z tym samym problemem</summary>
 
 - Universal x86 Tuning Utility: [tuning po cichu nie działa bez sterownika](https://github.com/JamesCJ60/Universal-x86-Tuning-Utility/issues/408).
@@ -1651,16 +1653,10 @@ Stare wątki ludzi, którzy uderzyli w tę samą ścianę. Jeśli wpis Ci pomóg
 
 </details>
 
-## Ograniczenia: chłodzenie, słabsza ochrona obudowy, skutki niezmierzone
+<details markdown="1">
+<summary>Dla geeków: znów dławi</summary>
 
-![Z czujnikiem: 69% pracy przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
-
-- **Chłodzenie:** dziś około 17 W, nie 25 W.
-- **Ochrona:** czujnik pilnował obudowy, a w środku jest bateria. Usuwaj go tylko na zasilaczu i przywracaj na baterii.
-- **Niezmierzone:** wpływ na obudowę i baterię. Moje automatyczne przełączanie nie przeszło jeszcze testu odpięcia pod obciążeniem.
-- **Łagodniejsza droga:** zostaw czujnik i ogranicz turbo do 2,6 GHz. W jednym teście dało to 90% pracy przy 72 °C zamiast 96 °C.
-
-**Odtwórz to z AI.** Cały fix, razem z kodem, jest w rozwinięciach niżej. Dla tego tabletu daj agentowi to (inne laptopy mają własny prompt wyżej):
+**Odtwórz to z AI.** Cały fix, razem z kodem, jest w rozwinięciach. Dla tego tabletu daj agentowi to (inne laptopy mają własny prompt w „odblokuj własny procesor”):
 
 ```plaintext
 Sukces: pod stałym obciążeniem maksymalna moc, na jaką pozwala chłodzenie,
@@ -1672,9 +1668,6 @@ Zacznij od odczytu: uruchom sprawdzenie, poszukaj, co się zmieniło, zdaj rapor
 Pytaj przed testem obciążeniowym i przed każdą zmianą, podawaj sposób cofnięcia.
 Bez obcych sterowników ring0, bez wyjątków w Defenderze, nic powyżej 25 W.
 ```
-
-<details markdown="1">
-<summary>Dla geeków: znów dławi</summary>
 
 Kolejność: sprawdzenie, co się zmieniło, test, tabela, ślad. Zmiany na końcu, a przed zmianą, restartem i zatrzymaniem usługi pytaj właściciela. Jeden test naraz, nigdy gdy ktoś inny zmienia ustawienia.
 
