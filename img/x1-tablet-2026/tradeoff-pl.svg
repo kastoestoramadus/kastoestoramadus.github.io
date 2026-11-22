@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 236" width="620" height="236" role="img" aria-labelledby="t" font-family="sans-serif">
+<title id="t">Ostatnie 10% kosztuje 24 °C</title>
+<rect width="620" height="236" rx="6" fill="#ffffff"/>
+<text x="20" y="34" font-size="20" text-anchor="start" fill="#222222" font-weight="bold">Ostatnie 10% kosztuje 24 °C</text>
+<text x="20" y="56" font-size="14" text-anchor="start" fill="#555555">Wykonana praca i najwyższa temperatura. Po jednym przebiegu.</text>
+<text x="210" y="102" font-size="16" text-anchor="end" fill="#222222">Z czujnikiem</text>
+<rect x="220" y="80" width="158" height="32" fill="#8a8f98"/>
+<text x="386" y="102" font-size="16" text-anchor="start" fill="#222222">69%</text>
+<text x="600" y="102" font-size="16" text-anchor="end" fill="#222222" font-weight="bold">72 °C</text>
+<text x="210" y="154" font-size="16" text-anchor="end" fill="#222222">Czujnik + limit 2,6 GHz</text>
+<rect x="220" y="132" width="206" height="32" fill="#5b8fb9"/>
+<text x="434" y="154" font-size="16" text-anchor="start" fill="#222222">90%</text>
+<text x="600" y="154" font-size="16" text-anchor="end" fill="#222222" font-weight="bold">72 °C</text>
+<text x="210" y="206" font-size="16" text-anchor="end" fill="#222222">Bez czujnika</text>
+<rect x="220" y="184" width="230" height="32" fill="#b5523b"/>
+<text x="458" y="206" font-size="16" text-anchor="start" fill="#222222">100%</text>
+<text x="600" y="206" font-size="16" text-anchor="end" fill="#222222" font-weight="bold">96 °C</text>
+</svg>

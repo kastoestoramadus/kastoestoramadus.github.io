@@ -22,6 +22,10 @@ My ThinkPad X1 Tablet Gen 3 came from US distribution and was being sold off to 
 
 Then the throttling: a moment of turbo, then minutes of crawling, at worst 0.7 GHz. Disabling turbo was my best workaround. The tablet went into a drawer. Now I can work on it again.
 
+![An Intel i7-8650U package on a blue board: two bare dies and the marking SR3L8.](/img/x1-tablet-2026/i7-8650u-sr3l8.jpg)
+
+*The same processor model, not my unit: [Intel Core i7-8650U, SR3L8](https://commons.wikimedia.org/wiki/File:Intel_core_i7-8650u_sr3l8.jpg) by Rjluna2, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), unchanged.*
+
 <details markdown="1">
 <summary>For geeks: why 8th-generation U processors crawl</summary>
 
@@ -45,7 +49,7 @@ Intel put four cores where two had been and kept the 15 W ([i7-7600U](https://ww
 - Their i5 tablet started at 29 W, hit 98 °C and [averaged 17.5 W over an hour, with 49 °C on the back](https://www.notebookcheck.net/Lenovo-ThinkPad-X1-Tablet-2018-i5-3K-IPS-Convertible-Review.394881.0.html).
 - It is not only Lenovo. An i7-8550U ASUS [ZenBook 13 fell to 0.8 GHz](https://www.notebookcheck.net/Asus-ZenBook-13-UX331UN-i7-8550U-MX150-Laptop-Review.277586.0.html) under combined CPU and GPU load, an i7-8650U [Surface Book 2 lost 25% by the fourth loop](https://www.notebookcheck.net/Surface-Book-2-suffers-from-performance-throttling-charging-abnormalities-and-slower-response-times.264060.0.html), while a [T480 with 25-29 W limits held 2.9-3.2 GHz](https://www.notebookcheck.net/A-performance-comparison-of-all-new-ThinkPad-notebooks.286486.0.html).
 - TDP was no ceiling at AMD either: mobile Ryzen may [boost above it within a skin-temperature limit](https://github.com/sibradzic/stapmlifier) (STAPM), and the laptop maker sets much of the real envelope.
-- The integrated GPU draws from the same budget. Here 100% iGPU load pulled the CPU below 1 GHz.
+- The integrated GPU draws from the same budget. I saw the CPU drop below 1 GHz here with the iGPU at 100% (observed, not logged).
 
 </details>
 
@@ -94,7 +98,7 @@ The three setups that were compared for work:
 - At the start the CPU settled at 4.4 W and 36-42% of its nominal 2.112 GHz, so 0.76-0.89 GHz. Work was not recorded then, the 4× is a ratio of clocks. In the three rows above work follows the clock within a few per cent.
 - A later six-minute run after a reboot: 16.7 W on average, worst 10 seconds 15.6 W, about 3 GHz, 96 °C, no cut. Two minutes more: 17.2 W and 3.2 GHz. Short dips reach 13.8 W.
 - From cold the first minute runs at 19-21 W, then the heat path sets the pace.
-- All of it predates the automation and was measured with Best performance and boost mode 4.
+- All of it predates the current automation. Except where marked, it was measured with Best performance. Boost mode was not read during the runs (it is 4 now). Balanced was not measured.
 - The next gain is cooling, not software: a repaste (a phase-change pad such as PTM7950) should bring the sustained power towards the 25 W cap. Then compare 20 W with 25 W: if the sustained clock is the same, keep 20 W.
 
 </details>
@@ -210,6 +214,8 @@ How to read it:
 </details>
 
 ## XTU showed 25 W, the processor fell to 8 W
+
+![The sensor reaches 56 °C, Intel DTT lowers its limit to 8.5 W, and that wins over the 25 W shown by XTU.](/img/x1-tablet-2026/chain-en.svg)
 
 There are two sets of power limits and the lower one wins. Intel XTU sets one, Intel's thermal driver the other. When a sensor on the board reached 56 °C, the driver cut the power to about 8 W, although the processor itself can take about 100 °C.
 
@@ -331,6 +337,8 @@ Plan B, untested on this tablet: Linux can write both limits without a third-par
 
 ## GLM found the cause once it had a measurable goal
 
+![Mean power for seven setups: from 5.8 W with power saving to 16.6 W without the sensor. The others stayed at 9-12 W.](/img/x1-tablet-2026/attempts-en.svg)
+
 The AI needed one sentence from me:
 
 > Under sustained load, reach the maximum power the cooling allows, but no more than 25 W.
@@ -354,7 +362,7 @@ Tested on one machine. The method should carry over to Intel laptops where DTT o
 - it is an AMD: the limits, tools and sensors here are Intel's,
 - XTU will not start or shows PL1 and PL2 as read-only,
 - the trace points to the embedded controller,
-- the only candidate sensor protects the battery or the charger (here `CHRG`),
+- the only candidate sensor protects the battery, the charger or the skin of a device you hold, whatever its name (here `CHRG` is the charger). The trace proves which sensor trips, not what it protects,
 - you use it on your lap or in your hands under long load, or it has no fan,
 - you cannot keep an eye on it during the tests or cannot afford to lose what is on it.
 
@@ -363,7 +371,7 @@ Watch the charger too. This tablet came with 45 W or 65 W and has a 42 Wh batter
 **The ladder. Test after every step and stop when cooling becomes the limit:**
 
 1. `discover.ps1`, then a baseline `loadtest.ps1`. Write the numbers down.
-2. Energy saver off, Best performance. Here this alone gave about 3×.
+2. Energy saver off, Best performance. Here the clock went from 0.76-0.89 to 2.1 GHz, but those runs are from different days, so not all of it is proven to come from this step.
 3. Calmer turbo and, if needed, a clock cap (the commands below). It keeps every protection. Here 2.6 GHz gave 90% of the final work at 72 °C.
 4. Look up the cTDP-up of your exact CPU on Intel's specification page. That is your ceiling, not 25 W by default.
 5. `controls.ps1`: confirm that PL1, PL2 and tau can be changed, and note their ids and boot values.
@@ -471,6 +479,8 @@ Old threads where people hit the same wall. If this post solved yours, tell them
 </details>
 
 ## Limits: cooling, less protection for the case, effects not yet measured
+
+![Factory sensor: 69% of the work at 72 °C. With a 2.6 GHz cap: 90% at 72 °C. Without the sensor: 100% at 96 °C.](/img/x1-tablet-2026/tradeoff-en.svg)
 
 - **Cooling:** about 17 W today, not 25 W.
 - **Protection:** the sensor guarded the case, and there is a battery inside. Remove it on mains only and bring it back on battery.
@@ -603,19 +613,21 @@ Start-Sleep -Seconds 20
 pnputil /remove-device 'ACPI\INT3403\CPUP'          # sensor out, confirm the limit with a load test
 ```
 
+Cool means CPUP well below 56 °C, as the trace shows it. After one hot restore the cut came back in about 18 s, inside the 20 s wait above. Removing the sensor then may leave the low limit behind (not proven).
+
 Then run `loadtest.ps1`. If XTU fails to initialise, wait: its service can need a minute or more after boot. By hand it lasts until a reboot or a device scan. Re-plugging the charger or changing the power mode can reset the limits.
 
 **Step 3. The automation.** Save `TdpModeService.cs` and `install.ps1` (below) side by side, ASCII, and run the installer elevated: `powershell -ExecutionPolicy Bypass -File .\install.ps1`
 
-- On mains: the sensor goes after 90 s, once the CPU has been calm for 30 s, so never in the middle of a cut.
-- Load that starts before that keeps the factory behaviour: the CPU stays slow until it has had those 30 calm seconds.
+- On mains: the sensor goes after 90 s, once the CPU has been below 30% for the last 30 s. This does not prove that DTT has restored the high limit: the service does not read it, so a low one can stay behind.
+- Load that starts before that keeps the factory behaviour: the CPU stays slow until it has had those 30 calm seconds. One 2-second sample at 30% restarts the count, so with normal background load that can take indefinitely.
 - On battery, with an unknown source and when the service stops: the sensor comes back. It polls every 2 s.
 - XTU gets 25 W / 25 W / 28 s every 10 minutes, in its own thread.
 - Windows saves on battery with a 2.4 GHz cap. Boost mode 4 applies to both.
 
-**How far it is tested:** this is a clean rewrite of the service on my tablet, with its known gaps closed. It compiles, its policy passed all 144 combinations of inputs and a simulated day of unplugging, and it reads the real sensor state. **It has not yet been installed or run under load.**
+**How far it is tested:** this is a simpler rewrite of the service on my tablet, not the same code. It has no stuck-limit alarm and no backup watchdog. It compiles, its decision function passed 144 combinations of inputs and a 17-minute simulation with two unplugs, and it reads the real sensor state. **It has not yet been installed or run under load.**
 
-My tablet still runs the earlier version, from `C:\Program Files\TDP`. Look for it, and for older `TDP-*` tasks, before blaming anything else. If you write your own automation instead, it must:
+Since 22 November 2026 my tablet runs different code, v1.3, from `C:\Program Files\TDP`, also not accepted yet. Older scripts are archived in `C:\ProgramData\TDP`. Look for both, and for `TDP-*` tasks, before blaming anything else. The installer below replaces that service and disables those tasks. If you write your own automation instead, it must:
 
 - keep every file that SYSTEM runs, its folder, owner, backups and task writable by administrators only,
 - restore the sensor first on battery, before touching XTU, and treat an unknown power source as battery,
@@ -881,6 +893,8 @@ if (-not $found) { throw "Sensor not found: $Sensor" }
 New-Item -ItemType Directory -Path $dir -Force | Out-Null
 icacls $dir /setowner '*S-1-5-32-544' | Out-Null
 Assert-Native 'owner'
+icacls $dir /reset | Out-Null    # drop explicit entries left on an existing folder
+Assert-Native 'folder ACL reset'
 icacls $dir /inheritance:r /grant:r '*S-1-5-18:(OI)(CI)F' '*S-1-5-32-544:(OI)(CI)F' | Out-Null
 Assert-Native 'folder ACL'
 
@@ -925,8 +939,9 @@ Start-Service $name
 Start-Sleep 5
 Get-Service $name | Format-Table Name, Status, StartType
 icacls $exe
-Get-Content (Join-Path $dir 'logs\service.log') -Tail 5
-'The sensor is removed after 90 s on mains plus 30 s of low CPU use. Wait, then run status.ps1.'
+$log = Join-Path $dir 'logs\service.log'
+if (Test-Path -LiteralPath $log) { Get-Content -LiteralPath $log -Tail 5 } else { Write-Warning 'No service log yet.' }
+'The sensor is removed after 90 s on mains, once the last 30 s had low CPU use. Wait, then run status.ps1.'
 ```
 
 **Step 4. Accept it.** Every item, or it does not count:
@@ -1037,10 +1052,10 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 | MSR limit (0x610), set with XTU | PL1 = PL2 = 25 W, tau = 28 s |
 | MMIO limit (MCHBAR+0x59A0/0x59A4), set by DTT | 29 W when cool, 8.5 W after the cut |
 | Limiter | DTT Passive Policy 2, sensor ACPI\INT3403\CPUP, trip 56 °C from the BIOS |
-| On mains | CPUP absent, Best performance (set by hand), Energy saver off |
+| On mains | CPUP absent, Best performance for the measured speed (set by hand, the service does not set it; Balanced not measured), Energy saver off |
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) on mains and battery, Windows default 2 |
 | On battery | CPUP present, clock capped at 2.4 GHz by Windows, XTU stays at 25 W |
-| Automation | Service `TdpModeService` in `C:\Program Files\TDP`, not yet accepted |
+| Automation | Service `TdpModeService` v1.3 in `C:\Program Files\TDP` (not the code in this post), not yet accepted |
 | Healthy full load | 15-18 W, 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
 | The cut | 20 W for 15-50 s, then about 8 W, 2 GHz or less, 65-78 °C |
 {: .table}
@@ -1110,6 +1125,10 @@ Mój ThinkPad X1 Tablet Gen 3 pochodził z dystrybucji z USA i był wyprzedawany
 
 Do tego dławienie: chwila turbo, potem minuty wleczenia się, w najgorszych momentach 0,7 GHz. Najlepszym obejściem było wyłączenie turbo. Tablet wylądował w szufladzie. Teraz znów da się na nim pracować.
 
+![Układ Intel i7-8650U na niebieskiej płycie: dwa odsłonięte kawałki krzemu i oznaczenie SR3L8.](/img/x1-tablet-2026/i7-8650u-sr3l8.jpg)
+
+*Ten sam model procesora, nie mój egzemplarz: [Intel Core i7-8650U, SR3L8](https://commons.wikimedia.org/wiki/File:Intel_core_i7-8650u_sr3l8.jpg), autor Rjluna2, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), bez zmian.*
+
 <details markdown="1">
 <summary>Dla geeków: czemu procesory U 8. generacji się wloką</summary>
 
@@ -1133,7 +1152,7 @@ Intel wcisnął cztery rdzenie tam, gdzie były dwa, i zostawił 15 W ([i7-7600U
 - Ich tablet z i5 startował od 29 W, dochodził do 98 °C i [przez godzinę miał średnio 17,5 W, z 49 °C na pleckach](https://www.notebookcheck.net/Lenovo-ThinkPad-X1-Tablet-2018-i5-3K-IPS-Convertible-Review.394881.0.html).
 - To nie tylko Lenovo. ASUS [ZenBook 13 z i7-8550U spadał do 0,8 GHz](https://www.notebookcheck.net/Asus-ZenBook-13-UX331UN-i7-8550U-MX150-Laptop-Review.277586.0.html) przy obciążeniu CPU i GPU, [Surface Book 2 z i7-8650U tracił 25% do czwartej pętli](https://www.notebookcheck.net/Surface-Book-2-suffers-from-performance-throttling-charging-abnormalities-and-slower-response-times.264060.0.html), a [T480 z limitami 25-29 W trzymał 2,9-3,2 GHz](https://www.notebookcheck.net/A-performance-comparison-of-all-new-ThinkPad-notebooks.286486.0.html).
 - U AMD TDP też nie było sufitem: mobilny Ryzen może [przekraczać je w granicach temperatury obudowy](https://github.com/sibradzic/stapmlifier) (STAPM), a dużą część prawdziwego budżetu ustala producent laptopa.
-- Zintegrowane GPU bierze z tego samego budżetu. Tutaj 100% na iGPU ściągało procesor poniżej 1 GHz.
+- Zintegrowane GPU bierze z tego samego budżetu. Widziałem tu spadek procesora poniżej 1 GHz przy 100% na iGPU (obserwacja, bez zapisu).
 
 </details>
 
@@ -1182,7 +1201,7 @@ Trzy ustawienia porównane pod względem pracy:
 - Na początku procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,112 GHz, czyli 0,76-0,89 GHz. Pracy wtedy nie zapisano, 4× to stosunek zegarów. W trzech wierszach wyżej praca idzie za zegarem z dokładnością do kilku procent.
 - Późniejszy test sześciominutowy po restarcie: średnio 16,7 W, najgorsze 10 sekund 15,6 W, około 3 GHz, 96 °C, bez cięcia. Kolejne dwie minuty: 17,2 W i 3,2 GHz. Krótkie dołki schodzą do 13,8 W.
 - Na chłodno pierwsza minuta idzie na 19-21 W, potem tempo wyznacza chłodzenie.
-- Wszystko jest starsze niż automatyka i zmierzone w Najlepszej wydajności z boost mode 4.
+- Wszystko jest starsze niż obecna automatyka. Poza oznaczonymi wierszami mierzone w Najlepszej wydajności. Boost mode nie był odczytany podczas pomiarów (teraz jest 4). Trybu zrównoważonego nie mierzono.
 - Następny zysk to chłodzenie, nie program: wymiana pasty (np. pad PTM7950) powinna przybliżyć stałą moc do sufitu 25 W. Potem porównaj 20 W z 25 W: jeśli stały zegar jest ten sam, zostaw 20 W.
 
 </details>
@@ -1298,6 +1317,8 @@ Jak to czytać:
 </details>
 
 ## XTU pokazywało 25 W, procesor spadał do 8 W
+
+![Czujnik dochodzi do 56 °C, Intel DTT obniża swój limit do 8,5 W i wygrywa on z 25 W pokazywanymi przez XTU.](/img/x1-tablet-2026/chain-pl.svg)
 
 Są dwa komplety limitów mocy i wygrywa niższy. Jeden ustawia Intel XTU, drugi sterownik termiczny Intela. Gdy czujnik na płycie dochodził do 56 °C, sterownik ścinał moc do około 8 W, choć sam procesor wytrzymuje około 100 °C.
 
@@ -1419,6 +1440,8 @@ Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego ster
 
 ## GLM znalazł przyczynę, gdy dostał mierzalny cel
 
+![Średnia moc w siedmiu ustawieniach: od 5,8 W z oszczędzaniem do 16,6 W bez czujnika. Pozostałe dały 9-12 W.](/img/x1-tablet-2026/attempts-pl.svg)
+
 AI potrzebowało ode mnie jednego zdania:
 
 > Osiągnij pod stałym obciążeniem maksymalną moc, na jaką pozwala chłodzenie, ale nie więcej niż 25 W.
@@ -1442,7 +1465,7 @@ Sprawdzone na jednej maszynie. Metoda powinna się przenosić na laptopy z Intel
 - to AMD: limity, narzędzia i czujniki są tu intelowe,
 - XTU nie startuje albo pokazuje PL1 i PL2 tylko do odczytu,
 - ślad wskazuje na kontroler wbudowany,
-- jedyny kandydat chroni baterię lub ładowanie (tu `CHRG`),
+- jedyny kandydat chroni baterię, ładowarkę albo obudowę urządzenia trzymanego w rękach, jakkolwiek się nazywa (tutaj `CHRG` to ładowarka). Ślad dowodzi, który czujnik tnie, a nie co chroni,
 - używasz go długo pod obciążeniem na kolanach lub w rękach albo nie ma wentylatora,
 - nie możesz pilnować testów albo nie możesz stracić tego, co na nim jest.
 
@@ -1451,7 +1474,7 @@ Pilnuj też zasilacza. Ten tablet miał 45 W albo 65 W i ma baterię 42 Wh. Jeś
 **Drabinka. Testuj po każdym kroku i przestań, gdy ograniczeniem stanie się chłodzenie:**
 
 1. `discover.ps1`, potem wyjściowy `loadtest.ps1`. Zapisz liczby.
-2. Oszczędzanie energii wyłączone, Najlepsza wydajność. Tutaj samo to dało około 3×.
+2. Oszczędzanie energii wyłączone, Najlepsza wydajność. Tutaj zegar wzrósł z 0,76-0,89 do 2,1 GHz, ale to przebiegi z różnych dni, więc nie ma dowodu, że całość dał ten krok.
 3. Spokojniejsze turbo i w razie potrzeby limit zegara (polecenia niżej). Zachowuje wszystkie zabezpieczenia. Tutaj 2,6 GHz dało 90% końcowej pracy przy 72 °C.
 4. Sprawdź cTDP-up swojego układu na stronie specyfikacji Intela. To jest Twój sufit, a nie z góry 25 W.
 5. `controls.ps1`: potwierdź, że PL1, PL2 i tau da się zmieniać, zapisz ich numery i wartości startowe.
@@ -1559,6 +1582,8 @@ Stare wątki ludzi, którzy uderzyli w tę samą ścianę. Jeśli wpis Ci pomóg
 </details>
 
 ## Ograniczenia: chłodzenie, słabsza ochrona obudowy, skutki niezmierzone
+
+![Z czujnikiem: 69% pracy przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
 
 - **Chłodzenie:** dziś około 17 W, nie 25 W.
 - **Ochrona:** czujnik pilnował obudowy, a w środku jest bateria. Usuwaj go tylko na zasilaczu i przywracaj na baterii.
@@ -1691,19 +1716,21 @@ Start-Sleep -Seconds 20
 pnputil /remove-device 'ACPI\INT3403\CPUP'          # sensor out, confirm the limit with a load test
 ```
 
+Chłodny znaczy: CPUP wyraźnie poniżej 56 °C w śladzie. Po jednym powrocie czujnika na gorąco cięcie wróciło po około 18 s, czyli w czasie 20 s czekania powyżej. Usunięcie czujnika w tym momencie może zostawić niski limit (bez dowodu).
+
 Potem uruchom `loadtest.ps1`. Jeśli XTU się nie inicjalizuje, poczekaj: usługa potrafi potrzebować minuty lub więcej po starcie. Ręcznie działa do restartu albo skanu urządzeń. Przepięcie zasilacza lub zmiana trybu zasilania potrafi skasować limity.
 
 **Krok 3. Automatyka.** Zapisz `TdpModeService.cs` i `install.ps1` (niżej) obok siebie, w ASCII, i uruchom instalator jako administrator: `powershell -ExecutionPolicy Bypass -File .\install.ps1`
 
-- Na zasilaczu: czujnik znika po 90 s, gdy procesor był spokojny przez 30 s, więc nigdy w środku cięcia.
-- Obciążenie zaczęte wcześniej zostawia zachowanie fabryczne: procesor jest wolny, aż dostanie te 30 spokojnych sekund.
+- Na zasilaczu: czujnik znika po 90 s, gdy procesor przez ostatnie 30 s był poniżej 30%. To nie dowodzi, że DTT przywrócił wysoki limit: usługa go nie czyta, więc niski może zostać.
+- Obciążenie zaczęte wcześniej zostawia zachowanie fabryczne: procesor jest wolny, aż dostanie te 30 spokojnych sekund. Jedna 2-sekundowa próbka 30% zeruje licznik, więc przy zwykłej pracy w tle może to trwać bez końca.
 - Na baterii, przy nieznanym źródle i po zatrzymaniu usługi: czujnik wraca. Odpytywanie co 2 s.
 - XTU dostaje 25 W / 25 W / 28 s co 10 minut, w osobnym wątku.
 - Na baterii oszczędza Windows limitem 2,4 GHz. Boost mode 4 działa w obu trybach.
 
-**Na ile sprawdzone:** to czysto przepisana usługa z mojego tabletu, z zamkniętymi znanymi lukami. Kompiluje się, jej polityka przeszła wszystkie 144 kombinacje wejść i symulowany dzień odpinania, odczytuje prawdziwy stan czujnika. **Nie była jeszcze zainstalowana ani uruchomiona pod obciążeniem.**
+**Na ile sprawdzone:** to prostsza, przepisana usługa z mojego tabletu, a nie ten sam kod. Nie ma alarmu zatrzaśniętego limitu ani zapasowego strażnika. Kompiluje się, jej funkcja decyzyjna przeszła 144 kombinacje wejść i 17-minutową symulację z dwoma odpięciami, odczytuje prawdziwy stan czujnika. **Nie była jeszcze zainstalowana ani uruchomiona pod obciążeniem.**
 
-Na moim tablecie wciąż działa wcześniejsza wersja, z `C:\Program Files\TDP`. Poszukaj jej i starszych zadań `TDP-*`, zanim obwinisz coś innego. Jeśli piszesz własną automatykę, musi ona:
+Od 22 listopada 2026 na moim tablecie działa inny kod, v1.3, z `C:\Program Files\TDP`, też jeszcze bez odbioru. Starsze skrypty są w archiwum `C:\ProgramData\TDP`. Poszukaj obu i zadań `TDP-*`, zanim obwinisz coś innego. Instalator poniżej zastępuje tę usługę i wyłącza te zadania. Jeśli piszesz własną automatykę, musi ona:
 
 - trzymać każdy plik uruchamiany jako SYSTEM, jego folder, właściciela, kopie i zadanie z zapisem tylko dla administratorów,
 - na baterii najpierw przywrócić czujnik, przed ruszaniem XTU, a nieznane źródło zasilania traktować jak baterię,
@@ -1969,6 +1996,8 @@ if (-not $found) { throw "Sensor not found: $Sensor" }
 New-Item -ItemType Directory -Path $dir -Force | Out-Null
 icacls $dir /setowner '*S-1-5-32-544' | Out-Null
 Assert-Native 'owner'
+icacls $dir /reset | Out-Null    # drop explicit entries left on an existing folder
+Assert-Native 'folder ACL reset'
 icacls $dir /inheritance:r /grant:r '*S-1-5-18:(OI)(CI)F' '*S-1-5-32-544:(OI)(CI)F' | Out-Null
 Assert-Native 'folder ACL'
 
@@ -2013,8 +2042,9 @@ Start-Service $name
 Start-Sleep 5
 Get-Service $name | Format-Table Name, Status, StartType
 icacls $exe
-Get-Content (Join-Path $dir 'logs\service.log') -Tail 5
-'The sensor is removed after 90 s on mains plus 30 s of low CPU use. Wait, then run status.ps1.'
+$log = Join-Path $dir 'logs\service.log'
+if (Test-Path -LiteralPath $log) { Get-Content -LiteralPath $log -Tail 5 } else { Write-Warning 'No service log yet.' }
+'The sensor is removed after 90 s on mains, once the last 30 s had low CPU use. Wait, then run status.ps1.'
 ```
 
 **Krok 4. Odbiór.** Wszystko, inaczej się nie liczy:
@@ -2125,10 +2155,10 @@ Bez skryptu: wyłącz usługę `TdpModeService`, uruchom `pnputil /scan-devices`
 | Limit MSR (0x610), ustawiany przez XTU | PL1 = PL2 = 25 W, tau = 28 s |
 | Limit MMIO (MCHBAR+0x59A0/0x59A4), ustawiany przez DTT | 29 W na chłodno, 8,5 W po cięciu |
 | Kto ogranicza | DTT Passive Policy 2, czujnik ACPI\INT3403\CPUP, próg 56 °C z BIOS-u |
-| Na zasilaczu | brak CPUP, Najlepsza wydajność (ustawiana ręcznie), oszczędzanie energii wyłączone |
+| Na zasilaczu | brak CPUP, dla zmierzonej szybkości Najlepsza wydajność (ręcznie, usługa jej nie ustawia; zrównoważonego nie mierzono), oszczędzanie energii wyłączone |
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) na zasilaczu i baterii, domyślnie w Windows 2 |
 | Na baterii | CPUP obecny, zegar ograniczony przez Windows do 2,4 GHz, XTU zostaje na 25 W |
-| Automatyka | Usługa `TdpModeService` w `C:\Program Files\TDP`, jeszcze bez odbioru |
+| Automatyka | Usługa `TdpModeService` v1.3 w `C:\Program Files\TDP` (inny kod niż we wpisie), jeszcze bez odbioru |
 | Zdrowe pełne obciążenie | 15-18 W, 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
 | Cięcie | 20 W przez 15-50 s, potem około 8 W, najwyżej 2 GHz, 65-78 °C |
 {: .table}
