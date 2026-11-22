@@ -662,7 +662,7 @@ Then run `loadtest.ps1`. If XTU fails to initialise, wait: its service can need 
 
 **How far it is tested:** this is a simpler rewrite of the service on my tablet, not the same code. It has no stuck-limit alarm and no backup watchdog. It compiles, its decision function passed 144 combinations of inputs and a 17-minute simulation with two unplugs, and it reads the real sensor state. **It has not yet been installed or run under load.**
 
-Since 22 November 2026 my tablet runs different code, v1.3, from `C:\Program Files\TDP`, also not accepted yet. Older scripts are archived in `C:\ProgramData\TDP`. Look for both, and for `TDP-*` tasks, before blaming anything else. The installer below replaces that service and disables those tasks. If you write your own automation instead, it must:
+Since 22 November 2026 my tablet runs different code, v1.4, from `C:\Program Files\TDP`, also not accepted yet. Older scripts are archived in `C:\ProgramData\TDP`. Look for both, and for `TDP-*` tasks, before blaming anything else. The installer below replaces that service and disables those tasks. If you write your own automation instead, it must:
 
 - keep every file that SYSTEM runs, its folder, owner, backups and task writable by administrators only,
 - restore the sensor first on battery, before touching XTU, and treat an unknown power source as battery,
@@ -1090,7 +1090,7 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 | On mains | CPUP absent, Best performance for the measured speed (set by hand, the service does not set it; Balanced not measured), Energy saver off |
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) on mains and battery, Windows default 2 |
 | On battery | CPUP present, clock capped at 2.4 GHz by Windows, XTU stays at 25 W |
-| Automation | Service `TdpModeService` v1.3 in `C:\Program Files\TDP` (not the code in this post), not yet accepted |
+| Automation | Service `TdpModeService` v1.4 in `C:\Program Files\TDP` (not the code in this post), not yet accepted |
 | Healthy full load | 15-18 W, 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
 | The cut | 20 W for 15-50 s, then about 8 W, 2 GHz or less, 65-78 °C |
 {: .table}
@@ -1800,7 +1800,7 @@ Potem uruchom `loadtest.ps1`. Jeśli XTU się nie inicjalizuje, poczekaj: usług
 
 **Na ile sprawdzone:** to prostsza, przepisana usługa z mojego tabletu, a nie ten sam kod. Nie ma alarmu zatrzaśniętego limitu ani zapasowego strażnika. Kompiluje się, jej funkcja decyzyjna przeszła 144 kombinacje wejść i 17-minutową symulację z dwoma odpięciami, odczytuje prawdziwy stan czujnika. **Nie była jeszcze zainstalowana ani uruchomiona pod obciążeniem.**
 
-Od 22 listopada 2026 na moim tablecie działa inny kod, v1.3, z `C:\Program Files\TDP`, też jeszcze bez odbioru. Starsze skrypty są w archiwum `C:\ProgramData\TDP`. Poszukaj obu i zadań `TDP-*`, zanim obwinisz coś innego. Instalator poniżej zastępuje tę usługę i wyłącza te zadania. Jeśli piszesz własną automatykę, musi ona:
+Od 22 listopada 2026 na moim tablecie działa inny kod, v1.4, z `C:\Program Files\TDP`, też jeszcze bez odbioru. Starsze skrypty są w archiwum `C:\ProgramData\TDP`. Poszukaj obu i zadań `TDP-*`, zanim obwinisz coś innego. Instalator poniżej zastępuje tę usługę i wyłącza te zadania. Jeśli piszesz własną automatykę, musi ona:
 
 - trzymać każdy plik uruchamiany jako SYSTEM, jego folder, właściciela, kopie i zadanie z zapisem tylko dla administratorów,
 - na baterii najpierw przywrócić czujnik, przed ruszaniem XTU, a nieznane źródło zasilania traktować jak baterię,
@@ -2228,7 +2228,7 @@ Bez skryptu: wyłącz usługę `TdpModeService`, uruchom `pnputil /scan-devices`
 | Na zasilaczu | brak CPUP, dla zmierzonej szybkości Najlepsza wydajność (ręcznie, usługa jej nie ustawia; zrównoważonego nie mierzono), oszczędzanie energii wyłączone |
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) na zasilaczu i baterii, domyślnie w Windows 2 |
 | Na baterii | CPUP obecny, zegar ograniczony przez Windows do 2,4 GHz, XTU zostaje na 25 W |
-| Automatyka | Usługa `TdpModeService` v1.3 w `C:\Program Files\TDP` (inny kod niż we wpisie), jeszcze bez odbioru |
+| Automatyka | Usługa `TdpModeService` v1.4 w `C:\Program Files\TDP` (inny kod niż we wpisie), jeszcze bez odbioru |
 | Zdrowe pełne obciążenie | 15-18 W, 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
 | Cięcie | 20 W przez 15-50 s, potem około 8 W, najwyżej 2 GHz, 65-78 °C |
 {: .table}
