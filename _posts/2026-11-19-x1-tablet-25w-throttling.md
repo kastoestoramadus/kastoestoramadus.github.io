@@ -5,7 +5,7 @@ title: My ThinkPad X1 Tablet is back at 25 W
 category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
-teaser: "My shelved tablet is usable again and gets about 45% more done under long load. No disassembly. GLM found the cause."
+teaser: "My shelved tablet is usable again and about 4× faster under long load. No disassembly. GLM found the cause."
 title-pl: Mój ThinkPad X1 Tablet znów działa, na 25 W
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
@@ -13,7 +13,7 @@ title-pl: Mój ThinkPad X1 Tablet znów działa, na 25 W
 **TLDR:**
 
 - My shelved tablet is usable again.
-- It gets about 45% more done under long load.
+- About 4× faster under long load: from 0.7-0.8 to 3 GHz.
 - No disassembly. GLM found the cause.
 
 ## The tablet is back out of the drawer
@@ -22,11 +22,11 @@ My ThinkPad X1 Tablet Gen 3 came from US distribution and was being sold off to 
 
 Then the throttling: a moment of turbo, then minutes of crawling, at worst 0.7 GHz. Disabling turbo was my best workaround. The tablet went into a drawer. Now I can work on it again.
 
-## One sensor removed, about 45% more work done
+## Two brakes off, about 4× faster
 
-![Work per second under sustained load: 5410 with the sensor, 7059 with the sensor and a 2.6 GHz cap, 7864 without the sensor.](/img/x1-tablet-2026/work-en.svg)
+![Clock under sustained load: 0.7-0.8 GHz at the start, 2.1 GHz with power saving off, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
 
-The same test of eight threads on mains, one run per setup, measured over seconds 60-120. Work went up by 45%, power from 8.4 to 16.6 W.
+The first brake was Windows power saving: switching it off and choosing Best performance gave 2.1 GHz. The second was the sensor: without it, 3 GHz. All with eight threads on mains, one run per step. Work in this test follows the clock.
 
 ## XTU showed 25 W, the processor fell to 8 W
 
@@ -73,7 +73,7 @@ No third-party ring0 drivers, no Defender exclusions, nothing above 25 W.
 <details markdown="1">
 <summary>How it works, and how we know</summary>
 
-XTU writes the MSR limit. Intel Dynamic Tuning (DTT) writes the MMIO limit. When the board sensor `CPUP` reaches 56 °C, DTT drops its limit to 8.5 W. An ETW trace showed who writes it. Seconds 60-120 of each test:
+XTU writes the MSR limit. Intel Dynamic Tuning (DTT) writes the MMIO limit. When the board sensor `CPUP` reaches 56 °C, DTT drops its limit to 8.5 W. An ETW trace showed who writes it. At the start, with power saving in the way, the CPU settled at 4.4 W and 36-42% of its nominal 2.1 GHz. Work per second was not recorded then. The later steps, seconds 60-120 of each test:
 
 <div class="table-responsive" markdown="1">
 
@@ -370,7 +370,7 @@ My tablet runs the service `TdpModeService` from `C:\Program Files\TDP`. It remo
 **TLDR:**
 
 - Tablet z szuflady znów nadaje się do pracy.
-- Pod długim obciążeniem robi około 45% więcej.
+- Pod długim obciążeniem około 4× szybszy: z 0,7-0,8 do 3 GHz.
 - Bez rozkręcania. Przyczynę znalazł GLM.
 
 ## Tablet wrócił z szuflady
@@ -379,11 +379,11 @@ Mój ThinkPad X1 Tablet Gen 3 pochodził z dystrybucji z USA i był wyprzedawany
 
 Do tego dławienie: chwila turbo, potem minuty wleczenia się, w najgorszych momentach 0,7 GHz. Najlepszym obejściem było wyłączenie turbo. Tablet wylądował w szufladzie. Teraz znów da się na nim pracować.
 
-## Jeden usunięty czujnik, około 45% więcej pracy
+## Dwa hamulce mniej, około 4× szybciej
 
-![Praca na sekundę pod stałym obciążeniem: 5410 z czujnikiem, 7059 z czujnikiem i zegarem do 2,6 GHz, 7864 bez czujnika.](/img/x1-tablet-2026/work-pl.svg)
+![Zegar pod stałym obciążeniem: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
 
-Ten sam test ośmiu wątków na zasilaczu, po jednym przebiegu na ustawienie, mierzony w sekundach 60-120. Pracy przybyło 45%, moc wzrosła z 8,4 do 16,6 W.
+Pierwszym hamulcem było oszczędzanie energii Windows: bez niego, w trybie najlepszej wydajności, było 2,1 GHz. Drugim czujnik: bez niego 3 GHz. Wszystko na ośmiu wątkach i zasilaczu, po jednym przebiegu na krok. Praca w tym teście idzie za zegarem.
 
 ## XTU pokazywało 25 W, procesor spadał do 8 W
 
@@ -430,7 +430,7 @@ Bez obcych sterowników ring0, bez wyjątków w Defenderze, nic powyżej 25 W.
 <details markdown="1">
 <summary>Jak to działa i skąd to wiadomo</summary>
 
-XTU zapisuje limit w MSR, a Intel Dynamic Tuning (DTT) w MMIO. Gdy czujnik płyty `CPUP` dochodzi do 56 °C, DTT obniża swój limit do 8,5 W. Kto go zapisuje, pokazał ślad ETW. Sekundy 60-120 każdego testu:
+XTU zapisuje limit w MSR, a Intel Dynamic Tuning (DTT) w MMIO. Gdy czujnik płyty `CPUP` dochodzi do 56 °C, DTT obniża swój limit do 8,5 W. Kto go zapisuje, pokazał ślad ETW. Na początku, gdy przeszkadzało oszczędzanie energii, procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,1 GHz. Pracy na sekundę wtedy nie zapisano. Kolejne kroki, sekundy 60-120 każdego testu:
 
 <div class="table-responsive" markdown="1">
 
