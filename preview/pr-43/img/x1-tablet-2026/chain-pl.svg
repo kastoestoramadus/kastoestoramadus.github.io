@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 376" width="620" height="376" role="img" aria-labelledby="t" font-family="sans-serif">
+<title id="t">Jak z 25 W zrobiło się 8 W</title>
+<rect width="620" height="376" rx="6" fill="#ffffff"/>
+<text x="20" y="34" font-size="20" text-anchor="start" fill="#222222" font-weight="bold">Jak z 25 W zrobiło się 8 W</text>
+<text x="20" y="56" font-size="14" text-anchor="start" fill="#555555">Dwa limity, wygrywa niższy</text>
+<rect x="20" y="78" width="260" height="64" rx="5" fill="#b5523b"/>
+<text x="150.0" y="105.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">Czujnik płyty CPUP</text>
+<text x="150.0" y="125.0" font-size="16" text-anchor="middle" fill="#ffffff">dochodzi do 56 °C</text>
+<rect x="340" y="78" width="260" height="64" rx="5" fill="#b5523b"/>
+<text x="470.0" y="105.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">Intel DTT</text>
+<text x="470.0" y="125.0" font-size="16" text-anchor="middle" fill="#ffffff">tnie swój limit do 8,5 W</text>
+<rect x="20" y="186" width="260" height="64" rx="5" fill="#5b8fb9"/>
+<text x="150.0" y="213.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">Intel XTU</text>
+<text x="150.0" y="233.0" font-size="16" text-anchor="middle" fill="#ffffff">pokazuje swoje 25 W</text>
+<rect x="340" y="186" width="260" height="64" rx="5" fill="#8a8f98"/>
+<text x="470.0" y="213.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">Procesor bierze</text>
+<text x="470.0" y="233.0" font-size="16" text-anchor="middle" fill="#ffffff">niższy z limitów</text>
+<rect x="340" y="294" width="260" height="64" rx="5" fill="#b5523b"/>
+<text x="470.0" y="321.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">Około 8 W</text>
+<text x="470.0" y="341.0" font-size="16" text-anchor="middle" fill="#ffffff">przy 65-78 °C</text>
+<path d="M280 110 L332 110" stroke="#555555" stroke-width="2"/>
+<polygon points="331,104 331,116 340,110" fill="#555555"/>
+<path d="M470 142 L470 178" stroke="#555555" stroke-width="2"/>
+<polygon points="464,177 476,177 470,186" fill="#555555"/>
+<path d="M280 218 L332 218" stroke="#555555" stroke-width="2"/>
+<polygon points="331,212 331,224 340,218" fill="#555555"/>
+<path d="M470 250 L470 286" stroke="#555555" stroke-width="2"/>
+<polygon points="464,285 476,285 470,294" fill="#555555"/>
+<text x="20" y="320" font-size="16" text-anchor="start" fill="#222222">Sam układ</text>
+<text x="20" y="342" font-size="16" text-anchor="start" fill="#222222">wytrzymuje około 100 °C.</text>
+</svg>
