@@ -7,6 +7,20 @@
 		<atom:link href="https://kastoestoramadus.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>AI saved my tablet from the scrap heap</title>
+				
+				
+					<description>&lt;div id=&quot;english&quot; class=&quot;post-language&quot; lang=&quot;en&quot;&gt;
+  &lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; My shelved tablet is usable again. Under long load its processor now runs at about four times the clock speed it had before, and I did not have to open the case.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+				
+				<pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
+				<link>https://kastoestoramadus.github.io/hardware/2026/11/19/x1-tablet-25w-throttling.html</link>
+				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2026/11/19/x1-tablet-25w-throttling.html</guid>
+			</item>
+		
+			<item>
 				<title>Who subsidises my AI? 5.73 billion tokens later</title>
 				
 				
@@ -112,18 +126,6 @@
 				<pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
 				<link>https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</link>
 				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</guid>
-			</item>
-		
-			<item>
-				<title>WSL, Hyper-V and Docker after a few days of use</title>
-				
-				
-					<description>&lt;p&gt;&lt;img src=&quot;https://fossbytes.com/wp-content/uploads/2016/11/windows-linux.jpg&quot; alt=&quot;Windows and Linux mascots holding hands&quot; /&gt;&lt;/p&gt;
-</description>
-				
-				<pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/01/22/wsl-linux-windows-marriage.html</guid>
 			</item>
 		
 	</channel>
