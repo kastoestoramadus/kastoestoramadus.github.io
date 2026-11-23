@@ -1148,13 +1148,13 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 
 <div id="polski" class="post-language" lang="pl" markdown="1">
 
-**W skrócie:** Odłożony tablet znów nadaje się do pracy. W testach pod długim obciążeniem przyspieszył około czterokrotnie, bez otwierania obudowy.
+**W skrócie:** Odłożony tablet znów nadaje się do pracy. W testach pod długim obciążeniem jego procesor pracował z około czterokrotnie wyższym zegarem, bez otwierania obudowy.
 
 ## Dobry sprzęt, na którym nie dało się pracować
 
 Mój ThinkPad X1 Tablet trzeciej generacji ma czterordzeniowy procesor, 16 GB pamięci i szybki dysk. Powinien wystarczyć do pracy na lata. Pochodził z wyprzedaży amerykańskiej dystrybucji i miał ekran podatny na zarysowania, ale na to wystarczyło szkło ochronne 3MK. Z procesorem było gorzej.
 
-Przy większym obciążeniu tablet działał szybko tylko przez chwilę. Potem zwalniał, w najgorszych momentach do 0,7 GHz. Kilka razy próbowałem to naprawić i straciłem na tym wiele dni. ThrottleStop, popularny program do takich problemów, nic nie zmieniał i nie zgłaszał żadnego błędu. Na pomoc Lenovo nie mogłem liczyć. W końcu odłożyłem sprawny komputer.
+Przy większym obciążeniu tablet działał szybko tylko przez chwilę. Potem zwalniał, w najgorszych momentach do 0,7 GHz. Kilka razy próbowałem to naprawić i straciłem na tym wiele dni. ThrottleStop, popularny program do takich problemów, nic nie zmieniał i nie zgłaszał żadnego błędu. W końcu odłożyłem sprawny komputer.
 
 Po kilku latach wróciłem do niego z pomocą AI. Okazało się, że procesor wcale nie musiał tak zwalniać. Oprogramowanie Intela pilnowało czujnika na płycie głównej. Gdy ten dochodził do 56 °C, obcinało procesorowi moc do około 8 W, choć ustawiony limit wynosił 25 W. Po usunięciu tego czujnika z systemu procesor utrzymywał w testach około 3 GHz.
 
@@ -1371,7 +1371,7 @@ Plan B, niesprawdzony na tym tablecie: Linux zapisuje oba limity bez obcego ster
 
 ## Jedno AI znalazło przyczynę, drugie naprawę
 
-Zacząłem z modelem GLM, ale przyczynę znalazł Claude. Nie chciał jednak podnieść limitu sterownikiem z dostępem do jądra systemu (ring 0), bo wymagało to obejścia Microsoft Defendera. Defender blokuje ten sterownik z powodu znanej luki. Potem safeguard, czyli filtr bezpieczeństwa firmy Anthropic, zaczął przerywać jego kolejne odpowiedzi.
+Zacząłem z modelem GLM, który jako pierwszy podejrzewał sterownik termiczny Intela. Przyczynę znalazł jednak Claude. Nie chciał jednak podnieść limitu sterownikiem z dostępem do jądra systemu (ring 0), bo wymagało to obejścia Microsoft Defendera. Defender blokuje ten sterownik z powodu znanej luki. Potem safeguard, czyli filtr bezpieczeństwa firmy Anthropic, zaczął przerywać jego kolejne odpowiedzi.
 
 Wróciłem więc do GLM. Spróbował tego sterownika, ale bez skutku, i cofnął zmianę w Defenderze. Potem znalazł prostsze wyjście: usunąć czujnik. Osłabianie Defendera okazało się niepotrzebne.
 
