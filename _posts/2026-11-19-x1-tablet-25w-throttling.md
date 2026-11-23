@@ -6,7 +6,7 @@ category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
 teaser: "My shelved tablet is usable again. Under long load its processor runs at about 4× the clock it had, with no disassembly."
-title-pl: Mój ThinkPad X1 Tablet znów działa, na 25 W
+title-pl: AI uratowało mój tablet przed wyrzuceniem
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 **TLDR:** My shelved tablet is usable again. Under long load its processor now runs at about four times the clock speed it had before, and I did not have to open the case.
