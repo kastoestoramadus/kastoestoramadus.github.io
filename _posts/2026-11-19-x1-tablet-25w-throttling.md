@@ -1,12 +1,12 @@
 ---
 layout: post
 section-type: post
-title: AI saved my tablet from the scrap heap
+title: AI saved my ThinkPad X1 Tablet from the scrap heap
 category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
 teaser: "My shelved tablet is usable again. Under long load its processor runs at about 4× the clock it had, with no disassembly."
-title-pl: AI uratowało mój tablet przed wyrzuceniem
+title-pl: AI uratowało mojego ThinkPada X1 Tablet przed wyrzuceniem
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 **TLDR:** My shelved tablet is usable again. Under long load its processor now runs at about four times the clock speed it had before, and I did not have to open the case.
