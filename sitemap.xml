@@ -21,6 +21,16 @@ layout: null
        </url>
     {% endif %}
   {% endfor %}
+  {% for page in site.pages %}
+    {% if page.pl_page %}
+      <url>
+        <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
+    {% endif %}
+  {% endfor %}
   {% for post in site.posts %}
     <url>
       <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>

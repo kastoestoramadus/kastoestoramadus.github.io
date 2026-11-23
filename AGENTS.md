@@ -99,7 +99,8 @@ History that matters:
 | `img/` | Images referenced from posts |
 | `_includes/contribution-banner.html` | Live PR counts per repo, discovered client-side from the GitHub Search API (all PRs by the author outside their own repos), sorted by merged then open, clipped to `rows` rows (default 2); cached 10 min; `{% include contribution-banner.html author="..." rows="2" %}`. Unauthenticated limit is 10 searches/min per IP (up to 6 per uncached view); only the link remains when the call fails |
 | `_plugins/prefix-site-relative-urls.rb` | Prefixes links that ignore `baseurl` with it; a no-op unless building a preview |
-| `scripts/` | `install`, `serve*`, `newpost`, `generate-tags`, `generate-categories`, `check-preview`, `publish-pages`, `test-publish-pages` (`integrate-personal` is obsolete) |
+| `_plugins/bilingual-pl-pages.rb` | For each post with `bilingual: true`: a second page at `/pl` + the post's URL (same source, `lang="pl"`, `title-pl` as title, Polish section first, hreflang on both URLs; see the bilingual rule below) |
+| `scripts/` | `install`, `serve*`, `newpost`, `generate-tags`, `generate-categories`, `check-preview`, `check-bilingual`, `publish-pages`, `test-publish-pages` (`integrate-personal` is obsolete) |
 | `CNAME` | `blog.ww86.eu`, copied into `_site` and from there to the root of `gh-pages` |
 | `robots.txt` | Disallows `/preview/` |
 
@@ -159,6 +160,11 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Bilingual posts: use `bilingual: true`, `title-pl`, and `lang`-marked `.post-language` sections with IDs `english`
   and `polski`; keep a TLDR in each. `_includes/post-language-switch.html` and `js/post-language-switch.js` handle
   switching; both translations must remain readable without JavaScript (verify in a browser).
+  Every bilingual post also gets a Polish URL at `/pl` + the post's URL (`_plugins/bilingual-pl-pages.rb`, no
+  per-post work): `<html lang="pl">`, `title-pl` as its title, the Polish section selected first, canonical to
+  itself, and hreflang `en`/`pl`/`x-default` (x-default = the English URL) on both URLs. The language switch links
+  to the other URL; the `#english`/`#polski` anchors on the English URL keep working (old links). The `/pl/` pages
+  are in `sitemap.xml` and out of `feed.xml` (English-only); `scripts/check-bilingual` guards all this in CI.
   Within these sections, `.session-comparison` with two `.session-panel` children shows answer excerpts side by
   side and stacks them below 768px; label excerpts and link each panel to its heading with `aria-labelledby`.
 - **Plain language is the measure, not the author's old manner** (owner 2026-11-22: do not assume their style or

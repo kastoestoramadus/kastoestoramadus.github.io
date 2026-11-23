@@ -40,6 +40,9 @@ jobs:
       - name: Check links and HTML
         run: bundle exec htmlproofer ./_site --disable-external --ignore-missing-alt --ignore-empty-alt --no-enforce-https
 
+      - name: Check bilingual /pl/ pages
+        run: ./scripts/check-bilingual _site
+
       # the script that publishes with a write token after the merge: better to find out here that it is broken
       - name: Test the publish script
         run: ./scripts/test-publish-pages
