@@ -1,12 +1,12 @@
 ---
 layout: post
 section-type: post
-title: AI saved my tablet from the scrap heap
+title: AI saved my ThinkPad X1 Tablet from the scrap heap
 category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
 teaser: "My shelved tablet is usable again. Under long load its processor runs at about 4× the clock it had, with no disassembly."
-title-pl: AI uratowało mój tablet przed wyrzuceniem
+title-pl: AI uratowało mojego ThinkPada X1 Tablet przed wyrzuceniem
 ---
 <div id="english" class="post-language" lang="en" markdown="1">
 **TLDR:** My shelved tablet is usable again. Under long load its processor now runs at about four times the clock speed it had before, and I did not have to open the case.
@@ -24,7 +24,7 @@ Years later I came back to it with the help of AI. It turned out that the proces
 
 This processor has four cores, yet Intel gave it the same 15 W as the two-core model before it. That is enough for the base clock, not for four cores at turbo speed. So the laptop maker decides how fast it really is, with power limits and temperature settings. In [Notebookcheck's tests](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) the weaker version of this tablet, with an i5, was faster than the one with an i7.
 
-A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one. Lenovo gave this tablet 15 W. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it.
+A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one. Lenovo's BIOS starts it at 8.5 W, well below the processor's nominal 15 W. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it. That second limit is where the tablet stayed hurt: it also starts at 8.5 W, the driver raises it while a sensor on the board stays below 56 °C, and drops it back to 8.5 W once the sensor reaches 56 °C.
 
 Lenovo chose the 56 °C threshold. It is that low because it is the temperature of the board, and its job is to protect the case. The processor itself can take about 100 °C, so it was slowing down with plenty of headroom left.
 
@@ -151,7 +151,7 @@ A cut looks like one sensor reaching its trip, followed at once by `0x59a0` fall
 
 ## The fix costs some protection
 
-Two changes helped: switching off Windows power saving, which also lowered the power, and removing the sensor from the system. Switching off power saving alone was not enough: in a two-minute test the processor reached 2.1 GHz, but under everyday load it fell to about 1.1 GHz and the tablet was unusable. It held 2.1 GHz only for browsing with nothing but the essentials open. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
+Two changes helped: switching off Windows power saving, which was also cutting the power, and removing the sensor from the system. Switching off power saving alone was not enough: in a two-minute test the processor reached 2.1 GHz, but under everyday load it fell to about 1.1 GHz and the tablet was unusable. It held 2.1 GHz only for browsing with nothing but the essentials open. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
 
 ![Clock in load tests: 0.7-0.8 GHz at the start, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
 
@@ -199,7 +199,7 @@ The three setups that were compared for work:
 
 </div>
 
-- At the start the CPU settled at 4.4 W and 36-42% of its nominal 2.112 GHz, so 0.76-0.89 GHz. Work was not recorded then, the 4× is a ratio of clocks. In the three rows above work follows the clock within a few per cent.
+- At the start the CPU settled at 4.4 W and 36-42% of its nominal 2.112 GHz (the value Windows reports; Intel's base clock is 1.9 GHz), so 0.76-0.89 GHz. Work was not recorded then, the 4× is a ratio of clocks. In the three rows above work follows the clock within a few per cent.
 - A later six-minute run after a reboot: 16.7 W on average, worst 10 seconds 15.6 W, about 3 GHz, 96 °C, no cut. Two minutes more: 17.2 W and 3.2 GHz. Short dips reach 13.8 W.
 - From cold the first minute runs at 19-21 W, then the heat path sets the pace.
 - All of it predates the current automation. Except where marked, it was measured with Best performance. Boost mode was not read during the runs (it is 4 now). Balanced was not measured.
@@ -1091,7 +1091,7 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) on mains and battery, Windows default 2 |
 | On battery | CPUP present, clock capped at 2.4 GHz by Windows, XTU stays at 25 W |
 | Automation | Service `TdpModeService` v1.4 in `C:\Program Files\TDP` (not the code in this post), not yet accepted |
-| Healthy full load | 15-18 W, 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
+| Healthy full load | 15-18 W steady (19-21 W in the first minute from cold), 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
 | The cut | 20 W for 15-50 s, then about 8 W, 2 GHz or less, 65-78 °C |
 {: .table}
 
@@ -1162,7 +1162,7 @@ Po kilku latach wróciłem do niego z pomocą AI. Okazało się, że procesor wc
 
 Ten procesor ma cztery rdzenie, a Intel dał mu te same 15 W co wcześniejszemu, dwurdzeniowemu. To wystarcza na zegar bazowy, ale nie na cztery rdzenie w trybie turbo. O tym, jak szybki jest naprawdę, decyduje więc producent laptopa: limitami mocy i ustawieniami temperatur. W [testach Notebookchecka](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) słabszy wariant tego tabletu, z i5, był szybszy od wersji z i7.
 
-Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik. Lenovo dało temu tabletowi 15 W. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
+Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik. BIOS Lenovo ustawia go na starcie na 8,5 W, dużo poniżej nominalnych 15 W procesora. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje. To ten drugi limit dalej psuł tablet: też startuje od 8,5 W, sterownik podnosi go, dopóki czujnik na płycie ma poniżej 56 °C, i wraca do 8,5 W, gdy czujnik dojdzie do 56 °C.
 
 Próg 56 °C wybrało Lenovo. Jest tak niski, bo dotyczy temperatury płyty i ma chronić obudowę. Sam procesor wytrzymuje około 100 °C, więc zwalniał z dużym zapasem.
 
@@ -1336,7 +1336,7 @@ Trzy ustawienia porównane pod względem pracy:
 
 </div>
 
-- Na początku procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,112 GHz, czyli 0,76-0,89 GHz. Pracy wtedy nie zapisano, 4× to stosunek zegarów. W trzech wierszach wyżej praca idzie za zegarem z dokładnością do kilku procent.
+- Na początku procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,112 GHz (tyle podaje Windows; bazowy zegar według Intela to 1,9 GHz), czyli 0,76-0,89 GHz. Pracy wtedy nie zapisano, 4× to stosunek zegarów. W trzech wierszach wyżej praca idzie za zegarem z dokładnością do kilku procent.
 - Późniejszy test sześciominutowy po restarcie: średnio 16,7 W, najgorsze 10 sekund 15,6 W, około 3 GHz, 96 °C, bez cięcia. Kolejne dwie minuty: 17,2 W i 3,2 GHz. Krótkie dołki schodzą do 13,8 W.
 - Na chłodno pierwsza minuta idzie na 19-21 W, potem tempo wyznacza chłodzenie.
 - Wszystko jest starsze niż obecna automatyka. Poza oznaczonymi wierszami mierzone w Najlepszej wydajności. Boost mode nie był odczytany podczas pomiarów (teraz jest 4). Trybu zrównoważonego nie mierzono.
@@ -2224,7 +2224,7 @@ Bez skryptu: wyłącz usługę `TdpModeService`, uruchom `pnputil /scan-devices`
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) na zasilaczu i baterii, domyślnie w Windows 2 |
 | Na baterii | CPUP obecny, zegar ograniczony przez Windows do 2,4 GHz, XTU zostaje na 25 W |
 | Automatyka | Usługa `TdpModeService` v1.4 w `C:\Program Files\TDP` (inny kod niż we wpisie), jeszcze bez odbioru |
-| Zdrowe pełne obciążenie | 15-18 W, 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
+| Zdrowe pełne obciążenie | 15-18 W stale (19-21 W w pierwszej minucie na chłodno), 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
 | Cięcie | 20 W przez 15-50 s, potem około 8 W, najwyżej 2 GHz, 65-78 °C |
 {: .table}
 
