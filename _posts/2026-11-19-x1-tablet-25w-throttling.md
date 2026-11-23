@@ -159,7 +159,7 @@ Two changes helped: switching off Windows power saving, which also lowered the p
 
 The safer choice is to keep the sensor and cap the clock at 2.6 GHz. In a test the tablet was then only 10% slower than without the sensor, and the processor ran at 72 °C instead of 96 °C.
 
-![Factory sensor: 69% of the work at 72 °C. With a 2.6 GHz cap: 90% at 72 °C. Without the sensor: 100% at 96 °C.](/img/x1-tablet-2026/tradeoff-en.svg)
+![Speed as a share of the fastest setup. Factory sensor: 69% at 72 °C. With a 2.6 GHz cap: 90% at 72 °C. Without the sensor: 100% at 96 °C.](/img/x1-tablet-2026/tradeoff-en.svg)
 
 <details markdown="1">
 <summary>For geeks: every measurement, also the failures</summary>
@@ -1296,7 +1296,7 @@ Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows, które też 
 
 Bezpieczniej jest zostawić czujnik i ograniczyć zegar do 2,6 GHz. W teście tablet był tylko o 10% wolniejszy niż bez czujnika, a procesor miał 72 °C zamiast 96 °C.
 
-![Z czujnikiem: 69% pracy przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
+![Szybkość względem najszybszego ustawienia. Z czujnikiem: 69% przy 72 °C. Z limitem 2,6 GHz: 90% przy 72 °C. Bez czujnika: 100% przy 96 °C.](/img/x1-tablet-2026/tradeoff-pl.svg)
 
 <details markdown="1">
 <summary>Dla geeków: wszystkie pomiary, także nieudane</summary>
