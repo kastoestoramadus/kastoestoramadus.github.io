@@ -24,7 +24,7 @@ Years later I came back to it with the help of AI. It turned out that the proces
 
 This processor has four cores, yet Intel gave it the same 15 W as the two-core model before it. That is enough for the base clock, not for four cores at turbo speed. So the laptop maker decides how fast it really is, with power limits and temperature settings. In [Notebookcheck's tests](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) the weaker version of this tablet, with an i5, was faster than the one with an i7.
 
-A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one. Lenovo gave this tablet 15 W. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it.
+A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one, and Lenovo left it at the usual 15 W, the processor's nominal power. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it. That second limit is where the tablet was hurt: the BIOS starts it at 8.5 W, and the driver drops it back there whenever a sensor on the board reaches 56 °C.
 
 Lenovo chose the 56 °C threshold. It is that low because it is the temperature of the board, and its job is to protect the case. The processor itself can take about 100 °C, so it was slowing down with plenty of headroom left.
 
@@ -1091,7 +1091,7 @@ Without any script: disable the service `TdpModeService`, run `pnputil /scan-dev
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) on mains and battery, Windows default 2 |
 | On battery | CPUP present, clock capped at 2.4 GHz by Windows, XTU stays at 25 W |
 | Automation | Service `TdpModeService` v1.4 in `C:\Program Files\TDP` (not the code in this post), not yet accepted |
-| Healthy full load | 15-18 W, 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
+| Healthy full load | 15-18 W steady (19-21 W in the first minute from cold), 2.9-3.1 GHz, 95-98 °C, short dips to 13-14 W |
 | The cut | 20 W for 15-50 s, then about 8 W, 2 GHz or less, 65-78 °C |
 {: .table}
 
@@ -1162,7 +1162,7 @@ Po kilku latach wróciłem do niego z pomocą AI. Okazało się, że procesor wc
 
 Ten procesor ma cztery rdzenie, a Intel dał mu te same 15 W co wcześniejszemu, dwurdzeniowemu. To wystarcza na zegar bazowy, ale nie na cztery rdzenie w trybie turbo. O tym, jak szybki jest naprawdę, decyduje więc producent laptopa: limitami mocy i ustawieniami temperatur. W [testach Notebookchecka](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) słabszy wariant tego tabletu, z i5, był szybszy od wersji z i7.
 
-Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik. Lenovo dało temu tabletowi 15 W. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
+Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik, a Lenovo zostawiło go na zwykłych 15 W, nominalnej mocy procesora. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje. To ten drugi limit psuł tablet: BIOS ustawia go na starcie na 8,5 W, a sterownik wraca do tej wartości za każdym razem, gdy czujnik na płycie dojdzie do 56 °C.
 
 Próg 56 °C wybrało Lenovo. Jest tak niski, bo dotyczy temperatury płyty i ma chronić obudowę. Sam procesor wytrzymuje około 100 °C, więc zwalniał z dużym zapasem.
 
@@ -2224,7 +2224,7 @@ Bez skryptu: wyłącz usługę `TdpModeService`, uruchom `pnputil /scan-devices`
 | Turbo | PERFBOOSTMODE 4 (Efficient Aggressive) na zasilaczu i baterii, domyślnie w Windows 2 |
 | Na baterii | CPUP obecny, zegar ograniczony przez Windows do 2,4 GHz, XTU zostaje na 25 W |
 | Automatyka | Usługa `TdpModeService` v1.4 w `C:\Program Files\TDP` (inny kod niż we wpisie), jeszcze bez odbioru |
-| Zdrowe pełne obciążenie | 15-18 W, 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
+| Zdrowe pełne obciążenie | 15-18 W stale (19-21 W w pierwszej minucie na chłodno), 2,9-3,1 GHz, 95-98 °C, krótkie dołki do 13-14 W |
 | Cięcie | 20 W przez 15-50 s, potem około 8 W, najwyżej 2 GHz, 65-78 °C |
 {: .table}
 
