@@ -546,3 +546,9 @@ body {
     code { white-space: normal; }
   }
 }
+
+// Bootstrap 3's normalize sets summary{display:block}, which hides the disclosure triangle.
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
