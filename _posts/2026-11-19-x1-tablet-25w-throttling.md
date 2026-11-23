@@ -20,7 +20,7 @@ Under heavier load the tablet was fast only for a moment. Then it slowed down, a
 Years later I came back to it with the help of AI. It turned out that the processor never had to slow down like that. Intel software watched a sensor on the motherboard. When the sensor reached 56 °C, the software cut the processor's power to about 8 W, although the limit was set to 25 W. With that sensor removed from the system, the processor held about 3 GHz in tests.
 
 <details markdown="1">
-<summary>For geeks: why 8th-generation U processors crawl</summary>
+<summary>For geeks: numbers and sources on 8th-generation U processors</summary>
 
 ![An Intel i7-8650U package on a blue board: two bare dies and the marking SR3L8.](/img/x1-tablet-2026/i7-8650u-sr3l8.jpg)
 
@@ -52,6 +52,8 @@ Intel put four cores where two had been and kept the 15 W ([i7-7600U](https://ww
 
 
 ## Setting 25 W was not enough
+
+This processor has four cores, yet Intel gave it the same 15 W as the two-core model before it. That is enough for the base clock, not for four cores at turbo speed. So the laptop maker decides how fast it really is, with power limits and temperature settings. In [Notebookcheck's tests](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) the weaker version of this tablet, with an i5, was faster than the one with an i7.
 
 A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one. Lenovo gave this tablet 15 W. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it.
 
@@ -1157,7 +1159,7 @@ Przy większym obciążeniu tablet działał szybko tylko przez chwilę. Potem z
 Po kilku latach wróciłem do niego z pomocą AI. Okazało się, że procesor wcale nie musiał tak zwalniać. Oprogramowanie Intela pilnowało czujnika na płycie głównej. Gdy ten dochodził do 56 °C, obcinało procesorowi moc do około 8 W, choć ustawiony limit wynosił 25 W. Po usunięciu tego czujnika z systemu procesor utrzymywał w testach około 3 GHz.
 
 <details markdown="1">
-<summary>Dla geeków: czemu procesory U 8. generacji się wloką</summary>
+<summary>Dla geeków: liczby i źródła o procesorach U 8. generacji</summary>
 
 ![Układ Intel i7-8650U na niebieskiej płycie: dwa odsłonięte kawałki krzemu i oznaczenie SR3L8.](/img/x1-tablet-2026/i7-8650u-sr3l8.jpg)
 
@@ -1188,6 +1190,8 @@ Intel wcisnął cztery rdzenie tam, gdzie były dwa, i zostawił 15 W ([i7-7600U
 </details>
 
 ## Ustawione 25 W nie wystarczało
+
+Ten procesor ma cztery rdzenie, a Intel dał mu te same 15 W co wcześniejszemu, dwurdzeniowemu. To wystarcza na zegar bazowy, ale nie na cztery rdzenie w trybie turbo. O tym, jak szybki jest naprawdę, decyduje więc producent laptopa: limitami mocy i ustawieniami temperatur. W [testach Notebookchecka](https://www.notebookcheck.net/Unpleasant-surprise-Core-i5-Lenovo-ThinkPad-X1-Tablet-25-faster-than-i7-SKU.394986.0.html) słabszy wariant tego tabletu, z i5, był szybszy od wersji z i7.
 
 Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik. Lenovo dało temu tabletowi 15 W. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
 
