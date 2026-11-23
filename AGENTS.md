@@ -146,7 +146,7 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   upstream was attempted once and abandoned.
 
 ### Editorial style (unified 2026-09-17)
-- English, British spelling (colour, favourite, licence), first person, informal author's voice (`;)` is fine).
+- English, British spelling (colour, favourite, licence), first person, natural and plain.
   Fix language, keep the author's opinions and facts.
 - Front matter order: `layout`, `section-type`, `title`, `category`, [`permalink`], `tags`. No `date:` (the file name has it).
 - Titles in sentence case without quotes. Section headings are `##` (`###` below) — the post title is the only H1.
@@ -161,8 +161,11 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
   switching; both translations must remain readable without JavaScript (verify in a browser).
   Within these sections, `.session-comparison` with two `.session-panel` children shows answer excerpts side by
   side and stacks them below 768px; label excerpts and link each panel to its heading with `aria-labelledby`.
-- **Be terse, in the author's pre-AI manner** (see the 2018 Optane/Slack and 2022 ZIO2 posts: 170-350 words, short
-  `##` sections, one claim per paragraph, opinions stated flat). Rules for writing and editing posts:
+- **Plain language is the measure, not the author's old manner** (owner 2026-11-22: do not assume their style or
+  phrases are good). Their words are the source of facts, opinions and intent; the wording is written afresh.
+  The opening is a natural story that a reader outside the topic follows; jargon waits for the collapsed sections.
+  A post is ready when a fresh reader can say from the visible text alone what broke, why, what helped, what it
+  risks and where to start. A quotation is verbatim or is called a summary. Rules for writing and editing posts:
   - Start with a `**TLDR:**` of two or three sentences (result first), before any context.
   - No filler: no intro that announces the structure, no closing paragraph repeating the body, no "honest caveat" /
     "the objection is..." asides answering critics nobody raised, no complaining about maintainers, tools or the
@@ -171,6 +174,10 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
     the text. A post that needs more than ~600 words is probably two posts.
   - Keep facts, numbers and links that carry the argument; drop the ones that only show effort (statistics of the
     process, version trivia, side stories).
+  - Brevity is about the visible text. Collapsed `<details>` sit under the section they explain and may be long:
+    they hold the technical depth for geeks, enough to reproduce the result from the post alone (full scripts,
+    versions, identifiers, dead ends, undo). Never shorten or merge them away when editing: compare line by line
+    with the previous version and account for whatever disappeared.
   - AI drafts are verbose by default: after writing, cut it by a third and check that every sentence still says
     something the reader needs.
 - Site-wide texts (header lines, timeline, author blurb, description) live in `_config.yml`; keep them consistent with
@@ -225,3 +232,7 @@ multi-platform and `BUNDLED WITH` bundler 4.x. Dependabot bumps gems and actions
 - Verified on 2026-09-15 (Jekyll 4.4 build vs. the live Jekyll 3 GitHub Pages site, HTML diff + screenshots): differences
   are only the copyright year (`site.time`), CSS minification formatting, the removed Google+ share button and code
   blocks without Rouge wrappers (highlight.js 11 adds padding; auto-detected colors in blocks without a language differ slightly).
+
+## History
+
+- invalid since 2026-11-22; replaced by "Plain language is the measure": informal author's voice (`;)` is fine); terse in the author's pre-AI manner, modelled on the 2018 Optane/Slack and 2022 ZIO2 posts (170-350 words, short sections, one claim per paragraph, opinions stated flat).
