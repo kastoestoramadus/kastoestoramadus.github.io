@@ -49,11 +49,14 @@ Dir.glob("#{dir}/**/*.html").sort.each do |file|
   own_url = "/#{own}"
   twin_url = "/#{twin}"
 
+  # en/x-default always name the English URL and pl the /pl/ one; on a /pl/ page those are own and twin swapped.
+  en_url = under_pl ? twin_url : own_url
+  pl_url = under_pl ? own_url : twin_url
   missing = %w[en pl x-default] - lang_map.keys
   problems << "#{page}: language switch but no hreflang #{missing.join(', ')}" unless missing.empty?
-  problems << "#{page}: hreflang=en must point at #{own_url}" if lang_map['en'] && lang_map['en'] != own_url
-  problems << "#{page}: hreflang=pl must point at #{twin_url}" if lang_map['pl'] && lang_map['pl'] != twin_url
-  problems << "#{page}: hreflang=x-default must point at the English URL #{own_url}" if lang_map['x-default'] && (lang_map['x-default'] != lang_map['en'] || lang_map['en'] != own_url)
+  problems << "#{page}: hreflang=en must point at #{en_url}" if lang_map['en'] && lang_map['en'] != en_url
+  problems << "#{page}: hreflang=pl must point at #{pl_url}" if lang_map['pl'] && lang_map['pl'] != pl_url
+  problems << "#{page}: hreflang=x-default must point at the English URL #{en_url}" if lang_map['x-default'] && (lang_map['x-default'] != lang_map['en'] || lang_map['en'] != en_url)
 
   twin_file = File.join(dir, twin)
   problems << "#{page}: twin #{twin_url} is not a built page" unless File.file?(twin_file)
