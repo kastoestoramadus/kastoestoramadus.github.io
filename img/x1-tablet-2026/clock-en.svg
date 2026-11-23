@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 278" width="620" height="278" role="img" aria-labelledby="t" font-family="sans-serif">
-<title id="t">About 4× faster</title>
+<title id="t">About 4× higher clock</title>
 <rect width="620" height="278" rx="6" fill="#ffffff"/>
-<text x="20" y="34" font-size="20" font-weight="bold" fill="#222222">About 4× faster</text>
-<text x="20" y="56" font-size="14" fill="#555555">Clock under sustained load, GHz</text>
+<text x="20" y="34" font-size="20" font-weight="bold" fill="#222222">About 4× higher clock</text>
+<text x="20" y="56" font-size="14" fill="#555555">Clock in short load tests, GHz</text>
 <text x="205" y="102" font-size="16" text-anchor="end" fill="#222222">At the start</text>
 <rect x="215" y="80" width="75" height="32" fill="#b5523b"/>
 <text x="298" y="102" font-size="16" fill="#222222">0.7-0.8</text>

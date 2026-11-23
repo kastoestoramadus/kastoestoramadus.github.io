@@ -151,9 +151,9 @@ A cut looks like one sensor reaching its trip, followed at once by `0x59a0` fall
 
 ## The fix costs some protection
 
-Two changes helped: switching off Windows power saving, which also lowered the power, and removing the sensor from the system. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
+Two changes helped: switching off Windows power saving, which also lowered the power, and removing the sensor from the system. Switching off power saving alone was not enough: in a two-minute test the processor reached 2.1 GHz, but under everyday load it fell to about 1.1 GHz and the tablet was unusable. It held 2.1 GHz only for browsing with nothing but the essentials open. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
 
-![Clock under sustained load: 0.7-0.8 GHz at the start, 2.1 GHz with power saving off, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
+![Clock in load tests: 0.7-0.8 GHz at the start, 2.1 GHz with power saving off, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
 
 **This sensor protected the case from overheating.** Without it the tablet can get too hot, and heat also shortens the life of the battery. I have not measured how large that risk is. Without the sensor, don't hold the tablet in your hands under load. When you unplug the charger, my service brings the sensor back by itself within a few seconds. It has not yet passed one test: unplugging the charger under full load.
 
@@ -435,7 +435,7 @@ Watch the charger too. This tablet came with 45 W or 65 W and has a 42 Wh batter
 **The ladder. Test after every step and stop when cooling becomes the limit:**
 
 1. `discover.ps1`, then a baseline `loadtest.ps1`. Write the numbers down.
-2. Energy saver off, Best performance. Here the clock went from 0.76-0.89 to 2.1 GHz, but those runs are from different days, so not all of it is proven to come from this step.
+2. Energy saver off, Best performance. Here the clock went from 0.76-0.89 to 2.1 GHz, but those runs are from different days, so not all of it is proven to come from this step. In everyday work it stayed at about 1.1 GHz (my observation, not logged).
 3. Calmer turbo and, if needed, a clock cap (the commands below). It keeps every protection. Here 2.6 GHz gave 90% of the final work at 72 °C.
 4. Look up the cTDP-up of your exact CPU on Intel's specification page. That is your ceiling, not 25 W by default.
 5. `controls.ps1`: confirm that PL1, PL2 and tau can be changed, and note their ids and boot values.
@@ -1288,9 +1288,9 @@ Cięcie to jeden czujnik dochodzący do progu i zaraz po nim spadek `0x59a0`. Tu
 
 ## Naprawa działa kosztem ochrony
 
-Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows, które też obniżało moc, i usunięcie czujnika z systemu. Czujnik zostaje na płycie i można go przywrócić. Teraz szybkość ogranicza chłodzenie. Procesor dochodzi do 96 °C przy około 17 W, więc 25 W jest tylko górną granicą.
+Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows, które też obniżało moc, i usunięcie czujnika z systemu. Samo wyłączenie oszczędzania nie wystarczyło: w dwuminutowym teście procesor doszedł do 2,1 GHz, ale pod zwykłym obciążeniem spadał do około 1,1 GHz i nie dało się na nim pracować. 2,1 GHz utrzymywał tylko przy przeglądaniu internetu, gdy otwarte było tylko to, co niezbędne. Czujnik zostaje na płycie i można go przywrócić. Teraz szybkość ogranicza chłodzenie. Procesor dochodzi do 96 °C przy około 17 W, więc 25 W jest tylko górną granicą.
 
-![Zegar pod stałym obciążeniem: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
+![Zegar w testach obciążenia: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
 
 **Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może się przegrzewać, a ciepło skraca też życie baterii. Skali tego ryzyka nie zmierzyłem. Bez czujnika nie trzymaj tabletu w rękach pod obciążeniem. Po odłączeniu zasilacza moja usługa sama przywraca czujnik w ciągu kilku sekund. Nie przeszła jeszcze jednej próby: odłączenia zasilacza pod pełnym obciążeniem.
 
@@ -1569,7 +1569,7 @@ Pilnuj też zasilacza. Ten tablet miał 45 W albo 65 W i ma baterię 42 Wh. Jeś
 **Drabinka. Testuj po każdym kroku i przestań, gdy ograniczeniem stanie się chłodzenie:**
 
 1. `discover.ps1`, potem wyjściowy `loadtest.ps1`. Zapisz liczby.
-2. Oszczędzanie energii wyłączone, Najlepsza wydajność. Tutaj zegar wzrósł z 0,76-0,89 do 2,1 GHz, ale to przebiegi z różnych dni, więc nie ma dowodu, że całość dał ten krok.
+2. Oszczędzanie energii wyłączone, Najlepsza wydajność. Tutaj zegar wzrósł z 0,76-0,89 do 2,1 GHz, ale to przebiegi z różnych dni, więc nie ma dowodu, że całość dał ten krok. W codziennej pracy zostawał przy około 1,1 GHz (moja obserwacja, bez zapisu).
 3. Spokojniejsze turbo i w razie potrzeby limit zegara (polecenia niżej). Zachowuje wszystkie zabezpieczenia. Tutaj 2,6 GHz dało 90% końcowej pracy przy 72 °C.
 4. Sprawdź cTDP-up swojego układu na stronie specyfikacji Intela. To jest Twój sufit, a nie z góry 25 W.
 5. `controls.ps1`: potwierdź, że PL1, PL2 i tau da się zmieniać, zapisz ich numery i wartości startowe.
