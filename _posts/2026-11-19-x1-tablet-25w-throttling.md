@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: My ThinkPad X1 Tablet is back at 25 W
+title: AI saved my tablet from the scrap heap
 category: hardware
 tags: [ 'hardware', 'intel', 'cpu', 'windows', 'ai' ]
 bilingual: true
