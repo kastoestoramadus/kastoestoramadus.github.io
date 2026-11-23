@@ -153,7 +153,7 @@ Two changes helped: switching off Windows power saving, which also lowered the p
 
 ![Clock under sustained load: 0.7-0.8 GHz at the start, 2.1 GHz with power saving off, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
 
-**This sensor protected the case from overheating.** Without it the tablet can get too hot, and heat also shortens the life of the battery. I have not measured how large that risk is. Without the sensor, use the tablet on mains only and don't hold it in your hands under load. Bring the sensor back before working on battery. My program that should bring the sensor back automatically has not yet passed one test: unplugging the charger under load.
+**This sensor protected the case from overheating.** Without it the tablet can get too hot, and heat also shortens the life of the battery. I have not measured how large that risk is. Without the sensor, don't hold the tablet in your hands under load. When you unplug the charger, my service brings the sensor back by itself within a few seconds. It has not yet passed one test: unplugging the charger under full load.
 
 The safer choice is to keep the sensor and cap the clock at 2.6 GHz. In a test the tablet was then only 10% slower than without the sensor, and the processor ran at 72 °C instead of 96 °C.
 
@@ -600,7 +600,7 @@ Get-WinEvent -FilterHashtable @{ LogName = 'Application'; StartTime = $since; Pr
 <details markdown="1">
 <summary>For geeks: rebuild the fix from nothing</summary>
 
-**Warning: this removes the manufacturer's protection of the case, so do it on mains only and bring the sensor back before using the battery.** The undo is the next section.
+**Warning: this removes the manufacturer's protection of the case, so do it on mains only; on battery the service from step 3 brings the sensor back.** The undo is the next section.
 
 All code is in this post. The one outside file is the XTU installer.
 
@@ -1288,7 +1288,7 @@ Pomogły dwie zmiany: wyłączenie oszczędzania energii w Windows, które też 
 
 ![Zegar pod stałym obciążeniem: 0,7-0,8 GHz na początku, 2,1 GHz bez oszczędzania energii, 2,6 GHz z czujnikiem i limitem zegara, 3,0 GHz bez czujnika.](/img/x1-tablet-2026/clock-pl.svg)
 
-**Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może się przegrzewać, a ciepło skraca też życie baterii. Skali tego ryzyka nie zmierzyłem. Bez czujnika używaj tabletu tylko na zasilaczu i nie trzymaj go w rękach pod obciążeniem. Przed pracą na baterii przywróć czujnik. Program, który ma go przywracać sam, nie przeszedł jeszcze próby odłączenia zasilacza pod obciążeniem.
+**Ten czujnik chronił przed przegrzaniem obudowy.** Bez niego tablet może się przegrzewać, a ciepło skraca też życie baterii. Skali tego ryzyka nie zmierzyłem. Bez czujnika nie trzymaj tabletu w rękach pod obciążeniem. Po odłączeniu zasilacza moja usługa sama przywraca czujnik w ciągu kilku sekund. Nie przeszła jeszcze jednej próby: odłączenia zasilacza pod pełnym obciążeniem.
 
 Bezpieczniej jest zostawić czujnik i ograniczyć zegar do 2,6 GHz. W teście tablet był tylko o 10% wolniejszy niż bez czujnika, a procesor miał 72 °C zamiast 96 °C.
 
@@ -1731,7 +1731,7 @@ Get-WinEvent -FilterHashtable @{ LogName = 'Application'; StartTime = $since; Pr
 <details markdown="1">
 <summary>Dla geeków: odtwórz fix od zera</summary>
 
-**Uwaga: to usuwa ochronę obudowy od producenta, więc rób to tylko na zasilaczu i przywróć czujnik przed pracą na baterii.** Cofnięcie jest w następnym rozwinięciu.
+**Uwaga: to usuwa ochronę obudowy od producenta, więc rób to tylko na zasilaczu; na baterii czujnik przywraca usługa z kroku 3.** Cofnięcie jest w następnym rozwinięciu.
 
 Cały kod jest w tym wpisie. Jedyny plik z zewnątrz to instalator XTU.
 
