@@ -53,7 +53,7 @@ Intel put four cores where two had been and kept the 15 W ([i7-7600U](https://ww
 
 ## Setting 25 W was not enough
 
-A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one; mine was 25 W in Intel XTU. Intel's thermal driver changes the second one on its own, and XTU does not show it.
+A power limit says how much energy the processor may use, and so how fast it can work. There are two such limits, and the lower one applies. The user sets the first one. Lenovo gave this tablet 15 W. With the help of AI I raised it to 25 W in Intel XTU, the most Intel allows for this processor, and I wanted those 25 W to hold under load. Intel's thermal driver changes the second one on its own, and XTU does not show it.
 
 Lenovo chose the 56 °C threshold. It is that low because it is the temperature of the board, and its job is to protect the case. The processor itself can take about 100 °C, so it was slowing down with plenty of headroom left.
 
@@ -1189,7 +1189,7 @@ Intel wcisnął cztery rdzenie tam, gdzie były dwa, i zostawił 15 W ([i7-7600U
 
 ## Ustawione 25 W nie wystarczało
 
-Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik, u mnie 25 W w programie Intel XTU. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
+Limit mocy mówi, ile energii procesor może zużywać, a więc jak szybko może pracować. Są dwa takie limity i obowiązuje niższy. Pierwszy ustawia użytkownik. Lenovo dało temu tabletowi 15 W. Z pomocą AI podniosłem go w programie Intel XTU do 25 W, najwięcej, ile Intel dopuszcza dla tego procesora, i chciałem, żeby te 25 W naprawdę działało pod obciążeniem. Drugi zmienia sterownik Intela, a XTU go nie pokazuje.
 
 Próg 56 °C wybrało Lenovo. Jest tak niski, bo dotyczy temperatury płyty i ma chronić obudowę. Sam procesor wytrzymuje około 100 °C, więc zwalniał z dużym zapasem.
 
