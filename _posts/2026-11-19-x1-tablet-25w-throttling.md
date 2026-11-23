@@ -151,7 +151,7 @@ A cut looks like one sensor reaching its trip, followed at once by `0x59a0` fall
 
 ## The fix costs some protection
 
-Two changes helped: switching off Windows power saving, which also lowered the power, and removing the sensor from the system. Switching off power saving alone was not enough: in a two-minute test the processor reached 2.1 GHz, but under everyday load it fell to about 1.1 GHz and the tablet was unusable. It held 2.1 GHz only for browsing with nothing but the essentials open. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
+Two changes helped: switching off Windows power saving, which was also cutting the power, and removing the sensor from the system. Switching off power saving alone was not enough: in a two-minute test the processor reached 2.1 GHz, but under everyday load it fell to about 1.1 GHz and the tablet was unusable. It held 2.1 GHz only for browsing with nothing but the essentials open. The sensor stays on the board and can be brought back. Now cooling sets the speed. The processor reaches 96 °C at about 17 W, so 25 W is only an upper bound.
 
 ![Clock in load tests: 0.7-0.8 GHz at the start, 2.6 GHz with the sensor and a clock cap, 3.0 GHz without the sensor.](/img/x1-tablet-2026/clock-en.svg)
 
@@ -199,7 +199,7 @@ The three setups that were compared for work:
 
 </div>
 
-- At the start the CPU settled at 4.4 W and 36-42% of its nominal 2.112 GHz, so 0.76-0.89 GHz. Work was not recorded then, the 4× is a ratio of clocks. In the three rows above work follows the clock within a few per cent.
+- At the start the CPU settled at 4.4 W and 36-42% of its nominal 2.112 GHz (the value Windows reports; Intel's base clock is 1.9 GHz), so 0.76-0.89 GHz. Work was not recorded then, the 4× is a ratio of clocks. In the three rows above work follows the clock within a few per cent.
 - A later six-minute run after a reboot: 16.7 W on average, worst 10 seconds 15.6 W, about 3 GHz, 96 °C, no cut. Two minutes more: 17.2 W and 3.2 GHz. Short dips reach 13.8 W.
 - From cold the first minute runs at 19-21 W, then the heat path sets the pace.
 - All of it predates the current automation. Except where marked, it was measured with Best performance. Boost mode was not read during the runs (it is 4 now). Balanced was not measured.
@@ -1336,7 +1336,7 @@ Trzy ustawienia porównane pod względem pracy:
 
 </div>
 
-- Na początku procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,112 GHz, czyli 0,76-0,89 GHz. Pracy wtedy nie zapisano, 4× to stosunek zegarów. W trzech wierszach wyżej praca idzie za zegarem z dokładnością do kilku procent.
+- Na początku procesor stabilizował się na 4,4 W i 36-42% nominalnych 2,112 GHz (tyle podaje Windows; bazowy zegar według Intela to 1,9 GHz), czyli 0,76-0,89 GHz. Pracy wtedy nie zapisano, 4× to stosunek zegarów. W trzech wierszach wyżej praca idzie za zegarem z dokładnością do kilku procent.
 - Późniejszy test sześciominutowy po restarcie: średnio 16,7 W, najgorsze 10 sekund 15,6 W, około 3 GHz, 96 °C, bez cięcia. Kolejne dwie minuty: 17,2 W i 3,2 GHz. Krótkie dołki schodzą do 13,8 W.
 - Na chłodno pierwsza minuta idzie na 19-21 W, potem tempo wyznacza chłodzenie.
 - Wszystko jest starsze niż obecna automatyka. Poza oznaczonymi wierszami mierzone w Najlepszej wydajności. Boost mode nie był odczytany podczas pomiarów (teraz jest 4). Trybu zrównoważonego nie mierzono.
