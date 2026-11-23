@@ -3,8 +3,8 @@
 	<channel>
 		<title>{ IT blog - Waldemar Wosiński }</title>
 		<description>Blog of Waldemar Wosiński, a Scala &amp; Big Data engineer from Warsaw: software development, hardware, operating systems and work life.</description>
-		<link>https://kastoestoramadus.github.io</link>
-		<atom:link href="https://kastoestoramadus.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://blog.ww86.eu</link>
+		<atom:link href="https://blog.ww86.eu/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>AI saved my ThinkPad X1 Tablet from the scrap heap</title>
@@ -16,8 +16,8 @@
 </description>
 				
 				<pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/hardware/2026/11/19/x1-tablet-25w-throttling.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2026/11/19/x1-tablet-25w-throttling.html</guid>
+				<link>https://blog.ww86.eu/hardware/2026/11/19/x1-tablet-25w-throttling.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/hardware/2026/11/19/x1-tablet-25w-throttling.html</guid>
 			</item>
 		
 			<item>
@@ -28,8 +28,8 @@
 </description>
 				
 				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/dev/2026/10/11/who-subsidises-my-ai.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/10/11/who-subsidises-my-ai.html</guid>
+				<link>https://blog.ww86.eu/dev/2026/10/11/who-subsidises-my-ai.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/dev/2026/10/11/who-subsidises-my-ai.html</guid>
 			</item>
 		
 			<item>
@@ -40,8 +40,8 @@
 </description>
 				
 				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/dev/2026/10/08/gemini-is-not-lazy.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/10/08/gemini-is-not-lazy.html</guid>
+				<link>https://blog.ww86.eu/dev/2026/10/08/gemini-is-not-lazy.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/dev/2026/10/08/gemini-is-not-lazy.html</guid>
 			</item>
 		
 			<item>
@@ -52,8 +52,8 @@
 </description>
 				
 				<pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/dev/2026/10/05/hocon-my-parser-and-rendering-contributions.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/10/05/hocon-my-parser-and-rendering-contributions.html</guid>
+				<link>https://blog.ww86.eu/dev/2026/10/05/hocon-my-parser-and-rendering-contributions.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/dev/2026/10/05/hocon-my-parser-and-rendering-contributions.html</guid>
 			</item>
 		
 			<item>
@@ -64,8 +64,8 @@
 </description>
 				
 				<pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/hardware/2026/08/18/one-big-screen-upright.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2026/08/18/one-big-screen-upright.html</guid>
+				<link>https://blog.ww86.eu/hardware/2026/08/18/one-big-screen-upright.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/hardware/2026/08/18/one-big-screen-upright.html</guid>
 			</item>
 		
 			<item>
@@ -76,8 +76,8 @@
 </description>
 				
 				<pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/dev/2026/01/16/hocon-beats-the-competition.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2026/01/16/hocon-beats-the-competition.html</guid>
+				<link>https://blog.ww86.eu/dev/2026/01/16/hocon-beats-the-competition.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/dev/2026/01/16/hocon-beats-the-competition.html</guid>
 			</item>
 		
 			<item>
@@ -88,8 +88,8 @@
 </description>
 				
 				<pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/software/2022/12/31/ZIO2-SCALA3.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/software/2022/12/31/ZIO2-SCALA3.html</guid>
+				<link>https://blog.ww86.eu/software/2022/12/31/ZIO2-SCALA3.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/software/2022/12/31/ZIO2-SCALA3.html</guid>
 			</item>
 		
 			<item>
@@ -100,8 +100,8 @@
 </description>
 				
 				<pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/hardware/2022/02/10/big-wide-displays-extintion.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/hardware/2022/02/10/big-wide-displays-extintion.html</guid>
+				<link>https://blog.ww86.eu/hardware/2022/02/10/big-wide-displays-extintion.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/hardware/2022/02/10/big-wide-displays-extintion.html</guid>
 			</item>
 		
 			<item>
@@ -112,8 +112,8 @@
 </description>
 				
 				<pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/dev/2020/12/12/big-banks-security-overkill.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/dev/2020/12/12/big-banks-security-overkill.html</guid>
+				<link>https://blog.ww86.eu/dev/2020/12/12/big-banks-security-overkill.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/dev/2020/12/12/big-banks-security-overkill.html</guid>
 			</item>
 		
 			<item>
@@ -124,8 +124,8 @@
 </description>
 				
 				<pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
-				<link>https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</link>
-				<guid isPermaLink="true">https://kastoestoramadus.github.io/os/2019/12/26/more-cores-not-worth-it.html</guid>
+				<link>https://blog.ww86.eu/os/2019/12/26/more-cores-not-worth-it.html</link>
+				<guid isPermaLink="true">https://blog.ww86.eu/os/2019/12/26/more-cores-not-worth-it.html</guid>
 			</item>
 		
 	</channel>
