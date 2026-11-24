@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 510" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect x="0" y="0" width="1000" height="510" fill="#ffffff"/>
+  <text x="500" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a1a">Użytkownicy mogący korzystać z IPv6 (APNIC Labs, 30 dni, %)</text>
+  <text x="500" y="48" text-anchor="middle" font-size="12" fill="#555">Dane: data1.labs.apnic.net/v6stats/v6economy/, pobrane 2026-10-23; odczyty: X 2013 oraz czerwiec 2016–2024, X 2026</text>
+
+  <!-- gridlines -->
+  <g stroke="#dddddd" stroke-width="1">
+    <line x1="90" y1="380" x2="950" y2="380"/>
+    <line x1="90" y1="304.4" x2="950" y2="304.4"/>
+    <line x1="90" y1="228.9" x2="950" y2="228.9"/>
+    <line x1="90" y1="153.3" x2="950" y2="153.3"/>
+    <line x1="90" y1="77.8" x2="950" y2="77.8"/>
+  </g>
+  <g font-size="12" fill="#666" text-anchor="end">
+    <text x="82" y="384">0%</text><text x="82" y="308">20%</text><text x="82" y="233">40%</text><text x="82" y="157">60%</text><text x="82" y="82">80%</text>
+  </g>
+  <g font-size="12" fill="#666" text-anchor="middle">
+    <text x="90" y="398">2013</text><text x="288" y="398">2016</text><text x="421" y="398">2018</text><text x="553" y="398">2020</text><text x="685" y="398">2022</text><text x="818" y="398">2024</text><text x="950" y="398">2026</text>
+  </g>
+
+  <!-- series -->
+  <polyline points="90,360.7 288,176 421,160.9 553,153.3 685,134.4 818,126.9 950,109.8" fill="none" stroke="#1b9e77" stroke-width="2.5"/>
+  <polyline points="90,361.5 288,251.6 421,228.9 553,191.1 685,176 818,134.4 950,106" fill="none" stroke="#7570b8" stroke-width="2.5"/>
+  <polyline points="90,360.4 288,334.7 421,289.3 553,217.5 685,232.6 818,123.1 950,55.8" fill="none" stroke="#d95f02" stroke-width="2.5"/>
+  <polyline points="90,380 288,368.7 421,349.8 553,327.1 685,312 818,315.8 950,305.6" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+
+  <!-- end labels -->
+  <g font-size="13" font-weight="bold">
+    <text x="956" y="114" fill="#1b9e77" text-anchor="end" transform="translate(34,0)">Belgia 71,5%</text>
+    <text x="956" y="140" fill="#7570b8" text-anchor="end" transform="translate(34,26)">Niemcy 72,5%</text>
+    <text x="956" y="62" fill="#d95f02" text-anchor="end" transform="translate(34,0)">Francja 85,8%</text>
+    <text x="956" y="290" fill="#c0392b" text-anchor="end" transform="translate(34,0)">Polska 19,7%</text>
+  </g>
+
+  <!-- annotations -->
+  <g font-size="11.5" fill="#444">
+    <text x="150" y="440">XI 2013: Orange uruchamia IPv6 dla Neostrady (opt-in),</text>
+    <text x="150" y="456">ale w APNIC Polska pozostaje bliska 0% do 2015 r.</text>
+    <text x="330" y="180" fill="#1b9e77">2014: Telenet w Belgii przechodzi masowo</text>
+    <text x="565" y="205" fill="#d95f02">2020: Free we Francji usuwa opt-out</text>
+  </g>
+  <line x1="180" y1="375" x2="180" y2="425" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>
