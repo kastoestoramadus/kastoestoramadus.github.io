@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" font-family="sans-serif" font-size="14">
+  <title>Dlaczego 2^64 adresów nie ukrywa hostu</title>
+  <desc>Slepy skan calej podsieci /64 jest niewykonalny, ale DNS, logi CT, wzorcowe adresy i własny ruch hosta prowadza do celu.</desc>
+  <!-- center: subnet -->
+  <rect x="300" y="140" width="180" height="120" rx="12" fill="none" stroke="#4f8ef7" stroke-width="3"/>
+  <text x="390" y="180" fill="#9a9a9a" text-anchor="middle" font-size="16" font-weight="bold">twój host</text>
+  <text x="390" y="202" fill="#9a9a9a" text-anchor="middle">w podsieci /64</text>
+  <text x="390" y="226" fill="#9a9a9a" text-anchor="middle">= 2^64 adresów</text>
+  <!-- left: blind scan, crossed out -->
+  <line x1="90" y1="200" x2="290" y2="200" stroke="#d9534f" stroke-width="2.5"/>
+  <line x1="130" y1="160" x2="250" y2="240" stroke="#d9534f" stroke-width="3"/>
+  <text x="170" y="120" fill="#9a9a9a" text-anchor="middle">ślepy skan całej /64:</text>
+  <text x="170" y="285" fill="#9a9a9a" text-anchor="middle">praktycznie niewykonalny</text>
+  <text x="170" y="305" fill="#9a9a9a" text-anchor="middle" font-size="12">(RFC 7707)</text>
+  <!-- right: real paths -->
+  <g stroke="#f0ad4e" stroke-width="2.5">
+    <line x1="484" y1="165" x2="560" y2="90"/>
+    <line x1="484" y1="185" x2="560" y2="150"/>
+    <line x1="484" y1="210" x2="560" y2="210"/>
+    <line x1="484" y1="235" x2="560" y2="270"/>
+    <line x1="484" y1="250" x2="560" y2="330"/>
+  </g>
+  <g fill="#9a9a9a" text-anchor="start">
+    <text x="568" y="88"  font-size="13">DNS: rekordy AAAA i PTR</text>
+    <text x="568" y="148" font-size="13">logi Certificate Transparency</text>
+    <text x="568" y="208" font-size="13">wzorcowe adresy (low-byte, EUI-64)</text>
+    <text x="568" y="268" font-size="13">własny ruch hosta (mail, P2P, chmura)</text>
+    <text x="568" y="328" font-size="13">hitlisty skanerów (IMC 18)</text>
+  </g>
+  <text x="390" y="40" fill="#9a9a9a" text-anchor="middle" font-size="16" font-weight="bold">Jak naprawdę znajdują host w IPv6</text>
+  <text x="390" y="376" fill="#9a9a9a" text-anchor="middle" font-size="12">Źródła: RFC 7707; Gasser i in., arXiv:1806.01633; wykres własny na licencji bloga</text>
+</svg>

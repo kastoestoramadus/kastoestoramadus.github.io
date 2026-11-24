@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" font-family="sans-serif" font-size="14">
+  <title>Odsetek użytkowników z IPv6: Polska vs Europa Zachodnia (APNIC Labs)</title>
+  <desc>Wykres liniowy 2013-2026: Polska 0-19,7%, Belgia 5,1-71,5%, Niemcy 4,9-72,5%, Francja 5,2-85,8%.</desc>
+  <!-- grid -->
+  <g stroke="#8a8a8a" stroke-width="1" opacity="0.45">
+    <line x1="80" y1="360" x2="750" y2="360"/>
+    <line x1="80" y1="293" x2="750" y2="293" stroke-dasharray="4 4"/>
+    <line x1="80" y1="227" x2="750" y2="227" stroke-dasharray="4 4"/>
+    <line x1="80" y1="160" x2="750" y2="160" stroke-dasharray="4 4"/>
+    <line x1="80" y1="93"  x2="750" y2="93"  stroke-dasharray="4 4"/>
+  </g>
+  <g fill="#9a9a9a" text-anchor="end">
+    <text x="72" y="364">0%</text><text x="72" y="297">20%</text>
+    <text x="72" y="231">40%</text><text x="72" y="164">60%</text><text x="72" y="97">80%</text>
+  </g>
+  <g fill="#9a9a9a" text-anchor="middle">
+    <text x="90"  y="382">2013</text><text x="200" y="382">2016</text>
+    <text x="310" y="382">2018</text><text x="420" y="382">2020</text>
+    <text x="530" y="382">2022</text><text x="640" y="382">2024</text><text x="750" y="382">2026</text>
+  </g>
+  <!-- Poland -->
+  <polyline fill="none" stroke="#d9534f" stroke-width="3"
+    points="90,360 200,350 310,333 420,313 530,300 640,303 750,294"/>
+  <!-- Belgium -->
+  <polyline fill="none" stroke="#4f8ef7" stroke-width="2.5"
+    points="90,343 200,180 310,167 420,160 530,143 640,137 750,122"/>
+  <!-- Germany -->
+  <polyline fill="none" stroke="#f0ad4e" stroke-width="2.5"
+    points="90,344 200,247 310,227 420,193 530,180 640,143 750,118"/>
+  <!-- France -->
+  <polyline fill="none" stroke="#5cb85c" stroke-width="2.5"
+    points="90,343 200,320 310,280 420,217 530,230 640,133 750,74"/>
+  <g>
+    <circle cx="750" cy="294" r="4" fill="#d9534f"/>
+    <circle cx="750" cy="122" r="4" fill="#4f8ef7"/>
+    <circle cx="750" cy="118" r="4" fill="#f0ad4e"/>
+    <circle cx="750" cy="74"  r="4" fill="#5cb85c"/>
+  </g>
+  <g font-weight="bold">
+    <text x="742" y="286" fill="#d9534f" text-anchor="end">Polska 19,7%</text>
+    <text x="742" y="110" fill="#4f8ef7" text-anchor="end">Belgia 71,5%</text>
+    <text x="742" y="152" fill="#f0ad4e" text-anchor="end">Niemcy 72,5%</text>
+    <text x="742" y="58"  fill="#5cb85c" text-anchor="end">Francja 85,8%</text>
+  </g>
+  <text x="390" y="34" fill="#9a9a9a" text-anchor="middle" font-size="16">Użytkownicy zdolni korzystać z IPv6 (średnia 30-dniowa, APNIC Labs)</text>
+  <text x="390" y="408" fill="#9a9a9a" text-anchor="middle" font-size="12">Dane: data1.labs.apnic.net/v6stats/v6economy/ (pobrane 2026-10-23); wykres własny na licencji bloga</text>
+</svg>
