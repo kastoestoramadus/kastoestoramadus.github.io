@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-label="Wykres liniowy: odsetek użytkowników mogących korzystać z IPv6 w Polsce, Belgii, Niemczech i Francji, 2013-2026">
+  <rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+  <text x="480" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1a1a1a">IPv6 w Polsce i Europie Zachodniej, 2013–2026</text>
+  <text x="480" y="48" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#444444">Użytkownicy, którzy mogą korzystać z IPv6 („capable”, 30-dniowa średnia, APNIC Labs)</text>
+  <!-- gridlines: y for 0,20,40,60,80 percent -->
+  <g stroke="#dddddd" stroke-width="1">
+    <line x1="70" y1="360" x2="930" y2="360"/>
+    <line x1="70" y1="293.3" x2="930" y2="293.3"/>
+    <line x1="70" y1="226.7" x2="930" y2="226.7"/>
+    <line x1="70" y1="160" x2="930" y2="160"/>
+    <line x1="70" y1="93.3" x2="930" y2="93.3"/>
+  </g>
+  <g font-family="sans-serif" font-size="11" fill="#666666" text-anchor="end">
+    <text x="62" y="364">0%</text>
+    <text x="62" y="297">20%</text>
+    <text x="62" y="230">40%</text>
+    <text x="62" y="164">60%</text>
+    <text x="62" y="97">80%</text>
+  </g>
+  <!-- x ticks 2014..2026 every 2y -->
+  <g font-family="sans-serif" font-size="11" fill="#666666" text-anchor="middle">
+    <text x="132" y="380">2014</text>
+    <text x="256" y="380">2016</text>
+    <text x="380" y="380">2018</text>
+    <text x="504" y="380">2020</text>
+    <text x="628" y="380">2022</text>
+    <text x="752" y="380">2024</text>
+    <text x="876" y="380">2026</text>
+  </g>
+  <!-- Poland events -->
+  <g font-family="sans-serif" font-size="10" fill="#888888" text-anchor="middle">
+    <line x1="119" y1="360" x2="119" y2="402" stroke="#bbbbbb" stroke-dasharray="3,3"/>
+    <text x="119" y="416">Orange: IPv6 jako opt-in</text>
+    <text x="119" y="428">(2013-11-15)</text>
+    <line x1="547" y1="360" x2="547" y2="402" stroke="#bbbbbb" stroke-dasharray="3,3"/>
+    <text x="547" y="416">Free (FR): opt-out usunięty (2020)</text>
+  </g>
+  <!-- series -->
+  <polyline points="119,343 284.5,180 408.5,166.7 532.5,160 656.5,143.3 780.5,136.7 925,121.7" fill="none" stroke="#2980b9" stroke-width="2.5"/>
+  <polyline points="119,343.7 284.5,246.7 408.5,226.7 532.5,193.3 656.5,180 780.5,143.3 925,118.3" fill="none" stroke="#27ae60" stroke-width="2.5"/>
+  <polyline points="119,342.7 284.5,320 408.5,280 532.5,216.7 656.5,230 780.5,133.3 925,74" fill="none" stroke="#e67e22" stroke-width="2.5"/>
+  <polyline points="119,360 284.5,350 408.5,333.3 532.5,313.3 656.5,300 780.5,303.3 925,294.3" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+  <!-- end labels -->
+  <g font-family="sans-serif" font-size="12" text-anchor="start">
+    <text x="930" y="126" fill="#2980b9" font-weight="bold">Belgia 71,5%</text>
+    <text x="930" y="142" fill="#27ae60" font-weight="bold">Niemcy 72,5%</text>
+    <text x="930" y="158" fill="#e67e22" font-weight="bold">Francja 85,8%</text>
+    <text x="930" y="174" fill="#c0392b" font-weight="bold">Polska 19,7%</text>
+  </g>
+  <g font-family="sans-serif" font-size="10" fill="#999999" text-anchor="start">
+    <circle cx="119" cy="360" r="3" fill="#c0392b"/>
+    <text x="126" y="352" fill="#c0392b">start pomiarów: PL 0%</text>
+    <circle cx="284.5" cy="350" r="3" fill="#c0392b"/>
+    <text x="290" y="342" fill="#c0392b">PL 2016: ~3%</text>
+  </g>
+  <text x="70" y="432" font-family="sans-serif" font-size="10" fill="#888888">Źródło danych: APNIC Labs (data1.labs.apnic.net/v6stats/v6economy/), stan na 2026-10-20, pobrano 2026-10-23. Francja 2020 (Free): Wikipedia „IPv6 deployment”. Wykres: własny.</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-label="Schemat: jak skaner znajduje host IPv6 mimo 2^64 adresow w podsieci">
+  <rect x="0" y="0" width="960" height="420" fill="#ffffff"/>
+  <text x="480" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1a1a1a">Skaner nie zgaduje 2^64 adresów. Zagląda bokiem.</text>
+  <text x="480" y="48" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#444444">Dlaczego „nie do przeskanowania” to za mało, żeby czuć się bezpiecznym</text>
+  <!-- central subnet box -->
+  <rect x="330" y="150" width="300" height="120" rx="10" fill="#eef2f7" stroke="#2980b9" stroke-width="2"/>
+  <text x="480" y="176" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">twoja podsieć /64</text>
+  <text x="480" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#444444">2^64 adresów — ślepy skan niewykonalny (RFC 7707)</text>
+  <rect x="410" y="206" width="140" height="34" rx="5" fill="#ffffff" stroke="#888888"/>
+  <text x="480" y="227" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333">twoje urządzenia</text>
+  <text x="480" y="258" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888888">adresy przykładowe: 2001:db8:1:2::/64</text>
+  <!-- side channels -->
+  <g font-family="sans-serif" font-size="11" text-anchor="middle">
+    <rect x="40" y="70" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="140" y="88" fill="#8a4b12">DNS: rekordy AAAA twoich nazw</text>
+    <text x="140" y="104" fill="#8a4b12">(publikujesz = podajesz adres)</text>
+    <rect x="380" y="70" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="480" y="88" fill="#8a4b12">Certificate Transparency:</text>
+    <text x="480" y="104" fill="#8a4b12">certyfikat TLS zdradza hosta</text>
+    <rect x="720" y="70" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="820" y="88" fill="#8a4b12">wzorce adresów: „łatwe” końcówki,</text>
+    <text x="820" y="104" fill="#8a4b12">EUI-64 z MAC karty (RFC 7707)</text>
+    <rect x="40" y="300" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="140" y="318" fill="#8a4b12">hitlisty skanerów:</text>
+    <text x="140" y="334" fill="#8a4b12">zbierane z wielu źródeł (IMC ’18)</text>
+    <rect x="380" y="300" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="480" y="318" fill="#8a4b12">wycieki: nagłówki maili, P2P,</text>
+    <text x="480" y="334" fill="#8a4b12">publiczne logi i dane</text>
+    <rect x="720" y="300" width="200" height="44" rx="7" fill="#fdf2e9" stroke="#e67e22"/>
+    <text x="820" y="318" fill="#8a4b12">własny ruch wychodzący:</text>
+    <text x="820" y="334" fill="#8a4b12">host sam ujawnia swój adres</text>
+  </g>
+  <!-- arrows to center -->
+  <g stroke="#e67e22" stroke-width="1.8" fill="none">
+    <path d="M 220 114 Q 260 130 350 165"/>
+    <path d="M 480 114 L 480 150"/>
+    <path d="M 740 114 Q 700 130 610 165"/>
+    <path d="M 220 300 Q 260 280 350 250"/>
+    <path d="M 480 300 L 480 270"/>
+    <path d="M 740 300 Q 700 280 610 250"/>
+  </g>
+  <text x="480" y="386" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#c0392b" font-weight="bold">Duża przestrzeń adresów nie jest zabezpieczeniem. Zaporę i to, co publikujesz, ustawiasz osobno.</text>
+  <text x="480" y="404" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888888">Źródła: RFC 7707 (network scanning w IPv6); Gasser i in., „Clusters in the Expanse”, IMC ’18. Schemat: własny.</text>
+</svg>
