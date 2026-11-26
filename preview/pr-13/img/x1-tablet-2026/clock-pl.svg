@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 230" width="620" height="230" role="img" aria-labelledby="t" font-family="sans-serif">
+<title id="t">Około 4× wyższy zegar</title>
+<rect width="620" height="230" rx="6" fill="#ffffff"/>
+<text x="20" y="34" font-size="20" font-weight="bold" fill="#222222">Około 4× wyższy zegar</text>
+<text x="20" y="56" font-size="14" fill="#555555">Zegar w krótkich testach obciążenia, GHz</text>
+<text x="205" y="102" font-size="16" text-anchor="end" fill="#222222">Na początku</text>
+<rect x="215" y="80" width="75" height="32" fill="#b5523b"/>
+<text x="298" y="102" font-size="16" fill="#222222">0,7-0,8</text>
+<text x="205" y="150" font-size="16" text-anchor="end" fill="#222222">Czujnik + limit zegara</text>
+<rect x="215" y="128" width="260" height="32" fill="#5b8fb9"/>
+<text x="483" y="150" font-size="16" fill="#222222">2,6</text>
+<text x="205" y="198" font-size="16" text-anchor="end" fill="#222222">Bez czujnika</text>
+<rect x="215" y="176" width="300" height="32" fill="#1f6f43"/>
+<text x="523" y="198" font-size="16" fill="#222222">3,0</text>
+</svg>
